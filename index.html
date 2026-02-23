@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flooring Outlet TX | Premium Flooring Houston, TX</title>
+<meta name="description" content="Flooring Outlet TX — Houston's premier flooring destination. Tile, hardwood, luxury vinyl, laminate & carpet at outlet prices. Featuring Tile Center, Tile Source & Coastline Collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ─── TOKENS ────────────────────────────────────────────── */
+  :root {
+    --ink:       #1a1714;
+    --ink-soft:  #3d3830;
+    --sand:      #f5f0e8;
+    --cream:     #faf8f4;
+    --warm:      #e8e0d0;
+    --terra:     #b5643c;
+    --terra-dk:  #8f4926;
+    --gold:      #c9a96e;
+    --stone:     #7a7469;
+    --white:     #ffffff;
+    --ff-head:   'Cormorant Garamond', Georgia, serif;
+    --ff-body:   'DM Sans', sans-serif;
+    --radius:    4px;
+    --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* ─── RESET ─────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--ff-body);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: var(--ff-body); cursor: pointer; border: none; background: none; }
+
+  /* ─── TOPBAR ─────────────────────────────────────────────── */
+  .topbar {
+    background: var(--ink);
+    color: #c4b8a0;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0.55rem 2rem;
+  }
+  .topbar a { color: #c4b8a0; transition: color 0.2s; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* ─── NAV ────────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid #e5dfd4;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    box-shadow: 0 2px 16px rgba(26,23,20,0.06);
+    transition: box-shadow var(--transition);
+  }
+  .nav.scrolled { box-shadow: 0 4px 32px rgba(26,23,20,0.12); }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 2px;
+  }
+  .logo-main {
+    font-family: var(--ff-head);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .logo-main span { color: var(--terra); }
+  .logo-sub {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  /* Nav links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    height: 100%;
+  }
+  .nav-links > li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .nav-links > li > a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 0 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color var(--transition);
+    border-bottom: 2px solid transparent;
+  }
+  .nav-links > li > a:hover,
+  .nav-links > li:hover > a {
+    color: var(--terra);
+    border-bottom-color: var(--terra);
+  }
+  .nav-links > li > a .chevron {
+    font-size: 0.6rem;
+    transition: transform 0.2s;
+    opacity: 0.6;
+  }
+  .nav-links > li:hover > a .chevron { transform: rotate(180deg); }
+
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    border: 1px solid #e5dfd4;
+    border-top: 2px solid var(--terra);
+    min-width: 200px;
+    padding: 0.75rem 0;
+    box-shadow: 0 16px 48px rgba(26,23,20,0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: all 0.22s ease;
+  }
+  .nav-links > li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown a {
+    display: block;
+    padding: 0.55rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    transition: all 0.15s;
+  }
+  .dropdown a:hover { background: var(--sand); color: var(--terra); padding-left: 2rem; }
+
+  /* CTA button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--terra);
+    color: var(--white);
+    border: 2px solid var(--terra);
+  }
+  .btn-primary:hover {
+    background: var(--terra-dk);
+    border-color: var(--terra-dk);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(181,100,60,0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--terra);
+    border: 2px solid var(--terra);
+  }
+  .btn-outline:hover {
+    background: var(--terra);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(8px);
+  }
+  .btn-ghost:hover {
+    background: var(--white);
+    color: var(--terra);
+    border-color: var(--white);
+  }
+  .btn-dark {
+    background: var(--ink);
+    color: var(--white);
+    border: 2px solid var(--ink);
+  }
+  .btn-dark:hover {
+    background: var(--ink-soft);
+    border-color: var(--ink-soft);
+    transform: translateY(-1px);
+  }
+
+  /* Mobile toggle */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: var(--transition);
+    border-radius: 2px;
+  }
+
+  /* ─── HERO ───────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-slides { position: absolute; inset: 0; }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+  .hero-slide.active { opacity: 1; }
+  .hero-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 8s ease; }
+  .hero-slide.active img { transform: scale(1); }
+
+  /* gradient overlay */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      170deg,
+      rgba(26,23,20,0.08) 0%,
+      rgba(26,23,20,0.2) 40%,
+      rgba(26,23,20,0.72) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 5rem 5rem 5rem;
+    max-width: 780px;
+    animation: heroIn 1s ease 0.3s both;
+  }
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--terra);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: var(--ff-head);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 strong {
+    font-weight: 700;
+    font-style: italic;
+    color: #f0d9b5;
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* Slide dots */
+  .hero-dots {
+    position: absolute;
+    bottom: 2rem;
+    right: 5rem;
+    z-index: 3;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+  }
+  .hero-dot.active {
+    background: var(--white);
+    transform: scale(1.3);
+  }
+
+  /* Scroll cue */
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.2rem;
+    left: 5rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .hero-scroll-line {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.4);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%, 100% { width: 40px; opacity: 0.4; }
+    50%       { width: 70px; opacity: 1; }
+  }
+
+  /* ─── PROCESS STRIP ──────────────────────────────────────── */
+  .process-strip {
+    background: var(--ink);
+    padding: 1.8rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .process-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    animation: fadeUp 0.6s ease both;
+  }
+  .process-item:last-child { border-right: none; }
+  .process-num {
+    font-family: var(--ff-head);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--terra);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .process-text strong {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .process-text span {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  /* ─── SECTION SHARED ─────────────────────────────────────── */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--terra);
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--ff-head);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--terra); }
+  .section-desc {
+    font-size: 1rem;
+    color: var(--stone);
+    max-width: 520px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-head-left { flex: 1; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── PRODUCTS ───────────────────────────────────────────── */
+  .products { background: var(--cream); }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+  .prod-card {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--sand);
+    cursor: pointer;
+    group: true;
+  }
+  .prod-card::before {
+    content: '';
+    display: block;
+    padding-top: 130%;
+  }
+  .prod-card-img {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+  }
+  .prod-card:hover .prod-card-img { transform: scale(1.07); }
+  .prod-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.1) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem 1.2rem;
+    transition: all 0.3s;
+  }
+  .prod-card:hover .prod-card-overlay {
+    background: linear-gradient(0deg, rgba(26,23,20,0.88) 0%, rgba(26,23,20,0.25) 60%, rgba(26,23,20,0.05) 100%);
+  }
+  .prod-card-name {
+    font-family: var(--ff-head);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .prod-card-desc {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    line-height: 1.5;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s;
+    opacity: 0;
+  }
+  .prod-card:hover .prod-card-desc {
+    max-height: 80px;
+    opacity: 1;
+  }
+  .prod-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.75rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s 0.05s;
+  }
+  .prod-card:hover .prod-card-link { opacity: 1; transform: translateY(0); }
+  .prod-card-link::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+  .prod-card:hover .prod-card-link::after { transform: translateX(4px); }
+
+  /* Feature card (first large) */
+  .prod-card.featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .prod-card.featured::before { padding-top: 62%; }
+
+  /* ─── INSPIRATION SPLIT ──────────────────────────────────── */
+  .inspo { background: var(--sand); padding: 0; overflow: hidden; }
+  .inspo-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .inspo-visual {
+    position: relative;
+    overflow: hidden;
+  }
+  .inspo-visual img { height: 100%; min-height: 600px; }
+  .inspo-visual-badge {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    background: var(--terra);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+  .inspo-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    background: var(--white);
+  }
+  .inspo-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .inspo-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid #e5dfd4;
+    border-radius: 6px;
+    background: var(--cream);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .inspo-card:hover {
+    border-color: var(--terra);
+    transform: translateX(4px);
+    box-shadow: 0 4px 24px rgba(181,100,60,0.1);
+  }
+  .inspo-card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--sand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: background 0.3s;
+  }
+  .inspo-card:hover .inspo-card-icon { background: var(--terra); }
+  .inspo-card-icon span { transition: filter 0.3s; }
+  .inspo-card strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .inspo-card p {
+    font-size: 0.78rem;
+    color: var(--stone);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ─── SUPPLIERS SECTION ──────────────────────────────────── */
+  .suppliers { background: var(--cream); }
+  .suppliers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .supplier-card {
+    background: var(--white);
+    border: 1px solid #e5dfd4;
+    border-radius: 8px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .supplier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--terra);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+  .supplier-card:hover::before { transform: scaleX(1); }
+  .supplier-card:hover {
+    box-shadow: 0 12px 40px rgba(26,23,20,0.1);
+    transform: translateY(-4px);
+  }
+  .supplier-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--sand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 1.5rem;
+    transition: background 0.3s;
+  }
+  .supplier-card:hover .supplier-icon { background: #fde8db; }
+  .supplier-card h3 {
+    font-family: var(--ff-head);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .supplier-card p {
+    font-size: 0.82rem;
+    color: var(--stone);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .supplier-tag {
+    display: inline-block;
+    background: var(--sand);
+    color: var(--terra);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-top: 1.25rem;
+    border: 1px solid #e5dfd4;
+  }
+
+  /* ─── WHY US ─────────────────────────────────────────────── */
+  .why {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .why::before {
+    content: 'OUTLET';
+    position: absolute;
+    top: -1.5rem;
+    right: -1rem;
+    font-family: var(--ff-head);
+    font-size: 14rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+  }
+  .why .section-title { color: var(--white); }
+  .why .section-desc { color: rgba(255,255,255,0.55); }
+  .why .section-label { color: var(--gold); }
+  .why .section-label::before { background: var(--gold); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .why-card {
+    padding: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(181,100,60,0.4);
+    transform: translateY(-4px);
+  }
+  .why-card-num {
+    font-family: var(--ff-head);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.07);
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    transition: color 0.4s;
+  }
+  .why-card:hover .why-card-num { color: rgba(181,100,60,0.2); }
+  .why-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+  .why-card h4 {
+    font-family: var(--ff-head);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .why-card p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ─── VISUALIZER CTA ─────────────────────────────────────── */
+  .visualizer {
+    background: var(--sand);
+    padding: 0;
+  }
+  .visualizer-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+  .visualizer-content {
+    background: var(--terra);
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .visualizer-content::after {
+    content: '';
+    position: absolute;
+    bottom: -4rem;
+    right: -4rem;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .visualizer-content .section-label { color: rgba(255,255,255,0.7); }
+  .visualizer-content .section-label::before { background: rgba(255,255,255,0.5); }
+  .visualizer-content .section-title { color: var(--white); }
+  .visualizer-content .section-desc { color: rgba(255,255,255,0.78); max-width: 400px; margin-bottom: 2.5rem; }
+  .visualizer-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .visualizer-img img { height: 100%; min-height: 500px; }
+  .visualizer-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,23,20,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-btn {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(26,23,20,0.3);
+  }
+  .play-btn:hover { transform: scale(1.1); background: var(--white); }
+
+  /* ─── TESTIMONIALS ───────────────────────────────────────── */
+  .testimonials { background: var(--white); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .testimonial-card {
+    padding: 2.5rem;
+    border: 1px solid #e5dfd4;
+    border-radius: 8px;
+    background: var(--cream);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .testimonial-card:hover {
+    box-shadow: 0 8px 32px rgba(26,23,20,0.08);
+    transform: translateY(-3px);
+  }
+  .testimonial-card::before {
+    content: '"';
+    font-family: var(--ff-head);
+    font-size: 5rem;
+    color: var(--terra);
+    opacity: 0.2;
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+    line-height: 1;
+    user-select: none;
+  }
+  .testimonial-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  .testimonial-text {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .testimonial-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .testimonial-location {
+    font-size: 0.72rem;
+    color: var(--stone);
+    font-weight: 300;
+  }
+
+  /* ─── CTA BANNER ─────────────────────────────────────────── */
+  .cta-banner {
+    padding: 5rem;
+    background: linear-gradient(135deg, #2d1f17 0%, #1a1714 50%, #261a12 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(181,100,60,0.15) 0%, transparent 60%),
+                      radial-gradient(circle at 80% 50%, rgba(201,169,110,0.1) 0%, transparent 50%);
+  }
+  .cta-banner-inner { position: relative; z-index: 1; }
+  .cta-banner h2 {
+    font-family: var(--ff-head);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .cta-banner h2 strong { font-weight: 700; font-style: italic; color: var(--gold); }
+  .cta-banner p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+  /* ─── FOOTER ─────────────────────────────────────────────── */
+  .footer {
+    background: #0f0d0b;
+    color: rgba(255,255,255,0.6);
+    padding: 5rem 5rem 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.8fr repeat(3, 1fr);
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 2rem;
+  }
+  .footer-brand .logo-main { color: var(--white); font-size: 1.8rem; }
+  .footer-brand .logo-sub { color: rgba(255,255,255,0.35); }
+  .footer-brand p {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    margin-top: 1.25rem;
+    max-width: 280px;
+  }
+  .footer-contact {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .footer-contact a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover { color: var(--gold); }
+  .footer-contact a .ico { font-size: 0.9rem; }
+  .footer-col h4 {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .footer-links a::before {
+    content: '→';
+    font-size: 0.65rem;
+    color: var(--terra);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.2s;
+  }
+  .footer-links a:hover {
+    color: var(--white);
+    padding-left: 0.5rem;
+  }
+  .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
+  .footer-hours { margin-top: 1rem; }
+  .footer-hours p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+  .footer-hours strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+  }
+  .footer-social {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .social-btn:hover {
+    border-color: var(--terra);
+    background: var(--terra);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 0.75rem 1.25rem;
+    margin-top: 2rem;
+    width: fit-content;
+  }
+  .footer-badge span { font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 300; }
+  .footer-badge strong { font-size: 0.75rem; color: var(--gold); }
+
+  /* ─── MOBILE NAV DRAWER ──────────────────────────────────── */
+  .mobile-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .mobile-nav.open { pointer-events: all; }
+  .mobile-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,23,20,0.6);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .mobile-nav.open .mobile-backdrop { opacity: 1; }
+  .mobile-drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(340px, 90vw);
+    height: 100%;
+    background: var(--white);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    overflow-y: auto;
+    padding: 2rem;
+  }
+  .mobile-nav.open .mobile-drawer { transform: translateX(0); }
+  .mobile-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+  }
+  .mobile-close:hover { background: var(--warm); }
+  .mobile-links { list-style: none; }
+  .mobile-links > li {
+    border-bottom: 1px solid #e5dfd4;
+  }
+  .mobile-links > li > a {
+    display: block;
+    padding: 0.9rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: color 0.2s;
+  }
+  .mobile-links > li > a:hover { color: var(--terra); }
+  .mobile-links .sub {
+    padding: 0 0 0.5rem;
+    list-style: none;
+  }
+  .mobile-links .sub a {
+    display: block;
+    padding: 0.4rem 1rem;
+    font-size: 0.82rem;
+    color: var(--stone);
+    transition: color 0.2s;
+  }
+  .mobile-links .sub a:hover { color: var(--terra); }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .products-grid { grid-template-columns: repeat(3, 1fr); }
+    .prod-card.featured { grid-column: span 1; }
+    .prod-card.featured::before { padding-top: 130%; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 5rem 3rem; }
+    .process-strip { padding: 1.5rem 3rem; }
+    .cta-banner { padding: 4rem 3rem; }
+    .footer { padding: 4rem 3rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  @media (max-width: 860px) {
+    .nav { padding: 0 1.5rem; }
+    .nav-links, .nav .btn { display: none; }
+    .nav-toggle { display: flex; }
+    .hero-content { padding: 3rem 2rem 4rem; }
+    .hero-scroll, .hero-dots { display: none; }
+    .process-strip { grid-template-columns: repeat(2, 1fr); padding: 1rem 2rem; }
+    .process-item { border-right: none; padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .process-item:nth-child(2), .process-item:last-child { border-bottom: none; }
+    section { padding: 4rem 2rem; }
+    .inspo-inner, .visualizer-inner { grid-template-columns: 1fr; }
+    .inspo-visual img, .visualizer-img img { min-height: 300px; }
+    .inspo-content, .visualizer-content { padding: 3rem 2rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .suppliers-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .hero h1 { font-size: 2.6rem; }
+    .topbar { font-size: 0.65rem; gap: 1.5rem; }
+    .cta-banner { padding: 3.5rem 2rem; }
+    .footer { padding: 3rem 2rem 1.5rem; }
+  }
+  @media (max-width: 500px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .process-strip { grid-template-columns: 1fr; }
+    .process-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .process-item:last-child { border-bottom: none; }
+    .topbar { display: none; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .cta-actions { flex-direction: column; align-items: center; }
+  }
+
+  /* ─── SCROLL ANIMATION ───────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════ TOPBAR ══════════════════════════╗ -->
+<div class="topbar">
+  <span>📞 <a href="tel:+17131234567">(713) 123-4567</a></span>
+  <span>📍 <a href="#contact">Greater Houston, TX</a></span>
+  <span>🕐 Mon–Sat: 9am–6pm</span>
+  <span>✉ <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+</div>
+
+<!-- ╔══════════════════════════ NAV ══════════════════════════════╗ -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="logo">
+    <span class="logo-main">Flooring Outlet <span>TX</span></span>
+    <span class="logo-sub">Houston's Flooring Destination</span>
+  </a>
+  <ul class="nav-links">
+    <li>
+      <a href="#products">Products <span class="chevron">▾</span></a>
+      <div class="dropdown">
+        <a href="#products">Tile & Stone</a>
+        <a href="#products">Hardwood</a>
+        <a href="#products">Luxury Vinyl (LVP)</a>
+        <a href="#products">Laminate</a>
+        <a href="#products">Carpet</a>
+        <a href="#products">Area Rugs</a>
+      </div>
+    </li>
+    <li>
+      <a href="#inspo">Inspiration <span class="chevron">▾</span></a>
+      <div class="dropdown">
+        <a href="#inspo">Flooring Guides</a>
+        <a href="#inspo">Design Ideas</a>
+        <a href="#inspo">Project Gallery</a>
+        <a href="#inspo">How to Measure</a>
+      </div>
+    </li>
+    <li>
+      <a href="#suppliers">Our Brands</a>
+    </li>
+    <li>
+      <a href="#why">Why Us</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+  <a href="#contact" class="btn btn-primary">Free Consultation</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ╔══════════════════════════ MOBILE DRAWER ════════════════════╗ -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-drawer">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <ul class="mobile-links">
+      <li>
+        <a href="#products">Products</a>
+        <ul class="sub">
+          <li><a href="#products">Tile & Stone</a></li>
+          <li><a href="#products">Hardwood</a></li>
+          <li><a href="#products">Luxury Vinyl (LVP)</a></li>
+          <li><a href="#products">Laminate</a></li>
+          <li><a href="#products">Carpet</a></li>
+          <li><a href="#products">Area Rugs</a></li>
+        </ul>
+      </li>
+      <li><a href="#inspo">Inspiration</a></li>
+      <li><a href="#suppliers">Our Brands</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:2rem;">Free Consultation</a>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════ HERO ═════════════════════════════╗ -->
+<section class="hero" id="home">
+  <div class="hero-slides">
+    <!-- Using high-quality Unsplash flooring images -->
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1920&q=80&auto=format" alt="Beautiful hardwood flooring in modern home">
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80&auto=format" alt="Luxury tile flooring in elegant kitchen">
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?w=1920&q=80&auto=format" alt="Modern living room with premium LVP flooring">
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <span class="hero-badge">Houston's Flooring Outlet</span>
+    <h1>Premium Floors at <strong>Outlet Prices</strong></h1>
+    <p>From timeless tile to rich hardwood and modern luxury vinyl — Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-primary">Browse All Flooring</a>
+      <a href="#contact" class="btn btn-ghost">Get Free Quote</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Explore
+  </div>
+
+  <div class="hero-dots">
+    <button class="hero-dot active" data-slide="0"></button>
+    <button class="hero-dot" data-slide="1"></button>
+    <button class="hero-dot" data-slide="2"></button>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ PROCESS STRIP ════════════════════╗ -->
+<div class="process-strip">
+  <div class="process-item">
+    <div class="process-num">01</div>
+    <div class="process-text">
+      <strong>Explore Products</strong>
+      <span>Browse our full selection in-store or online</span>
+    </div>
+  </div>
+  <div class="process-item">
+    <div class="process-num">02</div>
+    <div class="process-text">
+      <strong>Free Consultation</strong>
+      <span>Let our experts guide your choice</span>
+    </div>
+  </div>
+  <div class="process-item">
+    <div class="process-num">03</div>
+    <div class="process-text">
+      <strong>Measure & Quote</strong>
+      <span>Precise measurement, transparent pricing</span>
+    </div>
+  </div>
+  <div class="process-item">
+    <div class="process-num">04</div>
+    <div class="process-text">
+      <strong>Expert Installation</strong>
+      <span>Professional install with care and warranty</span>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════ PRODUCTS ═════════════════════════╗ -->
+<section class="products" id="products">
+  <div class="section-head reveal">
+    <div class="section-head-left">
+      <div class="section-label">Our Selection</div>
+      <h2 class="section-title">Find your perfect floor <em>starts here</em></h2>
+      <p class="section-desc">From Coastline Collection's coastal-inspired tiles to premium hardwoods — we carry an exceptional range to suit every style and budget.</p>
+    </div>
+    <a href="#contact" class="btn btn-outline reveal reveal-delay-2">View All Products →</a>
+  </div>
+
+  <div class="products-grid">
+    <!-- Tile - Featured -->
+    <div class="prod-card featured reveal reveal-delay-1">
+      <div class="prod-card-img">
+        <img src="https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=900&q=80&auto=format" alt="Tile Flooring">
+      </div>
+      <div class="prod-card-overlay">
+        <div class="prod-card-name">Tile & Stone</div>
+        <div class="prod-card-desc">Timeless elegance in ceramic, porcelain, and natural stone. Perfect for kitchens, bathrooms, and living spaces.</div>
+        <div class="prod-card-link">Explore Tile</div>
+      </div>
+    </div>
+
+    <!-- Hardwood -->
+    <div class="prod-card reveal reveal-delay-2">
+      <div class="prod-card-img">
+        <img src="https://images.unsplash.com/photo-1562516155-e0c1ee44059b?w=600&q=80&auto=format" alt="Hardwood Flooring">
+      </div>
+      <div class="prod-card-overlay">
+        <div class="prod-card-name">Hardwood</div>
+        <div class="prod-card-desc">Rich, natural beauty that adds lasting value to any home.</div>
+        <div class="prod-card-link">Explore Hardwood</div>
+      </div>
+    </div>
+
+    <!-- LVP -->
+    <div class="prod-card reveal reveal-delay-3">
+      <div class="prod-card-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format" alt="Luxury Vinyl Plank">
+      </div>
+      <div class="prod-card-overlay">
+        <div class="prod-card-name">Luxury Vinyl</div>
+        <div class="prod-card-desc">Waterproof, durable, and stunning — our most popular choice for families.</div>
+        <div class="prod-card-link">Explore LVP</div>
+      </div>
+    </div>
+
+    <!-- Laminate -->
+    <div class="prod-card reveal reveal-delay-4">
+      <div class="prod-card-img">
+        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80&auto=format" alt="Laminate Flooring">
+      </div>
+      <div class="prod-card-overlay">
+        <div class="prod-card-name">Laminate</div>
+        <div class="prod-card-desc">Wood and tile looks at an accessible price point without sacrificing quality.</div>
+        <div class="prod-card-link">Explore Laminate</div>
+      </div>
+    </div>
+
+    <!-- Carpet -->
+    <div class="prod-card reveal reveal-delay-5">
+      <div class="prod-card-img">
+        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600&q=80&auto=format" alt="Carpet">
+      </div>
+      <div class="prod-card-overlay">
+        <div class="prod-card-name">Carpet</div>
+        <div class="prod-card-desc">Comfort, warmth, and style in a wide range of textures and colors.</div>
+        <div class="prod-card-link">Explore Carpet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ INSPIRATION SPLIT ════════════════╗ -->
+<div class="inspo" id="inspo">
+  <div class="inspo-inner">
+    <div class="inspo-visual">
+      <img src="https://images.unsplash.com/photo-1600210491892-03d54730d689?w=900&q=80&auto=format" alt="Beautiful flooring in home interior">
+      <div class="inspo-visual-badge">Design Inspiration</div>
+    </div>
+    <div class="inspo-content">
+      <div class="section-label">Be Inspired</div>
+      <h2 class="section-title">Floors <em>make</em> the room</h2>
+      <p class="section-desc">Dream big with guides, ideas, and real project inspiration from Greater Houston homes.</p>
+      <div class="inspo-cards">
+        <div class="inspo-card">
+          <div class="inspo-card-icon"><span>🏠</span></div>
+          <div>
+            <strong>Complete Flooring Guides</strong>
+            <p>In-depth guides for every flooring type — from tile care to hardwood installation prep. Know what to expect before you buy.</p>
+          </div>
+        </div>
+        <div class="inspo-card">
+          <div class="inspo-card-icon"><span>🎨</span></div>
+          <div>
+            <strong>Shop by Style & Color</strong>
+            <p>Whether you're going for coastal, modern farmhouse, or sleek contemporary — find floors that match your aesthetic vision.</p>
+          </div>
+        </div>
+        <div class="inspo-card">
+          <div class="inspo-card-icon"><span>📐</span></div>
+          <div>
+            <strong>How to Measure Your Space</strong>
+            <p>Simple, accurate measurement guides so you order the right amount every time. No waste, no shortfalls.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════ SUPPLIERS ════════════════════════╗ -->
+<section class="suppliers" id="suppliers">
+  <div class="section-head reveal">
+    <div class="section-head-left">
+      <div class="section-label">Trusted Partners</div>
+      <h2 class="section-title">Premium brands, <em>outlet pricing</em></h2>
+      <p class="section-desc">We source directly from trusted manufacturers and distributors so you get top-tier flooring at genuinely competitive prices.</p>
+    </div>
+  </div>
+  <div class="suppliers-grid">
+    <div class="supplier-card reveal reveal-delay-1">
+      <div class="supplier-icon">🏺</div>
+      <h3>Tile Center</h3>
+      <p>A premier tile source offering an extensive catalog of ceramic, porcelain, and specialty tiles for residential and commercial projects throughout Texas.</p>
+      <span class="supplier-tag">Tile & Porcelain</span>
+    </div>
+    <div class="supplier-card reveal reveal-delay-2">
+      <div class="supplier-icon">✨</div>
+      <h3>Tile Source</h3>
+      <p>Exclusive and trend-forward tile collections sourced from top manufacturers. From classic subway to large-format modern slabs, the range is exceptional.</p>
+      <span class="supplier-tag">Designer Tiles</span>
+    </div>
+    <div class="supplier-card reveal reveal-delay-3">
+      <div class="supplier-icon">🌊</div>
+      <h3>Coastline Collection</h3>
+      <p>Inspired by the Texas Gulf Coast — earthy tones, coastal textures, and natural materials that bring relaxed elegance to any home or business space.</p>
+      <span class="supplier-tag">Coastal Inspired</span>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ WHY US ═══════════════════════════╗ -->
+<section class="why" id="why">
+  <div class="section-head reveal">
+    <div class="section-head-left">
+      <div class="section-label">Why Flooring Outlet TX?</div>
+      <h2 class="section-title">More value, <em>less hassle</em></h2>
+      <p class="section-desc">We've cut out the middlemen and the markups. What you get is a direct, honest flooring experience from people who know floors.</p>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-card-num">01</span>
+      <span class="why-card-icon">💰</span>
+      <h4>Genuine Outlet Pricing</h4>
+      <p>We operate with low overhead and direct supplier relationships — which means real savings passed straight to you. No inflated "sale" prices, just honest value.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <span class="why-card-num">02</span>
+      <span class="why-card-icon">🎯</span>
+      <h4>Expert Guidance</h4>
+      <p>Not sure what flooring suits your lifestyle, traffic, or climate? Our Houston-area specialists help you choose with confidence — no pressure, just great advice.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <span class="why-card-num">03</span>
+      <span class="why-card-icon">🔨</span>
+      <h4>Professional Installation</h4>
+      <p>Supply-only or full install — your choice. Our trusted install team serves the entire Houston area with the precision and care your floors deserve.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <span class="why-card-num">04</span>
+      <span class="why-card-icon">📦</span>
+      <h4>Wide Selection In-Stock</h4>
+      <p>We carry a deep, ready-to-go inventory so your project doesn't wait weeks for materials. Get started faster and finish on schedule.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-5">
+      <span class="why-card-num">05</span>
+      <span class="why-card-icon">🌟</span>
+      <h4>Top-Tier Brands</h4>
+      <p>From Tile Center's extensive ceramic range to the stunning Coastline Collection — we bring premium manufacturer relationships directly to you.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-card-num">06</span>
+      <span class="why-card-icon">🤝</span>
+      <h4>Local Houston Roots</h4>
+      <p>Proudly serving Katy, Sugar Land, Cypress, Pearland, The Woodlands, Spring, and all of Greater Houston. We're your neighbors — and we plan to stay that way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ VISUALIZER ═══════════════════════╗ -->
+<div class="visualizer">
+  <div class="visualizer-inner">
+    <div class="visualizer-content">
+      <div class="section-label">See It First</div>
+      <h2 class="section-title" style="color:var(--white)">Why wait? <em style="color:rgba(255,255,255,0.85);font-style:italic">See your floor now.</em></h2>
+      <p class="section-desc">Bring in a photo of your space and let our team help you visualize different floors before you commit. Or visit our showroom and walk the samples yourself.</p>
+      <a href="#contact" class="btn" style="background:var(--white);color:var(--terra);border:2px solid var(--white);display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:4px;width:fit-content;transition:all .3s">Book a Showroom Visit</a>
+    </div>
+    <div class="visualizer-img">
+      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80&auto=format" alt="Beautiful flooring showroom">
+      <div class="visualizer-img-overlay">
+        <div class="play-btn">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════ TESTIMONIALS ═════════════════════╗ -->
+<section class="testimonials" id="reviews">
+  <div class="section-head reveal">
+    <div class="section-head-left">
+      <div class="section-label">Customer Reviews</div>
+      <h2 class="section-title">What Houston homeowners <em>are saying</em></h2>
+    </div>
+    <a href="#contact" class="btn btn-outline reveal reveal-delay-2">Leave a Review →</a>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Incredible selection and prices that actually make sense. I redid my entire kitchen and living room with tile from the Coastline Collection — came out absolutely stunning. The team was super helpful and honest.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">👤</div>
+        <div>
+          <div class="testimonial-name">Maria G.</div>
+          <div class="testimonial-location">Sugar Land, TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Did my whole house in LVP and it looks like a completely different home. They helped me pick the right color and thickness for my layout. Professional install crew was in and out in two days.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">👤</div>
+        <div>
+          <div class="testimonial-name">James T.</div>
+          <div class="testimonial-location">Katy, TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Best flooring experience I've had in Houston. No upselling, no runaround — just great product and real advice. Got commercial tile for my office space at a price that shocked me in the best way.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">👤</div>
+        <div>
+          <div class="testimonial-name">David R.</div>
+          <div class="testimonial-location">The Woodlands, TX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ CTA BANNER ═══════════════════════╗ -->
+<section class="cta-banner">
+  <div class="cta-banner-inner reveal">
+    <h2>Ready to transform your space?<br><strong>Let's make it happen.</strong></h2>
+    <p>Schedule your free consultation today. We'll help you find the perfect floor, measure your space accurately, and give you a no-nonsense quote.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn btn-primary" style="padding:.85rem 2.5rem;font-size:.85rem;">Schedule Free Consultation</a>
+      <a href="tel:+17131234567" class="btn btn-ghost" style="padding:.85rem 2.5rem;font-size:.85rem;">📞 Call Us Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ CONTACT ══════════════════════════╗ -->
+<section id="contact" style="background:var(--sand);padding:6rem 5rem;">
+  <div class="section-head reveal" style="margin-bottom:3rem;">
+    <div class="section-head-left">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Start your flooring <em>journey today</em></h2>
+      <p class="section-desc">Fill out the form below or give us a call. We'll get back to you within one business day with answers, ideas, and a free quote.</p>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;" class="reveal">
+    <form style="display:flex;flex-direction:column;gap:1.25rem;" onsubmit="handleSubmit(event)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">First Name</label>
+          <input type="text" placeholder="John" required style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
+        </div>
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Last Name</label>
+          <input type="text" placeholder="Smith" required style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
+        </div>
+      </div>
+      <div>
+        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Phone Number</label>
+        <input type="tel" placeholder="(713) 555-0000" style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Email Address</label>
+        <input type="email" placeholder="john@email.com" style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Flooring Interest</label>
+        <select style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;cursor:pointer;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
+          <option value="">Select a flooring type...</option>
+          <option>Tile & Stone</option>
+          <option>Hardwood</option>
+          <option>Luxury Vinyl (LVP)</option>
+          <option>Laminate</option>
+          <option>Carpet</option>
+          <option>Not sure yet — need guidance</option>
+        </select>
+      </div>
+      <div>
+        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Tell us about your project</label>
+        <textarea rows="4" placeholder="Square footage, rooms, timeline, budget range..." style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;resize:vertical;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="padding:.9rem 2rem;font-size:.85rem;width:100%;justify-content:center;" id="submitBtn">Send My Request →</button>
+      <p id="formMsg" style="display:none;text-align:center;font-size:.82rem;color:var(--terra);font-weight:500;"></p>
+    </form>
+    <div style="display:flex;flex-direction:column;gap:2rem;">
+      <div style="background:var(--white);border:1px solid #e5dfd4;border-radius:8px;padding:2.5rem;">
+        <h3 style="font-family:var(--ff-head);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem;">Contact Info</h3>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;">📞</span>
+            <div>
+              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Phone</div>
+              <a href="tel:+17131234567" style="font-size:.95rem;font-weight:500;color:var(--terra);">(713) 123-4567</a>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;">✉️</span>
+            <div>
+              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Email</div>
+              <a href="mailto:info@flooringoutlettx.com" style="font-size:.88rem;font-weight:400;color:var(--terra);">info@flooringoutlettx.com</a>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;">📍</span>
+            <div>
+              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Service Area</div>
+              <div style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;">Greater Houston, TX<br>Katy · Sugar Land · Cypress<br>The Woodlands · Pearland · Spring</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;">🕐</span>
+            <div>
+              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Hours</div>
+              <div style="font-size:.88rem;color:var(--ink-soft);line-height:1.8;">Mon – Fri: 9:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 5:00 PM<br>Sunday: By Appointment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--terra);border-radius:8px;padding:2.5rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;bottom:-2rem;right:-2rem;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.08);"></div>
+        <h4 style="font-family:var(--ff-head);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.75rem;">Free Measure & Quote</h4>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:1.5rem;font-weight:300;">Not sure how much flooring you need? We'll measure your space accurately and give you a precise, no-obligation quote — completely free.</p>
+        <a href="tel:+17131234567" class="btn" style="background:var(--white);color:var(--terra);border:2px solid var(--white);display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.65rem 1.5rem;border-radius:4px;transition:all .3s;width:fit-content;">📞 Call to Schedule</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════ FOOTER ═══════════════════════════╗ -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-main">Flooring Outlet <span>TX</span></span>
+        <span class="logo-sub">Houston's Flooring Destination</span>
+      </div>
+      <p>Premium flooring at genuine outlet prices. Serving Greater Houston with top-tier tile, hardwood, luxury vinyl, laminate, and carpet — backed by honest expertise.</p>
+      <div class="footer-contact">
+        <a href="tel:+17131234567"><span class="ico">📞</span> (713) 123-4567</a>
+        <a href="mailto:info@flooringoutlettx.com"><span class="ico">✉</span> info@flooringoutlettx.com</a>
+        <a href="#"><span class="ico">📍</span> Greater Houston, TX</a>
+      </div>
+      <div class="footer-badge">
+        <span>Featured brands: </span>
+        <strong>Tile Center · Tile Source · Coastline Collection</strong>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul class="footer-links">
+        <li><a href="#products">Tile & Stone</a></li>
+        <li><a href="#products">Hardwood Flooring</a></li>
+        <li><a href="#products">Luxury Vinyl (LVP)</a></li>
+        <li><a href="#products">Laminate Flooring</a></li>
+        <li><a href="#products">Carpet</a></li>
+        <li><a href="#products">Area Rugs</a></li>
+        <li><a href="#contact">Flooring Accessories</a></li>
+      </ul>
+    </div>
+
+    <!-- Inspiration -->
+    <div class="footer-col">
+      <h4>Inspiration</h4>
+      <ul class="footer-links">
+        <li><a href="#inspo">Tile Flooring Guide</a></li>
+        <li><a href="#inspo">Hardwood Guide</a></li>
+        <li><a href="#inspo">LVP Buying Guide</a></li>
+        <li><a href="#inspo">Project Gallery</a></li>
+        <li><a href="#inspo">Design Ideas</a></li>
+        <li><a href="#inspo">How to Measure</a></li>
+        <li><a href="#inspo">Flooring FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Hours -->
+    <div class="footer-col">
+      <h4>Visit & Connect</h4>
+      <div class="footer-hours">
+        <p>
+          <strong>Monday – Friday</strong><br>
+          9:00 AM – 6:00 PM<br><br>
+          <strong>Saturday</strong><br>
+          9:00 AM – 5:00 PM<br><br>
+          <strong>Sunday</strong><br>
+          By Appointment Only
+        </p>
+      </div>
+      <ul class="footer-links" style="margin-top:1.5rem;">
+        <li><a href="#contact">Free Consultation</a></li>
+        <li><a href="#contact">Free Measure & Quote</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Flooring Outlet TX. All rights reserved. | flooringoutlettx.com</p>
+    <div class="footer-social">
+      <div class="social-btn" title="Facebook">f</div>
+      <div class="social-btn" title="Instagram">ig</div>
+      <div class="social-btn" title="Google">G</div>
+      <div class="social-btn" title="Houzz">H</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ╔══════════════════════════ SCRIPTS ══════════════════════════╗ -->
+<script>
+  /* ─── NAV SCROLL ─── */
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ─── HERO SLIDESHOW ─── */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let current = 0;
+  let slideTimer;
+
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function nextSlide() {
+    goToSlide(current + 1);
+  }
+
+  function startSlideshow() {
+    slideTimer = setInterval(nextSlide, 6000);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideTimer);
+      goToSlide(i);
+      startSlideshow();
+    });
+  });
+
+  startSlideshow();
+
+  /* ─── MOBILE NAV ─── */
+  const mobileNav = document.getElementById('mobileNav');
+  const navToggle = document.getElementById('navToggle');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileBackdrop = document.getElementById('mobileBackdrop');
+
+  function openNav() { mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeNav() { mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
+
+  navToggle.addEventListener('click', openNav);
+  mobileClose.addEventListener('click', closeNav);
+  mobileBackdrop.addEventListener('click', closeNav);
+
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+  /* ─── SCROLL REVEAL ─── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        observer.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ─── CONTACT FORM ─── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('formMsg');
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = '#3a7d44';
+      btn.style.borderColor = '#3a7d44';
+      btn.style.opacity = '1';
+      msg.style.display = 'block';
+      msg.textContent = "Thanks! We'll be in touch within 1 business day.";
+      e.target.reset();
+    }, 1400);
+  }
+
+  /* ─── NAV TOGGLE ANIMATION ─── */
+  navToggle.addEventListener('click', function() {
+    const spans = this.querySelectorAll('span');
+    if (mobileNav.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  mobileClose.addEventListener('click', () => {
+    navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  });
+</script>
+</body>
+</html>
