@@ -1254,6 +1254,96 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
   .reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE OVERHAUL (DESKTOP/TABLET >= 861px UNCHANGED)
+   Goals: zero horizontal overflow, cleaner spacing, true 1-col layouts,
+   tappable controls, and a polished hero/text experience on phones.
+───────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  html, body { overflow-x: hidden; }
+  /* Safer side padding everywhere */
+  section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .nav { padding: 0 1.15rem; height: 68px; }
+  .logo-main { font-size: 1.35rem; }
+  .logo-sub { font-size: 0.58rem; letter-spacing: 0.18em; }
+
+  /* HERO */
+  .hero { height: 82vh; min-height: 560px; align-items: flex-end; }
+  .hero-content { padding: 2.25rem 1.25rem 3rem !important; max-width: 100% !important; }
+  /* Make the glass card elegant + readable without darkness */
+  .hero-content::before{
+    inset: -0.65rem !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.22) !important;
+    backdrop-filter: blur(16px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+    box-shadow: 0 16px 46px rgba(0,0,0,0.18) !important;
+  }
+  /* Lighter hero overlay on mobile so images stay vivid */
+  .hero::after{
+    background:
+      radial-gradient(1000px 600px at 50% 55%, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.02) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.34) 100%) !important;
+  }
+  .hero-badge { font-size: 0.62rem; letter-spacing: 0.16em; margin-bottom: 1.05rem; }
+  .hero h1 { font-size: clamp(2.15rem, 8vw, 2.85rem) !important; line-height: 1.06; margin-bottom: 0.9rem; text-shadow: 0 10px 26px rgba(0,0,0,0.28) !important; }
+  .hero p { font-size: 0.98rem; max-width: 36ch; margin-bottom: 1.75rem; color: rgba(255,255,255,0.88) !important; text-shadow: 0 8px 18px rgba(0,0,0,0.22) !important; }
+  .hero-actions { gap: 0.75rem; }
+  .hero-actions .btn { width: 100%; justify-content: center; padding: 0.9rem 1.25rem; }
+  .btn { border-radius: 8px; }
+
+  /* PROCESS STRIP */
+  .process-strip { padding: 1.1rem 1.25rem; grid-template-columns: 1fr; }
+  .process-item { padding: 0.9rem 0.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .process-item:last-child { border-bottom: none; }
+  .process-num { font-size: 2.1rem; }
+
+  /* SECTION HEAD */
+  .section-head { margin-bottom: 2.25rem; }
+  .section-title { font-size: clamp(1.8rem, 7vw, 2.35rem); }
+
+  /* PRODUCTS */
+  .products-grid { grid-template-columns: 1fr !important; gap: 0.9rem; }
+  .prod-card.featured { grid-column: auto !important; }
+  .prod-card.featured::before { padding-top: 130% !important; }
+  .prod-card-overlay { padding: 1.25rem 1.05rem; }
+  .prod-card-name { font-size: 1.25rem; }
+
+  /* INSPO + VISUALIZER */
+  .inspo-visual img, .visualizer-img img { min-height: 260px !important; }
+  .inspo-content, .visualizer-content { padding: 2.5rem 1.25rem !important; }
+  .inspo-inner, .visualizer-inner { grid-template-columns: 1fr !important; }
+
+  /* SUPPLIERS/WHY/TESTIMONIALS */
+  .suppliers-grid, .why-grid, .testimonials-grid { grid-template-columns: 1fr !important; gap: 1.25rem; }
+
+  /* CTA */
+  .cta-actions { width: 100%; }
+  .cta-actions .btn { width: 100%; justify-content: center; }
+
+  /* CONTACT (inline-style grid overrides) */
+  #contact { padding: 4rem 1.25rem !important; }
+  #contact > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 2rem !important; width: 100% !important; }
+  #contact form div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  #contact form button { width: 100% !important; }
+  #contact a.btn { width: 100% !important; justify-content: center !important; }
+
+  /* FOOTER */
+  .footer { padding: 3.25rem 1.25rem 1.5rem !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; padding-bottom: 2.5rem; margin-bottom: 1.5rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+}
+
+/* Small phones */
+@media (max-width: 500px) {
+  .hero { height: 78vh; min-height: 520px; }
+  .hero-content { padding: 2.1rem 1.05rem 2.75rem !important; }
+  .hero-content::before { inset: -0.55rem !important; background: rgba(255,255,255,0.12) !important; }
+  .hero p { font-size: 0.96rem; }
+}
+
 </style>
 </head>
 <body>
