@@ -281,7 +281,9 @@
   .hero-content {
     position: relative;
     z-index: 2;
-    padding: 5rem 5rem 5rem;
+    /* Lift content slightly and reduce excess top padding */
+    padding: 4rem 5rem 4rem;
+    margin: 0 0 3rem 0;
     max-width: 780px;
     animation: heroIn 1s ease 0.3s both;
   }
@@ -304,10 +306,13 @@
   @media (max-width: 860px) {
     .hero-content::before {
       inset: -0.75rem -0.75rem -0.75rem -0.75rem;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.10);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      border-radius: 12px;
+      /* Match desktop glass: very transparent, lots of blur */
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.22);
     }
   }
 
@@ -1203,7 +1208,7 @@
     .nav { padding: 0 1.5rem; }
     .nav-links, .nav .btn { display: none; }
     .nav-toggle { display: flex; }
-    .hero-content { padding: 3rem 2rem 4rem; }
+    .hero-content { padding: 2.25rem 1.5rem 2.75rem; margin: 0 0 2rem 0; }
     .hero-scroll, .hero-dots { display: none; }
     .process-strip { grid-template-columns: repeat(2, 1fr); padding: 1rem 2rem; }
     .process-item { border-right: none; padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
