@@ -268,54 +268,39 @@
     content: '';
     position: absolute;
     inset: 0;
-    /* readability-first cinematic overlay: darker on text side, softer elsewhere */
-    background:
-      radial-gradient(1200px 700px at 18% 60%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%),
-      linear-gradient(170deg,
-        rgba(0,0,0,0.18) 0%,
-        rgba(0,0,0,0.30) 40%,
-        rgba(0,0,0,0.74) 100%);
+    /* Lighter cinematic wash — the card handles readability */
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.18) 0%,
+      rgba(0,0,0,0.22) 45%,
+      rgba(0,0,0,0.38) 100%
+    );
     z-index: 1;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    padding: 5rem 5rem 5rem;
-    max-width: 780px;
+
+    /* layout */
+    padding: 3.25rem 3rem;
+    margin: 0 0 5rem 5rem;
+    max-width: 720px;
+
+    /* elegant transparent card */
+    border-radius: 16px;
+    background: rgba(18, 15, 12, 0.46);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.16);
+
+    /* depth */
+    box-shadow:
+      0 28px 60px rgba(0,0,0,0.32),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+
     animation: heroIn 1s ease 0.3s both;
   }
-
-  /* subtle glass panel for readability (all devices, tuned per breakpoint) */
-  .hero-content::before {
-    content: '';
-    position: absolute;
-    inset: -1.25rem -1.5rem -1.25rem -1.5rem;
-    background: linear-gradient(
-      135deg,
-      rgba(0,0,0,0.60) 0%,
-      rgba(0,0,0,0.30) 58%,
-      rgba(0,0,0,0.00) 100%
-    );
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: -1;
-    box-shadow: 0 18px 60px rgba(0,0,0,0.28);
-  }
-
-  /* tighten panel + boost contrast on small screens */
-  @media (max-width: 860px) {
-    .hero-content::before {
-      inset: -0.75rem -0.75rem -0.75rem -0.75rem;
-      border-radius: 10px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-  }
-
   @keyframes heroIn {
     from { opacity: 0; transform: translateY(32px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -331,7 +316,6 @@
     padding: 0.4rem 0.9rem;
     margin-bottom: 1.5rem;
     border-radius: 2px;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.28);
   }
   .hero h1 {
     font-family: var(--ff-head);
@@ -341,7 +325,7 @@
     color: var(--white);
     margin-bottom: 1.2rem;
     letter-spacing: -0.01em;
-    text-shadow: 0 14px 34px rgba(0,0,0,0.45);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.35);
   }
   .hero h1 strong {
     font-weight: 700;
@@ -350,12 +334,12 @@
   }
   .hero p {
     font-size: 1.05rem;
-    color: rgba(255,255,255,0.82);
-    max-width: 480px;
-    margin-bottom: 2.5rem;
+    color: rgba(255,255,255,0.86);
+    max-width: 520px;
+    margin-bottom: 2.25rem;
     font-weight: 300;
     line-height: 1.7;
-    text-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    text-shadow: 0 6px 18px rgba(0,0,0,0.25);
   }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
@@ -1208,7 +1192,14 @@
     .nav { padding: 0 1.5rem; }
     .nav-links, .nav .btn { display: none; }
     .nav-toggle { display: flex; }
-    .hero-content { padding: 3rem 2rem 4rem; }
+    .hero-content {
+      margin: 0 1.25rem 3rem;
+      padding: 2.25rem 1.75rem;
+      border-radius: 14px;
+      background: rgba(18, 15, 12, 0.52);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
     .hero-scroll, .hero-dots { display: none; }
     .process-strip { grid-template-columns: repeat(2, 1fr); padding: 1rem 2rem; }
     .process-item { border-right: none; padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -1338,21 +1329,14 @@
 <!-- ╔══════════════════════════ HERO ═════════════════════════════╗ -->
 <section class="hero" id="home">
   <div class="hero-slides">
-    <!-- Local hero images (repo: assets/hero/) -->
     <div class="hero-slide active">
-      <img src="./assets/hero/bathroom-hero.png"
-           alt="Luxury Bathroom Tile Installation"
-           onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';">
+      <img src="./assets/hero/bathroom-hero.png" onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';" alt="Luxury Bathroom Tile">
     </div>
     <div class="hero-slide">
-      <img src="./assets/hero/livingroom-hero.png"
-           alt="Premium Hardwood Flooring Living Room"
-           onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';">
+      <img src="./assets/hero/livingroom-hero.png" onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';" alt="Shiny Hardwood Flooring Living Room">
     </div>
     <div class="hero-slide">
-      <img src="./assets/hero/bedroom-hero.png"
-           alt="Modern Bedroom Plush Carpet"
-           onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';">
+      <img src="./assets/hero/bedroom-hero.png" onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';" alt="Modern Bedroom Plush Carpet">
     </div>
   </div>
 
