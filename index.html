@@ -268,27 +268,14 @@
     content: '';
     position: absolute;
     inset: 0;
-    /* slightly deeper cinematic contrast without crushing blacks */
-    background: linear-gradient(
-      170deg,
-      rgba(26,23,20,0.10) 0%,
-      rgba(26,23,20,0.26) 42%,
-      rgba(26,23,20,0.80) 100%
-    );
-    z-index: 1;
-
-  /* subtle vignette + highlight bloom for a more premium hero */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    /* readability-first cinematic overlay: darker on text side, softer elsewhere */
     background:
-      radial-gradient(circle at 18% 18%, rgba(255,255,255,0.10) 0%, transparent 55%),
-      radial-gradient(circle at 82% 12%, rgba(201,169,110,0.08) 0%, transparent 60%),
-      radial-gradient(circle at 50% 85%, rgba(0,0,0,0.35) 0%, transparent 62%);
+      radial-gradient(1200px 700px at 18% 60%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.05) 100%),
+      linear-gradient(170deg,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.30) 40%,
+        rgba(0,0,0,0.74) 100%);
     z-index: 1;
-    pointer-events: none;
-  }
   }
 
   .hero-content {
@@ -297,31 +284,38 @@
     padding: 5rem 5rem 5rem;
     max-width: 780px;
     animation: heroIn 1s ease 0.3s both;
+  }
 
-  /* premium readable panel (desktop/tablet only) */
-  @media (min-width: 861px) {
-    .hero-content {
-      position: relative;
-    }
+  /* subtle glass panel for readability (all devices, tuned per breakpoint) */
+  .hero-content::before {
+    content: '';
+    position: absolute;
+    inset: -1.25rem -1.5rem -1.25rem -1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.60) 0%,
+      rgba(0,0,0,0.30) 58%,
+      rgba(0,0,0,0.00) 100%
+    );
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+    box-shadow: 0 18px 60px rgba(0,0,0,0.28);
+  }
+
+  /* tighten panel + boost contrast on small screens */
+  @media (max-width: 860px) {
     .hero-content::before {
-      content: '';
-      position: absolute;
-      inset: -1.25rem -1.5rem -1.25rem -1.5rem;
-      background: linear-gradient(
-        135deg,
-        rgba(26,23,20,0.55) 0%,
-        rgba(26,23,20,0.22) 55%,
-        rgba(26,23,20,0.00) 100%
-      );
-      border: 1px solid rgba(255,255,255,0.10);
+      inset: -0.75rem -0.75rem -0.75rem -0.75rem;
       border-radius: 10px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index: -1;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.28);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
   }
-  }
+
   @keyframes heroIn {
     from { opacity: 0; transform: translateY(32px); }
     to   { opacity: 1; transform: translateY(0); }
