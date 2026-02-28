@@ -82,24 +82,21 @@
   .nav-links a:hover::after { transform: scaleX(1); }
   .nav-cta {
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--classy-gold) 0%, #b89545 100%);
-  color: var(--charcoal) !important;
+  background: var(--gold);
+  color: var(--white) !important;
   padding: 12px 28px;
   font-size: .75rem !important;
   font-weight: 600 !important;
   letter-spacing: .12em !important;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid rgba(0,0,0,.1);
-  box-shadow: 0 10px 24px rgba(0,0,0,.18);
-  transition: transform .2s ease, box-shadow .25s ease, filter .25s ease;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 10px 24px rgba(0,0,0,.2);
+  transition: transform .2s ease, box-shadow .25s ease;
 }
+
 .nav-cta::after { display: none !important; }
-.nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(0,0,0,.25);
-  filter: brightness(1.05);
-}
+.nav-cta:hover { background: var(--gold-dk) !important; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
 /* ─── HERO ─── */
   .hero {
     position: relative;
@@ -282,9 +279,10 @@
 }
 .btn-primary {
   background: var(--classy-gold);
-  color: var(--charcoal);
+  color: var(--white);
   border: 1px solid rgba(0,0,0,.1);
 }
+
 
 
 .btn-primary:hover { background: #b89545; transform: translateY(-2px); }
