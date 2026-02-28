@@ -14,12 +14,14 @@
     --stone: #3a3530;
     --clay: #8c6f57;
     --terracotta: #c9a96e;
-    --gold: #c9a96e;
-        --gold-dk: #b8934f;
+    --gold: #5A1E1E;
+        --gold-dk: #7A2A2A;
 --cream: #f5f0e8;
     --parchment: #ece5d8;
     --white: #fdfaf6;
     --text-muted: #9e8f82;
+  
+    --accent-light: #E8DADA;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -105,10 +107,10 @@
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 1.2s ease;
+    transition: opacity 1.2s ease-in-out;
   }
   .hero-slide.active { opacity: 1; }
-  .hero-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 8s ease; }
+  .hero-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 7.2s ease-in-out; }
   .hero-slide.active img { transform: scale(1); }
 
   /* gradient overlay */
@@ -1091,6 +1093,10 @@
     .topbar { display: none; }
   }
 </style>
+
+  <link rel="preload" as="image" href="./assets/hero/livingroom-hero.png">
+  <link rel="preload" as="image" href="./assets/hero/bathroom-hero.png">
+  <link rel="preload" as="image" href="./assets/hero/bedroom-hero.png">
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -1116,10 +1122,10 @@
 <div class="hero-slides">
 <!-- Local hero images (repo: assets/hero/) -->
 <div class="hero-slide active">
-<img alt="Luxury Bathroom Tile Installation" onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';" src="./assets/hero/bathroom-hero.png"/>
+<img alt="Premium Hardwood Flooring Living Room" onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';" src="./assets/hero/livingroom-hero.png"/>
 </div>
 <div class="hero-slide">
-<img alt="Premium Hardwood Flooring Living Room" onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';" src="./assets/hero/livingroom-hero.png"/>
+<img alt="Luxury Bathroom Tile Installation" onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';" src="./assets/hero/bathroom-hero.png"/>
 </div>
 <div class="hero-slide">
 <img alt="Modern Bedroom Plush Carpet" onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';" src="./assets/hero/bedroom-hero.png"/>
