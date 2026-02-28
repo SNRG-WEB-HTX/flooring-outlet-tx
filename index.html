@@ -1,249 +1,97 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flooring Outlet TX | Premium Flooring Houston, TX</title>
-<meta name="description" content="Flooring Outlet TX - Houston's premier flooring destination. Tile, hardwood, luxury vinyl, laminate & carpet at outlet prices. Featuring Tile Center, Tile Source & Coastline Collection.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flooring Outlet TX — Premium Tile &amp; Flooring Houston</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
-  /*  TOKENS  */
   :root {
-    --ink:       #1a1714;
-    --ink-soft:  #3d3830;
-    --sand:      #f5f0e8;
-    --cream:     #faf8f4;
-    --warm:      #e8e0d0;
-    --terra:     #b5643c;
-    --terra-dk:  #8f4926;
-    --gold:      #c9a96e;
-    --stone:     #7a7469;
-    --white:     #ffffff;
-    --ff-head:   'Cormorant Garamond', Georgia, serif;
-    --ff-body:   'DM Sans', sans-serif;
-    --radius:    4px;
-    --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --charcoal: #141210;
+    --warm-black: #1e1a17;
+    --stone: #3a3530;
+    --clay: #8c6f57;
+    --terracotta: #c9a96e;
+    --gold: #c9a96e;
+        --gold-dk: #b8934f;
+--cream: #f5f0e8;
+    --parchment: #ece5d8;
+    --white: #fdfaf6;
+    --text-muted: #9e8f82;
   }
 
-  /*  RESET  */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; font-size: 16px; }
+
+  html { scroll-behavior: smooth; }
+
   body {
-    font-family: var(--ff-body);
-    background: var(--cream);
-    color: var(--ink);
-    line-height: 1.6;
+    font-family: 'Outfit', sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
     overflow-x: hidden;
   }
-  img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  a { color: inherit; text-decoration: none; }
-  button { font-family: var(--ff-body); cursor: pointer; border: none; background: none; }
 
-  /*  TOPBAR  */
-  .topbar {
-    background: var(--ink);
-    color: #c4b8a0;
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    padding: 0.55rem 2rem;
-  }
-  .topbar a { color: #c4b8a0; transition: color 0.2s; }
-  .topbar a:hover { color: var(--gold); }
-  .topbar span { display: flex; align-items: center; gap: 0.4rem; }
-
-  /*  NAV  */
-  .nav {
-    position: sticky;
-    top: 0;
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
-    background: var(--white);
-    border-bottom: 1px solid #e5dfd4;
-    padding: 0 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-    box-shadow: 0 2px 16px rgba(26,23,20,0.06);
-    transition: box-shadow var(--transition);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 48px;
+    transition: background .5s ease, padding .4s ease, backdrop-filter .5s ease;
   }
-  .nav.scrolled { box-shadow: 0 4px 32px rgba(26,23,20,0.12); }
-
-  /* Logo */
-  .logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    gap: 2px;
+  nav.scrolled {
+    background: rgba(20,18,16,.92);
+    backdrop-filter: blur(20px);
+    padding: 18px 48px;
   }
-  .logo-main {
-    font-family: var(--ff-head);
-    font-size: 1.55rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--ink);
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: .02em;
+    text-decoration: none;
   }
-  .logo-main span { color: var(--terra); }
-  .logo-sub {
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--stone);
-  }
-
-  /* Nav links */
+  .nav-logo span { color: var(--gold); }
   .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    list-style: none;
-    height: 100%;
+    display: flex; gap: 36px; list-style: none;
   }
-  .nav-links > li {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  .nav-links a {
+    font-size: .75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: rgba(253,250,246,.75);
+    text-decoration: none;
+    transition: color .25s;
     position: relative;
   }
-  .nav-links > li > a {
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--white) !important;
+    padding: 12px 26px;
+    font-size: .75rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .1em !important;
     text-transform: uppercase;
-    color: var(--ink-soft);
-    padding: 0 1rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: color var(--transition);
-    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    transition: background .25s, transform .2s;
   }
-  .nav-links > li > a:hover,
-  .nav-links > li:hover > a {
-    color: var(--terra);
-    border-bottom-color: var(--terra);
-  }
-  .nav-links > li > a .chevron {
-    font-size: 0.6rem;
-    transition: transform 0.2s;
-    opacity: 0.6;
-  }
-  .nav-links > li:hover > a .chevron { transform: rotate(180deg); }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold-dk) !important; transform: translateY(-1px); }
 
-  /* Dropdown */
-  .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--white);
-    border: 1px solid #e5dfd4;
-    border-top: 2px solid var(--terra);
-    min-width: 200px;
-    padding: 0.75rem 0;
-    box-shadow: 0 16px 48px rgba(26,23,20,0.12);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(6px);
-    transition: all 0.22s ease;
-  }
-  .nav-links > li:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .dropdown a {
-    display: block;
-    padding: 0.55rem 1.5rem;
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: var(--ink-soft);
-    transition: all 0.15s;
-  }
-  .dropdown a:hover { background: var(--sand); color: var(--terra); padding-left: 2rem; }
-
-  /* CTA button */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1.5rem;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    border-radius: var(--radius);
-    transition: all var(--transition);
-    cursor: pointer;
-  }
-  .btn-primary {
-    background: var(--terra);
-    color: var(--white);
-    border: 2px solid var(--terra);
-  }
-  .btn-primary:hover {
-    background: var(--terra-dk);
-    border-color: var(--terra-dk);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(181,100,60,0.35);
-  }
-  .btn-outline {
-    background: transparent;
-    color: var(--terra);
-    border: 2px solid var(--terra);
-  }
-  .btn-outline:hover {
-    background: var(--terra);
-    color: var(--white);
-    transform: translateY(-1px);
-  }
-  .btn-ghost {
-    background: rgba(255,255,255,0.15);
-    color: var(--white);
-    border: 2px solid rgba(255,255,255,0.5);
-    backdrop-filter: blur(8px);
-  }
-  .btn-ghost:hover {
-    background: var(--white);
-    color: var(--terra);
-    border-color: var(--white);
-  }
-  .btn-dark {
-    background: var(--ink);
-    color: var(--white);
-    border: 2px solid var(--ink);
-  }
-  .btn-dark:hover {
-    background: var(--ink-soft);
-    border-color: var(--ink-soft);
-    transform: translateY(-1px);
-  }
-
-  /* Mobile toggle */
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: 6px;
-    cursor: pointer;
-  }
-  .nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--ink);
-    transition: var(--transition);
-    border-radius: 2px;
-  }
-
-  /*  HERO  */
+    /* ─── HERO ─── */
   .hero {
     position: relative;
     height: 92vh;
@@ -407,1456 +255,1551 @@
     50%       { width: 70px; opacity: 1; }
   }
 
-  /*  PROCESS STRIP  */
-  .process-strip {
-    background: var(--ink);
-    padding: 1.8rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform .2s ease, background .25s ease, border-color .25s ease, color .25s ease;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.btn-primary:hover { background: var(--gold-dk); transform: translateY(-2px); }
+.btn-ghost {
+  background: rgba(255,255,255,.10);
+  color: rgba(253,250,246,.92);
+  border: 1px solid rgba(255,255,255,.26);
+  backdrop-filter: blur(14px);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.16); color: var(--white); transform: translateY(-2px); }
+
+  /* ─── TICKER ─── */
+/* ─── TICKER ─── */
+  .ticker-wrap {
+    background: var(--terracotta);
+    padding: 14px 0;
+    overflow: hidden;
   }
-  .process-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0 2rem;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    animation: fadeUp 0.6s ease both;
+  .ticker {
+    display: flex; width: max-content;
+    animation: ticker 24s linear infinite;
   }
-  .process-item:last-child { border-right: none; }
-  .process-num {
-    font-family: var(--ff-head);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--terra);
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .process-text strong {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--white);
-    letter-spacing: 0.05em;
+  .ticker-item {
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .18em;
     text-transform: uppercase;
-    margin-bottom: 0.2rem;
+    color: rgba(253,250,246,.9);
+    padding: 0 40px;
+    white-space: nowrap;
   }
-  .process-text span {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.5);
-    font-weight: 300;
+  .ticker-item::before {
+    content: '◆';
+    margin-right: 40px;
+    font-size: .55rem;
+    opacity: .6;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
 
-  /*  SECTION SHARED  */
-  section { padding: 6rem 5rem; }
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 48px; }
+
   .section-label {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .22em;
     text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--terra);
-    flex-shrink: 0;
+    color: var(--terracotta);
+    margin-bottom: 16px;
   }
   .section-title {
-    font-family: var(--ff-head);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 400;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .section-title em { font-style: italic; color: var(--terra); }
-  .section-desc {
-    font-size: 1rem;
-    color: var(--stone);
-    max-width: 520px;
-    line-height: 1.8;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 20px;
   }
-  .section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 2rem;
-    margin-bottom: 3.5rem;
-  }
-  .section-head-left { flex: 1; }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
+  .section-title em { font-style: italic; color: var(--clay); }
+  .section-sub {
+    font-size: .95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 520px;
   }
 
-  /*  PRODUCTS  */
-  .products { background: var(--cream); }
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+  /* ─── CATEGORIES ─── */
+  .categories { background: var(--white); }
+  .cat-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px;
   }
-  .prod-card {
+  .view-all {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color .25s;
+  }
+  .view-all:hover { color: var(--terracotta); }
+  .view-all::after { content: '→'; transition: transform .25s; }
+  .view-all:hover::after { transform: translateX(4px); }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 320px 320px;
+    gap: 4px;
+  }
+  .cat-card {
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-end;
+    text-decoration: none;
+  }
+  .cat-card:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+  .cat-card:nth-child(2) { grid-column: span 4; }
+  .cat-card:nth-child(3) { grid-column: span 3; }
+  .cat-card:nth-child(4) { grid-column: span 3; }
+  .cat-card:nth-child(5) { grid-column: span 4; }
+
+  .cat-bg {
+    position: absolute; inset: 0;
+    transition: transform .6s ease;
+  }
+  .cat-card:hover .cat-bg { transform: scale(1.06); }
+
+  /* Tile pattern backgrounds */
+  .cat-bg-1 {
+    background:
+      repeating-linear-gradient(45deg, #4a3e35 0, #4a3e35 2px, transparent 2px, transparent 20px),
+      repeating-linear-gradient(-45deg, #3a3026 0, #3a3026 2px, transparent 2px, transparent 20px),
+      #2a2420;
+  }
+  .cat-bg-2 {
+    background:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.06) 0, rgba(255,255,255,.06) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0, rgba(255,255,255,.06) 1px, transparent 1px, transparent 40px),
+      #7a5c4a;
+  }
+  .cat-bg-3 {
+    background:
+      radial-gradient(circle at 30% 70%, #c4703f33 0%, transparent 60%),
+      repeating-conic-gradient(#d4c4b0 0% 25%, #bfae99 25% 50%) 0 0 / 30px 30px,
+      #d4c4b0;
+  }
+  .cat-bg-4 {
+    background:
+      linear-gradient(135deg, #e8ddd0 25%, transparent 25%) -20px 0,
+      linear-gradient(225deg, #e8ddd0 25%, transparent 25%) -20px 0,
+      linear-gradient(315deg, #e8ddd0 25%, transparent 25%),
+      linear-gradient(45deg, #e8ddd0 25%, transparent 25%);
+    background-size: 40px 40px;
+    background-color: #d4c4b0;
+  }
+  .cat-bg-5 {
+    background:
+      repeating-linear-gradient(60deg, #5a7a6a 0, #5a7a6a 2px, transparent 2px, transparent 18px),
+      #4a6a5a;
+  }
+
+  .cat-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,12,10,.85) 0%, rgba(14,12,10,.1) 50%, transparent 100%);
+    transition: opacity .4s;
+  }
+  .cat-card:hover .cat-overlay { opacity: .7; }
+
+  .cat-info {
+    position: relative; z-index: 2;
+    padding: 28px;
+  }
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--white);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cat-card:nth-child(1) .cat-name { font-size: 2.2rem; }
+  .cat-count {
+    font-size: .72rem;
+    font-weight: 400;
+    letter-spacing: .12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cat-arrow {
+    position: absolute; top: 24px; right: 24px; z-index: 2;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(253,250,246,.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: .9rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s, transform .3s;
+  }
+  .cat-card:hover .cat-arrow { opacity: 1; transform: translateY(0); }
+
+  /* ─── FEATURED PRODUCTS ─── */
+  .products { background: var(--white); }
+  .products-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .product-card {
     position: relative;
-    border-radius: 6px;
+    background: var(--parchment);
     overflow: hidden;
-    background: var(--sand);
-    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
     group: true;
   }
-  .prod-card::before {
-    content: '';
-    display: block;
-    padding-top: 130%;
-  }
-  .prod-card-img {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.6s ease;
-  }
-  .prod-card:hover .prod-card-img { transform: scale(1.07); }
-  .prod-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.1) 60%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem 1.2rem;
-    transition: all 0.3s;
-  }
-  .prod-card:hover .prod-card-overlay {
-    background: linear-gradient(0deg, rgba(26,23,20,0.88) 0%, rgba(26,23,20,0.25) 60%, rgba(26,23,20,0.05) 100%);
-  }
-  .prod-card-name {
-    font-family: var(--ff-head);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
-  .prod-card-desc {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.7);
-    font-weight: 300;
-    line-height: 1.5;
-    max-height: 0;
+  .product-img {
+    aspect-ratio: 3/4;
+    position: relative;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s;
-    opacity: 0;
   }
-  .prod-card:hover .prod-card-desc {
-    max-height: 80px;
-    opacity: 1;
+  .product-swatch {
+    width: 100%; height: 100%;
+    transition: transform .6s ease;
   }
-  .prod-card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+  .product-card:hover .product-swatch { transform: scale(1.05); }
+
+  /* Unique tile swatch patterns */
+  .swatch-marble {
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.4) 0%, transparent 40%),
+      radial-gradient(ellipse at 70% 80%, rgba(200,190,180,.3) 0%, transparent 40%),
+      linear-gradient(135deg, #e8e0d8 0%, #d4ccc4 30%, #c8beb6 60%, #ddd5cc 100%);
+  }
+  .swatch-travertine {
+    background:
+      repeating-linear-gradient(90deg, rgba(180,160,130,.15) 0, rgba(180,160,130,.15) 1px, transparent 1px, transparent 24px),
+      linear-gradient(180deg, #c8b090 0%, #b89870 40%, #caa880 100%);
+  }
+  .swatch-slate {
+    background:
+      repeating-linear-gradient(160deg, rgba(0,0,0,.08) 0, rgba(0,0,0,.08) 1px, transparent 1px, transparent 12px),
+      linear-gradient(145deg, #4a5055 0%, #383d42 50%, #4d5258 100%);
+  }
+  .swatch-wood {
+    background:
+      repeating-linear-gradient(95deg,
+        rgba(120,80,40,.12) 0, rgba(120,80,40,.12) 1px,
+        transparent 1px, transparent 8px),
+      repeating-linear-gradient(175deg,
+        rgba(80,50,20,.08) 0, rgba(80,50,20,.08) 2px,
+        transparent 2px, transparent 30px),
+      linear-gradient(90deg, #a07850 0%, #8a6438 30%, #b08858 60%, #987040 100%);
+  }
+
+  .product-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--terracotta);
+    color: var(--white);
+    font-size: .62rem;
+    font-weight: 500;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 0.75rem;
+    padding: 5px 12px;
+  }
+  .product-info {
+    padding: 20px 20px 24px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .product-size {
+    font-size: .72rem;
+    color: var(--text-muted);
+    letter-spacing: .06em;
+    margin-bottom: 14px;
+  }
+  .product-price {
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--terracotta);
+  }
+  .product-price span {
+    font-size: .75rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+  .product-hover {
+    position: absolute; inset: 0;
+    background: rgba(20,18,16,.6);
+    display: flex; align-items: center; justify-content: center;
     opacity: 0;
-    transform: translateY(8px);
-    transition: all 0.3s 0.05s;
+    transition: opacity .3s;
   }
-  .prod-card:hover .prod-card-link { opacity: 1; transform: translateY(0); }
-  .prod-card-link::after {
-    content: '';
-    transition: transform 0.2s;
+  .product-card:hover .product-hover { opacity: 1; }
+  .product-hover-btn {
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    transform: translateY(10px);
+    transition: transform .3s;
   }
-  .prod-card:hover .prod-card-link::after { transform: translateX(4px); }
+  .product-card:hover .product-hover-btn { transform: translateY(0); }
 
-  /* Feature card (first large) */
-  .prod-card.featured {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  .prod-card.featured::before { padding-top: 62%; }
-
-  /*  INSPIRATION SPLIT  */
-  .inspo { background: var(--sand); padding: 0; overflow: hidden; }
-  .inspo-inner {
+  /* ─── WHY US / STATS ─── */
+  .stats-section {
+    background: var(--charcoal);
+    padding: 100px 48px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 600px;
-  }
-  .inspo-visual {
-    position: relative;
-    overflow: hidden;
-  }
-  .inspo-visual img { height: 100%; min-height: 600px; }
-  .inspo-visual-badge {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 2.5rem;
-    background: var(--terra);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    border-radius: 2px;
-  }
-  .inspo-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem;
-    background: var(--white);
-  }
-  .inspo-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-  .inspo-card {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    border: 1px solid #e5dfd4;
-    border-radius: 6px;
-    background: var(--cream);
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-  .inspo-card:hover {
-    border-color: var(--terra);
-    transform: translateX(4px);
-    box-shadow: 0 4px 24px rgba(181,100,60,0.1);
-  }
-  .inspo-card-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--sand);
-    border-radius: 50%;
-    display: flex;
+    gap: 80px;
     align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    transition: background 0.3s;
   }
-  .inspo-card:hover .inspo-card-icon { background: var(--terra); }
-  .inspo-card-icon span { transition: filter 0.3s; }
-  .inspo-card strong {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.25rem;
-  }
-  .inspo-card p {
-    font-size: 0.78rem;
-    color: var(--stone);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  /*  SUPPLIERS SECTION  */
-  .suppliers { background: var(--cream); }
-  .suppliers-grid {
+  .stats-left .section-label { color: var(--gold); }
+  .stats-left .section-title { color: var(--white); }
+  .stats-left .section-title em { color: var(--gold); }
+  .stats-left .section-sub { color: rgba(253,250,246,.6); max-width: 420px; }
+  .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
   }
-  .supplier-card {
-    background: var(--white);
-    border: 1px solid #e5dfd4;
-    border-radius: 8px;
-    padding: 3rem 2.5rem;
-    text-align: center;
-    transition: all 0.4s;
-    position: relative;
-    overflow: hidden;
+  .stat-card {
+    background: var(--warm-black);
+    padding: 36px 32px;
+    border-left: 3px solid transparent;
+    transition: border-color .3s;
   }
-  .supplier-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--terra);
-    transform: scaleX(0);
-    transition: transform 0.4s;
-  }
-  .supplier-card:hover::before { transform: scaleX(1); }
-  .supplier-card:hover {
-    box-shadow: 0 12px 40px rgba(26,23,20,0.1);
-    transform: translateY(-4px);
-  }
-  .supplier-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--sand);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    margin: 0 auto 1.5rem;
-    transition: background 0.3s;
-  }
-  .supplier-card:hover .supplier-icon { background: #fde8db; }
-  .supplier-card h3 {
-    font-family: var(--ff-head);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
-  }
-  .supplier-card p {
-    font-size: 0.82rem;
-    color: var(--stone);
-    line-height: 1.8;
-    font-weight: 300;
-  }
-  .supplier-tag {
-    display: inline-block;
-    background: var(--sand);
-    color: var(--terra);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    margin-top: 1.25rem;
-    border: 1px solid #e5dfd4;
-  }
-
-  /*  WHY US  */
-  .why {
-    background: var(--ink);
-    position: relative;
-    overflow: hidden;
-  }
-  .why::before {
-    content: 'OUTLET';
-    position: absolute;
-    top: -1.5rem;
-    right: -1rem;
-    font-family: var(--ff-head);
-    font-size: 14rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.025);
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-    letter-spacing: -0.05em;
-  }
-  .why .section-title { color: var(--white); }
-  .why .section-desc { color: rgba(255,255,255,0.55); }
-  .why .section-label { color: var(--gold); }
-  .why .section-label::before { background: var(--gold); }
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3.5rem;
-  }
-  .why-card {
-    padding: 2.5rem;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    background: rgba(255,255,255,0.03);
-    transition: all 0.4s;
-    position: relative;
-    overflow: hidden;
-  }
-  .why-card:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(181,100,60,0.4);
-    transform: translateY(-4px);
-  }
-  .why-card-num {
-    font-family: var(--ff-head);
+  .stat-card:hover { border-left-color: var(--terracotta); }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.07);
-    line-height: 1;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    transition: color 0.4s;
-  }
-  .why-card:hover .why-card-num { color: rgba(181,100,60,0.2); }
-  .why-card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1.25rem;
-    display: block;
-  }
-  .why-card h4 {
-    font-family: var(--ff-head);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-  }
-  .why-card p {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.8;
     font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-number sup {
+    font-size: 1.5rem;
+    color: var(--terracotta);
+  }
+  .stat-label {
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(253,250,246,.45);
   }
 
-  /*  VISUALIZER CTA  */
-  .visualizer {
-    background: var(--sand);
-    padding: 0;
-  }
-  .visualizer-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 500px;
-  }
-  .visualizer-content {
-    background: var(--terra);
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .visualizer-content::after {
-    content: '';
-    position: absolute;
-    bottom: -4rem;
-    right: -4rem;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-  }
-  .visualizer-content .section-label { color: rgba(255,255,255,0.7); }
-  .visualizer-content .section-label::before { background: rgba(255,255,255,0.5); }
-  .visualizer-content .section-title { color: var(--white); }
-  .visualizer-content .section-desc { color: rgba(255,255,255,0.78); max-width: 400px; margin-bottom: 2.5rem; }
-  .visualizer-img {
-    position: relative;
-    overflow: hidden;
-  }
-  .visualizer-img img { height: 100%; min-height: 500px; }
-  .visualizer-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(26,23,20,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .play-btn {
-    width: 80px;
-    height: 80px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 8px 32px rgba(26,23,20,0.3);
-  }
-  .play-btn:hover { transform: scale(1.1); background: var(--white); }
-
-  /*  TESTIMONIALS  */
-  .testimonials { background: var(--white); }
-  .testimonials-grid {
+  /* ─── SERVICES ─── */
+  .services { background: var(--parchment); }
+  .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 2px;
+    margin-top: 60px;
   }
-  .testimonial-card {
-    padding: 2.5rem;
-    border: 1px solid #e5dfd4;
-    border-radius: 8px;
-    background: var(--cream);
-    transition: all 0.3s;
+  .service-card {
+    background: var(--white);
+    padding: 44px 36px;
     position: relative;
+    overflow: hidden;
+    transition: transform .3s;
   }
-  .testimonial-card:hover {
-    box-shadow: 0 8px 32px rgba(26,23,20,0.08);
-    transform: translateY(-3px);
+  .service-card:hover { transform: translateY(-4px); }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 0;
+    background: var(--terracotta);
+    transition: height .4s ease;
   }
-  .testimonial-card::before {
-    content: '"';
-    font-family: var(--ff-head);
-    font-size: 5rem;
-    color: var(--terra);
-    opacity: 0.2;
-    position: absolute;
-    top: 0.5rem;
-    left: 1.5rem;
-    line-height: 1;
-    user-select: none;
+  .service-card:hover::before { height: 100%; }
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    display: block;
   }
-  .testimonial-stars {
-    color: var(--gold);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 12px;
   }
-  .testimonial-text {
-    font-size: 0.88rem;
-    color: var(--ink-soft);
-    line-height: 1.8;
+  .service-text {
+    font-size: .88rem;
     font-weight: 300;
-    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ─── GALLERY STRIP ─── */
+  .gallery-strip {
+    display: flex; height: 320px;
+    overflow: hidden;
+  }
+  .gallery-panel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    transition: flex .5s ease;
+  }
+  .gallery-strip:hover .gallery-panel { flex: 0.5; }
+  .gallery-strip .gallery-panel:hover { flex: 2.5; }
+  .gallery-panel-bg {
+    position: absolute; inset: -10%;
+    transition: transform .5s ease;
+  }
+  .gallery-panel:hover .gallery-panel-bg { transform: scale(1.05); }
+  .gpb-1 {
+    background: linear-gradient(135deg, #8c6f57 0%, #5a4030 100%);
+  }
+  .gpb-2 {
+    background:
+      repeating-conic-gradient(#c8b8a0 0% 25%, #b0a088 25% 50%) 0 0 / 40px 40px;
+  }
+  .gpb-3 {
+    background: linear-gradient(135deg, #4a5055 0%, #2a3035 100%);
+  }
+  .gpb-4 {
+    background: linear-gradient(135deg, #9a7855 0%, #7a5838 100%);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.08) 0, rgba(255,255,255,.08) 2px, transparent 2px, transparent 20px),
+      linear-gradient(135deg, #9a7855 0%, #7a5838 100%);
+  }
+  .gpb-5 {
+    background: linear-gradient(135deg, #c4b8a8 0%, #a09080 100%);
+  }
+  .gallery-panel-label {
+    position: absolute; bottom: 20px; left: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(253,250,246,.7);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .4s .1s, transform .4s .1s;
+  }
+  .gallery-panel:hover .gallery-panel-label { opacity: 1; transform: translateY(0); }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--white); }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .testi-card {
+    border: 1px solid rgba(58,53,48,.1);
+    padding: 36px 32px;
+    position: relative;
+    transition: border-color .3s, transform .3s;
+  }
+  .testi-card:hover { border-color: var(--terracotta); transform: translateY(-3px); }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: .8;
+    margin-bottom: 20px;
+    opacity: .4;
+  }
+  .testi-text {
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--stone);
+    margin-bottom: 28px;
     font-style: italic;
   }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  .testi-author {
+    display: flex; align-items: center; gap: 14px;
   }
-  .testimonial-avatar {
-    width: 40px;
-    height: 40px;
+  .testi-avatar {
+    width: 44px; height: 44px;
     border-radius: 50%;
-    background: var(--warm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-  .testimonial-name {
-    font-size: 0.82rem;
+    background: var(--clay);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--white);
   }
-  .testimonial-location {
-    font-size: 0.72rem;
-    color: var(--stone);
-    font-weight: 300;
+  .testi-name {
+    font-size: .82rem;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+  .testi-loc {
+    font-size: .72rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .stars {
+    color: var(--gold);
+    font-size: .8rem;
+    letter-spacing: .06em;
+    margin-bottom: 16px;
   }
 
-  /*  CTA BANNER  */
+  /* ─── CTA BANNER ─── */
   .cta-banner {
-    padding: 5rem;
-    background: linear-gradient(135deg, #2d1f17 0%, #1a1714 50%, #261a12 100%);
+    background: var(--terracotta);
+    padding: 90px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 60px;
     position: relative;
     overflow: hidden;
-    text-align: center;
   }
   .cta-banner::before {
     content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 20% 50%, rgba(181,100,60,0.15) 0%, transparent 60%),
-                      radial-gradient(circle at 80% 50%, rgba(201,169,110,0.1) 0%, transparent 50%);
+    position: absolute; right: -80px; top: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
   }
-  .cta-banner-inner { position: relative; z-index: 1; }
-  .cta-banner h2 {
-    font-family: var(--ff-head);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+  .cta-banner::after {
+    content: '';
+    position: absolute; right: 80px; bottom: -120px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.06);
+  }
+  .cta-text .section-label { color: rgba(253,250,246,.7); }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 300;
     color: var(--white);
     line-height: 1.15;
-    margin-bottom: 1rem;
   }
-  .cta-banner h2 strong { font-weight: 700; font-style: italic; color: var(--gold); }
-  .cta-banner p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.65);
-    max-width: 500px;
-    margin: 0 auto 2.5rem;
+  .cta-actions {
+    display: flex; gap: 16px; flex-shrink: 0;
+    position: relative; z-index: 2;
+  }
+  .btn-white {
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--terracotta);
+    padding: 16px 36px;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .25s, transform .2s;
+  }
+  .btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+  .btn-outline-white {
+    border-radius: 999px;
+    border: 1.5px solid rgba(253,250,246,.6);
+    color: var(--white);
+    padding: 16px 36px;
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color .25s, background .25s;
+  }
+  .btn-outline-white:hover { border-color: var(--white); background: rgba(253,250,246,.1); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    padding: 80px 48px 40px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(253,250,246,.08);
+  }
+  .footer-brand .nav-logo {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .footer-brand p {
+    font-size: .85rem;
     font-weight: 300;
     line-height: 1.7;
-  }
-  .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
-  /*  FOOTER  */
-  .footer {
-    background: #0f0d0b;
-    color: rgba(255,255,255,0.6);
-    padding: 5rem 5rem 2rem;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.8fr repeat(3, 1fr);
-    gap: 4rem;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 2rem;
-  }
-  .footer-brand .logo-main { color: var(--white); font-size: 1.8rem; }
-  .footer-brand .logo-sub { color: rgba(255,255,255,0.35); }
-  .footer-brand p {
-    font-size: 0.82rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.45);
-    font-weight: 300;
-    margin-top: 1.25rem;
+    color: rgba(253,250,246,.45);
     max-width: 280px;
-  }
-  .footer-contact {
-    margin-top: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .footer-contact a {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.55);
-    transition: color 0.2s;
-  }
-  .footer-contact a:hover { color: var(--gold); }
-  .footer-contact a .ico { font-size: 0.9rem; }
-  .footer-col h4 {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-    list-style: none;
-  }
-  .footer-links a {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .footer-links a::before {
-    content: '';
-    font-size: 0.65rem;
-    color: var(--terra);
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all 0.2s;
-  }
-  .footer-links a:hover {
-    color: var(--white);
-    padding-left: 0.5rem;
-  }
-  .footer-links a:hover::before { opacity: 1; transform: translateX(0); }
-  .footer-hours { margin-top: 1rem; }
-  .footer-hours p {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.9;
-    font-weight: 300;
-  }
-  .footer-hours strong { color: rgba(255,255,255,0.7); font-weight: 500; }
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .footer-bottom p {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.3);
-    font-weight: 300;
+    margin-bottom: 28px;
   }
   .footer-social {
-    display: flex;
-    gap: 0.75rem;
+    display: flex; gap: 12px;
   }
   .social-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.4);
-    cursor: pointer;
-    transition: all 0.3s;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(253,250,246,.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(253,250,246,.5);
+    font-size: .85rem;
+    text-decoration: none;
+    transition: border-color .25s, color .25s;
   }
-  .social-btn:hover {
-    border-color: var(--terra);
-    background: var(--terra);
-    color: var(--white);
-    transform: translateY(-2px);
-  }
-  .footer-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px;
-    padding: 0.75rem 1.25rem;
-    margin-top: 2rem;
-    width: fit-content;
-  }
-  .footer-badge span { font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 300; }
-  .footer-badge strong { font-size: 0.75rem; color: var(--gold); }
-
-  /*  MOBILE NAV DRAWER  */
-  .mobile-nav {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    pointer-events: none;
-  }
-  .mobile-nav.open { pointer-events: all; }
-  .mobile-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(26,23,20,0.6);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .mobile-nav.open .mobile-backdrop { opacity: 1; }
-  .mobile-drawer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: min(340px, 90vw);
-    height: 100%;
-    background: var(--white);
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
-    overflow-y: auto;
-    padding: 2rem;
-  }
-  .mobile-nav.open .mobile-drawer { transform: translateX(0); }
-  .mobile-close {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--sand);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    border: none;
-    transition: background 0.2s;
-  }
-  .mobile-close:hover { background: var(--warm); }
-  .mobile-links { list-style: none; }
-  .mobile-links > li {
-    border-bottom: 1px solid #e5dfd4;
-  }
-  .mobile-links > li > a {
-    display: block;
-    padding: 0.9rem 0;
-    font-size: 0.9rem;
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-col h4 {
+    font-size: .68rem;
     font-weight: 500;
-    color: var(--ink);
-    transition: color 0.2s;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
   }
-  .mobile-links > li > a:hover { color: var(--terra); }
-  .mobile-links .sub {
-    padding: 0 0 0.5rem;
-    list-style: none;
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a {
+    font-size: .85rem;
+    font-weight: 300;
+    color: rgba(253,250,246,.45);
+    text-decoration: none;
+    transition: color .25s;
   }
-  .mobile-links .sub a {
-    display: block;
-    padding: 0.4rem 1rem;
-    font-size: 0.82rem;
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy {
+    font-size: .75rem;
+    color: rgba(253,250,246,.25);
+  }
+  .footer-copy a { color: var(--gold); text-decoration: none; }
+  .footer-legal {
+    display: flex; gap: 24px;
+  }
+  .footer-legal a {
+    font-size: .72rem;
+    color: rgba(253,250,246,.25);
+    text-decoration: none;
+    transition: color .25s;
+  }
+  .footer-legal a:hover { color: rgba(253,250,246,.6); }
+
+  /* ─── PRODUCT BRAND LABEL ─── */
+  .product-brand {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 4px;
+  }
+
+  /* ─── BRAND COLLECTIONS ─── */
+  .brand-collections { background: var(--parchment); }
+  .bc-header { margin-bottom: 48px; }
+  .bc-header .section-sub { margin-top: 12px; }
+
+  .bc-tabs {
+    display: flex; gap: 4px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .bc-tab {
+    border-radius: 999px;
+    background: transparent;
+    border: 1.5px solid rgba(58,53,48,.2);
     color: var(--stone);
-    transition: color 0.2s;
+    font-family: 'Outfit', sans-serif;
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 11px 26px;
+    transition: all .25s;
+    position: relative;
+    overflow: hidden;
   }
-  .mobile-links .sub a:hover { color: var(--terra); }
+  .bc-tab::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--charcoal);
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    z-index: 0;
+  }
+  .bc-tab span, .bc-tab {
+    border-radius: 999px; position: relative; z-index: 1; }
+  .bc-tab:hover, .bc-tab.active {
+    color: var(--white);
+    border-color: var(--charcoal);
+  }
+  .bc-tab:hover::before, .bc-tab.active::before { transform: translateY(0); }
 
-  /*  RESPONSIVE  */
-  @media (max-width: 1100px) {
-    .products-grid { grid-template-columns: repeat(3, 1fr); }
-    .prod-card.featured { grid-column: span 1; }
-    .prod-card.featured::before { padding-top: 130%; }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-    section { padding: 5rem 3rem; }
-    .process-strip { padding: 1.5rem 3rem; }
-    .cta-banner { padding: 4rem 3rem; }
-    .footer { padding: 4rem 3rem 2rem; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  }
-  @media (max-width: 860px) {
-    .nav { padding: 0 1.5rem; }
-    .nav-links, .nav .btn { display: none; }
-    .nav-toggle { display: flex; }
-    .hero-content { padding: 2.25rem 1.5rem 2.75rem; margin: 0 0 2rem 0; }
-    .hero-scroll, .hero-dots { display: none; }
-    .process-strip { grid-template-columns: repeat(2, 1fr); padding: 1rem 2rem; }
-    .process-item { border-right: none; padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .process-item:nth-child(2), .process-item:last-child { border-bottom: none; }
-    section { padding: 4rem 2rem; }
-    .inspo-inner, .visualizer-inner { grid-template-columns: 1fr; }
-    .inspo-visual img, .visualizer-img img { min-height: 300px; }
-    .inspo-content, .visualizer-content { padding: 3rem 2rem; }
-    .products-grid { grid-template-columns: repeat(2, 1fr); }
-    .suppliers-grid { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .section-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .hero h1 { font-size: 2.6rem; }
-    .topbar { font-size: 0.65rem; gap: 1.5rem; }
-    .cta-banner { padding: 3.5rem 2rem; }
-    .footer { padding: 3rem 2rem 1.5rem; }
-  }
-  @media (max-width: 500px) {
-    .products-grid { grid-template-columns: 1fr; }
-    .process-strip { grid-template-columns: 1fr; }
-    .process-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .process-item:last-child { border-bottom: none; }
-    .topbar { display: none; }
-    .hero-actions { flex-direction: column; }
-    .hero-actions .btn { width: 100%; justify-content: center; }
-    .cta-actions { flex-direction: column; align-items: center; }
-  }
+  .bc-panel { display: none; }
+  .bc-panel.active { display: block; }
 
-  /*  SCROLL ANIMATION  */
+  .bc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .bc-card {
+    background: var(--white);
+    overflow: hidden;
+    transition: transform .3s;
+  }
+  .bc-card:hover { transform: translateY(-3px); }
+  .bc-swatch {
+    height: 160px;
+    transition: transform .5s ease;
+  }
+  .bc-card:hover .bc-swatch { transform: scale(1.04); }
+  .bc-card-info {
+    padding: 20px 20px 24px;
+  }
+  .bc-brand {
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 4px;
+  }
+  .bc-product {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .bc-detail {
+    font-size: .74rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .bc-price {
+    font-size: .82rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+  .bc-link {
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    text-decoration: none;
+    transition: color .2s, letter-spacing .2s;
+  }
+  .bc-link:hover { color: var(--charcoal); letter-spacing: .15em; }
+
+  @media (max-width: 900px) {
+    .bc-grid { grid-template-columns: 1fr 1fr; }
+    .bc-tabs { gap: 8px; }
+  }
+  @media (max-width: 560px) {
+    .bc-grid { grid-template-columns: 1fr; }
+  }
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(40px);
+    transition: opacity .7s ease, transform .7s ease;
   }
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 24px; }
+    .hero-content { padding: 0 24px 60px; }
+    .hero-scroll { right: 24px; bottom: 60px; }
+    .cat-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .cat-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+    .cat-card:nth-child(1) { grid-column: span 2 !important; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-section { grid-template-columns: 1fr; gap: 48px; padding: 70px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-strip { height: 200px; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .cta-banner { flex-direction: column; padding: 60px 24px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .cat-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .products-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+
+  /* TOPBAR (store info) */
+  .topbar {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    gap: 2.25rem;
+    padding: 0.55rem 1.25rem;
+    flex-wrap: wrap;
+  }
+  .topbar a { color: rgba(255,255,255,0.7); transition: color 0.2s ease; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+  @media (max-width: 700px) {
+    .topbar { display: none; }
+  }
 </style>
 </head>
 <body>
-
-<!--  TOPBAR  -->
+<!-- ─── NAV ─── -->
 <div class="topbar">
-  <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
-  <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
-  <span> Mon-Sat: 9am-6pm</span>
-  <span> <a href="mailto:sales.flooringoutlet@gmail.com">sales.flooringoutlet@gmail.com</a></span>
-</div>
-
-<!--  NAV  -->
-<nav class="nav" id="mainNav">
-  <a href="#" class="logo">
-    <span class="logo-main">Flooring Outlet <span>TX</span></span>
-    <span class="logo-sub">Houston's Flooring Destination</span>
-  </a>
-  <ul class="nav-links">
-    <li>
-      <a href="#products">Products <span class="chevron"></span></a>
-      <div class="dropdown">
-        <a href="#products">Tile & Stone</a>
-        <a href="#products">Hardwood</a>
-        <a href="#products">Luxury Vinyl (LVP)</a>
-        <a href="#products">Laminate</a>
-        <a href="#products">Carpet</a>
-        <a href="#products">Area Rugs</a>
-      </div>
-    </li>
-    <li>
-      <a href="#inspo">Inspiration <span class="chevron"></span></a>
-      <div class="dropdown">
-        <a href="#inspo">Flooring Guides</a>
-        <a href="#inspo">Design Ideas</a>
-        <a href="#inspo">Project Gallery</a>
-        <a href="#inspo">How to Measure</a>
-      </div>
-    </li>
-    <li>
-      <a href="#suppliers">Our Brands</a>
-    </li>
-    <li>
-      <a href="#why">Why Us</a>
-    </li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-  </ul>
-  <a href="#contact" class="btn btn-primary">Free Consultation</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<span> <a href="tel:+12818619800">(281) 861-9800</a></span>
+<span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
+<span> Mon-Sat: 9am-6pm</span>
+<span> <a href="mailto:sales.flooringoutlet@gmail.com">sales.flooringoutlet@gmail.com</a></span>
+</div><nav id="nav">
+<a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
+<ul class="nav-links">
+<li><a data-tab="tile" href="#collections">Tile</a></li>
+<li><a data-tab="hardwood" href="#collections">Hardwood</a></li>
+<li><a data-tab="lvp" href="#collections">LVP / LVT</a></li>
+<li><a data-tab="other" href="#collections">Carpet</a></li>
+<li><a data-tab="tile" href="#collections">Natural Stone</a></li>
+<li><a href="#showroom">Showroom</a></li>
+<li><a class="nav-cta" href="#showroom">Get a Quote</a></li>
+</ul>
 </nav>
-
-<!--  MOBILE DRAWER  -->
-<div class="mobile-nav" id="mobileNav">
-  <div class="mobile-backdrop" id="mobileBackdrop"></div>
-  <div class="mobile-drawer">
-    <button class="mobile-close" id="mobileClose"></button>
-    <ul class="mobile-links">
-      <li>
-        <a href="#products">Products</a>
-        <ul class="sub">
-          <li><a href="#products">Tile & Stone</a></li>
-          <li><a href="#products">Hardwood</a></li>
-          <li><a href="#products">Luxury Vinyl (LVP)</a></li>
-          <li><a href="#products">Laminate</a></li>
-          <li><a href="#products">Carpet</a></li>
-          <li><a href="#products">Area Rugs</a></li>
-        </ul>
-      </li>
-      <li><a href="#inspo">Inspiration</a></li>
-      <li><a href="#suppliers">Our Brands</a></li>
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:2rem;">Free Consultation</a>
-  </div>
+<!-- ─── HERO ─── -->
+<section class="hero">
+<div class="hero-slides">
+<!-- Local hero images (repo: assets/hero/) -->
+<div class="hero-slide active">
+<img alt="Luxury Bathroom Tile Installation" onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';" src="./assets/hero/bathroom-hero.png"/>
 </div>
-
-<!--  HERO  -->
-<section class="hero" id="home">
-  <div class="hero-slides">
-    <!-- Local hero images (repo: assets/hero/) -->
-    <div class="hero-slide active">
-      <img src="./assets/hero/bathroom-hero.png"
-           alt="Luxury Bathroom Tile Installation"
-           onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';">
-    </div>
-    <div class="hero-slide">
-      <img src="./assets/hero/livingroom-hero.png"
-           alt="Premium Hardwood Flooring Living Room"
-           onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';">
-    </div>
-    <div class="hero-slide">
-      <img src="./assets/hero/bedroom-hero.png"
-           alt="Modern Bedroom Plush Carpet"
-           onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';">
-    </div>
-  </div>
-
-  <div class="hero-content">
-    <span class="hero-badge">Houston's Flooring Outlet</span>
-    <h1>Premium Floors at <strong>Outlet Prices</strong></h1>
-    <p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
-    <div class="hero-actions">
-      <a href="#products" class="btn btn-primary">Browse All Flooring</a>
-      <a href="#contact" class="btn btn-ghost">Get Free Quote</a>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
+<div class="hero-slide">
+<img alt="Premium Hardwood Flooring Living Room" onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';" src="./assets/hero/livingroom-hero.png"/>
+</div>
+<div class="hero-slide">
+<img alt="Modern Bedroom Plush Carpet" onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';" src="./assets/hero/bedroom-hero.png"/>
+</div>
+</div>
+<div class="hero-content">
+<span class="hero-badge">Houston's Flooring Outlet</span>
+<h1>Premium Floors at <strong>Outlet Prices</strong></h1>
+<p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#collections">Shop Collections</a>
+<a class="btn btn-ghost" href="#showroom">Visit Showroom</a>
+</div>
+</div>
+<div class="hero-scroll">
+<div class="hero-scroll-line"></div>
     Explore
   </div>
-
-  <div class="hero-dots">
-    <button class="hero-dot active" data-slide="0"></button>
-    <button class="hero-dot" data-slide="1"></button>
-    <button class="hero-dot" data-slide="2"></button>
-  </div>
-</section>
-
-<!--  PROCESS STRIP  -->
-<div class="process-strip">
-  <div class="process-item">
-    <div class="process-num">01</div>
-    <div class="process-text">
-      <strong>Explore Products</strong>
-      <span>Browse our full selection in-store or online</span>
-    </div>
-  </div>
-  <div class="process-item">
-    <div class="process-num">02</div>
-    <div class="process-text">
-      <strong>Free Consultation</strong>
-      <span>Let our experts guide your choice</span>
-    </div>
-  </div>
-  <div class="process-item">
-    <div class="process-num">03</div>
-    <div class="process-text">
-      <strong>Measure & Quote</strong>
-      <span>Precise measurement, transparent pricing</span>
-    </div>
-  </div>
-  <div class="process-item">
-    <div class="process-num">04</div>
-    <div class="process-text">
-      <strong>Expert Installation</strong>
-      <span>Professional install with care and warranty</span>
-    </div>
-  </div>
+<div class="hero-dots">
+<button class="hero-dot active" data-slide="0"></button>
+<button class="hero-dot" data-slide="1"></button>
+<button class="hero-dot" data-slide="2"></button>
 </div>
-
-<!--  PRODUCTS  -->
-<section class="products" id="products">
-  <div class="section-head reveal">
-    <div class="section-head-left">
-      <div class="section-label">Our Selection</div>
-      <h2 class="section-title">Find your perfect floor <em>starts here</em></h2>
-      <p class="section-desc">From Coastline Collection's coastal-inspired tiles to premium hardwoods - we carry an exceptional range to suit every style and budget.</p>
-    </div>
-    <a href="#contact" class="btn btn-outline reveal reveal-delay-2">View All Products </a>
-  </div>
-
-  <div class="products-grid">
-    <!-- Tile - Featured -->
-    <div class="prod-card featured reveal reveal-delay-1">
-      <div class="prod-card-img">
-        <img src="https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=900&q=80&auto=format" alt="Tile Flooring">
-      </div>
-      <div class="prod-card-overlay">
-        <div class="prod-card-name">Tile & Stone</div>
-        <div class="prod-card-desc">Timeless elegance in ceramic, porcelain, and natural stone. Perfect for kitchens, bathrooms, and living spaces.</div>
-        <div class="prod-card-link">Explore Tile</div>
-      </div>
-    </div>
-
-    <!-- Hardwood -->
-    <div class="prod-card reveal reveal-delay-2">
-      <div class="prod-card-img">
-        <img src="https://images.unsplash.com/photo-1562516155-e0c1ee44059b?w=600&q=80&auto=format" alt="Hardwood Flooring">
-      </div>
-      <div class="prod-card-overlay">
-        <div class="prod-card-name">Hardwood</div>
-        <div class="prod-card-desc">Rich, natural beauty that adds lasting value to any home.</div>
-        <div class="prod-card-link">Explore Hardwood</div>
-      </div>
-    </div>
-
-    <!-- LVP -->
-    <div class="prod-card reveal reveal-delay-3">
-      <div class="prod-card-img">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format" alt="Luxury Vinyl Plank">
-      </div>
-      <div class="prod-card-overlay">
-        <div class="prod-card-name">Luxury Vinyl</div>
-        <div class="prod-card-desc">Waterproof, durable, and stunning - our most popular choice for families.</div>
-        <div class="prod-card-link">Explore LVP</div>
-      </div>
-    </div>
-
-    <!-- Laminate -->
-    <div class="prod-card reveal reveal-delay-4">
-      <div class="prod-card-img">
-        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80&auto=format" alt="Laminate Flooring">
-      </div>
-      <div class="prod-card-overlay">
-        <div class="prod-card-name">Laminate</div>
-        <div class="prod-card-desc">Wood and tile looks at an accessible price point without sacrificing quality.</div>
-        <div class="prod-card-link">Explore Laminate</div>
-      </div>
-    </div>
-
-    <!-- Carpet -->
-    <div class="prod-card reveal reveal-delay-5">
-      <div class="prod-card-img">
-        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=600&q=80&auto=format" alt="Carpet">
-      </div>
-      <div class="prod-card-overlay">
-        <div class="prod-card-name">Carpet</div>
-        <div class="prod-card-desc">Comfort, warmth, and style in a wide range of textures and colors.</div>
-        <div class="prod-card-link">Explore Carpet</div>
-      </div>
-    </div>
-  </div>
 </section>
-
-<!--  INSPIRATION SPLIT  -->
-<div class="inspo" id="inspo">
-  <div class="inspo-inner">
-    <div class="inspo-visual">
-      <img src="https://images.unsplash.com/photo-1600210491892-03d54730d689?w=900&q=80&auto=format" alt="Beautiful flooring in home interior">
-      <div class="inspo-visual-badge">Design Inspiration</div>
-    </div>
-    <div class="inspo-content">
-      <div class="section-label">Be Inspired</div>
-      <h2 class="section-title">Floors <em>make</em> the room</h2>
-      <p class="section-desc">Dream big with guides, ideas, and real project inspiration from Greater Houston homes.</p>
-      <div class="inspo-cards">
-        <div class="inspo-card">
-          <div class="inspo-card-icon"><span></span></div>
-          <div>
-            <strong>Complete Flooring Guides</strong>
-            <p>In-depth guides for every flooring type - from tile care to hardwood installation prep. Know what to expect before you buy.</p>
-          </div>
-        </div>
-        <div class="inspo-card">
-          <div class="inspo-card-icon"><span></span></div>
-          <div>
-            <strong>Shop by Style & Color</strong>
-            <p>Whether you're going for coastal, modern farmhouse, or sleek contemporary - find floors that match your aesthetic vision.</p>
-          </div>
-        </div>
-        <div class="inspo-card">
-          <div class="inspo-card-icon"><span></span></div>
-          <div>
-            <strong>How to Measure Your Space</strong>
-            <p>Simple, accurate measurement guides so you order the right amount every time. No waste, no shortfalls.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+<div class="ticker">
+<span class="ticker-item">Free Delivery in Greater Houston</span>
+<span class="ticker-item">10,000+ In-Stock SKUs</span>
+<span class="ticker-item">Professional Installation Available</span>
+<span class="ticker-item">Trade Discounts for Contractors</span>
+<span class="ticker-item">Financing Available</span>
+<span class="ticker-item">Family Owned Since 1998</span>
+<span class="ticker-item">Free Delivery in Greater Houston</span>
+<span class="ticker-item">10,000+ In-Stock SKUs</span>
+<span class="ticker-item">Professional Installation Available</span>
+<span class="ticker-item">Trade Discounts for Contractors</span>
+<span class="ticker-item">Financing Available</span>
+<span class="ticker-item">Family Owned Since 1998</span>
 </div>
-
-<!--  SUPPLIERS  -->
-<section class="suppliers" id="suppliers">
-  <div class="section-head reveal">
-    <div class="section-head-left">
-      <div class="section-label">Trusted Partners</div>
-      <h2 class="section-title">Premium brands, <em>outlet pricing</em></h2>
-      <p class="section-desc">We source directly from trusted manufacturers and distributors so you get top-tier flooring at genuinely competitive prices.</p>
-    </div>
-  </div>
-  <div class="suppliers-grid">
-    <div class="supplier-card reveal reveal-delay-1">
-      <div class="supplier-icon"></div>
-      <h3>Tile Center</h3>
-      <p>A premier tile source offering an extensive catalog of ceramic, porcelain, and specialty tiles for residential and commercial projects throughout Texas.</p>
-      <span class="supplier-tag">Tile & Porcelain</span>
-    </div>
-    <div class="supplier-card reveal reveal-delay-2">
-      <div class="supplier-icon"></div>
-      <h3>Tile Source</h3>
-      <p>Exclusive and trend-forward tile collections sourced from top manufacturers. From classic subway to large-format modern slabs, the range is exceptional.</p>
-      <span class="supplier-tag">Designer Tiles</span>
-    </div>
-    <div class="supplier-card reveal reveal-delay-3">
-      <div class="supplier-icon"></div>
-      <h3>Coastline Collection</h3>
-      <p>Inspired by the Texas Gulf Coast - earthy tones, coastal textures, and natural materials that bring relaxed elegance to any home or business space.</p>
-      <span class="supplier-tag">Coastal Inspired</span>
-    </div>
-  </div>
-</section>
-
-<!--  WHY US  -->
-<section class="why" id="why">
-  <div class="section-head reveal">
-    <div class="section-head-left">
-      <div class="section-label">Why Flooring Outlet TX?</div>
-      <h2 class="section-title">More value, <em>less hassle</em></h2>
-      <p class="section-desc">We've cut out the middlemen and the markups. What you get is a direct, honest flooring experience from people who know floors.</p>
-    </div>
-  </div>
-  <div class="why-grid">
-    <div class="why-card reveal reveal-delay-1">
-      <span class="why-card-num">01</span>
-      <span class="why-card-icon"></span>
-      <h4>Genuine Outlet Pricing</h4>
-      <p>We operate with low overhead and direct supplier relationships - which means real savings passed straight to you. No inflated "sale" prices, just honest value.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-2">
-      <span class="why-card-num">02</span>
-      <span class="why-card-icon"></span>
-      <h4>Expert Guidance</h4>
-      <p>Not sure what flooring suits your lifestyle, traffic, or climate? Our Houston-area specialists help you choose with confidence - no pressure, just great advice.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-3">
-      <span class="why-card-num">03</span>
-      <span class="why-card-icon"></span>
-      <h4>Professional Installation</h4>
-      <p>Supply-only or full install - your choice. Our trusted install team serves the entire Houston area with the precision and care your floors deserve.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-4">
-      <span class="why-card-num">04</span>
-      <span class="why-card-icon"></span>
-      <h4>Wide Selection In-Stock</h4>
-      <p>We carry a deep, ready-to-go inventory so your project doesn't wait weeks for materials. Get started faster and finish on schedule.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-5">
-      <span class="why-card-num">05</span>
-      <span class="why-card-icon"></span>
-      <h4>Top-Tier Brands</h4>
-      <p>From Tile Center's extensive ceramic range to the stunning Coastline Collection - we bring premium manufacturer relationships directly to you.</p>
-    </div>
-    <div class="why-card reveal reveal-delay-1">
-      <span class="why-card-num">06</span>
-      <span class="why-card-icon"></span>
-      <h4>Local Houston Roots</h4>
-      <p>Proudly serving Katy, Sugar Land, Cypress, Pearland, The Woodlands, Spring, and all of Greater Houston. We're your neighbors - and we plan to stay that way.</p>
-    </div>
-  </div>
-</section>
-
-<!--  VISUALIZER  -->
-<div class="visualizer">
-  <div class="visualizer-inner">
-    <div class="visualizer-content">
-      <div class="section-label">See It First</div>
-      <h2 class="section-title" style="color:var(--white)">Why wait? <em style="color:rgba(255,255,255,0.85);font-style:italic">See your floor now.</em></h2>
-      <p class="section-desc">Bring in a photo of your space and let our team help you visualize different floors before you commit. Or visit our showroom and walk the samples yourself.</p>
-      <a href="#contact" class="btn" style="background:var(--white);color:var(--terra);border:2px solid var(--white);display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:4px;width:fit-content;transition:all .3s">Book a Showroom Visit</a>
-    </div>
-    <div class="visualizer-img">
-      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80&auto=format" alt="Beautiful flooring showroom">
-      <div class="visualizer-img-overlay">
-        <div class="play-btn"></div>
-      </div>
-    </div>
-  </div>
 </div>
-
-<!--  TESTIMONIALS  -->
-<section class="testimonials" id="reviews">
-  <div class="section-head reveal">
-    <div class="section-head-left">
-      <div class="section-label">Customer Reviews</div>
-      <h2 class="section-title">What Houston homeowners <em>are saying</em></h2>
-    </div>
-    <a href="#contact" class="btn btn-outline reveal reveal-delay-2">Leave a Review </a>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="testimonial-stars"></div>
-      <p class="testimonial-text">Incredible selection and prices that actually make sense. I redid my entire kitchen and living room with tile from the Coastline Collection - came out absolutely stunning. The team was super helpful and honest.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar"></div>
-        <div>
-          <div class="testimonial-name">Maria G.</div>
-          <div class="testimonial-location">Sugar Land, TX</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-stars"></div>
-      <p class="testimonial-text">Did my whole house in LVP and it looks like a completely different home. They helped me pick the right color and thickness for my layout. Professional install crew was in and out in two days.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar"></div>
-        <div>
-          <div class="testimonial-name">James T.</div>
-          <div class="testimonial-location">Katy, TX</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-3">
-      <div class="testimonial-stars"></div>
-      <p class="testimonial-text">Best flooring experience I've had in Houston. No upselling, no runaround - just great product and real advice. Got commercial tile for my office space at a price that shocked me in the best way.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar"></div>
-        <div>
-          <div class="testimonial-name">David R.</div>
-          <div class="testimonial-location">The Woodlands, TX</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ─── CATEGORIES ─── -->
+<section class="categories reveal">
+<div class="cat-header">
+<div>
+<p class="section-label">Browse By Category</p>
+<h2 class="section-title">Every Floor,<br/><em>Every Vision</em></h2>
+</div>
+<a class="view-all" href="#">View All Categories</a>
+</div>
+<div class="cat-grid">
+<a class="cat-card" data-tab="tile" href="#collections">
+<div class="cat-bg cat-bg-1"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Porcelain &amp;<br/>Ceramic Tile</span>
+<span class="cat-count">RAK Ceramics · Anda · Keystone · 2,400+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" data-tab="hardwood" href="#collections">
+<div class="cat-bg cat-bg-2"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Hardwood</span>
+<span class="cat-count">Johnson Hardwood · LW Flooring · Knoas · Argo · 850+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" data-tab="tile" href="#collections">
+<div class="cat-bg cat-bg-3"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Natural Stone</span>
+<span class="cat-count">RAK Ceramics · Piedmont · Duraston · 600+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" data-tab="lvp" href="#collections">
+<div class="cat-bg cat-bg-4"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">LVP / SPC</span>
+<span class="cat-count">Lions Floor · Republic · Fuzion · Legheds · 1,200+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" data-tab="other" href="#collections">
+<div class="cat-bg cat-bg-5"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Carpet &amp; Laminate</span>
+<span class="cat-count">Elephant Design · ABC Flooring · Lawson's · 400+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+</div>
 </section>
 
-<!--  CTA BANNER  -->
-<section class="cta-banner">
-  <div class="cta-banner-inner reveal">
-    <h2>Ready to transform your space?<br><strong>Let's make it happen.</strong></h2>
-    <p>Schedule your free consultation today. We'll help you find the perfect floor, measure your space accurately, and give you a no-nonsense quote.</p>
-    <div class="cta-actions">
-      <a href="#contact" class="btn btn-primary" style="padding:.85rem 2.5rem;font-size:.85rem;">Schedule Free Consultation</a>
-      <a href="tel:+12818619800" class="btn btn-ghost" style="padding:.85rem 2.5rem;font-size:.85rem;"> Call Us Today</a>
-    </div>
-  </div>
+<!-- ─── FEATURED PRODUCTS ─── -->
+<section class="products reveal" id="featured">
+<div class="products-header">
+<div>
+<p class="section-label">Editor's Picks</p>
+<h2 class="section-title">Trending <em>Right Now</em></h2>
+</div>
+<a class="view-all" href="#collections">View All Collections</a>
+</div>
+<div class="product-grid">
+<a class="product-card" data-tab="tile" href="#collections">
+<div class="product-img">
+<div class="product-swatch swatch-marble"></div>
+<span class="product-tag">Best Seller</span>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">RAK Ceramics</p>
+<p class="product-name">Calacatta Gold Maximus</p>
+<p class="product-size">24" × 48" Polished Porcelain Slab · Marble Effect</p>
+<p class="product-price">$4.89 / sq ft <span>$6.50</span></p>
+</div>
+</a>
+<a class="product-card" data-tab="hardwood" href="#collections">
+<div class="product-img">
+<div class="product-swatch swatch-travertine"></div>
+<span class="product-tag">New Arrival</span>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">Johnson Hardwood</p>
+<p class="product-name">Tuscan Collection — Hickory</p>
+<p class="product-size">4½" / 6" / 7½" Wide · Hand-Scraped Engineered</p>
+<p class="product-price">$5.20 / sq ft</p>
+</div>
+</a>
+<a class="product-card" data-tab="lvp" href="#collections">
+<div class="product-img">
+<div class="product-swatch swatch-slate"></div>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">Republic Floor</p>
+<p class="product-name">Woodland Oak — Valley Oak</p>
+<p class="product-size">9" × 60" SPC Rigid Core · 25-yr Residential Warranty</p>
+<p class="product-price">$3.89 / sq ft</p>
+</div>
+</a>
+<a class="product-card" data-tab="lvp" href="#collections">
+<div class="product-img">
+<div class="product-swatch swatch-wood"></div>
+<span class="product-tag">Sale</span>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">Fuzion Flooring</p>
+<p class="product-name">Dynamix HardCore 3DGE — Beach Sands</p>
+<p class="product-size">7" × 60" LVP · 6mm Waterproof Rigid Core</p>
+<p class="product-price">$3.79 / sq ft <span>$4.99</span></p>
+</div>
+</a>
+</div>
 </section>
-
-<!--  CONTACT  -->
-<section id="contact" style="background:var(--sand);padding:6rem 5rem;">
-  <div class="section-head reveal" style="margin-bottom:3rem;">
-    <div class="section-head-left">
-      <div class="section-label">Get in Touch</div>
-      <h2 class="section-title">Start your flooring <em>journey today</em></h2>
-      <p class="section-desc">Fill out the form below or give us a call. We'll get back to you within one business day with answers, ideas, and a free quote.</p>
-    </div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;" class="reveal">
-    <form style="display:flex;flex-direction:column;gap:1.25rem;" onsubmit="handleSubmit(event)">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-        <div>
-          <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">First Name</label>
-          <input type="text" placeholder="John" required style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
-        </div>
-        <div>
-          <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Last Name</label>
-          <input type="text" placeholder="Smith" required style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
-        </div>
-      </div>
-      <div>
-        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Phone Number</label>
-        <input type="tel" placeholder="(713) 555-0000" style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
-      </div>
-      <div>
-        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Email Address</label>
-        <input type="email" placeholder="john@email.com" style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
-      </div>
-      <div>
-        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Flooring Interest</label>
-        <select style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;cursor:pointer;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'">
-          <option value="">Select a flooring type...</option>
-          <option>Tile & Stone</option>
-          <option>Hardwood</option>
-          <option>Luxury Vinyl (LVP)</option>
-          <option>Laminate</option>
-          <option>Carpet</option>
-          <option>Not sure yet - need guidance</option>
-        </select>
-      </div>
-      <div>
-        <label style="display:block;font-size:0.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem;">Tell us about your project</label>
-        <textarea rows="4" placeholder="Square footage, rooms, timeline, budget range..." style="width:100%;padding:.8rem 1rem;border:1px solid #ddd6c8;border-radius:4px;font-family:var(--ff-body);font-size:.88rem;background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;resize:vertical;" onfocus="this.style.borderColor='var(--terra)'" onblur="this.style.borderColor='#ddd6c8'"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="padding:.9rem 2rem;font-size:.85rem;width:100%;justify-content:center;" id="submitBtn">Send My Request </button>
-      <p id="formMsg" style="display:none;text-align:center;font-size:.82rem;color:var(--terra);font-weight:500;"></p>
-    </form>
-    <div style="display:flex;flex-direction:column;gap:2rem;">
-      <div style="background:var(--white);border:1px solid #e5dfd4;border-radius:8px;padding:2.5rem;">
-        <h3 style="font-family:var(--ff-head);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem;">Contact Info</h3>
-        <div style="display:flex;flex-direction:column;gap:1.25rem;">
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;"></span>
-            <div>
-              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Phone</div>
-              <a href="tel:+12818619800" style="font-size:.95rem;font-weight:500;color:var(--terra);">(281) 861-9800</a>
-            </div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;"></span>
-            <div>
-              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Email</div>
-              <a href="mailto:sales.flooringoutlet@gmail.com" style="font-size:.88rem;font-weight:400;color:var(--terra);">sales.flooringoutlet@gmail.com</a>
-            </div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;"></span>
-            <div>
-              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Service Area</div>
-              <div style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;">15315 FM 529 RD #110<br>Houston, TX 77095<br><span style="color:var(--stone)">Serving Greater Houston: Katy, Cypress, Sugar Land, The Woodlands and more.</span></div>
-            </div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:1.2rem;flex-shrink:0;margin-top:.1rem;"></span>
-            <div>
-              <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem;">Hours</div>
-              <div style="font-size:.88rem;color:var(--ink-soft);line-height:1.8;">Mon - Fri: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 5:00 PM<br>Sunday: By Appointment</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="background:var(--terra);border-radius:8px;padding:2.5rem;position:relative;overflow:hidden;">
-        <div style="position:absolute;bottom:-2rem;right:-2rem;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.08);"></div>
-        <h4 style="font-family:var(--ff-head);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.75rem;">Free Measure & Quote</h4>
-        <p style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:1.5rem;font-weight:300;">Not sure how much flooring you need? We'll measure your space accurately and give you a precise, no-obligation quote - completely free.</p>
-        <a href="tel:+12818619800" class="btn" style="background:var(--white);color:var(--terra);border:2px solid var(--white);display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.65rem 1.5rem;border-radius:4px;transition:all .3s;width:fit-content;"> Call to Schedule</a>
-      </div>
-    </div>
-  </div>
+<!-- ─── BRAND COLLECTIONS ─── -->
+<section class="brand-collections reveal" id="collections">
+<div class="bc-header">
+<p class="section-label">Shop By Brand</p>
+<h2 class="section-title">16 Premium <em>Partners</em></h2>
+<p class="section-sub">We're authorized dealers for every brand below — shop in-store or request samples online.</p>
+</div>
+<div class="bc-tabs">
+<button class="bc-tab active" data-tab="hardwood">Hardwood</button>
+<button class="bc-tab" data-tab="lvp">LVP / SPC</button>
+<button class="bc-tab" data-tab="tile">Tile &amp; Stone</button>
+<button class="bc-tab" data-tab="other">Carpet &amp; More</button>
+</div>
+<!-- HARDWOOD TAB -->
+<div class="bc-panel active" id="tab-hardwood">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#8B6914 0%,#6B4F0E 40%,#9A7520 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood</p>
+<p class="bc-product">Grand Chateau Collection</p>
+<p class="bc-detail">European Oak · 7½" Wide · Hand-Scraped &amp; Wire-Brushed</p>
+<p class="bc-price">From $5.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#7A5C3A 0%,#5A3C1A 50%,#8A6C4A 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood</p>
+<p class="bc-product">British Isles Collection — Oak</p>
+<p class="bc-detail">Artisan Oak · Knots &amp; Mineral Streaks · Light / Dark Tones</p>
+<p class="bc-price">From $5.10 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C8A870 0%,#A88040 50%,#D4B47A 100%);background-image:repeating-linear-gradient(92deg,rgba(0,0,0,.08) 0,rgba(0,0,0,.08) 1px,transparent 1px,transparent 10px),linear-gradient(135deg,#C8A870,#A88040);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">LW Flooring</p>
+<p class="bc-product">Paradise Island Collection</p>
+<p class="bc-detail">European Oak · 10¼" Wide · 4mm Wire-Brushed Veneer · 5/8" Thick</p>
+<p class="bc-price">From $6.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#B09060 0%,#907040 50%,#C0A070 100%);background-image:repeating-linear-gradient(175deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 2px,transparent 2px,transparent 25px),linear-gradient(135deg,#B09060,#907040);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">LW Flooring</p>
+<p class="bc-product">French Impressions — Monet</p>
+<p class="bc-detail">European White Oak · 7" Wide · 3/8" Thick · Gentle Wire-Brushed</p>
+<p class="bc-price">From $5.90 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#6A4A2A 0%,#4A2A0A 50%,#7A5A3A 100%);background-image:repeating-linear-gradient(95deg,rgba(255,255,255,.07) 0,rgba(255,255,255,.07) 1px,transparent 1px,transparent 8px),linear-gradient(135deg,#6A4A2A,#4A2A0A);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">TruNorth — White Oak</p>
+<p class="bc-detail">8½" Wide · Air-Dried · Natural Fumed Finish · Zero Artificial Scraping</p>
+<p class="bc-price">From $7.27 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D4B890 0%,#B49060 50%,#E4C8A0 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">Homestead — Euro Oak Savanna</p>
+<p class="bc-detail">Wide Plank · 4mm Dry Sawn Face · Low Gloss · Engineered Multi-Ply</p>
+<p class="bc-price">From $6.50 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#9A7040 0%,#7A5020 50%,#AA8050 100%);background-image:repeating-linear-gradient(170deg,rgba(255,255,255,.06) 0,rgba(255,255,255,.06) 2px,transparent 2px,transparent 30px),linear-gradient(135deg,#9A7040,#7A5020);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Knoas Flooring</p>
+<p class="bc-product">Castle Collection — Wire Brushed Oak</p>
+<p class="bc-detail">Engineered Hardwood · 7½" Wide · UV Coating · VALSPAR® Stain</p>
+<p class="bc-price">From $4.20 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#E0C8A0 0%,#C0A880 50%,#D8B888 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Argo</p>
+<p class="bc-product">Argo Oak — Wide Plank Series</p>
+<p class="bc-detail">9/16" Thick · 7½" Sawn Lumber · Lightly Brushed · Vibrant Tones</p>
+<p class="bc-price">From $4.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- LVP TAB -->
+<div class="bc-panel" id="tab-lvp">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#A89060 0%,#887040 50%,#B8A070 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 1px,transparent 1px,transparent 12px),linear-gradient(135deg,#A89060,#887040);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Republic Floor</p>
+<p class="bc-product">Woodland Oak — Post Oak</p>
+<p class="bc-detail">SPC Max · 9" × 60" · 8mm · Bio-Guard Pad · 25-yr Residential</p>
+<p class="bc-price">$3.89 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#6A6058 0%,#4A4038 50%,#7A7068 100%);background-image:repeating-linear-gradient(92deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 9px),linear-gradient(135deg,#6A6058,#4A4038);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Republic Floor</p>
+<p class="bc-product">Walnut Hills — Granito Nero</p>
+<p class="bc-detail">Pure SPC · 9" Wide · Classic Elegance · 50-yr Residential Warranty</p>
+<p class="bc-price">$4.49 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D4C4A8 0%,#B4A488 50%,#C4B498 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lions Floor</p>
+<p class="bc-product">Lone Star Spirit Collection</p>
+<p class="bc-detail">SPC Rigid Core · FloorScore Certified · 100% Ecological · Waterproof</p>
+<p class="bc-price">From $3.20 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#8A7860 0%,#6A5840 50%,#9A8870 100%);background-image:repeating-linear-gradient(93deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 11px),linear-gradient(135deg,#8A7860,#6A5840);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lions Floor</p>
+<p class="bc-product">Uptown Collection — Capitol Hill</p>
+<p class="bc-detail">LVP Glue-Down · 7¼" × 48" · 12-mil Wear Layer · Multi-Family Grade</p>
+<p class="bc-price">From $2.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#7A6A50 0%,#5A4A30 50%,#8A7A60 100%);background-image:repeating-linear-gradient(95deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 7px),linear-gradient(135deg,#7A6A50,#5A4A30);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">Dynamix HardCore 3DGE — Claymore</p>
+<p class="bc-detail">7" × 48" LVP · 6mm · Waterproof · Beyond Expectation Series</p>
+<p class="bc-price">$3.79 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C0B0A0 0%,#A09080 50%,#D0C0B0 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">Dynamix Grande Tile — Zirconia</p>
+<p class="bc-detail">18" × 36" Vinyl Tile · Stone Look · Commercial Grade</p>
+<p class="bc-price">$1.67 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#B0A090 0%,#907870 50%,#C0A898 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) 1px,transparent 1px,transparent 10px),linear-gradient(135deg,#B0A090,#907870);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">LW Flooring</p>
+<p class="bc-product">Riverstone Collection</p>
+<p class="bc-detail">SPC Rigid Core Vinyl · 9" Wide · White Oak / Acacia / Hickory · Waterproof</p>
+<p class="bc-price">From $3.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#A09888 0%,#807868 50%,#B0A898 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Legheds Collections</p>
+<p class="bc-product">Rigid Core Plank Series</p>
+<p class="bc-detail">SPC Waterproof · Click-Lock · Residential &amp; Light Commercial</p>
+<p class="bc-price">From $2.90 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TILE TAB -->
+<div class="bc-panel" id="tab-tile">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:radial-gradient(ellipse at 30% 25%,rgba(255,255,255,.5) 0%,transparent 45%),linear-gradient(135deg,#E8E0D8 0%,#D4CCC4 40%,#E0D8D0 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">RAK Ceramics</p>
+<p class="bc-product">Calacatta Gold — Maximus Slab</p>
+<p class="bc-detail">120 × 260cm &amp; 60 × 120cm · Polished Finish · Full-Body Porcelain</p>
+<p class="bc-price">From $4.89 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:radial-gradient(ellipse at 60% 70%,rgba(200,180,160,.4) 0%,transparent 50%),linear-gradient(145deg,#D8D0C8 0%,#C4BCB4 50%,#CCC4BC 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">RAK Ceramics</p>
+<p class="bc-product">Carrara Grey Porcelain</p>
+<p class="bc-detail">24" × 48" · Rectified · Matte &amp; Polished Available · Floor &amp; Wall</p>
+<p class="bc-price">From $3.60 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C8B890 0%,#A89870 50%,#D8C8A0 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 24px),linear-gradient(135deg,#C8B890,#A89870);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">RAK Ceramics</p>
+<p class="bc-product">Travertine Cross Cut</p>
+<p class="bc-detail">Natural Stone Look · 12" × 24" &amp; 24" × 48" · Indoor / Outdoor</p>
+<p class="bc-price">From $3.20 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(145deg,#4A5058 0%,#383D45 50%,#505860 100%);background-image:repeating-linear-gradient(160deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 14px),linear-gradient(145deg,#4A5058,#383D45);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">RAK Ceramics</p>
+<p class="bc-product">City Stone Collection</p>
+<p class="bc-detail">Urban Concrete Effect · 24" × 24" · Commercial &amp; Residential</p>
+<p class="bc-price">From $2.90 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:radial-gradient(ellipse at 35% 30%,rgba(255,255,255,.35) 0%,transparent 40%),linear-gradient(135deg,#F0E8E0 0%,#D8D0C8 50%,#E8E0D8 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Anda</p>
+<p class="bc-product">Large Format Porcelain Series</p>
+<p class="bc-detail">24" × 48" &amp; 32" × 32" · Rectified Edges · Multiple Finishes</p>
+<p class="bc-price">From $3.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#E4D4B8 0%,#C4B498 50%,#D4C4A8 100%);background-image:repeating-conic-gradient(rgba(0,0,0,.04) 0% 25%,transparent 25% 50%) 0 0 / 20px 20px;"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Keystone</p>
+<p class="bc-product">Classic Ceramic Floor Tile</p>
+<p class="bc-detail">12" × 12" &amp; 18" × 18" · High-Traffic Rated · Easy Grout Maintenance</p>
+<p class="bc-price">From $1.85 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D0C0A8 0%,#B0A088 50%,#C8B898 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Piedmont</p>
+<p class="bc-product">Natural Stone Slate Collection</p>
+<p class="bc-detail">Hand-Finished Slate · 12" × 24" · Indoor / Outdoor · Pool Coping Available</p>
+<p class="bc-price">From $4.20 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#6A7868 0%,#4A5848 50%,#7A8878 100%);background-image:repeating-linear-gradient(60deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 18px),linear-gradient(135deg,#6A7868,#4A5848);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Duraston Collection</p>
+<p class="bc-product">Stone Composite Outdoor Series</p>
+<p class="bc-detail">20mm Thickness · Frost-Resistant · Patios · Driveways · Walkways</p>
+<p class="bc-price">From $5.10 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
+<!-- CARPET & MORE TAB -->
+<div class="bc-panel" id="tab-other">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#8A7868 0%,#6A5848 50%,#9A8878 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">ABC Flooring</p>
+<p class="bc-product">Commercial Carpet Tile Series</p>
+<p class="bc-detail">24" × 24" Modular · Stain-Resistant · Office &amp; Retail Grade</p>
+<p class="bc-price">From $2.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#7A6858 0%,#5A4838 50%,#8A7868 100%);background-image:repeating-linear-gradient(130deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 6px),linear-gradient(135deg,#7A6858,#5A4838);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Elephant Design</p>
+<p class="bc-product">Plush Residential Carpet</p>
+<p class="bc-detail">SmartStrand® Fiber · Fade-Resistant · Pet &amp; Family Friendly</p>
+<p class="bc-price">From $2.10 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C0A880 0%,#A08860 50%,#D0B890 100%);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 40px),linear-gradient(135deg,#C0A880,#A08860);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lawson's</p>
+<p class="bc-product">High-Performance Laminate</p>
+<p class="bc-detail">AC4 Wear Layer · 12mm · Water-Resistant Core · Easy Click Install</p>
+<p class="bc-price">From $2.60 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D4BC98 0%,#B49C78 50%,#C4AC88 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 1px,transparent 1px,transparent 40px),linear-gradient(135deg,#D4BC98,#B49C78);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lions Floor</p>
+<p class="bc-product">Comfort Heights Laminate — Village Park</p>
+<p class="bc-detail">60" × 9¼" · 12mm · AC4 Wear Layer · Water-Resistant</p>
+<p class="bc-price">From $2.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!--  FOOTER  -->
-<footer class="footer" id="footer">
-  <div class="footer-grid">
-    <!-- Brand -->
-    <div class="footer-brand">
-      <div class="logo">
-        <span class="logo-main">Flooring Outlet <span>TX</span></span>
-        <span class="logo-sub">Houston's Flooring Destination</span>
-      </div>
-      <p>Premium flooring at genuine outlet prices. Serving Greater Houston with top-tier tile, hardwood, luxury vinyl, laminate, and carpet - backed by honest expertise.</p>
-      <div class="footer-contact">
-        <a href="tel:+12818619800"><span class="ico"></span> (281) 861-9800</a>
-        <a href="mailto:sales.flooringoutlet@gmail.com"><span class="ico"></span> sales.flooringoutlet@gmail.com</a>
-        <a href="#"><span class="ico"></span> 15315 FM 529 RD #110, Houston, TX 77095</a>
-      </div>
-      <div class="footer-badge">
-        <span>Featured brands: </span>
-        <strong>Tile Center  Tile Source  Coastline Collection</strong>
-      </div>
-    </div>
-
-    <!-- Products -->
-    <div class="footer-col">
-      <h4>Products</h4>
-      <ul class="footer-links">
-        <li><a href="#products">Tile & Stone</a></li>
-        <li><a href="#products">Hardwood Flooring</a></li>
-        <li><a href="#products">Luxury Vinyl (LVP)</a></li>
-        <li><a href="#products">Laminate Flooring</a></li>
-        <li><a href="#products">Carpet</a></li>
-        <li><a href="#products">Area Rugs</a></li>
-        <li><a href="#contact">Flooring Accessories</a></li>
-      </ul>
-    </div>
-
-    <!-- Inspiration -->
-    <div class="footer-col">
-      <h4>Inspiration</h4>
-      <ul class="footer-links">
-        <li><a href="#inspo">Tile Flooring Guide</a></li>
-        <li><a href="#inspo">Hardwood Guide</a></li>
-        <li><a href="#inspo">LVP Buying Guide</a></li>
-        <li><a href="#inspo">Project Gallery</a></li>
-        <li><a href="#inspo">Design Ideas</a></li>
-        <li><a href="#inspo">How to Measure</a></li>
-        <li><a href="#inspo">Flooring FAQ</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact & Hours -->
-    <div class="footer-col">
-      <h4>Visit & Connect</h4>
-      <div class="footer-hours">
-        <p>
-          <strong>Monday - Friday</strong><br>
-          9:00 AM - 6:00 PM<br><br>
-          <strong>Saturday</strong><br>
-          9:00 AM - 5:00 PM<br><br>
-          <strong>Sunday</strong><br>
-          By Appointment Only
-        </p>
-      </div>
-      <ul class="footer-links" style="margin-top:1.5rem;">
-        <li><a href="#contact">Free Consultation</a></li>
-        <li><a href="#contact">Free Measure & Quote</a></li>
-        <li><a href="#reviews">Customer Reviews</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p> 2025 Flooring Outlet TX. All rights reserved. | flooringoutlettx.com</p>
-    <div class="footer-social">
-      <div class="social-btn" title="Facebook">f</div>
-      <div class="social-btn" title="Instagram">ig</div>
-      <div class="social-btn" title="Google">G</div>
-      <div class="social-btn" title="Houzz">H</div>
-    </div>
-  </div>
+<!-- ─── GALLERY STRIP ─── -->
+<div class="gallery-strip">
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-1"></div>
+<span class="gallery-panel-label">Living Rooms</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-2"></div>
+<span class="gallery-panel-label">Kitchens</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-3"></div>
+<span class="gallery-panel-label">Bathrooms</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-4"></div>
+<span class="gallery-panel-label">Outdoors</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-5"></div>
+<span class="gallery-panel-label">Commercial</span>
+</div>
+</div>
+<!-- ─── STATS ─── -->
+<div class="stats-section reveal">
+<div class="stats-left">
+<p class="section-label">Why Choose Us</p>
+<h2 class="section-title">The Gulf Coast's<br/><em>Most Trusted</em><br/>Flooring Source</h2>
+<p class="section-sub">Since 1998, Flooring Outlet TX has been the go-to destination for homeowners, designers, and builders across the Greater Houston area. Our buying power means better prices — passed directly to you.</p>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">25<sup>+</sup></div>
+<div class="stat-label">Years in Business</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">10K<sup>+</sup></div>
+<div class="stat-label">Products In-Stock</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">20K</div>
+<div class="stat-label">Sq Ft Showroom</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">5K<sup>+</sup></div>
+<div class="stat-label">Happy Customers</div>
+</div>
+</div>
+</div>
+<!-- ─── SERVICES ─── -->
+<section class="services reveal">
+<p class="section-label">What We Offer</p>
+<h2 class="section-title">More Than Just <em>Products</em></h2>
+<p class="section-sub">From selection to installation, we support your project every step of the way.</p>
+<div class="services-grid">
+<div class="service-card">
+<span class="service-icon">🏠</span>
+<h3 class="service-title">Free Design Consultation</h3>
+<p class="service-text">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🔧</span>
+<h3 class="service-title">Professional Installation</h3>
+<p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🚚</span>
+<h3 class="service-title">Fast Local Delivery</h3>
+<p class="service-text">In-stock orders ship to Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Contractor rush delivery available.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">💼</span>
+<h3 class="service-title">Contractor Trade Program</h3>
+<p class="service-text">Builders, remodelers, and designers get exclusive pricing, dedicated support, and flexible billing. Apply for a trade account in minutes.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🎨</span>
+<h3 class="service-title">Sample Ordering</h3>
+<p class="service-text">Can't decide in-store? Order samples delivered to your home. See how your shortlisted tiles and planks look under your actual lighting conditions.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">💳</span>
+<h3 class="service-title">Flexible Financing</h3>
+<p class="service-text">0% APR financing available for qualified buyers. Don't let budget hold back your vision — we have options to suit every project size.</p>
+</div>
+</div>
+</section>
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials reveal">
+<p class="section-label">Customer Stories</p>
+<h2 class="section-title">What Houston <em>Is Saying</em></h2>
+<div class="testi-grid">
+<div class="testi-card">
+<div class="stars">★★★★★</div>
+<div class="testi-quote">"</div>
+<p class="testi-text">The showroom blew me away. I came in looking for basic bathroom tile and left with a complete vision for my whole home. The staff didn't rush me for three hours.</p>
+<div class="testi-author">
+<div class="testi-avatar">MR</div>
+<div>
+<p class="testi-name">Maria R.</p>
+<p class="testi-loc">Sugar Land, TX</p>
+</div>
+</div>
+</div>
+<div class="testi-card">
+<div class="stars">★★★★★</div>
+<div class="testi-quote">"</div>
+<p class="testi-text">As a contractor I've tried a dozen flooring suppliers. Flooring Outlet TX wins on price, selection, and they actually have it in stock when they say they do.</p>
+<div class="testi-author">
+<div class="testi-avatar">JK</div>
+<div>
+<p class="testi-name">James K.</p>
+<p class="testi-loc">Katy, TX — Contractor</p>
+</div>
+</div>
+</div>
+<div class="testi-card">
+<div class="stars">★★★★★</div>
+<div class="testi-quote">"</div>
+<p class="testi-text">Redid our entire downstairs with LVP from here. The free measurement and installation referral made it so easy. We love how it turned out. Already recommending to neighbors.</p>
+<div class="testi-author">
+<div class="testi-avatar">TP</div>
+<div>
+<p class="testi-name">Tracy &amp; Paul</p>
+<p class="testi-loc">The Woodlands, TX</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── CTA ─── -->
+<div class="cta-banner reveal" id="showroom">
+<div class="cta-text">
+<p class="section-label">Visit Us Today</p>
+<h2 class="cta-title">20,000 sq ft of<br/>inspiration awaits.</h2>
+</div>
+<div class="cta-actions">
+<a class="btn-white" href="#">Get a Free Quote</a>
+<a class="btn-outline-white" href="#">Find Our Showroom</a>
+</div>
+</div>
+<!-- ─── FOOTER ─── -->
+<footer>
+<div class="footer-top">
+<div class="footer-brand">
+<a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
+<p>Houston's premier flooring destination for tile, hardwood, LVP, carpet, and natural stone. Serving the Greater Houston area since 1998.</p>
+<div class="footer-social">
+<a class="social-btn" href="#">f</a>
+<a class="social-btn" href="#">in</a>
+<a class="social-btn" href="#">ig</a>
+<a class="social-btn" href="#">p</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Products</h4>
+<ul>
+<li><a href="#porcelain">RAK Ceramics Tile</a></li>
+<li><a href="#hardwood">Johnson Hardwood</a></li>
+<li><a href="#hardwood">LW Flooring Engineered</a></li>
+<li><a href="#lvp">Republic Floor SPC</a></li>
+<li><a href="#lvp">Lions Floor LVP</a></li>
+<li><a href="#lvp">Fuzion Vinyl &amp; Laminate</a></li>
+<li><a href="#hardwood">Knoas &amp; Argo Hardwood</a></li>
+<li><a href="#other">Carpet &amp; Laminate</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<ul>
+<li><a href="#">Design Consultation</a></li>
+<li><a href="#">Installation</a></li>
+<li><a href="#">Sample Orders</a></li>
+<li><a href="#">Trade Program</a></li>
+<li><a href="#">Financing</a></li>
+<li><a href="#">Commercial Projects</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Visit</h4>
+<ul>
+<li><a href="#">Houston Showroom</a></li>
+<li><a href="#">Hours &amp; Directions</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">(281) 555-0100</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="footer-copy">© 2026 Flooring Outlet TX. Built by <a href="#">SNRG WEB</a>.</p>
+<div class="footer-legal">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+<a href="#">Sitemap</a>
+</div>
+</div>
 </footer>
-
-<!--  SCRIPTS  -->
 <script>
   /*  NAV SCROLL  */
-  const nav = document.getElementById('mainNav');
+  const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
   /*  HERO SLIDESHOW  */
@@ -1866,92 +1809,69 @@
   let slideTimer;
 
   function goToSlide(n) {
+    if (!slides.length) return;
     slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
+    dots[current]?.classList.remove('active');
     current = (n + slides.length) % slides.length;
     slides[current].classList.add('active');
-    dots[current].classList.add('active');
+    dots[current]?.classList.add('active');
   }
 
-  function nextSlide() {
-    goToSlide(current + 1);
+  function startTimer() {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => goToSlide(current + 1), 6500);
   }
 
-  function startSlideshow() {
-    slideTimer = setInterval(nextSlide, 6000);
-  }
-
-  dots.forEach((dot, i) => {
+  dots.forEach(dot => {
     dot.addEventListener('click', () => {
-      clearInterval(slideTimer);
-      goToSlide(i);
-      startSlideshow();
+      goToSlide(parseInt(dot.dataset.slide, 10));
+      startTimer();
     });
   });
 
-  startSlideshow();
+  startTimer();
 
-  /*  MOBILE NAV  */
-  const mobileNav = document.getElementById('mobileNav');
-  const navToggle = document.getElementById('navToggle');
-  const mobileClose = document.getElementById('mobileClose');
-  const mobileBackdrop = document.getElementById('mobileBackdrop');
+  /* ─── Tab activation helper */
+  function activateTab(tabName) {
+    if (!tabName) return;
+    document.querySelectorAll('.bc-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.bc-panel').forEach(p => p.classList.remove('active'));
+    const targetTab = document.querySelector(`.bc-tab[data-tab="${tabName}"]`);
+    const targetPanel = document.getElementById('tab-' + tabName);
+    if (targetTab)  targetTab.classList.add('active');
+    if (targetPanel) targetPanel.classList.add('active');
+  }
 
-  function openNav() { mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeNav() { mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
-
-  navToggle.addEventListener('click', openNav);
-  mobileClose.addEventListener('click', closeNav);
-  mobileBackdrop.addEventListener('click', closeNav);
-
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-
-  /*  SCROLL REVEAL  */
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        observer.unobserve(el.target);
+  /* ─── Wire all links with data-tab: activate tab then scroll to #collections */
+  document.querySelectorAll('a[data-tab]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const tabName = this.dataset.tab;
+      activateTab(tabName);
+      const dest = document.getElementById('collections');
+      if (dest) {
+        const offset = dest.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
-  revealEls.forEach(el => observer.observe(el));
-
-  /*  CONTACT FORM  */
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('formMsg');
-    btn.textContent = 'Sending...';
-    btn.style.opacity = '0.7';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = ' Message Sent!';
-      btn.style.background = '#3a7d44';
-      btn.style.borderColor = '#3a7d44';
-      btn.style.opacity = '1';
-      msg.style.display = 'block';
-      msg.textContent = "Thanks! We'll be in touch within 1 business day.";
-      e.target.reset();
-    }, 1400);
-  }
-
-  /*  NAV TOGGLE ANIMATION  */
-  navToggle.addEventListener('click', function() {
-    const spans = this.querySelectorAll('span');
-    if (mobileNav.classList.contains('open')) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-    }
   });
-  mobileClose.addEventListener('click', () => {
-    navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+
+  /* ─── Brand collection tab buttons (direct clicks on bc-tab) */
+  document.querySelectorAll('.bc-tab').forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.tab));
   });
+
+  /* ─── Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
 </script>
 </body>
 </html>
