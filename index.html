@@ -2102,10 +2102,9 @@ nav.scrolled .nav-cta{
 }
 .uc-sample-btn:hover { background:var(--terracotta); }
 </style>
-
-  <link rel="preload" as="image" href="./assets/hero/livingroom-hero.png">
-  <link rel="preload" as="image" href="./assets/hero/bathroom-hero.png">
-  <link rel="preload" as="image" href="./assets/hero/bedroom-hero.png">
+<link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
+<link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
+<link as="image" href="./assets/hero/bedroom-hero.png" rel="preload"/>
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -2113,26 +2112,23 @@ nav.scrolled .nav-cta{
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email&#160;protected]</span></a></span>
+<span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email protected]</span></a></span>
 </div><nav id="nav">
-  <a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
-
-  <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">
-    <span class="burger-line"></span>
-    <span class="burger-line"></span>
-    <span class="burger-line"></span>
-  </button>
-
-  <ul class="nav-links" aria-label="Products">
-    <li><a href="#tile-catalog" onclick="event.preventDefault();openCatalog('tile');">Tile</a></li>
-    <li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">Hardwood</a></li>
-    <li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">LVP / LVT</a></li>
-    <li><a href="#carpet-catalog" onclick="event.preventDefault();openCatalog('carpet');">Carpet</a></li>
-    <li><a href="#stone-catalog" onclick="event.preventDefault();openCatalog('stone');">Natural Stone</a></li>
-    <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
-  </ul>
-
-  <a class="nav-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Quote</a>
+<a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
+<button aria-expanded="false" aria-label="Menu" class="nav-burger" type="button">
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+</button>
+<ul aria-label="Products" class="nav-links">
+<li><a data-tab="tile" href="#collections">Tile</a></li>
+<li><a data-tab="hardwood" href="#collections">Hardwood</a></li>
+<li><a data-tab="lvp" href="#collections">LVP / LVT</a></li>
+<li><a data-tab="other" href="#collections">Carpet</a></li>
+<li><a data-tab="tile" href="#collections">Natural Stone</a></li>
+<li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
+</ul>
+<a class="nav-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -2194,7 +2190,7 @@ nav.scrolled .nav-cta{
 <a class="view-all" href="#">View All Categories</a>
 </div>
 <div class="cat-grid">
-<a class="cat-card" href="#tile-catalog" onclick="event.preventDefault();openCatalog('tile');">
+<a class="cat-card" data-tab="tile" href="#collections">
 <div class="cat-bg cat-bg-1"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -2203,7 +2199,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">
+<a class="cat-card" data-tab="hardwood" href="#collections">
 <div class="cat-bg cat-bg-2"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -2212,7 +2208,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" href="#stone-catalog" onclick="event.preventDefault();openCatalog('stone');">
+<a class="cat-card" data-tab="tile" href="#collections">
 <div class="cat-bg cat-bg-3"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -2221,7 +2217,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">
+<a class="cat-card" data-tab="lvp" href="#collections">
 <div class="cat-bg cat-bg-4"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -2230,7 +2226,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" href="#carpet-catalog" onclick="event.preventDefault();openCatalog('carpet');">
+<a class="cat-card" data-tab="other" href="#collections">
 <div class="cat-bg cat-bg-5"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -2241,156 +2237,150 @@ nav.scrolled .nav-cta{
 </a>
 </div>
 </section>
-
 <!-- ══════════════════════════════════════════
      JOHNSON HARDWOOD FULL CATALOG
 ══════════════════════════════════════════ -->
-<section id="jh-catalog" aria-label="Johnson Hardwood Collection">
-  <div class="jh-header">
-    <div>
-      <p class="section-label">Authorized Dealer · Johnson Hardwood</p>
-      <h2 class="section-title">Complete <em>Wood Collection</em></h2>
-      <p class="section-sub" id="jh-count">88 products across 8 series — available at our Houston showroom.</p>
-    </div>
-    <a class="view-all" href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener">View All on JohnsonHardwood.com →</a>
-  </div>
-  <div class="jh-series-tabs" id="jh-tabs" role="tablist">
-    <button class="jh-tab active" data-series="all">All Series <span class="cnt">88</span></button>
-    <button class="jh-tab" data-series="alehouse">Alehouse <span class="cnt">10</span></button>
-    <button class="jh-tab" data-series="grandchateau">Grand Chateau <span class="cnt">12</span></button>
-    <button class="jh-tab" data-series="englishpub">English Pub <span class="cnt">12</span></button>
-    <button class="jh-tab" data-series="tuscan">Tuscan <span class="cnt">12</span></button>
-    <button class="jh-tab" data-series="canyonridge">Canyon Ridge ★ <span class="cnt">6</span></button>
-    <button class="jh-tab" data-series="olympus">Olympus ★ <span class="cnt">6</span></button>
-    <button class="jh-tab" data-series="texastimber">Texas Timber ★ <span class="cnt">10</span></button>
-    <button class="jh-tab" data-series="countrysideoak">Countryside Oak ★ <span class="cnt">10</span></button>
-    <button class="jh-tab" data-series="oakgrove">Oak Grove <span class="cnt">10</span></button>
-  </div>
-  <div class="jh-grid" id="jh-grid" role="list"></div>
-  <div class="jh-pagination" id="jh-pagination"></div>
-  <p class="jh-pg-info" id="jh-pg-info"></p>
+<section aria-label="Johnson Hardwood Collection" id="jh-catalog">
+<div class="jh-header">
+<div>
+<p class="section-label">Authorized Dealer · Johnson Hardwood</p>
+<h2 class="section-title">Complete <em>Wood Collection</em></h2>
+<p class="section-sub" id="jh-count">88 products across 8 series — available at our Houston showroom.</p>
+</div>
+<a class="view-all" href="https://johnsonhardwood.com/products/" rel="noopener" target="_blank">View All on JohnsonHardwood.com →</a>
+</div>
+<div class="jh-series-tabs" id="jh-tabs" role="tablist">
+<button class="jh-tab active" data-series="all">All Series <span class="cnt">88</span></button>
+<button class="jh-tab" data-series="alehouse">Alehouse <span class="cnt">10</span></button>
+<button class="jh-tab" data-series="grandchateau">Grand Chateau <span class="cnt">12</span></button>
+<button class="jh-tab" data-series="englishpub">English Pub <span class="cnt">12</span></button>
+<button class="jh-tab" data-series="tuscan">Tuscan <span class="cnt">12</span></button>
+<button class="jh-tab" data-series="canyonridge">Canyon Ridge ★ <span class="cnt">6</span></button>
+<button class="jh-tab" data-series="olympus">Olympus ★ <span class="cnt">6</span></button>
+<button class="jh-tab" data-series="texastimber">Texas Timber ★ <span class="cnt">10</span></button>
+<button class="jh-tab" data-series="countrysideoak">Countryside Oak ★ <span class="cnt">10</span></button>
+<button class="jh-tab" data-series="oakgrove">Oak Grove <span class="cnt">10</span></button>
+</div>
+<div class="jh-grid" id="jh-grid" role="list"></div>
+<div class="jh-pagination" id="jh-pagination"></div>
+<p class="jh-pg-info" id="jh-pg-info"></p>
 </section>
-
 <!-- ══════════════════════════════════════════
      TILE & PORCELAIN CATALOG
 ══════════════════════════════════════════ -->
-<section class="uc-section" id="tile-catalog" aria-label="Tile & Porcelain Collection">
-  <div class="uc-banner">
-    <div class="uc-banner-left">
-      <div class="uc-type-icon">⬡</div>
-      <div>
-        <h2>Tile &amp; Porcelain</h2>
-        <p id="tile-subtitle">Loading collection...</p>
-      </div>
-    </div>
-    <div class="uc-banner-right">
-      <span class="uc-brand-count">8 Authorized Brands</span>
-    </div>
-  </div>
-  <div class="uc-brand-bar" id="tile-brands" role="tablist"></div>
-  <div class="uc-series-bar hidden" id="tile-series" role="tablist"></div>
-  <div class="uc-grid" id="tile-grid" role="list"></div>
-  <div class="uc-pagination" id="tile-pagination"></div>
-  <p class="uc-pg-info" id="tile-pg-info"></p>
-  <div class="uc-sample-bar">
-    <div>
-      <strong>Request Free Tile Samples</strong>
-      <p>Choose up to 5 samples — delivered to your door or pick up in-store.</p>
-    </div>
-    <button class="uc-sample-btn" onclick="openShowroomModal()">Request Samples →</button>
-  </div>
+<section aria-label="Tile &amp; Porcelain Collection" class="uc-section" id="tile-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">⬡</div>
+<div>
+<h2>Tile &amp; Porcelain</h2>
+<p id="tile-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">8 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="tile-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="tile-series" role="tablist"></div>
+<div class="uc-grid" id="tile-grid" role="list"></div>
+<div class="uc-pagination" id="tile-pagination"></div>
+<p class="uc-pg-info" id="tile-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>Request Free Tile Samples</strong>
+<p>Choose up to 5 samples — delivered to your door or pick up in-store.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Request Samples →</button>
+</div>
 </section>
-
 <!-- ══════════════════════════════════════════
      LVP / SPC CATALOG
 ══════════════════════════════════════════ -->
-<section class="uc-section" id="lvp-catalog" aria-label="LVP SPC Collection">
-  <div class="uc-banner">
-    <div class="uc-banner-left">
-      <div class="uc-type-icon">▭</div>
-      <div>
-        <h2>LVP &amp; SPC Flooring</h2>
-        <p id="lvp-subtitle">Loading collection...</p>
-      </div>
-    </div>
-    <div class="uc-banner-right">
-      <span class="uc-brand-count">7 Authorized Brands</span>
-    </div>
-  </div>
-  <div class="uc-brand-bar" id="lvp-brands" role="tablist"></div>
-  <div class="uc-series-bar hidden" id="lvp-series" role="tablist"></div>
-  <div class="uc-grid" id="lvp-grid" role="list"></div>
-  <div class="uc-pagination" id="lvp-pagination"></div>
-  <p class="uc-pg-info" id="lvp-pg-info"></p>
-  <div class="uc-sample-bar">
-    <div>
-      <strong>100% Waterproof — See It In Person</strong>
-      <p>Visit our Houston showroom to walk on samples and compare brands side-by-side.</p>
-    </div>
-    <button class="uc-sample-btn" onclick="openShowroomModal()">Visit Showroom →</button>
-  </div>
+<section aria-label="LVP SPC Collection" class="uc-section" id="lvp-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">▭</div>
+<div>
+<h2>LVP &amp; SPC Flooring</h2>
+<p id="lvp-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">7 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="lvp-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="lvp-series" role="tablist"></div>
+<div class="uc-grid" id="lvp-grid" role="list"></div>
+<div class="uc-pagination" id="lvp-pagination"></div>
+<p class="uc-pg-info" id="lvp-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>100% Waterproof — See It In Person</strong>
+<p>Visit our Houston showroom to walk on samples and compare brands side-by-side.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Visit Showroom →</button>
+</div>
 </section>
-
 <!-- ══════════════════════════════════════════
      CARPET & LAMINATE CATALOG
 ══════════════════════════════════════════ -->
-<section class="uc-section" id="carpet-catalog" aria-label="Carpet & Laminate Collection">
-  <div class="uc-banner">
-    <div class="uc-banner-left">
-      <div class="uc-type-icon">≋</div>
-      <div>
-        <h2>Carpet &amp; Laminate</h2>
-        <p id="carpet-subtitle">Loading collection...</p>
-      </div>
-    </div>
-    <div class="uc-banner-right">
-      <span class="uc-brand-count">7 Authorized Brands</span>
-    </div>
-  </div>
-  <div class="uc-brand-bar" id="carpet-brands" role="tablist"></div>
-  <div class="uc-series-bar hidden" id="carpet-series" role="tablist"></div>
-  <div class="uc-grid" id="carpet-grid" role="list"></div>
-  <div class="uc-pagination" id="carpet-pagination"></div>
-  <p class="uc-pg-info" id="carpet-pg-info"></p>
-  <div class="uc-sample-bar">
-    <div>
-      <strong>Comfort Underfoot, Value That Lasts</strong>
-      <p>Feel the difference in-store — our staff will help you find the perfect match.</p>
-    </div>
-    <button class="uc-sample-btn" onclick="openShowroomModal()">Get a Quote →</button>
-  </div>
+<section aria-label="Carpet &amp; Laminate Collection" class="uc-section" id="carpet-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">≋</div>
+<div>
+<h2>Carpet &amp; Laminate</h2>
+<p id="carpet-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">7 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="carpet-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="carpet-series" role="tablist"></div>
+<div class="uc-grid" id="carpet-grid" role="list"></div>
+<div class="uc-pagination" id="carpet-pagination"></div>
+<p class="uc-pg-info" id="carpet-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>Comfort Underfoot, Value That Lasts</strong>
+<p>Feel the difference in-store — our staff will help you find the perfect match.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Get a Quote →</button>
+</div>
 </section>
-
 <!-- ══════════════════════════════════════════
      NATURAL STONE CATALOG
 ══════════════════════════════════════════ -->
-<section class="uc-section" id="stone-catalog" aria-label="Natural Stone Collection">
-  <div class="uc-banner">
-    <div class="uc-banner-left">
-      <div class="uc-type-icon">◈</div>
-      <div>
-        <h2>Natural Stone</h2>
-        <p id="stone-subtitle">Loading collection...</p>
-      </div>
-    </div>
-    <div class="uc-banner-right">
-      <span class="uc-brand-count">6 Authorized Brands</span>
-    </div>
-  </div>
-  <div class="uc-brand-bar" id="stone-brands" role="tablist"></div>
-  <div class="uc-series-bar hidden" id="stone-series" role="tablist"></div>
-  <div class="uc-grid" id="stone-grid" role="list"></div>
-  <div class="uc-pagination" id="stone-pagination"></div>
-  <p class="uc-pg-info" id="stone-pg-info"></p>
-  <div class="uc-sample-bar">
-    <div>
-      <strong>Timeless. Unique. Yours.</strong>
-      <p>Every natural stone piece is one-of-a-kind — visit our showroom for expert selection.</p>
-    </div>
-    <button class="uc-sample-btn" onclick="openShowroomModal()">Book Consultation →</button>
-  </div>
+<section aria-label="Natural Stone Collection" class="uc-section" id="stone-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">◈</div>
+<div>
+<h2>Natural Stone</h2>
+<p id="stone-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">6 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="stone-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="stone-series" role="tablist"></div>
+<div class="uc-grid" id="stone-grid" role="list"></div>
+<div class="uc-pagination" id="stone-pagination"></div>
+<p class="uc-pg-info" id="stone-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>Timeless. Unique. Yours.</strong>
+<p>Every natural stone piece is one-of-a-kind — visit our showroom for expert selection.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Book Consultation →</button>
+</div>
 </section>
-
 <!-- ─── FEATURED PRODUCTS ─── -->
 <section class="products reveal" id="featured">
 <div class="products-header">
@@ -2493,10 +2483,7 @@ nav.scrolled .nav-cta{
 <!-- BARLEY ALE CARD -->
 <div class="bc-card bc-card--alehouse" onclick="openProductModal('barleyale')">
 <div class="bc-swatch" style="position:relative;overflow:hidden;">
-  <img src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg"
-       alt="Barley Ale Hardwood"
-       style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-       onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#C4994A 0%,#A07830 50%,#D4AA5A 100%)';" />
+<img alt="Barley Ale Hardwood" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#C4994A 0%,#A07830 50%,#D4AA5A 100%)';" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"/>
 </div>
 <div class="bc-card-info">
 <p class="bc-brand">Johnson Hardwood · Alehouse Series</p>
@@ -2509,10 +2496,7 @@ nav.scrolled .nav-cta{
 <!-- COPPER ALE CARD -->
 <div class="bc-card bc-card--alehouse" onclick="openProductModal('copperale')">
 <div class="bc-swatch" style="position:relative;overflow:hidden;">
-  <img src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg"
-       alt="Copper Ale Hardwood"
-       style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-       onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#B07A3A 0%,#8A5418 50%,#C08A4A 100%)';" />
+<img alt="Copper Ale Hardwood" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#B07A3A 0%,#8A5418 50%,#C08A4A 100%)';" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"/>
 </div>
 <div class="bc-card-info">
 <p class="bc-brand">Johnson Hardwood · Alehouse Series</p>
@@ -2957,14 +2941,14 @@ nav.scrolled .nav-cta{
 <div class="footer-col">
 <h4>Products</h4>
 <ul>
-<li><a href="#tile-catalog" onclick="event.preventDefault();openCatalog('tile');">RAK Ceramics Tile</a></li>
-<li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">Johnson Hardwood</a></li>
-<li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">LW Flooring Engineered</a></li>
-<li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">Republic Floor SPC</a></li>
-<li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">Lions Floor LVP</a></li>
-<li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">Fuzion Vinyl &amp; Laminate</a></li>
-<li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">Knoas &amp; Argo Hardwood</a></li>
-<li><a href="#carpet-catalog" onclick="event.preventDefault();openCatalog('carpet');">Carpet &amp; Laminate</a></li>
+<li><a data-tab="tile" href="#collections">RAK Ceramics Tile</a></li>
+<li><a data-tab="hardwood" href="#collections">Johnson Hardwood</a></li>
+<li><a data-tab="hardwood" href="#collections">LW Flooring Engineered</a></li>
+<li><a data-tab="lvp" href="#collections">Republic Floor SPC</a></li>
+<li><a data-tab="lvp" href="#collections">Lions Floor LVP</a></li>
+<li><a data-tab="lvp" href="#collections">Fuzion Vinyl &amp; Laminate</a></li>
+<li><a data-tab="hardwood" href="#collections">Knoas &amp; Argo Hardwood</a></li>
+<li><a data-tab="other" href="#collections">Carpet &amp; Laminate</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -3002,162 +2986,147 @@ nav.scrolled .nav-cta{
 <!-- ═══════════════════════════════════════════════════════════
      PRODUCT DETAIL MODAL — Barley Ale & Copper Ale
 ═══════════════════════════════════════════════════════════ -->
-<div class="product-modal-overlay" id="productModalOverlay" role="dialog" aria-modal="true" aria-label="Product Detail">
-  <button class="pmodal-close" onclick="closeProductModal()" aria-label="Close">✕</button>
-  <div class="product-modal" id="productModal">
-    <div class="pmodal-gallery">
-      <img class="pmodal-main-img" id="pmodal-main-img" src="" alt="" />
-      <div class="pmodal-thumbs" id="pmodal-thumbs"></div>
-    </div>
-    <div class="pmodal-info">
-      <p class="pmodal-series" id="pmodal-series"></p>
-      <h2 class="pmodal-title" id="pmodal-title"></h2>
-      <p class="pmodal-sku" id="pmodal-sku"></p>
-      <p class="pmodal-desc" id="pmodal-desc"></p>
-      <div class="pmodal-specs" id="pmodal-specs"></div>
-      <div class="pmodal-actions">
-        <a class="btn btn-primary" href="#" onclick="event.preventDefault();closeProductModal();openShowroomModal();">Visit Showroom to Order</a>
-        <a class="btn btn-ghost" id="pmodal-jh-link" href="#" target="_blank" rel="noopener"
-           style="background:var(--parchment);color:var(--charcoal);border:1px solid rgba(58,53,48,.2);">View on Johnson Hardwood →</a>
-      </div>
-    </div>
-  </div>
+<div aria-label="Product Detail" aria-modal="true" class="product-modal-overlay" id="productModalOverlay" role="dialog">
+<button aria-label="Close" class="pmodal-close" onclick="closeProductModal()">✕</button>
+<div class="product-modal" id="productModal">
+<div class="pmodal-gallery">
+<img alt="" class="pmodal-main-img" id="pmodal-main-img" src=""/>
+<div class="pmodal-thumbs" id="pmodal-thumbs"></div>
 </div>
-
+<div class="pmodal-info">
+<p class="pmodal-series" id="pmodal-series"></p>
+<h2 class="pmodal-title" id="pmodal-title"></h2>
+<p class="pmodal-sku" id="pmodal-sku"></p>
+<p class="pmodal-desc" id="pmodal-desc"></p>
+<div class="pmodal-specs" id="pmodal-specs"></div>
+<div class="pmodal-actions">
+<a class="btn btn-primary" href="#" onclick="event.preventDefault();closeProductModal();openShowroomModal();">Visit Showroom to Order</a>
+<a class="btn btn-ghost" href="#" id="pmodal-jh-link" rel="noopener" style="background:var(--parchment);color:var(--charcoal);border:1px solid rgba(58,53,48,.2);" target="_blank">View on Johnson Hardwood →</a>
+</div>
+</div>
+</div>
+</div>
 <!-- ═══════════════════════════════════════════════════════════
      SHOWROOM / CONTACT MODAL
 ═══════════════════════════════════════════════════════════ -->
-<div class="showroom-modal-overlay" id="showroomModalOverlay" role="dialog" aria-modal="true" aria-label="Contact Us">
-  <div class="showroom-modal">
-
-    <!-- LEFT — Info Panel -->
-    <div class="sm-left">
-      <button class="sm-close" onclick="closeShowroomModal()" aria-label="Close">✕</button>
-      <div>
-        <div class="sm-logo">Flooring <span>Outlet</span> TX</div>
-        <div class="sm-tagline">Houston's Premium Flooring Showroom</div>
-      </div>
-
-      <div class="sm-info-group">
-        <div class="sm-info-item">
-          <div class="sm-info-icon">📍</div>
-          <div class="sm-info-content">
-            <span class="sm-info-label">Showroom Address</span>
-            <span class="sm-info-value">15315 FM 529 Rd, Suite 110<br/>Houston, TX 77095</span>
-          </div>
-        </div>
-        <div class="sm-info-item">
-          <div class="sm-info-icon">📞</div>
-          <div class="sm-info-content">
-            <span class="sm-info-label">Phone</span>
-            <span class="sm-info-value"><a href="tel:+12818619800">(281) 861-9800</a></span>
-          </div>
-        </div>
-        <div class="sm-info-item">
-          <div class="sm-info-icon">✉️</div>
-          <div class="sm-info-content">
-            <span class="sm-info-label">Email</span>
-            <span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#026b6c646d42646e6d6d706b6c656d77766e6776767a2c616d6f"><span class="__cf_email__" data-cfemail="c1a8afa7ae81a7adaeaeb3a8afa6aeb4b5ada4b5b5b9efa2aeac">[email&#160;protected]</span></a></span>
-          </div>
-        </div>
-        <div class="sm-info-item">
-          <div class="sm-info-icon">🕐</div>
-          <div class="sm-info-content">
-            <span class="sm-info-label">Showroom Hours</span>
-            <div class="sm-hours-grid">
-              <span class="day">Mon – Fri</span><span>9:00 AM – 6:00 PM</span>
-              <span class="day">Saturday</span><span>9:00 AM – 5:00 PM</span>
-              <span class="day">Sunday</span><span>Closed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sm-map-embed">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.084!2d-95.6584!3d29.8371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640df6d0d9c3d3b%3A0x4b0c2f8e9a8c7d2f!2s15315%20FM%20529%20Rd%20%23110%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1700000000000"
-          allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Flooring Outlet TX Location"
-          aria-label="Map to Flooring Outlet TX showroom"></iframe>
-      </div>
-    </div>
-
-    <!-- RIGHT — Contact Form -->
-    <div class="sm-right">
-      <div>
-        <p class="sm-right-label">Visit Us · Request a Quote · Ask a Question</p>
-        <h2 class="sm-right-title">Let's Find Your<br/><em style="font-style:italic;color:var(--clay);">Perfect Floor</em></h2>
-        <p class="sm-right-sub">Stop by our 20,000 sq ft Houston showroom or send us a message — we'll get back to you within one business day.</p>
-      </div>
-
-      <form class="sm-form" id="showroomForm" onsubmit="handleShowroomSubmit(event)" novalidate>
-        <div class="sm-form-row">
-          <div class="sm-field">
-            <label for="sm-fname">First Name *</label>
-            <input type="text" id="sm-fname" name="firstName" placeholder="Jane" required autocomplete="given-name" />
-          </div>
-          <div class="sm-field">
-            <label for="sm-lname">Last Name *</label>
-            <input type="text" id="sm-lname" name="lastName" placeholder="Smith" required autocomplete="family-name" />
-          </div>
-        </div>
-        <div class="sm-form-row">
-          <div class="sm-field">
-            <label for="sm-email">Email Address *</label>
-            <input type="email" id="sm-email" name="email" placeholder="jane@email.com" required autocomplete="email" />
-          </div>
-          <div class="sm-field">
-            <label for="sm-phone">Phone Number</label>
-            <input type="tel" id="sm-phone" name="phone" placeholder="(713) 555-0100" autocomplete="tel" />
-          </div>
-        </div>
-        <div class="sm-field">
-          <label for="sm-interest">I'm Looking For</label>
-          <select id="sm-interest" name="interest">
-            <option value="">— Select a flooring type —</option>
-            <option value="hardwood">Hardwood Flooring</option>
-            <option value="alehouse-barley">Johnson Hardwood — Barley Ale (Alehouse)</option>
-            <option value="alehouse-copper">Johnson Hardwood — Copper Ale (Alehouse)</option>
-            <option value="lvp">LVP / SPC Flooring</option>
-            <option value="tile">Porcelain &amp; Ceramic Tile</option>
-            <option value="stone">Natural Stone</option>
-            <option value="carpet">Carpet &amp; Laminate</option>
-            <option value="design">Design Consultation</option>
-            <option value="installation">Installation Quote</option>
-            <option value="other">Something Else</option>
-          </select>
-        </div>
-        <div class="sm-field">
-          <label for="sm-sqft">Approximate Square Footage</label>
-          <select id="sm-sqft" name="sqft">
-            <option value="">— Select a range —</option>
-            <option>Under 500 sq ft</option>
-            <option>500 – 1,000 sq ft</option>
-            <option>1,000 – 2,000 sq ft</option>
-            <option>2,000 – 3,000 sq ft</option>
-            <option>3,000+ sq ft</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="sm-field">
-          <label for="sm-msg">Message</label>
-          <textarea id="sm-msg" name="message" placeholder="Tell us about your project, timeline, or any questions you have…"></textarea>
-        </div>
-        <button class="sm-submit" type="submit">Send Message &amp; Request Quote →</button>
-        <p class="sm-form-note">We respect your privacy. Your information is never shared with third parties.</p>
-      </form>
-
-      <div class="sm-success" id="sm-success-msg">
-        <div class="sm-success-icon">✓</div>
-        <h3>Message Received!</h3>
-        <p>Thank you — we'll be in touch within one business day.<br/>Feel free to also call us at <a href="tel:+12818619800" style="color:var(--clay)">(281) 861-9800</a>.</p>
-      </div>
-    </div>
-
-  </div>
+<div aria-label="Contact Us" aria-modal="true" class="showroom-modal-overlay" id="showroomModalOverlay" role="dialog">
+<div class="showroom-modal">
+<!-- LEFT — Info Panel -->
+<div class="sm-left">
+<button aria-label="Close" class="sm-close" onclick="closeShowroomModal()">✕</button>
+<div>
+<div class="sm-logo">Flooring <span>Outlet</span> TX</div>
+<div class="sm-tagline">Houston's Premium Flooring Showroom</div>
 </div>
-
+<div class="sm-info-group">
+<div class="sm-info-item">
+<div class="sm-info-icon">📍</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Showroom Address</span>
+<span class="sm-info-value">15315 FM 529 Rd, Suite 110<br/>Houston, TX 77095</span>
+</div>
+</div>
+<div class="sm-info-item">
+<div class="sm-info-icon">📞</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Phone</span>
+<span class="sm-info-value"><a href="tel:+12818619800">(281) 861-9800</a></span>
+</div>
+</div>
+<div class="sm-info-item">
+<div class="sm-info-icon">✉️</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Email</span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#026b6c646d42646e6d6d706b6c656d77766e6776767a2c616d6f"><span class="__cf_email__" data-cfemail="c1a8afa7ae81a7adaeaeb3a8afa6aeb4b5ada4b5b5b9efa2aeac">[email protected]</span></a></span>
+</div>
+</div>
+<div class="sm-info-item">
+<div class="sm-info-icon">🕐</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Showroom Hours</span>
+<div class="sm-hours-grid">
+<span class="day">Mon – Fri</span><span>9:00 AM – 6:00 PM</span>
+<span class="day">Saturday</span><span>9:00 AM – 5:00 PM</span>
+<span class="day">Sunday</span><span>Closed</span>
+</div>
+</div>
+</div>
+</div>
+<div class="sm-map-embed">
+<iframe allowfullscreen="" aria-label="Map to Flooring Outlet TX showroom" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.084!2d-95.6584!3d29.8371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640df6d0d9c3d3b%3A0x4b0c2f8e9a8c7d2f!2s15315%20FM%20529%20Rd%20%23110%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1700000000000" title="Flooring Outlet TX Location"></iframe>
+</div>
+</div>
+<!-- RIGHT — Contact Form -->
+<div class="sm-right">
+<div>
+<p class="sm-right-label">Visit Us · Request a Quote · Ask a Question</p>
+<h2 class="sm-right-title">Let's Find Your<br/><em style="font-style:italic;color:var(--clay);">Perfect Floor</em></h2>
+<p class="sm-right-sub">Stop by our 20,000 sq ft Houston showroom or send us a message — we'll get back to you within one business day.</p>
+</div>
+<form class="sm-form" id="showroomForm" novalidate="" onsubmit="handleShowroomSubmit(event)">
+<div class="sm-form-row">
+<div class="sm-field">
+<label for="sm-fname">First Name *</label>
+<input autocomplete="given-name" id="sm-fname" name="firstName" placeholder="Jane" required="" type="text"/>
+</div>
+<div class="sm-field">
+<label for="sm-lname">Last Name *</label>
+<input autocomplete="family-name" id="sm-lname" name="lastName" placeholder="Smith" required="" type="text"/>
+</div>
+</div>
+<div class="sm-form-row">
+<div class="sm-field">
+<label for="sm-email">Email Address *</label>
+<input autocomplete="email" id="sm-email" name="email" placeholder="jane@email.com" required="" type="email"/>
+</div>
+<div class="sm-field">
+<label for="sm-phone">Phone Number</label>
+<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(713) 555-0100" type="tel"/>
+</div>
+</div>
+<div class="sm-field">
+<label for="sm-interest">I'm Looking For</label>
+<select id="sm-interest" name="interest">
+<option value="">— Select a flooring type —</option>
+<option value="hardwood">Hardwood Flooring</option>
+<option value="alehouse-barley">Johnson Hardwood — Barley Ale (Alehouse)</option>
+<option value="alehouse-copper">Johnson Hardwood — Copper Ale (Alehouse)</option>
+<option value="lvp">LVP / SPC Flooring</option>
+<option value="tile">Porcelain &amp; Ceramic Tile</option>
+<option value="stone">Natural Stone</option>
+<option value="carpet">Carpet &amp; Laminate</option>
+<option value="design">Design Consultation</option>
+<option value="installation">Installation Quote</option>
+<option value="other">Something Else</option>
+</select>
+</div>
+<div class="sm-field">
+<label for="sm-sqft">Approximate Square Footage</label>
+<select id="sm-sqft" name="sqft">
+<option value="">— Select a range —</option>
+<option>Under 500 sq ft</option>
+<option>500 – 1,000 sq ft</option>
+<option>1,000 – 2,000 sq ft</option>
+<option>2,000 – 3,000 sq ft</option>
+<option>3,000+ sq ft</option>
+<option>Not sure yet</option>
+</select>
+</div>
+<div class="sm-field">
+<label for="sm-msg">Message</label>
+<textarea id="sm-msg" name="message" placeholder="Tell us about your project, timeline, or any questions you have…"></textarea>
+</div>
+<button class="sm-submit" type="submit">Send Message &amp; Request Quote →</button>
+<p class="sm-form-note">We respect your privacy. Your information is never shared with third parties.</p>
+</form>
+<div class="sm-success" id="sm-success-msg">
+<div class="sm-success-icon">✓</div>
+<h3>Message Received!</h3>
+<p>Thank you — we'll be in touch within one business day.<br/>Feel free to also call us at <a href="tel:+12818619800" style="color:var(--clay)">(281) 861-9800</a>.</p>
+</div>
+</div>
+</div>
+</div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
@@ -3234,7 +3203,6 @@ nav.scrolled .nav-cta{
   );
   reveals.forEach(el => obs.observe(el));
 </script>
-
 <script>
 (function(){
   const nav = document.getElementById('nav');
@@ -3275,7 +3243,6 @@ nav.scrolled .nav-cta{
   setNav();
 })();
 </script>
-
 <script>
 /* ═══════════════════════════════════════════════════════════
    PRODUCT DATA — Johnson Hardwood Alehouse
@@ -3390,7 +3357,6 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') { closeProductModal(); closeShowroomModal(); }
 });
 </script>
-
 <!-- ══════════════════════════════════════════
      JOHNSON HARDWOOD CATALOG — ALL 88 PRODUCTS
 ══════════════════════════════════════════ -->
@@ -3641,7 +3607,6 @@ document.querySelectorAll('.jh-tab').forEach(btn => {
   btn.addEventListener('click', () => jhFilter(btn.dataset.series));
 });
 </script>
-
 <!-- ══════════════════════════════════════════════════════════
      UNIVERSAL CATALOG ENGINE — TILE · LVP · CARPET · STONE
 ══════════════════════════════════════════════════════════ -->
