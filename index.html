@@ -1096,7 +1096,7 @@
     padding: 0.55rem 1.25rem;
     flex-wrap: wrap;
   }
-  .topbar a { color: rgba(255,255,255,0.7); transition: color 0.2s ease; }
+  .topbar a { color: rgba(255,255,255,0.7); transition: color 0.2s ease; text-decoration: none; }
   .topbar a:hover { color: var(--gold); }
   .topbar span { display: inline-flex; align-items: center; gap: 0.4rem; }
 
@@ -1105,17 +1105,7 @@
   }
 /* ─── UX COLOR TWEAKS (requested) ─── */
 /* “Shop Collections” button uses the same tone as the “Outlet Prices” highlight */
-.hero .hero-actions .btn-primary{
-  background: var(--outlet-prices);
-  color: var(--charcoal);
-  border-color: rgba(0,0,0,.18);
-  box-shadow: 0 12px 28px rgba(0,0,0,.22);
-}
-.hero .hero-actions .btn-primary:hover{
-  background: #ead1a9; /* slightly deeper on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(0,0,0,.28);
-}
+/* Shop Collections: gold color handled by base .btn-primary — override removed */
 
 /* “Every Floor, Every Vision” category product names: higher contrast + new color */
 .categories .cat-name{
@@ -1127,6 +1117,100 @@
   color: rgba(255,255,255,.78);
   text-shadow: 0 10px 22px rgba(0,0,0,.45);
 }
+
+/* === Button fixes (requested) === */
+/* HERO: Visit Showroom should be fully white */
+.hero-actions .btn.btn-ghost{
+  background:#FFFFFF !important;
+  color:#000000 !important;
+  border:1.5px solid rgba(0,0,0,.10) !important;
+  box-shadow:0 4px 12px rgba(0,0,0,.08) !important;
+}
+.hero-actions .btn.btn-ghost:hover{
+  background:#FFFFFF !important;
+  border-color:rgba(0,0,0,.18) !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.12) !important;
+}
+
+/* HEADER: Get a Quote should match Shop Collections gold with white text */
+a.nav-cta{
+  background:#C9A86A !important;
+  color:#FFFFFF !important;
+  border:none !important;
+  border-radius:999px !important;
+  padding:12px 16px !important;
+  font-weight:700 !important;
+  letter-spacing:.02em !important;
+  box-shadow:0 6px 18px rgba(0,0,0,.18) !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:44px !important;
+}
+a.nav-cta:hover{
+  filter:brightness(0.98) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.22) !important;
+}
+
+
+
+
+/* === FINAL OVERRIDES (wins all) === */
+/* Use the same color as the scrolling ticker/banner */
+:root{
+  --btn-banner: var(--classy-gold);
+}
+
+/* Shop Collections (hero primary) matches scrolling banner */
+/* Shop Collections gold — .btn-primary base style handles color; explicit lock below */
+.hero-actions .btn.btn-primary{
+  background: var(--classy-gold) !important;
+  color:#FFFFFF !important;
+  border: 1px solid rgba(0,0,0,.1) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18) !important;
+}
+.hero-actions .btn.btn-primary:hover{
+  background: #b89545 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.22) !important;
+}
+
+/* Header Get a Quote matches scrolling banner */
+a.nav-cta,
+a.nav-cta:visited{
+  background: var(--btn-banner) !important;
+  color:#FFFFFF !important;
+  border: none !important;
+}
+a.nav-cta:hover{
+  filter: brightness(.98) !important;
+}
+
+/* Visit Showroom button is FULL white */
+.hero-actions .btn.btn-ghost,
+.hero-actions .btn.btn-ghost:visited{
+  background:#FFFFFF !important;
+  color:#000000 !important;
+  border:1.5px solid rgba(0,0,0,.12) !important;
+}
+.hero-actions .btn.btn-ghost:hover{
+  background:#FFFFFF !important;
+  color:#000000 !important;
+  border-color: rgba(0,0,0,.20) !important;
+}
+
+/* Laptop display (900–1280px): clear topbar + fixed nav, match desktop spacing */
+@media (min-width: 900px) and (max-width: 1280px){
+  .hero {
+    padding-top: 111px; /* topbar ~35px + nav ~76px */
+    box-sizing: border-box;
+  }
+  .hero-content{
+    padding: 4rem 5rem 4rem !important;
+    margin: 0 0 3.5rem 0 !important;
+  }
+}
+
 </style>
 
   <link rel="preload" as="image" href="./assets/hero/livingroom-hero.png">
@@ -1139,7 +1223,7 @@
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="mailto:sales.flooringoutlet@gmail.com">sales.flooringoutlet@gmail.com</a></span>
+<span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
 </div><nav id="nav">
 <a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
 <ul class="nav-links">
@@ -1149,7 +1233,7 @@
 <li><a data-tab="other" href="#collections">Carpet</a></li>
 <li><a data-tab="tile" href="#collections">Natural Stone</a></li>
 <li><a href="#showroom">Showroom</a></li>
-<li><a class="nav-cta" href="#showroom"><span style="background:#C9A86A !important; color:#000000 !important; padding:12px 20px; border-radius:999px; display:inline-block;">Get a Quote</span></a></li>
+<li><a class="nav-cta" href="#showroom">Get a Quote</a></li>
 </ul>
 </nav>
 <!-- ─── HERO ─── -->
@@ -1172,7 +1256,7 @@
 <p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#collections">Shop Collections</a>
-<a class="btn btn-ghost" href="#showroom"><span style="color:#000000 !important;"><span style="background:#FFFFFF !important; color:#000000 !important; padding:12px 20px; border-radius:999px; display:inline-block;">Visit Showroom</span></span></a>
+<a class="btn btn-ghost" href="#showroom">Visit Showroom</a>
 </div>
 </div>
 <div class="hero-scroll">
@@ -1217,7 +1301,7 @@
 <div class="cat-overlay"></div>
 <div class="cat-info">
 <span class="cat-name">Porcelain &amp;<br/>Ceramic Tile</span>
-<span class="cat-count">RAK Ceramics · Anda · Keystone · 2,400+ Products</span>
+<span class="cat-count">2,400+ Products</span>
 </div>
 <div class="cat-arrow">→</div>
 </a>
@@ -1226,7 +1310,7 @@
 <div class="cat-overlay"></div>
 <div class="cat-info">
 <span class="cat-name">Hardwood</span>
-<span class="cat-count">Johnson Hardwood · LW Flooring · Knoas · Argo · 850+ Products</span>
+<span class="cat-count">850+ Products</span>
 </div>
 <div class="cat-arrow">→</div>
 </a>
@@ -1235,7 +1319,7 @@
 <div class="cat-overlay"></div>
 <div class="cat-info">
 <span class="cat-name">Natural Stone</span>
-<span class="cat-count">RAK Ceramics · Piedmont · Duraston · 600+ Products</span>
+<span class="cat-count">600+ Products</span>
 </div>
 <div class="cat-arrow">→</div>
 </a>
@@ -1244,7 +1328,7 @@
 <div class="cat-overlay"></div>
 <div class="cat-info">
 <span class="cat-name">LVP / SPC</span>
-<span class="cat-count">Lions Floor · Republic · Fuzion · Legheds · 1,200+ Products</span>
+<span class="cat-count">1,200+ Products</span>
 </div>
 <div class="cat-arrow">→</div>
 </a>
@@ -1253,7 +1337,7 @@
 <div class="cat-overlay"></div>
 <div class="cat-info">
 <span class="cat-name">Carpet &amp; Laminate</span>
-<span class="cat-count">Elephant Design · ABC Flooring · Lawson's · 400+ Products</span>
+<span class="cat-count">400+ Products</span>
 </div>
 <div class="cat-arrow">→</div>
 </a>
@@ -1836,7 +1920,7 @@
 </div>
 </div>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -1904,15 +1988,13 @@
 
   /* ─── Scroll reveal */
   const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => obs.observe(r));
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    }),
+    { threshold: 0.1 }
+  );
+  reveals.forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
