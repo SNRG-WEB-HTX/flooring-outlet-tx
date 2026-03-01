@@ -1553,6 +1553,554 @@ nav.scrolled .nav-cta{
   .hero{ padding-top: 92px !important; }
 }
 
+/* ─── ALEHOUSE CARD IMAGE HOVER ─── */
+.bc-card--alehouse { cursor: pointer; }
+.bc-card--alehouse:hover .bc-swatch img { transform: scale(1.06); }
+
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT DETAIL MODAL
+═══════════════════════════════════════════════════════════ */
+.product-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(20,18,16,.82);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity .4s ease, visibility .4s ease;
+  padding: 24px;
+}
+.product-modal-overlay.open { opacity: 1; visibility: visible; }
+.product-modal {
+  background: var(--white);
+  max-width: 1020px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr;
+  animation: modalIn .4s ease both;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.pmodal-close {
+  position: fixed; top: 24px; right: 24px; z-index: 1100;
+  width: 44px; height: 44px;
+  background: var(--charcoal);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1.2rem;
+  transition: background .2s;
+  pointer-events: all;
+}
+.pmodal-close:hover { background: var(--clay); }
+.pmodal-gallery {
+  position: relative;
+  background: var(--parchment);
+  overflow: hidden;
+}
+.pmodal-main-img {
+  width: 100%; aspect-ratio: 1/1; object-fit: cover;
+  display: block;
+  transition: opacity .3s ease;
+}
+.pmodal-thumbs {
+  display: flex; gap: 4px; padding: 8px;
+  background: var(--charcoal);
+  overflow-x: auto;
+}
+.pmodal-thumb {
+  width: 64px; height: 64px; flex-shrink: 0;
+  object-fit: cover; cursor: pointer;
+  opacity: .55; transition: opacity .2s;
+  border: 2px solid transparent;
+}
+.pmodal-thumb:hover { opacity: .85; }
+.pmodal-thumb.active { opacity: 1; border-color: var(--classy-gold); }
+.pmodal-info {
+  padding: 48px 40px;
+  display: flex; flex-direction: column; gap: 20px;
+  overflow-y: auto;
+}
+.pmodal-series {
+  font-size: .65rem; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--terracotta);
+}
+.pmodal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 300; line-height: 1.1;
+  color: var(--charcoal);
+}
+.pmodal-sku {
+  font-size: .72rem; color: var(--text-muted); letter-spacing: .1em;
+}
+.pmodal-desc {
+  font-size: .88rem; font-weight: 300; line-height: 1.75;
+  color: var(--stone); border-top: 1px solid rgba(58,53,48,.12);
+  padding-top: 20px;
+}
+.pmodal-specs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  border-top: 1px solid rgba(58,53,48,.12);
+  padding-top: 20px;
+}
+.pspec-item { display: flex; flex-direction: column; gap: 2px; }
+.pspec-label {
+  font-size: .65rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.pspec-value {
+  font-size: .88rem; font-weight: 400; color: var(--charcoal);
+}
+.pmodal-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  padding-top: 8px;
+}
+@media (max-width: 720px) {
+  .product-modal { grid-template-columns: 1fr; }
+  .pmodal-info { padding: 32px 24px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHOWROOM / CONTACT MODAL
+═══════════════════════════════════════════════════════════ */
+.showroom-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(20,18,16,.85);
+  backdrop-filter: blur(14px);
+  display: flex; align-items: stretch; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+.showroom-modal-overlay.open { opacity: 1; visibility: visible; }
+.showroom-modal {
+  background: var(--white);
+  width: 100%; max-width: 1200px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  overflow-y: auto;
+  animation: modalIn .45s ease both;
+  margin: 0 auto;
+}
+/* Left pane — dark info panel */
+.sm-left {
+  background: var(--charcoal);
+  padding: 80px 56px;
+  display: flex; flex-direction: column; gap: 48px;
+  position: relative; overflow: hidden;
+}
+.sm-left::before {
+  content: '';
+  position: absolute; bottom: -100px; right: -80px;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(198,167,94,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.sm-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 600;
+  color: var(--white); letter-spacing: .02em;
+}
+.sm-logo span { color: var(--classy-gold); }
+.sm-tagline {
+  font-size: .72rem; font-weight: 400; letter-spacing: .2em;
+  text-transform: uppercase; color: rgba(253,250,246,.45);
+  margin-top: 6px;
+}
+.sm-info-group { display: flex; flex-direction: column; gap: 28px; }
+.sm-info-item { display: flex; gap: 16px; align-items: flex-start; }
+.sm-info-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border: 1px solid rgba(198,167,94,.35);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--classy-gold); font-size: 1rem;
+}
+.sm-info-content { display: flex; flex-direction: column; gap: 3px; }
+.sm-info-label {
+  font-size: .62rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: rgba(253,250,246,.4);
+}
+.sm-info-value {
+  font-size: .9rem; font-weight: 300; line-height: 1.6;
+  color: rgba(253,250,246,.88);
+}
+.sm-info-value a { color: var(--classy-gold); text-decoration: none; }
+.sm-hours-grid {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 6px 24px;
+  font-size: .83rem; font-weight: 300;
+  color: rgba(253,250,246,.72);
+}
+.sm-hours-grid .day { color: rgba(253,250,246,.45); }
+.sm-map-embed {
+  flex: 1; min-height: 200px;
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: hidden;
+}
+.sm-map-embed iframe {
+  width: 100%; height: 100%; min-height: 200px;
+  filter: grayscale(60%) contrast(1.1);
+  border: none;
+}
+.sm-close {
+  position: absolute; top: 24px; right: 24px;
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: rgba(253,250,246,.7); font-size: 1.1rem;
+  transition: background .2s, color .2s;
+}
+.sm-close:hover { background: var(--clay); color: var(--white); border-color: var(--clay); }
+
+/* Right pane — form */
+.sm-right {
+  padding: 80px 56px;
+  display: flex; flex-direction: column; gap: 32px;
+  background: var(--white);
+}
+.sm-right-label {
+  font-size: .68rem; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--terracotta);
+}
+.sm-right-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 300; line-height: 1.12;
+  color: var(--charcoal);
+}
+.sm-right-sub {
+  font-size: .88rem; font-weight: 300; line-height: 1.7;
+  color: var(--text-muted); max-width: 400px;
+}
+.sm-form { display: flex; flex-direction: column; gap: 18px; }
+.sm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sm-field { display: flex; flex-direction: column; gap: 6px; }
+.sm-field label {
+  font-size: .65rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--stone);
+}
+.sm-field input,
+.sm-field select,
+.sm-field textarea {
+  font-family: 'Outfit', sans-serif;
+  font-size: .9rem; font-weight: 300;
+  color: var(--charcoal);
+  background: var(--parchment);
+  border: 1px solid rgba(58,53,48,.15);
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color .25s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.sm-field input:focus,
+.sm-field select:focus,
+.sm-field textarea:focus {
+  border-color: var(--classy-gold);
+  background: var(--white);
+}
+.sm-field textarea { resize: vertical; min-height: 110px; }
+.sm-field select { cursor: pointer; }
+.sm-submit {
+  margin-top: 8px;
+  background: var(--charcoal);
+  color: var(--white);
+  border: none; cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: .75rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  transition: background .25s, transform .2s;
+  align-self: flex-start;
+}
+.sm-submit:hover { background: var(--clay); transform: translateY(-2px); }
+.sm-form-note {
+  font-size: .75rem; font-weight: 300; color: var(--text-muted);
+}
+.sm-success {
+  display: none; text-align: center; padding: 48px 0;
+}
+.sm-success-icon { font-size: 3rem; margin-bottom: 16px; }
+.sm-success h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.sm-success p { font-size: .9rem; color: var(--text-muted); }
+
+@media (max-width: 860px) {
+  .showroom-modal { grid-template-columns: 1fr; }
+  .sm-left { padding: 60px 32px; }
+  .sm-right { padding: 48px 32px; }
+  .sm-right-title { font-size: 1.8rem; }
+}
+@media (max-width: 560px) {
+  .sm-form-row { grid-template-columns: 1fr; }
+  .sm-left { padding: 48px 24px; }
+  .sm-right { padding: 40px 24px; }
+}
+
+
+/* ══════════════════════════════════════════
+   JOHNSON HARDWOOD CATALOG SECTION
+══════════════════════════════════════════ */
+#jh-catalog {
+  background: var(--parchment);
+  max-height: 0; overflow: hidden; opacity: 0;
+  padding: 0 clamp(24px,5vw,80px);
+  transition: max-height .8s cubic-bezier(.16,1,.3,1), opacity .5s ease, padding .6s ease;
+  border-top: 0px solid transparent;
+}
+#jh-catalog.open {
+  max-height: 4000px; opacity: 1;
+  padding: 80px clamp(24px,5vw,80px);
+  border-top: 1px solid rgba(58,53,48,.1);
+}
+.jh-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; flex-wrap:wrap; gap:24px; }
+.jh-series-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:36px; }
+.jh-tab {
+  font-family:'Outfit',sans-serif; font-size:.68rem; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase;
+  padding:9px 18px; background:transparent;
+  border:1px solid rgba(58,53,48,.2); color:var(--stone);
+  cursor:pointer; transition:.2s;
+}
+.jh-tab:hover { border-color:var(--clay); color:var(--clay); }
+.jh-tab.active { background:var(--charcoal); color:var(--white); border-color:var(--charcoal); }
+.jh-tab .cnt { font-size:.58rem; opacity:.55; margin-left:5px; }
+.jh-tab.active .cnt { opacity:.7; }
+.jh-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:3px;
+}
+@media(max-width:1100px){ .jh-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:720px) { .jh-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:440px) { .jh-grid{ grid-template-columns:1fr; } }
+.jh-card {
+  background:var(--white); cursor:pointer;
+  display:flex; flex-direction:column; overflow:hidden;
+  transition:transform .25s, box-shadow .25s;
+  opacity:0; transform:translateY(14px);
+  animation:jhIn .4s ease forwards;
+}
+@keyframes jhIn { to{ opacity:1; transform:translateY(0); } }
+.jh-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.12); }
+.jh-card-img { position:relative; aspect-ratio:16/9; overflow:hidden; background:var(--parchment); }
+.jh-card-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; image-rendering:-webkit-optimize-contrast; }
+.jh-card:hover .jh-card-img img { transform:scale(1.06); }
+.jh-badge-series {
+  position:absolute; top:12px; left:12px;
+  background:rgba(20,18,16,.78); backdrop-filter:blur(6px);
+  color:var(--classy-gold); font-size:.56rem; font-weight:600;
+  letter-spacing:.15em; text-transform:uppercase; padding:4px 10px;
+}
+.jh-badge-new {
+  position:absolute; top:12px; right:12px;
+  background:var(--terracotta); color:var(--white);
+  font-size:.55rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; padding:4px 8px;
+}
+.jh-card-body { padding:18px 18px 22px; display:flex; flex-direction:column; gap:5px; }
+.jh-card-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--charcoal); }
+.jh-card-sku  { font-size:.6rem; letter-spacing:.09em; color:var(--text-muted); }
+.jh-card-spec { font-size:.73rem; color:var(--stone); line-height:1.5; }
+.jh-card-cta  { margin-top:10px; font-size:.66rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--clay); display:flex; align-items:center; gap:6px; transition:gap .2s; }
+.jh-card:hover .jh-card-cta { gap:10px; }
+/* Pagination */
+.jh-pagination { display:flex; align-items:center; justify-content:center; gap:5px; margin-top:52px; flex-wrap:wrap; }
+.jh-pg {
+  min-width:40px; height:40px; padding:0 8px;
+  border:1px solid rgba(58,53,48,.18); background:transparent;
+  font-family:'Outfit',sans-serif; font-size:.78rem; font-weight:500;
+  color:var(--stone); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:.2s;
+}
+.jh-pg:hover:not(:disabled) { border-color:var(--clay); color:var(--clay); }
+.jh-pg.active { background:var(--charcoal); color:var(--white); border-color:var(--charcoal); }
+.jh-pg:disabled { opacity:.3; cursor:default; }
+.jh-pg-info { text-align:center; margin-top:14px; font-size:.72rem; color:var(--text-muted); letter-spacing:.08em; }
+/* grid swap animation */
+.jh-grid.fade-out { animation:jhOut .18s ease forwards; }
+.jh-grid.fade-in  { animation:jhIn2 .3s ease forwards; }
+@keyframes jhOut { to{ opacity:0; transform:translateY(10px); } }
+@keyframes jhIn2 { from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:translateY(0); } }
+
+/* ══════════════════════════════════════════
+   UNIVERSAL PRODUCT CATALOG — ALL TYPES
+══════════════════════════════════════════ */
+.uc-section {
+  background: var(--parchment);
+  max-height: 0; overflow: hidden; opacity: 0;
+  padding: 0 clamp(24px,5vw,80px);
+  transition: max-height 1s cubic-bezier(.16,1,.3,1), opacity .5s ease, padding .6s ease;
+  border-top: 0px solid transparent;
+}
+.uc-section.open {
+  max-height: 6000px; opacity: 1;
+  padding: 80px clamp(24px,5vw,80px);
+  border-top: 1px solid rgba(58,53,48,.1);
+}
+/* ─── Type Banner ─── */
+.uc-banner {
+  background: var(--charcoal);
+  margin: 0 calc(-1 * clamp(24px,5vw,80px)) 0;
+  padding: 28px clamp(24px,5vw,80px);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  margin-bottom: 52px;
+}
+.uc-banner-left { display: flex; align-items: center; gap: 20px; }
+.uc-type-icon {
+  width: 52px; height: 52px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+.uc-banner h2 { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:400; color:var(--white); }
+.uc-banner p  { font-size:.75rem; color:rgba(255,255,255,.55); letter-spacing:.08em; margin-top:3px; }
+.uc-banner-right { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.uc-brand-count {
+  font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+  color:var(--classy-gold); background:rgba(193,154,80,.12);
+  border:1px solid rgba(193,154,80,.3); padding:6px 14px;
+}
+/* ─── Brand Filter Bar ─── */
+.uc-brand-bar {
+  display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px;
+}
+.uc-series-bar {
+  display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 36px;
+  padding-bottom: 24px; border-bottom: 1px solid rgba(58,53,48,.08);
+  min-height: 0;
+}
+.uc-series-bar.hidden { display: none; }
+.uc-brand-btn {
+  font-family:'Outfit',sans-serif; font-size:.66rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding: 9px 16px; background: transparent;
+  border: 1px solid rgba(58,53,48,.2); color: var(--stone);
+  cursor: pointer; transition: .2s; display:flex; align-items:center; gap:6px;
+}
+.uc-brand-btn:hover { border-color:var(--clay); color:var(--clay); }
+.uc-brand-btn.active { background:var(--charcoal); color:var(--white); border-color:var(--charcoal); }
+.uc-brand-btn .cnt { font-size:.58rem; opacity:.5; }
+.uc-brand-btn.active .cnt { opacity:.65; }
+.uc-series-btn {
+  font-family:'Outfit',sans-serif; font-size:.62rem; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding: 6px 13px; background: transparent;
+  border: 1px solid rgba(58,53,48,.15); color: var(--text-muted);
+  cursor: pointer; transition: .2s;
+}
+.uc-series-btn:hover { border-color:var(--clay); color:var(--clay); }
+.uc-series-btn.active { background:var(--clay); color:var(--white); border-color:var(--clay); }
+/* ─── Product Grid ─── */
+.uc-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 3px;
+}
+@media(max-width:1100px){ .uc-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:720px) { .uc-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:440px) { .uc-grid{ grid-template-columns:1fr; } }
+/* ─── Product Card ─── */
+.uc-card {
+  background: var(--white); cursor: pointer;
+  display: flex; flex-direction: column; overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+  opacity: 0; transform: translateY(14px);
+  animation: ucIn .4s ease forwards;
+}
+@keyframes ucIn { to{ opacity:1; transform:translateY(0); } }
+.uc-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.12); }
+/* Swatch */
+.uc-swatch {
+  aspect-ratio: 4/3; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+  background: var(--parchment);
+}
+.uc-swatch-img {
+  position:absolute; inset:0;
+  width:100%; height:100%; object-fit:cover;
+  transition: transform .5s, opacity .3s;
+  image-rendering: -webkit-optimize-contrast;
+}
+.uc-card:hover .uc-swatch-img { transform: scale(1.06); }
+.uc-swatch-bg {
+  position:absolute; inset:0;
+  transition: transform .5s;
+}
+.uc-card:hover .uc-swatch-bg { transform: scale(1.06); }
+.uc-swatch-texture {
+  position:absolute; inset:0; opacity:.18;
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 3px,
+    rgba(255,255,255,.12) 3px, rgba(255,255,255,.12) 4px
+  );
+}
+.uc-swatch-grain {
+  position:absolute; inset:0; opacity:.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.uc-brand-tag {
+  position:absolute; top:12px; left:12px; z-index:2;
+  background:rgba(20,18,16,.76); backdrop-filter:blur(8px);
+  color:var(--classy-gold); font-size:.54rem; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; padding:4px 10px;
+  white-space: nowrap;
+}
+.uc-new-tag {
+  position:absolute; top:12px; right:12px; z-index:2;
+  background:var(--terracotta); color:var(--white);
+  font-size:.52rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; padding:4px 9px;
+}
+.uc-finish-tag {
+  position:absolute; bottom:12px; right:12px; z-index:2;
+  background:rgba(255,255,255,.9);
+  color:var(--charcoal); font-size:.54rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; padding:3px 9px;
+}
+/* Card Body */
+.uc-card-body { padding:16px 18px 20px; display:flex; flex-direction:column; gap:4px; flex:1; }
+.uc-collection { font-size:.6rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.uc-card-name { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:400; color:var(--charcoal); line-height:1.3; }
+.uc-card-spec { font-size:.7rem; color:var(--stone); line-height:1.5; margin-top:3px; }
+.uc-card-cta {
+  margin-top:auto; padding-top:12px;
+  font-size:.64rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--clay); display:flex; align-items:center; gap:6px;
+  transition: gap .2s;
+}
+.uc-card:hover .uc-card-cta { gap:11px; }
+/* ─── Pagination (reuse jh- styles but scoped) ─── */
+.uc-pagination { display:flex; align-items:center; justify-content:center; gap:5px; margin-top:52px; flex-wrap:wrap; }
+.uc-pg {
+  min-width:40px; height:40px; padding:0 8px;
+  border:1px solid rgba(58,53,48,.18); background:transparent;
+  font-family:'Outfit',sans-serif; font-size:.78rem; font-weight:500;
+  color:var(--stone); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:.2s;
+}
+.uc-pg:hover:not(:disabled) { border-color:var(--clay); color:var(--clay); }
+.uc-pg.active { background:var(--charcoal); color:var(--white); border-color:var(--charcoal); }
+.uc-pg:disabled { opacity:.3; cursor:default; }
+.uc-pg-info { text-align:center; margin-top:14px; font-size:.72rem; color:var(--text-muted); letter-spacing:.08em; }
+.uc-grid.uc-fade-out { animation:jhOut .18s ease forwards; }
+.uc-grid.uc-fade-in  { animation:jhIn2 .3s ease forwards; }
+/* ─── CTA request samples bar ─── */
+.uc-sample-bar {
+  margin-top:56px; background:var(--charcoal);
+  padding:28px 36px; display:flex; align-items:center;
+  justify-content:space-between; flex-wrap:wrap; gap:20px;
+}
+.uc-sample-bar p { color:rgba(255,255,255,.7); font-size:.88rem; }
+.uc-sample-bar strong { color:var(--white); display:block; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:400; }
+.uc-sample-btn {
+  font-family:'Outfit',sans-serif; font-size:.68rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase;
+  padding:14px 28px; background:var(--clay); color:var(--white);
+  border:none; cursor:pointer; transition:background .2s;
+  white-space:nowrap;
+}
+.uc-sample-btn:hover { background:var(--terracotta); }
 </style>
 
   <link rel="preload" as="image" href="./assets/hero/livingroom-hero.png">
@@ -1565,7 +2113,7 @@ nav.scrolled .nav-cta{
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email&#160;protected]</span></a></span>
 </div><nav id="nav">
   <a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
 
@@ -1576,15 +2124,15 @@ nav.scrolled .nav-cta{
   </button>
 
   <ul class="nav-links" aria-label="Products">
-    <li><a data-tab="tile" href="#collections">Tile</a></li>
-    <li><a data-tab="hardwood" href="#collections">Hardwood</a></li>
-    <li><a data-tab="lvp" href="#collections">LVP / LVT</a></li>
-    <li><a data-tab="other" href="#collections">Carpet</a></li>
-    <li><a data-tab="tile" href="#collections">Natural Stone</a></li>
-    <li><a href="#showroom">Showroom</a></li>
+    <li><a href="#tile-catalog" onclick="event.preventDefault();openCatalog('tile');">Tile</a></li>
+    <li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">Hardwood</a></li>
+    <li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">LVP / LVT</a></li>
+    <li><a href="#carpet-catalog" onclick="event.preventDefault();openCatalog('carpet');">Carpet</a></li>
+    <li><a href="#stone-catalog" onclick="event.preventDefault();openCatalog('stone');">Natural Stone</a></li>
+    <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
   </ul>
 
-  <a class="nav-cta" href="#showroom">Get a Quote</a>
+  <a class="nav-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -1606,7 +2154,7 @@ nav.scrolled .nav-cta{
 <p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#collections">Shop Collections</a>
-<a class="btn btn-ghost" href="#showroom">Visit Showroom</a>
+<a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
 </div>
 </div>
 <div class="hero-scroll">
@@ -1646,7 +2194,7 @@ nav.scrolled .nav-cta{
 <a class="view-all" href="#">View All Categories</a>
 </div>
 <div class="cat-grid">
-<a class="cat-card" data-tab="tile" href="#collections">
+<a class="cat-card" href="#tile-catalog" onclick="event.preventDefault();openCatalog('tile');">
 <div class="cat-bg cat-bg-1"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -1655,7 +2203,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" data-tab="hardwood" href="#collections">
+<a class="cat-card" href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">
 <div class="cat-bg cat-bg-2"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -1664,7 +2212,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" data-tab="tile" href="#collections">
+<a class="cat-card" href="#stone-catalog" onclick="event.preventDefault();openCatalog('stone');">
 <div class="cat-bg cat-bg-3"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -1673,7 +2221,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" data-tab="lvp" href="#collections">
+<a class="cat-card" href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">
 <div class="cat-bg cat-bg-4"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -1682,7 +2230,7 @@ nav.scrolled .nav-cta{
 </div>
 <div class="cat-arrow">→</div>
 </a>
-<a class="cat-card" data-tab="other" href="#collections">
+<a class="cat-card" href="#carpet-catalog" onclick="event.preventDefault();openCatalog('carpet');">
 <div class="cat-bg cat-bg-5"></div>
 <div class="cat-overlay"></div>
 <div class="cat-info">
@@ -1692,6 +2240,155 @@ nav.scrolled .nav-cta{
 <div class="cat-arrow">→</div>
 </a>
 </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     JOHNSON HARDWOOD FULL CATALOG
+══════════════════════════════════════════ -->
+<section id="jh-catalog" aria-label="Johnson Hardwood Collection">
+  <div class="jh-header">
+    <div>
+      <p class="section-label">Authorized Dealer · Johnson Hardwood</p>
+      <h2 class="section-title">Complete <em>Wood Collection</em></h2>
+      <p class="section-sub" id="jh-count">88 products across 8 series — available at our Houston showroom.</p>
+    </div>
+    <a class="view-all" href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener">View All on JohnsonHardwood.com →</a>
+  </div>
+  <div class="jh-series-tabs" id="jh-tabs" role="tablist">
+    <button class="jh-tab active" data-series="all">All Series <span class="cnt">88</span></button>
+    <button class="jh-tab" data-series="alehouse">Alehouse <span class="cnt">10</span></button>
+    <button class="jh-tab" data-series="grandchateau">Grand Chateau <span class="cnt">12</span></button>
+    <button class="jh-tab" data-series="englishpub">English Pub <span class="cnt">12</span></button>
+    <button class="jh-tab" data-series="tuscan">Tuscan <span class="cnt">12</span></button>
+    <button class="jh-tab" data-series="canyonridge">Canyon Ridge ★ <span class="cnt">6</span></button>
+    <button class="jh-tab" data-series="olympus">Olympus ★ <span class="cnt">6</span></button>
+    <button class="jh-tab" data-series="texastimber">Texas Timber ★ <span class="cnt">10</span></button>
+    <button class="jh-tab" data-series="countrysideoak">Countryside Oak ★ <span class="cnt">10</span></button>
+    <button class="jh-tab" data-series="oakgrove">Oak Grove <span class="cnt">10</span></button>
+  </div>
+  <div class="jh-grid" id="jh-grid" role="list"></div>
+  <div class="jh-pagination" id="jh-pagination"></div>
+  <p class="jh-pg-info" id="jh-pg-info"></p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TILE & PORCELAIN CATALOG
+══════════════════════════════════════════ -->
+<section class="uc-section" id="tile-catalog" aria-label="Tile & Porcelain Collection">
+  <div class="uc-banner">
+    <div class="uc-banner-left">
+      <div class="uc-type-icon">⬡</div>
+      <div>
+        <h2>Tile &amp; Porcelain</h2>
+        <p id="tile-subtitle">Loading collection...</p>
+      </div>
+    </div>
+    <div class="uc-banner-right">
+      <span class="uc-brand-count">8 Authorized Brands</span>
+    </div>
+  </div>
+  <div class="uc-brand-bar" id="tile-brands" role="tablist"></div>
+  <div class="uc-series-bar hidden" id="tile-series" role="tablist"></div>
+  <div class="uc-grid" id="tile-grid" role="list"></div>
+  <div class="uc-pagination" id="tile-pagination"></div>
+  <p class="uc-pg-info" id="tile-pg-info"></p>
+  <div class="uc-sample-bar">
+    <div>
+      <strong>Request Free Tile Samples</strong>
+      <p>Choose up to 5 samples — delivered to your door or pick up in-store.</p>
+    </div>
+    <button class="uc-sample-btn" onclick="openShowroomModal()">Request Samples →</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     LVP / SPC CATALOG
+══════════════════════════════════════════ -->
+<section class="uc-section" id="lvp-catalog" aria-label="LVP SPC Collection">
+  <div class="uc-banner">
+    <div class="uc-banner-left">
+      <div class="uc-type-icon">▭</div>
+      <div>
+        <h2>LVP &amp; SPC Flooring</h2>
+        <p id="lvp-subtitle">Loading collection...</p>
+      </div>
+    </div>
+    <div class="uc-banner-right">
+      <span class="uc-brand-count">7 Authorized Brands</span>
+    </div>
+  </div>
+  <div class="uc-brand-bar" id="lvp-brands" role="tablist"></div>
+  <div class="uc-series-bar hidden" id="lvp-series" role="tablist"></div>
+  <div class="uc-grid" id="lvp-grid" role="list"></div>
+  <div class="uc-pagination" id="lvp-pagination"></div>
+  <p class="uc-pg-info" id="lvp-pg-info"></p>
+  <div class="uc-sample-bar">
+    <div>
+      <strong>100% Waterproof — See It In Person</strong>
+      <p>Visit our Houston showroom to walk on samples and compare brands side-by-side.</p>
+    </div>
+    <button class="uc-sample-btn" onclick="openShowroomModal()">Visit Showroom →</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CARPET & LAMINATE CATALOG
+══════════════════════════════════════════ -->
+<section class="uc-section" id="carpet-catalog" aria-label="Carpet & Laminate Collection">
+  <div class="uc-banner">
+    <div class="uc-banner-left">
+      <div class="uc-type-icon">≋</div>
+      <div>
+        <h2>Carpet &amp; Laminate</h2>
+        <p id="carpet-subtitle">Loading collection...</p>
+      </div>
+    </div>
+    <div class="uc-banner-right">
+      <span class="uc-brand-count">7 Authorized Brands</span>
+    </div>
+  </div>
+  <div class="uc-brand-bar" id="carpet-brands" role="tablist"></div>
+  <div class="uc-series-bar hidden" id="carpet-series" role="tablist"></div>
+  <div class="uc-grid" id="carpet-grid" role="list"></div>
+  <div class="uc-pagination" id="carpet-pagination"></div>
+  <p class="uc-pg-info" id="carpet-pg-info"></p>
+  <div class="uc-sample-bar">
+    <div>
+      <strong>Comfort Underfoot, Value That Lasts</strong>
+      <p>Feel the difference in-store — our staff will help you find the perfect match.</p>
+    </div>
+    <button class="uc-sample-btn" onclick="openShowroomModal()">Get a Quote →</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     NATURAL STONE CATALOG
+══════════════════════════════════════════ -->
+<section class="uc-section" id="stone-catalog" aria-label="Natural Stone Collection">
+  <div class="uc-banner">
+    <div class="uc-banner-left">
+      <div class="uc-type-icon">◈</div>
+      <div>
+        <h2>Natural Stone</h2>
+        <p id="stone-subtitle">Loading collection...</p>
+      </div>
+    </div>
+    <div class="uc-banner-right">
+      <span class="uc-brand-count">6 Authorized Brands</span>
+    </div>
+  </div>
+  <div class="uc-brand-bar" id="stone-brands" role="tablist"></div>
+  <div class="uc-series-bar hidden" id="stone-series" role="tablist"></div>
+  <div class="uc-grid" id="stone-grid" role="list"></div>
+  <div class="uc-pagination" id="stone-pagination"></div>
+  <p class="uc-pg-info" id="stone-pg-info"></p>
+  <div class="uc-sample-bar">
+    <div>
+      <strong>Timeless. Unique. Yours.</strong>
+      <p>Every natural stone piece is one-of-a-kind — visit our showroom for expert selection.</p>
+    </div>
+    <button class="uc-sample-btn" onclick="openShowroomModal()">Book Consultation →</button>
+  </div>
 </section>
 
 <!-- ─── FEATURED PRODUCTS ─── -->
@@ -1791,6 +2488,38 @@ nav.scrolled .nav-cta{
 <p class="bc-detail">Artisan Oak · Knots &amp; Mineral Streaks · Light / Dark Tones</p>
 <p class="bc-price">From $5.10 / sq ft</p>
 <a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<!-- BARLEY ALE CARD -->
+<div class="bc-card bc-card--alehouse" onclick="openProductModal('barleyale')">
+<div class="bc-swatch" style="position:relative;overflow:hidden;">
+  <img src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg"
+       alt="Barley Ale Hardwood"
+       style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
+       onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#C4994A 0%,#A07830 50%,#D4AA5A 100%)';" />
+</div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood · Alehouse Series</p>
+<p class="bc-product">Barley Ale — AME-AHM19004</p>
+<p class="bc-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Vintage · 35-yr Warranty</p>
+<p class="bc-price">Ask in-store for pricing</p>
+<a class="bc-link" href="#" onclick="event.preventDefault();openProductModal('barleyale')">View Product Details →</a>
+</div>
+</div>
+<!-- COPPER ALE CARD -->
+<div class="bc-card bc-card--alehouse" onclick="openProductModal('copperale')">
+<div class="bc-swatch" style="position:relative;overflow:hidden;">
+  <img src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg"
+       alt="Copper Ale Hardwood"
+       style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
+       onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#B07A3A 0%,#8A5418 50%,#C08A4A 100%)';" />
+</div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood · Alehouse Series</p>
+<p class="bc-product">Copper Ale — AME-AHM19003</p>
+<p class="bc-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Full Bevel · High Color Variation</p>
+<p class="bc-price">Ask in-store for pricing</p>
+<a class="bc-link" href="#" onclick="event.preventDefault();openProductModal('copperale')">View Product Details →</a>
 </div>
 </div>
 <div class="bc-card">
@@ -2208,8 +2937,8 @@ nav.scrolled .nav-cta{
 <h2 class="cta-title">20,000 sq ft of<br/>inspiration awaits.</h2>
 </div>
 <div class="cta-actions">
-<a class="btn-white" href="#">Get a Free Quote</a>
-<a class="btn-outline-white" href="#">Find Our Showroom</a>
+<a class="btn-white" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Free Quote</a>
+<a class="btn-outline-white" href="#" onclick="event.preventDefault();openShowroomModal();">Find Our Showroom</a>
 </div>
 </div>
 <!-- ─── FOOTER ─── -->
@@ -2228,14 +2957,14 @@ nav.scrolled .nav-cta{
 <div class="footer-col">
 <h4>Products</h4>
 <ul>
-<li><a href="#porcelain">RAK Ceramics Tile</a></li>
-<li><a href="#hardwood">Johnson Hardwood</a></li>
-<li><a href="#hardwood">LW Flooring Engineered</a></li>
-<li><a href="#lvp">Republic Floor SPC</a></li>
-<li><a href="#lvp">Lions Floor LVP</a></li>
-<li><a href="#lvp">Fuzion Vinyl &amp; Laminate</a></li>
-<li><a href="#hardwood">Knoas &amp; Argo Hardwood</a></li>
-<li><a href="#other">Carpet &amp; Laminate</a></li>
+<li><a href="#tile-catalog" onclick="event.preventDefault();openCatalog('tile');">RAK Ceramics Tile</a></li>
+<li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">Johnson Hardwood</a></li>
+<li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">LW Flooring Engineered</a></li>
+<li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">Republic Floor SPC</a></li>
+<li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">Lions Floor LVP</a></li>
+<li><a href="#lvp-catalog" onclick="event.preventDefault();openCatalog('lvp');">Fuzion Vinyl &amp; Laminate</a></li>
+<li><a href="#jh-catalog" onclick="event.preventDefault();openJHCatalog();">Knoas &amp; Argo Hardwood</a></li>
+<li><a href="#carpet-catalog" onclick="event.preventDefault();openCatalog('carpet');">Carpet &amp; Laminate</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -2270,7 +2999,166 @@ nav.scrolled .nav-cta{
 </div>
 </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<!-- ═══════════════════════════════════════════════════════════
+     PRODUCT DETAIL MODAL — Barley Ale & Copper Ale
+═══════════════════════════════════════════════════════════ -->
+<div class="product-modal-overlay" id="productModalOverlay" role="dialog" aria-modal="true" aria-label="Product Detail">
+  <button class="pmodal-close" onclick="closeProductModal()" aria-label="Close">✕</button>
+  <div class="product-modal" id="productModal">
+    <div class="pmodal-gallery">
+      <img class="pmodal-main-img" id="pmodal-main-img" src="" alt="" />
+      <div class="pmodal-thumbs" id="pmodal-thumbs"></div>
+    </div>
+    <div class="pmodal-info">
+      <p class="pmodal-series" id="pmodal-series"></p>
+      <h2 class="pmodal-title" id="pmodal-title"></h2>
+      <p class="pmodal-sku" id="pmodal-sku"></p>
+      <p class="pmodal-desc" id="pmodal-desc"></p>
+      <div class="pmodal-specs" id="pmodal-specs"></div>
+      <div class="pmodal-actions">
+        <a class="btn btn-primary" href="#" onclick="event.preventDefault();closeProductModal();openShowroomModal();">Visit Showroom to Order</a>
+        <a class="btn btn-ghost" id="pmodal-jh-link" href="#" target="_blank" rel="noopener"
+           style="background:var(--parchment);color:var(--charcoal);border:1px solid rgba(58,53,48,.2);">View on Johnson Hardwood →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SHOWROOM / CONTACT MODAL
+═══════════════════════════════════════════════════════════ -->
+<div class="showroom-modal-overlay" id="showroomModalOverlay" role="dialog" aria-modal="true" aria-label="Contact Us">
+  <div class="showroom-modal">
+
+    <!-- LEFT — Info Panel -->
+    <div class="sm-left">
+      <button class="sm-close" onclick="closeShowroomModal()" aria-label="Close">✕</button>
+      <div>
+        <div class="sm-logo">Flooring <span>Outlet</span> TX</div>
+        <div class="sm-tagline">Houston's Premium Flooring Showroom</div>
+      </div>
+
+      <div class="sm-info-group">
+        <div class="sm-info-item">
+          <div class="sm-info-icon">📍</div>
+          <div class="sm-info-content">
+            <span class="sm-info-label">Showroom Address</span>
+            <span class="sm-info-value">15315 FM 529 Rd, Suite 110<br/>Houston, TX 77095</span>
+          </div>
+        </div>
+        <div class="sm-info-item">
+          <div class="sm-info-icon">📞</div>
+          <div class="sm-info-content">
+            <span class="sm-info-label">Phone</span>
+            <span class="sm-info-value"><a href="tel:+12818619800">(281) 861-9800</a></span>
+          </div>
+        </div>
+        <div class="sm-info-item">
+          <div class="sm-info-icon">✉️</div>
+          <div class="sm-info-content">
+            <span class="sm-info-label">Email</span>
+            <span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#026b6c646d42646e6d6d706b6c656d77766e6776767a2c616d6f"><span class="__cf_email__" data-cfemail="c1a8afa7ae81a7adaeaeb3a8afa6aeb4b5ada4b5b5b9efa2aeac">[email&#160;protected]</span></a></span>
+          </div>
+        </div>
+        <div class="sm-info-item">
+          <div class="sm-info-icon">🕐</div>
+          <div class="sm-info-content">
+            <span class="sm-info-label">Showroom Hours</span>
+            <div class="sm-hours-grid">
+              <span class="day">Mon – Fri</span><span>9:00 AM – 6:00 PM</span>
+              <span class="day">Saturday</span><span>9:00 AM – 5:00 PM</span>
+              <span class="day">Sunday</span><span>Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sm-map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.084!2d-95.6584!3d29.8371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640df6d0d9c3d3b%3A0x4b0c2f8e9a8c7d2f!2s15315%20FM%20529%20Rd%20%23110%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1700000000000"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Flooring Outlet TX Location"
+          aria-label="Map to Flooring Outlet TX showroom"></iframe>
+      </div>
+    </div>
+
+    <!-- RIGHT — Contact Form -->
+    <div class="sm-right">
+      <div>
+        <p class="sm-right-label">Visit Us · Request a Quote · Ask a Question</p>
+        <h2 class="sm-right-title">Let's Find Your<br/><em style="font-style:italic;color:var(--clay);">Perfect Floor</em></h2>
+        <p class="sm-right-sub">Stop by our 20,000 sq ft Houston showroom or send us a message — we'll get back to you within one business day.</p>
+      </div>
+
+      <form class="sm-form" id="showroomForm" onsubmit="handleShowroomSubmit(event)" novalidate>
+        <div class="sm-form-row">
+          <div class="sm-field">
+            <label for="sm-fname">First Name *</label>
+            <input type="text" id="sm-fname" name="firstName" placeholder="Jane" required autocomplete="given-name" />
+          </div>
+          <div class="sm-field">
+            <label for="sm-lname">Last Name *</label>
+            <input type="text" id="sm-lname" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="sm-form-row">
+          <div class="sm-field">
+            <label for="sm-email">Email Address *</label>
+            <input type="email" id="sm-email" name="email" placeholder="jane@email.com" required autocomplete="email" />
+          </div>
+          <div class="sm-field">
+            <label for="sm-phone">Phone Number</label>
+            <input type="tel" id="sm-phone" name="phone" placeholder="(713) 555-0100" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="sm-field">
+          <label for="sm-interest">I'm Looking For</label>
+          <select id="sm-interest" name="interest">
+            <option value="">— Select a flooring type —</option>
+            <option value="hardwood">Hardwood Flooring</option>
+            <option value="alehouse-barley">Johnson Hardwood — Barley Ale (Alehouse)</option>
+            <option value="alehouse-copper">Johnson Hardwood — Copper Ale (Alehouse)</option>
+            <option value="lvp">LVP / SPC Flooring</option>
+            <option value="tile">Porcelain &amp; Ceramic Tile</option>
+            <option value="stone">Natural Stone</option>
+            <option value="carpet">Carpet &amp; Laminate</option>
+            <option value="design">Design Consultation</option>
+            <option value="installation">Installation Quote</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="sm-field">
+          <label for="sm-sqft">Approximate Square Footage</label>
+          <select id="sm-sqft" name="sqft">
+            <option value="">— Select a range —</option>
+            <option>Under 500 sq ft</option>
+            <option>500 – 1,000 sq ft</option>
+            <option>1,000 – 2,000 sq ft</option>
+            <option>2,000 – 3,000 sq ft</option>
+            <option>3,000+ sq ft</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="sm-field">
+          <label for="sm-msg">Message</label>
+          <textarea id="sm-msg" name="message" placeholder="Tell us about your project, timeline, or any questions you have…"></textarea>
+        </div>
+        <button class="sm-submit" type="submit">Send Message &amp; Request Quote →</button>
+        <p class="sm-form-note">We respect your privacy. Your information is never shared with third parties.</p>
+      </form>
+
+      <div class="sm-success" id="sm-success-msg">
+        <div class="sm-success-icon">✓</div>
+        <h3>Message Received!</h3>
+        <p>Thank you — we'll be in touch within one business day.<br/>Feel free to also call us at <a href="tel:+12818619800" style="color:var(--clay)">(281) 861-9800</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -2379,15 +3267,1766 @@ nav.scrolled .nav-cta{
   // Close on outside tap
   document.addEventListener('click', (e) => {
     if(!nav.classList.contains('menu-open')) return;
-    if(e.target.closest('#nav')) return;
-    closeMenu();
+ 
+    if(!e.target.closest('nav')) closeMenu();
   });
 
-  window.addEventListener('scroll', () => { setNav(); closeMenu(); }, {passive:true});
-  window.addEventListener('load', setNav, {passive:true});
+  window.addEventListener('scroll', setNav, { passive: true });
   setNav();
 })();
 </script>
 
+<script>
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT DATA — Johnson Hardwood Alehouse
+═══════════════════════════════════════════════════════════ */
+const PRODUCTS = {
+  barleyale: {
+    series: 'Johnson Hardwood · Alehouse Series · 2015 Best of Surfaces',
+    title: 'Barley Ale',
+    sku: 'SKU: AME-AHM19004',
+    desc: 'The Alehouse Series brings a totally unique flooring experience, starting with long-length planks up to seven feet. Barley Ale features a warm medium tone with an exclusive vintage-surface finish — hand-crafted by skilled artisans who bevel edges, fill checks, and wire-brush each plank individually. A multi-layer hand-staining process adds an inner glow that darkens toward the edges, creating timeworn warmth underfoot.',
+    specs: [
+      ['Construction','Engineered'],['Species','Maple'],['Texture','Wire-Brushed'],
+      ['Color Tone','Medium'],['Style','Vintage'],['Width','7-1/2"'],
+      ['Thickness','1/2"'],['Length','Up to 7 LF'],['Veneer','2.0mm'],
+      ['Finish','11-Step Aluminum Oxide'],['Gloss','Semi'],['Warranty','35-Year Limited Residential'],
+      ['Installation','Staple · Cleat · Glue · Float'],['Areas','On / Above / Below Grade']
+    ],
+    imgs: [
+      'https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg',
+      'https://johnsonhardwood.com/wp-content/uploads/2017/03/1y_ALE_BarleyAle_DSC_0487-e1582223509596.jpg',
+      'https://johnsonhardwood.com/wp-content/uploads/2017/03/1y_Alehouse_BarleyAle_detail02_DSC_0928-e1582223518273.jpg',
+      'https://johnsonhardwood.com/wp-content/uploads/2017/03/1y_Alehouse_AHM19004_BarleyAle_room-e1566402140297.jpg'
+    ],
+    jhUrl: 'https://johnsonhardwood.com/products/ame-ahm19004-barleyale/'
+  },
+  copperale: {
+    series: 'Johnson Hardwood · Alehouse Series · 2015 Best of Surfaces',
+    title: 'Copper Ale',
+    sku: 'SKU: AME-AHM19003',
+    desc: 'Copper Ale delivers a rich, warm hue inspired by the craft ale tradition. Like all Alehouse planks, each board is individually wire-brushed, beveled, and hand-stained by skilled craftsmen. High color variation from board to board creates a floor with brilliance and depth — the full-bevel edge profile adds dimensionality that defines premium vintage hardwood. One of eight rich colors that cross over with the award-winning Public House waterproof SPC series.',
+    specs: [
+      ['Construction','Engineered'],['Species','Maple'],['Texture','Wire-Brushed'],
+      ['Color Tone','Medium'],['Style','Vintage'],['Width','7-1/2"'],
+      ['Thickness','1/2"'],['Length','Up to 7 LF'],['Veneer','2.0mm'],
+      ['Finish','11-Step Aluminum Oxide'],['Gloss','Semi'],['Edge Style','Full Bevel'],
+      ['Color Variation','High'],['Warranty','35-Year Limited Residential'],
+      ['Installation','Staple · Cleat · Glue · Float'],['Areas','On / Above / Below Grade']
+    ],
+    imgs: [
+      'https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg',
+      'https://johnsonhardwood.com/wp-content/uploads/2017/03/1y_ALE_CopperAle_DSC_0485-e1582223473417.jpg',
+      'https://johnsonhardwood.com/wp-content/uploads/2017/03/1y_Alehouse_CopperAle_detail01_DSC_0906-e1582223482473.jpg',
+      'https://johnsonhardwood.com/wp-content/uploads/2017/03/1y_Alehouse_AHM19003_CopperAle_room-e1566401801724.jpg'
+    ],
+    jhUrl: 'https://johnsonhardwood.com/products/ame-ahm19003-copperale/'
+  }
+};
+
+/* ─── PRODUCT MODAL ─── */
+function openProductModal(productKey) {
+  const p = PRODUCTS[productKey];
+  if (!p) return;
+  document.getElementById('pmodal-series').textContent = p.series;
+  document.getElementById('pmodal-title').textContent = p.title;
+  document.getElementById('pmodal-sku').textContent = p.sku;
+  document.getElementById('pmodal-desc').textContent = p.desc;
+  document.getElementById('pmodal-jh-link').href = p.jhUrl;
+  const mainImg = document.getElementById('pmodal-main-img');
+  mainImg.src = p.imgs[0];
+  mainImg.alt = p.title + ' hardwood flooring';
+  const thumbsEl = document.getElementById('pmodal-thumbs');
+  thumbsEl.innerHTML = '';
+  p.imgs.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src; img.alt = p.title + ' view ' + (i+1);
+    img.className = 'pmodal-thumb' + (i === 0 ? ' active' : '');
+    img.onclick = () => {
+      mainImg.style.opacity = '0';
+      setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 200);
+      thumbsEl.querySelectorAll('.pmodal-thumb').forEach(t => t.classList.remove('active'));
+      img.classList.add('active');
+    };
+    thumbsEl.appendChild(img);
+  });
+  const specsEl = document.getElementById('pmodal-specs');
+  specsEl.innerHTML = p.specs.map(([label, value]) =>
+    '<div class="pspec-item"><span class="pspec-label">' + label + '</span><span class="pspec-value">' + value + '</span></div>'
+  ).join('');
+  document.getElementById('productModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeProductModal() {
+  document.getElementById('productModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ─── SHOWROOM MODAL ─── */
+function openShowroomModal() {
+  document.getElementById('showroomModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeShowroomModal() {
+  document.getElementById('showroomModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ─── FORM SUBMIT ─── */
+function handleShowroomSubmit(e) {
+  e.preventDefault();
+  document.getElementById('showroomForm').style.display = 'none';
+  document.getElementById('sm-success-msg').style.display = 'block';
+}
+
+/* ─── OVERLAY CLICK TO CLOSE ─── */
+document.getElementById('productModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeProductModal();
+});
+document.getElementById('showroomModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeShowroomModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeProductModal(); closeShowroomModal(); }
+});
+</script>
+
+<!-- ══════════════════════════════════════════
+     JOHNSON HARDWOOD CATALOG — ALL 88 PRODUCTS
+══════════════════════════════════════════ -->
+<script>
+const JH_BASE = 'https://johnsonhardwood.com/wp-content/uploads/';
+const JH_SERIES = {
+  alehouse:      { label:'Alehouse',        species:'Maple / European Oak', width:'7-1/2"', texture:'Wire-Brushed',       isNew:false },
+  grandchateau:  { label:'Grand Chateau',   species:'European Oak',         width:'8-5/8"', texture:'Light Wire-Brushed', isNew:false },
+  englishpub:    { label:'English Pub',     species:'Hickory / Maple',      width:'7-1/2"', texture:'Handscraped',        isNew:false },
+  tuscan:        { label:'Tuscan',          species:'Hickory / Maple / Walnut', width:'4½"–7½"', texture:'Handscraped / Wire-Brushed', isNew:false },
+  canyonridge:   { label:'Canyon Ridge',    species:'Hickory',              width:'7-1/2"', texture:'Light Wire-Brushed', isNew:true  },
+  olympus:       { label:'Olympus',         species:'Hickory / Oak',        width:'11-7/8"',texture:'Light Wire-Brushed', isNew:true  },
+  texastimber:   { label:'Texas Timber',    species:'European Oak',         width:'7-1/2"', texture:'Light Wire-Brushed', isNew:true  },
+  countrysideoak:{ label:'Countryside Oak', species:'European Oak',         width:'7-1/2"', texture:'Light Wire-Brushed', isNew:true  },
+  oakgrove:      { label:'Oak Grove',       species:'European Oak',         width:'7-1/2"', texture:'Light Wire-Brushed', isNew:false }
+};
+
+const JH_PRODUCTS = [
+  // ALEHOUSE
+  {id:'ale-1', s:'alehouse',      name:'Maibock',           sku:'AME-AHM19001', img:'2016/08/3j_Alehouse_AHM19001_Maibock_Full_web.jpg',          url:'https://johnsonhardwood.com/products/ame-ahm19001-maibock/'},
+  {id:'ale-2', s:'alehouse',      name:'Hefeweizen',        sku:'AME-AHM19002', img:'2017/02/2j_Alehouse_AHM19002_Hefeweizen_Full_web.jpg',        url:'https://johnsonhardwood.com/products/ame-ahm19002-hefeweizen/'},
+  {id:'ale-3', s:'alehouse',      name:'Copper Ale',        sku:'AME-AHM19003', img:'2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg',         url:'https://johnsonhardwood.com/products/ame-ahm19003-copperale/'},
+  {id:'ale-4', s:'alehouse',      name:'Barley Ale',        sku:'AME-AHM19004', img:'2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg',         url:'https://johnsonhardwood.com/products/ame-ahm19004-barleyale/'},
+  {id:'ale-5', s:'alehouse',      name:'Strawberry Blonde', sku:'AME-AHM19005', img:'2017/02/2j_Alehouse_AHM19005_StrwbryBlnd_Full_web.jpg',       url:'https://johnsonhardwood.com/products/ame-ahm19005-strawberryblonde/'},
+  {id:'ale-6', s:'alehouse',      name:'Doppelbock',        sku:'AME-AHM19006', img:'2017/02/3j_Alehouse_AHM19006_Doppelbock_Full_web.jpg',        url:'https://johnsonhardwood.com/products/ame-ahm19006-doppelbock/'},
+  {id:'ale-7', s:'alehouse',      name:'Belgian Wheat',     sku:'AME-AHO19007', img:'2017/03/1y_ALE_BelgianWheat_DSC_0347.jpg',                    url:'https://johnsonhardwood.com/products/ame-aho19007-belgianwheat/'},
+  {id:'ale-8', s:'alehouse',      name:'Marzen',            sku:'AME-AHO19008', img:'2017/02/1j_Alehouse_AHO19008_Marzen_Full_web.jpg',            url:'https://johnsonhardwood.com/products/ame-aho19008-marzen/'},
+  {id:'ale-9', s:'alehouse',      name:'Blonde',            sku:'AME-AHO19009', img:'2017/02/1j_Alehouse_AHO19009_Blonde_Full_web.jpg',            url:'https://johnsonhardwood.com/products/ame-aho19009-blonde/'},
+  {id:'ale-10',s:'alehouse',      name:'Saison',            sku:'AME-AHO19010', img:'2017/02/2j_Alehouse_AHO19010_Saison_Full_web.jpg',            url:'https://johnsonhardwood.com/products/ame-aho19010-saison/'},
+  // GRAND CHATEAU
+  {id:'gc-1',  s:'grandchateau',  name:'Chambord',          sku:'AME-GC22001',  img:'2019/09/GC_AME-GC22001_Chambord_full.jpg',                    url:'https://johnsonhardwood.com/products/ame-gc22001-chambord/'},
+  {id:'gc-2',  s:'grandchateau',  name:'Barnard',           sku:'AME-GC22002',  img:'2019/09/GC_AME-GC22002_Barnard_full.jpg',                     url:'https://johnsonhardwood.com/products/ame-gc22002-barnard/'},
+  {id:'gc-3',  s:'grandchateau',  name:'Valer',             sku:'AME-GC22003',  img:'2019/09/GC_AME-GC22003-Valer_full.jpg',                       url:'https://johnsonhardwood.com/products/ame-gc22003-valer/'},
+  {id:'gc-4',  s:'grandchateau',  name:'Alswick',           sku:'AME-GC22004',  img:'2019/09/GC_AME-GC22004-Alswick_full.jpg',                     url:'https://johnsonhardwood.com/products/ame-gc22004-alswick/'},
+  {id:'gc-5',  s:'grandchateau',  name:'Chillon',           sku:'AME-GC22005',  img:'2019/09/GC_AME-GC22005-Chillon_full.jpg',                     url:'https://johnsonhardwood.com/products/ame-gc22005-chillon/'},
+  {id:'gc-6',  s:'grandchateau',  name:'Corvin',            sku:'AME-GC22006',  img:'2019/09/GC_AME-GC22006-Corvin_full.jpg',                      url:'https://johnsonhardwood.com/products/ame-gc22006-corvin/'},
+  {id:'gc-7',  s:'grandchateau',  name:'Caerphilly',        sku:'AME-GC22007',  img:'2019/09/GC_AME-GC22007_Caerphilly_full.jpg',                  url:'https://johnsonhardwood.com/products/ame-gc22007-caerphilly/'},
+  {id:'gc-8',  s:'grandchateau',  name:'Malahide',          sku:'AME-GC22008',  img:'2019/09/GC_AME-GC22008_Malahide_full.jpg',                    url:'https://johnsonhardwood.com/products/ame-gc22008-malahide/'},
+  {id:'gc-9',  s:'grandchateau',  name:'Dover',             sku:'AME-GC22009',  img:'2019/09/GC_AME-GC22009_Dover_full.jpg',                       url:'https://johnsonhardwood.com/products/ame-gc22009-dover/'},
+  {id:'gc-10', s:'grandchateau',  name:'Taunton',           sku:'AME-GC22010',  img:'2019/09/GC_AME-GC22010_-Taunton_full.jpg',                    url:'https://johnsonhardwood.com/products/ame-gc22010-taunton/'},
+  {id:'gc-11', s:'grandchateau',  name:'Aydon',             sku:'AME-GC22011',  img:'2019/09/GC_AME-GC22011_Aydon_full.jpg',                       url:'https://johnsonhardwood.com/products/ame-gc22011-aydon/'},
+  {id:'gc-12', s:'grandchateau',  name:'Miranda',           sku:'AME-GC22012',  img:'2019/09/GC_AME-GC22012_Miranda_full.jpg',                     url:'https://johnsonhardwood.com/products/ame-gc22012-miranda/'},
+  // ENGLISH PUB
+  {id:'ep-1',  s:'englishpub',    name:'Smoked Bourbon',    sku:'AME-EM19001',  img:'2017/02/1j_EnglishPub_EM19001_SmokeBourbon_Full_web.jpg',      url:'https://johnsonhardwood.com/products/ame-em19001-smokedbourbon/'},
+  {id:'ep-2',  s:'englishpub',    name:'Whiskey',           sku:'AME-EM19002',  img:'2017/02/1j_EnglishPub_EM19002_Whiskey_Full_web.jpg',           url:'https://johnsonhardwood.com/products/ame-em19002-whiskey/'},
+  {id:'ep-3',  s:'englishpub',    name:'Brandy Wine',       sku:'AME-EM19003',  img:'2017/02/1j_EnglishPub_EM19003_BrandyWine_Full_web.jpg',        url:'https://johnsonhardwood.com/products/ame-em19003-brandywine/'},
+  {id:'ep-4',  s:'englishpub',    name:'Amber Ale',         sku:'AME-EM19004',  img:'2017/02/1j_EnglishPub_EM19004_AmberAle_Full_web.jpg',          url:'https://johnsonhardwood.com/products/ame-em19004-amberale/'},
+  {id:'ep-5',  s:'englishpub',    name:'Stout',             sku:'AME-EM19005',  img:'2016/08/1j_EnglishPub_EM19005_Stout_Full_web.jpg',             url:'https://johnsonhardwood.com/products/ame-em19005-stout/'},
+  {id:'ep-6',  s:'englishpub',    name:'Cognac',            sku:'AME-EM19006',  img:'2017/02/1j_EnglishPub_EM19006_Cognac_Full_web.jpg',            url:'https://johnsonhardwood.com/products/ame-em19006-cognac/'},
+  {id:'ep-7',  s:'englishpub',    name:'Moonshine',         sku:'AME-EM19007',  img:'2017/02/EnglishPub_EM19007_Moonshine_Full_web.jpg',            url:'https://johnsonhardwood.com/products/ame-em19007-moonshine/'},
+  {id:'ep-8',  s:'englishpub',    name:'Applejack',         sku:'AME-EH19001',  img:'2017/02/1j_EnglishPub_EH19001_AppleJack_Full_web.jpg',         url:'https://johnsonhardwood.com/products/ame-eh19001-applejack/'},
+  {id:'ep-9',  s:'englishpub',    name:'Rye',               sku:'AME-EH19002',  img:'2017/02/1j_EnglishPub_EH19002_Rye_Full_web.jpg',               url:'https://johnsonhardwood.com/products/ame-eh19002-rye/'},
+  {id:'ep-10', s:'englishpub',    name:'Porter',            sku:'AME-ESH19001', img:'2017/02/1j_EnglishPub_ESH19001_Porter_Full_web.jpg',           url:'https://johnsonhardwood.com/products/ame-esh19001-porter/'},
+  {id:'ep-11', s:'englishpub',    name:'Scotch',            sku:'AME-ESH19002', img:'2017/02/1j_EnglishPub_ESH19002_Scotch_Full_web.jpg',           url:'https://johnsonhardwood.com/products/ame-esh19002-scotch/'},
+  {id:'ep-12', s:'englishpub',    name:'Pilsner',           sku:'AME-ESH19003', img:'2017/02/1j_EnglishPub_ESH19003_Pilsner_Full_web.jpg',          url:'https://johnsonhardwood.com/products/ame-esh19003-pilsner/'},
+  // TUSCAN
+  {id:'tu-1',  s:'tuscan',        name:'Sienna',            sku:'AME-E46701',   img:'2017/03/1j_Tuscan_AME-E46701_Sienna_web.jpg',                  url:'https://johnsonhardwood.com/products/ame-e46701-sienna/'},
+  {id:'tu-2',  s:'tuscan',        name:'Florence',          sku:'AME-E46702',   img:'2017/03/1j_Tuscan_AME-E46702_Florence_web.jpg',                url:'https://johnsonhardwood.com/products/ame-e46702-florence/'},
+  {id:'tu-3',  s:'tuscan',        name:'Toscana',           sku:'AME-E46703',   img:'2017/03/1j_Tuscan_AME-E46703_Toscana_web.jpg',                 url:'https://johnsonhardwood.com/products/ame-e46703-toscana/'},
+  {id:'tu-4',  s:'tuscan',        name:'Palazzo',           sku:'AME-E46705',   img:'2017/03/1j_Tuscan_AME-E46705_Palazzo_web.jpg',                 url:'https://johnsonhardwood.com/products/ame-e46705-palazzo/'},
+  {id:'tu-5',  s:'tuscan',        name:'Lucca',             sku:'AME-E46706',   img:'2017/03/1j_Tuscan_AME-E46706_Lucca_web.jpg',                   url:'https://johnsonhardwood.com/products/ame-e46706-lucca/'},
+  {id:'tu-6',  s:'tuscan',        name:'Casentino',         sku:'AME-E46707',   img:'2017/03/1j_Tuscan_AME-E46707_Casentino_web.jpg',               url:'https://johnsonhardwood.com/products/ame-e46707-casentino/'},
+  {id:'tu-7',  s:'tuscan',        name:'Genoa',             sku:'AME-E46709',   img:'2018/05/1j_Tuscan_AME-E46709_Genoa_web.jpg',                   url:'https://johnsonhardwood.com/products/ame-e46709-genoa/'},
+  {id:'tu-8',  s:'tuscan',        name:'Catania',           sku:'AME-E46710',   img:'2018/05/1j_Tuscan_AME-E46710_Catania_web.jpg',                 url:'https://johnsonhardwood.com/products/ame-e46710-catania/'},
+  {id:'tu-9',  s:'tuscan',        name:'Arrezo',            sku:'AME-E46711',   img:'2018/05/1j_Tuscan_AME-E46711_Arrezo_web.jpg',                  url:'https://johnsonhardwood.com/products/ame-e46711-arrezo/'},
+  {id:'tu-10', s:'tuscan',        name:'Prato',             sku:'AME-E46712',   img:'2018/05/1j_Tuscan_AME-E46712_Prato_web.jpg',                   url:'https://johnsonhardwood.com/products/ame-e46712-prato/'},
+  {id:'tu-11', s:'tuscan',        name:'Sunset',            sku:'AME-EM46700',  img:'2017/03/1j_Tuscan_AME-EM46700_Sunset_web.jpg',                 url:'https://johnsonhardwood.com/products/ame-em46700-sunset/'},
+  {id:'tu-12', s:'tuscan',        name:'Verona',            sku:'AME-EM46705',  img:'2017/03/1j_Tuscan_AME-EM46705_Verona_web.jpg',                 url:'https://johnsonhardwood.com/products/ame-em46705-verona/'},
+  // CANYON RIDGE
+  {id:'cr-1',  s:'canyonridge',   name:'Sandstone',         sku:'AME-CRH19001', img:'2024/03/HICKORY-01-Sandstone_web.jpg',                         url:'https://johnsonhardwood.com/products/ame-crh19001-sandstone/'},
+  {id:'cr-2',  s:'canyonridge',   name:'Amber',             sku:'AME-CRH19002', img:'2024/03/HICKORY-02-Amber_web.jpg',                             url:'https://johnsonhardwood.com/products/ame-crh19002-amber/'},
+  {id:'cr-3',  s:'canyonridge',   name:'Jasper',            sku:'AME-CRH19003', img:'2024/03/HICKORY-03-Jasper_web.jpg',                            url:'https://johnsonhardwood.com/products/ame-crh19003-jasper/'},
+  {id:'cr-4',  s:'canyonridge',   name:'Topaz',             sku:'AME-CRH19004', img:'2024/03/HICKORY-04_Topaz_web.jpg',                             url:'https://johnsonhardwood.com/products/ame-crh19004-topaz/'},
+  {id:'cr-5',  s:'canyonridge',   name:'Moonstone',         sku:'AME-CRH19005', img:'2024/03/HICKORY-05-Moonstone_web.jpg',                         url:'https://johnsonhardwood.com/products/ame-crh19005-moonstone/'},
+  {id:'cr-6',  s:'canyonridge',   name:'Flint',             sku:'AME-CRH19006', img:'2024/03/HICKORY-06-Flint_web.jpg',                             url:'https://johnsonhardwood.com/products/ame-crh19006-flint/'},
+  // OLYMPUS
+  {id:'ol-1',  s:'olympus',       name:'Athena',            sku:'PL-OLH30001',  img:'2024/03/Olympus_PL-OLH30001-DV_Athena_web.jpg',                url:'https://johnsonhardwood.com/products/pl-olh30001-athena/'},
+  {id:'ol-2',  s:'olympus',       name:'Apollo',            sku:'PL-OLH30002',  img:'2024/03/Olympus_PL-OLH30002-DV_Apollo_web.jpg',                url:'https://johnsonhardwood.com/products/pl-olh30002-apollo/'},
+  {id:'ol-3',  s:'olympus',       name:'Ares',              sku:'PL-OLO30003',  img:'2024/03/Olympus_PL-OLO30003-DV_Ares_web.jpg',                  url:'https://johnsonhardwood.com/products/pl-olo30003-ares/'},
+  {id:'ol-4',  s:'olympus',       name:'Artemis',           sku:'PL-OLO30004',  img:'2024/03/Olympus_PL-OLO30004-DV_Artemis_web.jpg',               url:'https://johnsonhardwood.com/products/pl-olo30004-artemis/'},
+  {id:'ol-5',  s:'olympus',       name:'Zeus',              sku:'PL-OLO30005',  img:'2024/03/Olympus_PL-OLO30005-DV_Zues_web.jpg',                  url:'https://johnsonhardwood.com/products/pl-olo30005-zeus/'},
+  {id:'ol-6',  s:'olympus',       name:'Hera',              sku:'PL-OLO30006',  img:'2024/03/Olympus_PL-OLO30006-DV_Hera_web.jpg',                  url:'https://johnsonhardwood.com/products/pl-olo30006-hera/'},
+  // TEXAS TIMBER
+  {id:'tt-1',  s:'texastimber',   name:'Alabaster',         sku:'AME-TTO19001', img:'2024/05/1j_TexasTimber_AME-TTO19001_Alabaster_WEB.jpg',         url:'https://johnsonhardwood.com/products/texas-timber-series-alabaster/'},
+  {id:'tt-2',  s:'texastimber',   name:'Parchment',         sku:'AME-TTO19002', img:'2024/05/1j_TexasTimber_AME-TTO19002_Parchment_WEB.jpg',        url:'https://johnsonhardwood.com/products/texas-timber-series-parchment/'},
+  {id:'tt-3',  s:'texastimber',   name:'Sand',              sku:'AME-TTO19003', img:'2024/05/1j_TexasTimber_AME-TTO19003_Sand_WEB.jpg',              url:'https://johnsonhardwood.com/products/texas-timber-series-sand/'},
+  {id:'tt-4',  s:'texastimber',   name:'Taupe',             sku:'AME-TTO19004', img:'2024/05/1j_TexasTimber_AME-TTO19004_Taupe_WEB.jpg',             url:'https://johnsonhardwood.com/products/texas-timber-series-taupe/'},
+  {id:'tt-5',  s:'texastimber',   name:'Amber',             sku:'AME-TTO19005', img:'2024/05/1j_TexasTimber_AME-TTO19005_Amber_WEB.jpg',             url:'https://johnsonhardwood.com/products/texas-timber-series-amber/'},
+  {id:'tt-6',  s:'texastimber',   name:'Tawny',             sku:'AME-TTO19006', img:'2024/05/1j_TexasTimber_AME-TTO19006_Tawny_WEB.jpg',             url:'https://johnsonhardwood.com/products/texas-timber-series-tawny/'},
+  {id:'tt-7',  s:'texastimber',   name:'Honey',             sku:'AME-TTO19007', img:'2024/05/1j_TexasTimber_AME-TTO19007_Honey_WEB.jpg',             url:'https://johnsonhardwood.com/products/texas-timber-series-honey/'},
+  {id:'tt-8',  s:'texastimber',   name:'Chestnut',          sku:'AME-TTO19008', img:'2024/05/1j_TexasTimber_AME-TTO19008_Chestnut_WEB.jpg',         url:'https://johnsonhardwood.com/products/texas-timber-series-chestnut/'},
+  {id:'tt-9',  s:'texastimber',   name:'Labrador',          sku:'AME-TTO19009', img:'2024/05/1j_TexasTimber_AME-TTO19009_Labrador_WEB.jpg',         url:'https://johnsonhardwood.com/products/texas-timber-series-labrador/'},
+  {id:'tt-10', s:'texastimber',   name:'Carob',             sku:'AME-TTO19010', img:'2024/05/1j_TexasTimber_AME-TTO19010_Carob_WEB.jpg',             url:'https://johnsonhardwood.com/products/texas-timber-series-carob/'},
+  // COUNTRYSIDE OAK
+  {id:'co-1',  s:'countrysideoak',name:'Tortilla',          sku:'AME-CSO19001', img:'2024/05/1j_AME-CSO19001-Tortilla_web.jpg',                     url:'https://johnsonhardwood.com/products/ame-cso19001-tortilla/'},
+  {id:'co-2',  s:'countrysideoak',name:'Buttermilk',        sku:'AME-CSO19002', img:'2024/05/1j_AME-CSO19002-Buttermilk_web.jpg',                   url:'https://johnsonhardwood.com/products/ame-cso19002-buttermilk/'},
+  {id:'co-3',  s:'countrysideoak',name:'Driftwood',         sku:'AME-CSO19003', img:'2024/05/1j_AME-CSO19003-Driftwood_web.jpg',                    url:'https://johnsonhardwood.com/products/ame-cso19003-driftwood/'},
+  {id:'co-4',  s:'countrysideoak',name:'Pebble',            sku:'AME-CSO19004', img:'2024/05/1j_AME-CSO19004-Pebble_web.jpg',                       url:'https://johnsonhardwood.com/products/ame-cso19004-pebble/'},
+  {id:'co-5',  s:'countrysideoak',name:'Wheat',             sku:'AME-CSO19005', img:'2024/05/1j_AME-CSO19005-Wheat_web.jpg',                        url:'https://johnsonhardwood.com/products/ame-cso19005-wheat/'},
+  {id:'co-6',  s:'countrysideoak',name:'Hazelnut',          sku:'AME-CSO19006', img:'2024/05/1j_AME-CSO19006-Hazelnut_web.jpg',                     url:'https://johnsonhardwood.com/products/ame-cso19006-hazelnut/'},
+  {id:'co-7',  s:'countrysideoak',name:'Almond',            sku:'AME-CSO19007', img:'2024/05/1j_AME-CSO19007-Almond_web.jpg',                       url:'https://johnsonhardwood.com/products/ame-cso19007-almond/'},
+  {id:'co-8',  s:'countrysideoak',name:'Biscuit',           sku:'AME-CSO19008', img:'2024/05/1j_AME-CSO19008-Biscuit_web.jpg',                      url:'https://johnsonhardwood.com/products/ame-cso19008-biscuit/'},
+  {id:'co-9',  s:'countrysideoak',name:'Sandstone',         sku:'AME-CSO19009', img:'2024/05/1j_AME-CSO19009-Sandstone_web.jpg',                    url:'https://johnsonhardwood.com/products/ame-cso19009-sandstone/'},
+  {id:'co-10', s:'countrysideoak',name:'Caramel',           sku:'AME-CSO19010', img:'2024/05/1j_AME-CSO19010-Caramel_web.jpg',                      url:'https://johnsonhardwood.com/products/ame-cso19010-caramel/'},
+  // OAK GROVE
+  {id:'og-1',  s:'oakgrove',      name:'Toumey',            sku:'AME-OG19001',  img:'2022/11/2j_AME-OG19001-TOUMEY_web.jpg',                        url:'https://johnsonhardwood.com/products/ame-og19001-toumey/'},
+  {id:'og-2',  s:'oakgrove',      name:'Laurel',            sku:'AME-OG19002',  img:'2022/11/1j_AME-OG19002-LAUREL_web.jpg',                        url:'https://johnsonhardwood.com/products/ame-og19002-laurel/'},
+  {id:'og-3',  s:'oakgrove',      name:'Emory',             sku:'AME-OG19003',  img:'2022/11/1j_AME-OG19003-EMORY_web.jpg',                         url:'https://johnsonhardwood.com/products/ame-og19003-emory/'},
+  {id:'og-4',  s:'oakgrove',      name:'Willow',            sku:'AME-OG19004',  img:'2022/11/1j_AME-OG19004-WILLOW_web.jpg',                        url:'https://johnsonhardwood.com/products/ame-og19004-willow/'},
+  {id:'og-5',  s:'oakgrove',      name:'Holm',              sku:'AME-OG19005',  img:'2022/11/1j_AME-OG19005-HOLM_web.jpg',                          url:'https://johnsonhardwood.com/products/ame-og19005-holm/'},
+  {id:'og-6',  s:'oakgrove',      name:'Mohr',              sku:'AME-OG19006',  img:'2022/11/1j_AME-OG19006-MOHR_web.jpg',                          url:'https://johnsonhardwood.com/products/ame-og19006-mohr/'},
+  {id:'og-7',  s:'oakgrove',      name:'Shumard – Premium', sku:'AME-OG19009',  img:'2022/11/2j_AME-OG19009-SHUMARD_ApogeeFull_web.jpg',            url:'https://johnsonhardwood.com/products/ame-og19009-shumard/'},
+  {id:'og-8',  s:'oakgrove',      name:'Gambel – Premium',  sku:'AME-OG19010',  img:'2022/11/2j_AME-OG19010-GAMBEL_ApogeeFull_web.jpg',             url:'https://johnsonhardwood.com/products/ame-og19010-gambel/'},
+  {id:'og-9',  s:'oakgrove',      name:'Chestnut – Premium',sku:'AME-OG19011',  img:'2022/11/2j_AME-OG19011-CHESTNUT_ApogeeFull_web.jpg',           url:'https://johnsonhardwood.com/products/ame-og19011-chestnut/'},
+  {id:'og-10', s:'oakgrove',      name:'Bark – Premium',    sku:'AME-OG19012',  img:'2022/11/2j_AME-OG19012-BARK_ApogeeFull_web.jpg',               url:'https://johnsonhardwood.com/products/ame-og19012-bark/'}
+];
+
+// ── STATE
+const JH_PER_PAGE = 12;
+let jhSeries  = 'all';
+let jhPage    = 1;
+let jhItems   = [...JH_PRODUCTS];
+
+// ── OPEN CATALOG
+function openJHCatalog() {
+  const sec = document.getElementById('jh-catalog');
+  if (!sec.classList.contains('open')) {
+    sec.classList.add('open');
+    jhRender(); jhPaginate();
+  }
+  setTimeout(() => {
+    const top = sec.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, 80);
+}
+
+// ── FILTER
+function jhFilter(series) {
+  jhSeries = series; jhPage = 1;
+  jhItems = series === 'all' ? [...JH_PRODUCTS] : JH_PRODUCTS.filter(p => p.s === series);
+  document.querySelectorAll('.jh-tab').forEach(t => {
+    const on = t.dataset.series === series;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-selected', on);
+  });
+  const g = document.getElementById('jh-grid');
+  g.classList.add('fade-out');
+  setTimeout(() => { g.classList.remove('fade-out'); jhRender(); jhPaginate(); g.classList.add('fade-in'); setTimeout(()=>g.classList.remove('fade-in'),320); }, 180);
+}
+
+// ── GO PAGE
+function jhGoPage(n) {
+  if (n === jhPage) return;
+  jhPage = n;
+  const g = document.getElementById('jh-grid');
+  g.classList.add('fade-out');
+  setTimeout(() => {
+    g.classList.remove('fade-out'); jhRender(); jhPaginate(); g.classList.add('fade-in');
+    setTimeout(()=>g.classList.remove('fade-in'),320);
+    const top = document.getElementById('jh-catalog').getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({ top, behavior:'smooth' });
+  }, 180);
+}
+
+// ── RENDER CARDS
+function jhRender() {
+  const grid  = document.getElementById('jh-grid');
+  const start = (jhPage-1) * JH_PER_PAGE;
+  const page  = jhItems.slice(start, start + JH_PER_PAGE);
+  const cnt   = document.getElementById('jh-count');
+  if (cnt) cnt.textContent = jhItems.length + ' products' + (jhSeries !== 'all' ? ' in the ' + JH_SERIES[jhSeries].label + ' Series' : ' across 8 curated series') + ' — available at our Houston showroom.';
+  grid.innerHTML = page.map((p, i) => {
+    const sr = JH_SERIES[p.s];
+    const full  = JH_BASE + p.img;
+    return `<div class="jh-card" role="listitem" tabindex="0"
+        style="animation-delay:${i*35}ms"
+        onclick="jhCardClick('${p.id}')"
+        onkeydown="if(event.key==='Enter')jhCardClick('${p.id}')">
+      <div class="jh-card-img">
+        <img src="${full}" alt="${p.name}" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.onerror=null;this.style.opacity='0';">
+        <span class="jh-badge-series">${sr.label}</span>
+        ${sr.isNew ? '<span class="jh-badge-new">New 2025</span>' : ''}
+      </div>
+      <div class="jh-card-body">
+        <div class="jh-card-name">${p.name}</div>
+        <div class="jh-card-sku">${p.sku}</div>
+        <div class="jh-card-spec">${sr.species} · ${sr.width} · ${sr.texture}</div>
+        <div class="jh-card-cta">View Details <span aria-hidden="true">→</span></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── RENDER PAGINATION
+function jhPaginate() {
+  const total = Math.ceil(jhItems.length / JH_PER_PAGE);
+  const pag   = document.getElementById('jh-pagination');
+  const info  = document.getElementById('jh-pg-info');
+  if (total <= 1) { pag.innerHTML=''; if(info)info.textContent=''; return; }
+  const s = (jhPage-1)*JH_PER_PAGE+1, e = Math.min(jhPage*JH_PER_PAGE, jhItems.length);
+  if (info) info.textContent = 'Showing ' + s + '–' + e + ' of ' + jhItems.length + ' products';
+  // Page numbers with ellipsis
+  const nums = [];
+  for (let p=1; p<=total; p++) {
+    if (p===1 || p===total || (p>=jhPage-1 && p<=jhPage+1)) nums.push(p);
+    else if (nums[nums.length-1] !== '…') nums.push('…');
+  }
+  pag.innerHTML =
+    `<button class="jh-pg" onclick="jhGoPage(${jhPage-1})" ${jhPage===1?'disabled':''} aria-label="Prev">←</button>` +
+    nums.map(n => n==='…'
+      ? '<span style="padding:0 6px;color:var(--text-muted)">…</span>'
+      : `<button class="jh-pg${n===jhPage?' active':''}" onclick="jhGoPage(${n})" aria-label="Page ${n}" ${n===jhPage?'aria-current="page"':''}>${n}</button>`
+    ).join('') +
+    `<button class="jh-pg" onclick="jhGoPage(${jhPage+1})" ${jhPage===total?'disabled':''} aria-label="Next">→</button>`;
+}
+
+// ── CARD CLICK → open product detail modal reusing existing modal
+function jhCardClick(id) {
+  const p  = JH_PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  const sr = JH_SERIES[p.s];
+  const full = JH_BASE + p.img;
+  document.getElementById('pmodal-series').textContent = 'Johnson Hardwood · ' + sr.label + (sr.isNew ? ' · New 2025' : '');
+  document.getElementById('pmodal-title').textContent  = p.name;
+  document.getElementById('pmodal-sku').textContent    = 'SKU: ' + p.sku;
+  document.getElementById('pmodal-desc').textContent   = sr.label + ' Series — ' + sr.species + ' engineered hardwood. ' + sr.width + ' wide planks with a ' + sr.texture.toLowerCase() + ' finish. UV aluminum oxide coating, 35-yr residential warranty. Engineered construction allows installation on, above, or below grade.';
+  document.getElementById('pmodal-jh-link').href = p.url;
+  const mainImg = document.getElementById('pmodal-main-img');
+  mainImg.src = full; mainImg.alt = p.name;
+  const thumbsEl = document.getElementById('pmodal-thumbs');
+  thumbsEl.innerHTML = '';
+  const th = document.createElement('img');
+  th.src = full; th.alt = p.name; th.className = 'pmodal-thumb active';
+  thumbsEl.appendChild(th);
+  document.getElementById('pmodal-specs').innerHTML = [
+    ['Construction','Engineered'],['Species',sr.species],
+    ['Texture',sr.texture],['Width',sr.width],
+    ['Warranty','35-Year Residential'],['SKU',p.sku]
+  ].map(([l,v])=>`<div class="pspec-item"><span class="pspec-label">${l}</span><span class="pspec-value">${v}</span></div>`).join('');
+  document.getElementById('productModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// ── WIRE SERIES TABS
+document.querySelectorAll('.jh-tab').forEach(btn => {
+  btn.addEventListener('click', () => jhFilter(btn.dataset.series));
+});
+</script>
+
+<!-- ══════════════════════════════════════════════════════════
+     UNIVERSAL CATALOG ENGINE — TILE · LVP · CARPET · STONE
+══════════════════════════════════════════════════════════ -->
+<script>
+// ─── STATE ───────────────────────────────────────────────
+const UC = {
+  tile:   { brand:'all', series:'all', page:1 },
+  lvp:    { brand:'all', series:'all', page:1 },
+  carpet: { brand:'all', series:'all', page:1 },
+  stone:  { brand:'all', series:'all', page:1 }
+};
+const UC_PER_PAGE = 12;
+
+// ══════════════════════════════════════════════════════════
+//  REAL PRODUCT PHOTO ENGINE
+//  Sources: Brand CDNs (Republic Floor, Fuzion, Lions Floor)
+//           + Curated Unsplash architectural photography
+// ══════════════════════════════════════════════════════════
+
+// ─── CDN BASES ────────────────────────────────────────────
+const RF  = 'https://republicfloor.com/cdn/shop/files/';
+const FZ  = 'https://wwwfuzionflooring-1c124.kxcdn.com/app/uploads/';
+const LF  = 'https://mm-media-res.cloudinary.com/image/fetch/c_fill,g_auto,h_600,w_960/https://mmllc-images.s3.amazonaws.com/misc/';
+const USP = 'https://images.unsplash.com/photo-';
+
+// ─── PRODUCT IMAGE MAP ────────────────────────────────────
+// Maps brand:series → array of real photos (rotated by product index)
+const UC_IMG_MAP = {
+  // ── REPUBLIC FLOOR ──────────────────────────────────────
+  'Republic Floor:Countryside': [
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg',
+    RF+'RECS2105_-_Aspen_Plank.jpg'
+  ],
+  'Republic Floor:The Creek': [
+    RF+'REMT75004_-_Sunset_Ivory_Plank.jpg',
+    RF+'REMT75005_-_Lavender_Light_Plank.jpg',
+    RF+'REMT75006_-_Namib_Mist_Plank.jpg'
+  ],
+  'Republic Floor:The Meadows': [
+    RF+'RESL64001_-_Light_Dune_Plank.jpg',
+    RF+'RESL64002_-_Paradiso_Classic_Plank.jpg',
+    RF+'RESL64003_-_Atlantis_Cream_Plank.jpg'
+  ],
+  'Republic Floor:Glacier Point': [
+    RF+'REMO2501_-_Denali_Plank.jpg',
+    RF+'REMO2506_-_Black_Mountain_Plank.jpg',
+    RF+'REOR2301_-_Water_Oak_Plank.jpg'
+  ],
+  'Republic Floor:Cliffs XL': [
+    RF+'RETWY3303_-_Platinum_Triangle_Plank.jpg',
+    RF+'RETWY3304_-_Beverly_Glen_Plank.jpg',
+    RF+'RETWY3305_-_Greystone_Plank.jpg'
+  ],
+  'Republic Floor:Clover Creek': [
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg',
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg',
+    RF+'REOR2304_-_Oregon_White_Oak_Plank.jpg'
+  ],
+  'Republic Floor:The Rock': [
+    RF+'REAW8401_-_Amarillo_Pearl_Plank.jpg',
+    RF+'REAW8402_-_Butterfly_Beige_Plank.jpg',
+    RF+'REAW8403_-_Canadian_Sage_Plank.jpg'
+  ],
+  'Republic Floor:Country Gem': [
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'REMO2501_-_Denali_Plank.jpg'
+  ],
+  'Republic Floor:North Water': [
+    RF+'RETWY3305_-_Greystone_Plank.jpg',
+    RF+'REMO2506_-_Black_Mountain_Plank.jpg',
+    RF+'RETWY3303_-_Platinum_Triangle_Plank.jpg'
+  ],
+  'Republic Floor:Pacific Oak': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'REOR2304_-_Oregon_White_Oak_Plank.jpg',
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg'
+  ],
+  'Republic Floor:Blackwater Canyon': [
+    RF+'REMO2506_-_Black_Mountain_Plank.jpg',
+    RF+'RETWY3305_-_Greystone_Plank.jpg',
+    RF+'REMO2501_-_Denali_Plank.jpg'
+  ],
+  'Republic Floor:Green Mountains': [
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg',
+    RF+'RECS2105_-_Aspen_Plank.jpg'
+  ],
+  'Republic Floor:Designer Pro': [
+    RF+'REAW8401_-_Amarillo_Pearl_Plank.jpg',
+    RF+'RETWY3304_-_Beverly_Glen_Plank.jpg'
+  ],
+  'Republic Floor:Misty Tree': [
+    RF+'REMT75004_-_Sunset_Ivory_Plank.jpg',
+    RF+'REMT75005_-_Lavender_Light_Plank.jpg',
+    RF+'REMT75006_-_Namib_Mist_Plank.jpg'
+  ],
+  'Republic Floor:Pure SPC Max': [
+    RF+'REMO2501_-_Denali_Plank.jpg',
+    RF+'REAW8402_-_Butterfly_Beige_Plank.jpg'
+  ],
+  'Republic Floor:Heritage': [
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'REOR2304_-_Oregon_White_Oak_Plank.jpg'
+  ],
+  'Republic Floor:European': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg'
+  ],
+  'Republic Floor:Continental': [
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg',
+    RF+'RECS2105_-_Aspen_Plank.jpg'
+  ],
+  'Republic Floor:Premium Plus': [
+    RF+'RETWY3303_-_Platinum_Triangle_Plank.jpg',
+    RF+'RETWY3304_-_Beverly_Glen_Plank.jpg'
+  ],
+  'Republic Floor:Designer': [
+    RF+'REAW8401_-_Amarillo_Pearl_Plank.jpg',
+    RF+'REAW8403_-_Canadian_Sage_Plank.jpg'
+  ],
+  'Republic Floor:Value': [
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg',
+    RF+'REOR2304_-_Oregon_White_Oak_Plank.jpg'
+  ],
+
+  // ── FUZION FLOORING LVP ──────────────────────────────────
+  'Fuzion Flooring:Dynamix Endure': [
+    FZ+'2024/07/Room-Scene-Dynamix-Endure-Reindeer-1024x614.jpg',
+    FZ+'2024/07/Dynamix-Hardcore3DGE-Fawn-scaled-1-1024x870.jpg'
+  ],
+  'Fuzion Flooring:Dynamix LoneStar': [
+    FZ+'2024/07/Cowboys-Lasso-768x1024.jpg',
+    FZ+'2024/07/Room-Scene-Dynamix-Endure-Reindeer-1024x614.jpg'
+  ],
+  'Fuzion Flooring:SmartDrop': [
+    FZ+'2024/06/SmartDrop-9-Tinsmith-1-1024x614.jpg',
+    FZ+'2024/07/Room-Scene-SmartDrop-Elite-Russet-1024x614.jpg'
+  ],
+  'Fuzion Flooring:SmartDrop Elite Pro': [
+    FZ+'2024/07/Room-Scene-SmartDrop-Elite-Russet-1024x614.jpg',
+    FZ+'2024/07/SmartDrop-Elite-Shiver-scaled-1-1024x1002.jpg',
+    FZ+'2024/07/10_LVT_SmartDropElite9-1-1920x1515-1-1024x808.jpg'
+  ],
+  'Fuzion Flooring:Timberline': [
+    FZ+'2024/07/Room-Scene-DynamixGrande-Plank-Olive-Single-width-1024x614.jpg',
+    FZ+'2024/07/Fenland-1024x768.jpg'
+  ],
+  'Fuzion Flooring:Atelier': [
+    FZ+'2024/07/Room-Scene-DynamixGrande-Plank-Olive-Single-width-1024x614.jpg',
+    FZ+'2025/12/Bondi-1024x768.jpg'
+  ],
+
+  // ── FUZION LAMINATE ──────────────────────────────────────
+  'Fuzion Flooring:Country Homes': [
+    FZ+'2024/07/Dynamix-XL-Plank-WIllow-Grove-4-scaled-1-1024x768.jpg',
+    FZ+'2024/07/Fenland-1024x768.jpg'
+  ],
+  'Fuzion Flooring:Momentum': [
+    FZ+'2024/07/Dynamix-XL-Plank-WIllow-Grove-4-scaled-1-1024x768.jpg',
+    FZ+'2024/07/Room-Scene-DynamixGrande-Plank-Olive-Single-width-1024x614.jpg'
+  ],
+  'Fuzion Flooring:Vintage Chic': [
+    FZ+'2024/07/Dynamix-Hardcore3DGE-Fawn-scaled-1-1024x870.jpg',
+    FZ+'2024/07/Fenland-1024x768.jpg'
+  ],
+  'Fuzion Flooring:Continental': [
+    FZ+'2024/07/Dynamix-XL-Plank-WIllow-Grove-4-scaled-1-1024x768.jpg',
+    FZ+'2024/07/Room-Scene-Dynamix-Hardcore-Fieldstone-scaled-1-1024x736.jpg'
+  ],
+  'Fuzion Flooring:Apex': [
+    FZ+'2024/07/Dynamix-XL-Chevron-Forged-2-scaled-1-1024x1024.jpg',
+    FZ+'2024/07/Room-Scene-DynamixGrande-Plank-Olive-Single-width-1024x614.jpg'
+  ],
+  'Fuzion Flooring:TruNorth': [
+    FZ+'2025/12/Bondi-1024x768.jpg',
+    FZ+'2024/07/Room-Scene-DynamixGrande-Plank-Olive-Single-width-1024x614.jpg'
+  ],
+  'Fuzion Flooring:Timbercraft': [
+    FZ+'2024/07/Dynamix-XL-Plank-WIllow-Grove-4-scaled-1-1024x768.jpg',
+    FZ+'2024/07/Room-Scene-Dynamix-Hardcore-Fieldstone-scaled-1-1024x736.jpg'
+  ],
+
+  // ── LIONS FLOOR ──────────────────────────────────────────
+  'Lions Floor:District': [
+    LF+'lidt01_billings__lidp01_marquee__planks.jpg',
+    LF+'lidt01_billings__lidp01_marquee__room.jpg'
+  ],
+  'Lions Floor:District Pro': [
+    LF+'lidt01_billings__lidp01_marquee__room.jpg',
+    LF+'lidt01_billings__lidp01_marquee__planks.jpg'
+  ],
+  'Lions Floor:District Max': [
+    LF+'lidt01_billings__lidp01_marquee__planks.jpg',
+    LF+'lidt01_billings__lidp01_marquee__room.jpg'
+  ],
+  'Lions Floor:Comfort Heights': [
+    LF+'lidt01_billings__lidp01_marquee__room.jpg',
+    LF+'lidt01_billings__lidp01_marquee__planks.jpg'
+  ],
+  'Lions Floor:WPC Premiere': [
+    LF+'lidt01_billings__lidp01_marquee__planks.jpg',
+    LF+'lidt01_billings__lidp01_marquee__room.jpg'
+  ],
+
+  // ── TILE — RAK CERAMICS ──────────────────────────────────
+  'RAK Ceramics:Calacatta': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85',
+    USP+'1590736644-d9e4c69dfdf5?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Marble': [
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85',
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85',
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Stone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Concrete': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85',
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Wood': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg'
+  ],
+  'RAK Ceramics:Feature': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85'
+  ],
+
+  // ── TILE — OTHER BRANDS ──────────────────────────────────
+  'Anda:Marble Look': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85',
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Anda:Wood Look': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg'
+  ],
+  'Anda:Concrete Look': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85',
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Anda:Stone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Anda:Metro': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85',
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Anda:Mosaic': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85',
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Anda:Outdoor': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Classic': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Travertine': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Slate': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85',
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Wood': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg'
+  ],
+  'Keystone:Subway': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85',
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Mosaic': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Terrazzo': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Stone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Cobblestone': [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Pebble': [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Sandstone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Marble': [
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Marble Select': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85',
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Nero': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Premium': [
+    USP+'1590736644-d9e4c69dfdf5?auto=format&fit=crop&w=800&q=85',
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Large Format': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Neutral': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85',
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Duraston:Collection': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85',
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85',
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Granite Look': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Travertine': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Wood Effect': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg'
+  ],
+  'ABC Flooring:Slate': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Concrete': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Marble': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Stone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Artisan': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Mosaic': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Encaustic': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Moroccan': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Decorative': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Premium": [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Mosaic": [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Outdoor": [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+
+  // ── STONE ────────────────────────────────────────────────
+  'Piedmont:Marble': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85',
+    USP+'1590736644-d9e4c69dfdf5?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Travertine': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Slate': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Limestone': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85',
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Onyx': [
+    USP+'1590736644-d9e4c69dfdf5?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Quartzite': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Granite': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Mosaic': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Piedmont:Pebble': [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Amani': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85',
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Travertine': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Stelvio': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85',
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Baltico': [
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:B-Materia': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:City Stone': [
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Terra': [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Curton': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Surface': [
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Opificio': [
+    USP+'1506905925-d4d88cc4a04b?auto=format&fit=crop&w=800&q=85'
+  ],
+  'RAK Ceramics:Essential': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg'
+  ],
+  'Keystone:Travertine:stone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Limestone': [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Quartzite': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Granite': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Italian Marble": [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1553240799-d0f7b62d9a5a?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Turkish Travertine": [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Brazilian Quartzite": [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Granite": [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Basalt": [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Onyx": [
+    USP+'1590736644-d9e4c69dfdf5?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Limestone": [
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Pebble": [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Lava Stone": [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Marble Mosaic': [
+    USP+'1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85',
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Travertine Mosaic': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Slate Mosaic': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Pebble Mosaic': [
+    USP+'1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Mixed Material': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Geometric': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Natural Stone': [
+    USP+'1609942072337-c3370e820005?auto=format&fit=crop&w=800&q=85',
+    USP+'1557264765-48c2abb21cf1?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Granite': [
+    USP+'1566073771259-5e2eba55a4c9?auto=format&fit=crop&w=800&q=85'
+  ],
+
+  // ── CARPET & LAMINATE ────────────────────────────────────
+  'ABC Flooring:Plush Comfort': [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85',
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Berber Loop': [
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85',
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Cut & Loop': [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Texture Plus': [
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Pattern': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'ABC Flooring:Commercial': [
+    USP+'1527095760-2e01d8db1de4?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Wool Plush": [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85',
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Wool Berber": [
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Wool Textured": [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Premium Nylon": [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85',
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Saxony Twist": [
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:Loop Pile": [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85'
+  ],
+  "Lawson's:FreeStyle": [
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Legheds Collections:Collections': [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85',
+    USP+'1549439602-43ebca2327af?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Custom Pattern': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Border': [
+    USP+'1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Specialty': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Elephant Design:Feature': [
+    USP+'1534237710-99d3c8c52be6?auto=format&fit=crop&w=800&q=85'
+  ],
+  'Keystone:Classic Plank': [
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'REOR2301_-_Water_Oak_Plank.jpg'
+  ],
+  'Keystone:Value Plus': [
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg'
+  ],
+
+  // LW Flooring Laminate
+  'LW Flooring:Premium Laminate': [
+    RF+'REOR2304_-_Oregon_White_Oak_Plank.jpg',
+    RF+'REOR2301_-_Water_Oak_Plank.jpg'
+  ],
+  'LW Flooring:Wide Laminate': [
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg'
+  ],
+  'LW Flooring:Classic Laminate': [
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg',
+    RF+'REMO2501_-_Denali_Plank.jpg'
+  ],
+  'LW Flooring:Commercial': [
+    RF+'RETWY3303_-_Platinum_Triangle_Plank.jpg'
+  ],
+  'LW Flooring:Engineered SPC': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'REMO2501_-_Denali_Plank.jpg'
+  ],
+  'LW Flooring:Wide Plank SPC': [
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg',
+    RF+'RECS2105_-_Aspen_Plank.jpg'
+  ],
+  'LW Flooring:Classic SPC': [
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg',
+    RF+'REMO2501_-_Denali_Plank.jpg'
+  ],
+  'Knoas Flooring:Signature': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'RETWY3303_-_Platinum_Triangle_Plank.jpg'
+  ],
+  'Argo:Wide Plank Oak': [
+    RF+'REOR2305_-_Sessile_Oak_Plank.jpg',
+    RF+'RETWY3305_-_Greystone_Plank.jpg',
+    RF+'REMO2506_-_Black_Mountain_Plank.jpg'
+  ],
+  'Argo:Classic': [
+    RF+'RECS2102_-_American_Hornbeam_Plank.jpg'
+  ],
+  'Legheds Collections:Premium': [
+    RF+'REOR2301_-_Water_Oak_Plank.jpg',
+    RF+'RECS2105_-_Aspen_Plank.jpg',
+    RF+'RETWY3304_-_Beverly_Glen_Plank.jpg'
+  ],
+
+  // Republic Laminate
+  'Republic Floor:Heritage': [
+    RF+'RECS2101_-_Eastern_Cottonwood_Plank.jpg',
+    RF+'REOR2304_-_Oregon_White_Oak_Plank.jpg'
+  ],
+};
+
+// ─── GET PRODUCT IMAGE ────────────────────────────────────
+function ucImg(type, p) {
+  const key = p.brand + ':' + p.series;
+  const arr = UC_IMG_MAP[key];
+  if (arr && arr.length) {
+    // Use product id as a stable index for variety within a series
+    const seed = p.id.replace(/[^0-9]/g,'') || '0';
+    const idx = parseInt(seed.slice(-2)||seed) % arr.length;
+    return arr[idx];
+  }
+  return null; // will fall back to gradient swatch
+}
+
+// ─── SWATCH GRADIENTS (fallback only) ────────────────────
+function ucSwatch(name) {
+  const n = name.toLowerCase();
+  if (/calacatta|statuario|bianco|marble.wh|white.mar|crystal.wh|iceland.wh|rain.mar/.test(n)) return 'linear-gradient(135deg,#F8F5F0 0%,#EEE9E2 40%,#F5F0EB 70%,#E0D8D0 100%)';
+  if (/carrara|grey.mar|grigio.mar|spider|versilia|baltico|amani|bahia/.test(n)) return 'linear-gradient(135deg,#E0DBDA 0%,#C8C3C0 35%,#D8D2CE 60%,#B8B0AC 100%)';
+  if (/nero.marquina|black.beauty|black.granite|black|carbon|charcoal|graphite|anthracite|dark.grey/.test(n)) return 'linear-gradient(135deg,#2C2C2C 0%,#1A1A1A 50%,#242424 100%)';
+  if (/travertine|cross.cut|limestone|jerusalem/.test(n)) return 'linear-gradient(135deg,#D8C8A0 0%,#C4B480 40%,#D0BC90 70%,#B8A070 100%)';
+  if (/gold|honey|amber|harvest|caramel|golden|warm/.test(n)) return 'linear-gradient(135deg,#D4A840 0%,#B88820 50%,#C89030 100%)';
+  if (/sand|sahara|desert|dune|prairie|wheat|ivory|cream|bisque/.test(n)) return 'linear-gradient(135deg,#E8D8B0 0%,#D4C090 40%,#E0CCA0 70%,#C4AC80 100%)';
+  if (/beige|taupe|parchment|natural.stone/.test(n)) return 'linear-gradient(135deg,#D8C8B0 0%,#C0AC90 50%,#CCB898 100%)';
+  if (/smoke|storm|light.grey|dove|silver|pearl|platinum|mist|fog/.test(n)) return 'linear-gradient(135deg,#B8B8B8 0%,#989898 40%,#A8A8A8 70%,#888888 100%)';
+  if (/grey|gray|slate|charcoal|concrete|ash|graphite/.test(n)) return 'linear-gradient(135deg,#787878 0%,#585858 40%,#686868 70%,#484848 100%)';
+  if (/walnut|espresso|mocha|coffee|tobacco|dark.brown|chocolate/.test(n)) return 'linear-gradient(135deg,#5A3418 0%,#3A2010 40%,#4A2C14 70%,#301A0C 100%)';
+  if (/rustic|driftwood|worn|reclaimed|aged|antique/.test(n)) return 'linear-gradient(135deg,#A08060 0%,#7A5C40 40%,#907048 70%,#6A4C30 100%)';
+  if (/oak|maple|birch|pine|natural.wood|natural.oak|country|countryside/.test(n)) return 'linear-gradient(135deg,#C89050 0%,#A07030 40%,#B88040 70%,#8A6028 100%)';
+  if (/cedar|redwood|cherry|terracotta|clay|rust|moroccan|talavera/.test(n)) return 'linear-gradient(135deg,#C46040 0%,#A04028 40%,#B45030 70%,#8A3018 100%)';
+  if (/cobalt|blue|aqua|ocean|mediterranean/.test(n)) return 'linear-gradient(135deg,#4868A0 0%,#284880 40%,#385890 70%,#1C3870 100%)';
+  if (/green|sage|moss|forest|fantastic.green/.test(n)) return 'linear-gradient(135deg,#506040 0%,#384828 40%,#445438 70%,#2C3C20 100%)';
+  if (/onyx|nero|black.beauty/.test(n)) return 'linear-gradient(135deg,#1A1A1A 0%,#0A0A0A 50%,#141414 100%)';
+  if (/white|bianco|blanc/.test(n)) return 'linear-gradient(135deg,#F5F0EC 0%,#EDE8E0 50%,#F0EBE4 100%)';
+  if (/pebble|river.rock|mosaic|mix/.test(n)) return 'linear-gradient(135deg,#A89878 0%,#887858 40%,#988868 70%,#786848 100%)';
+  return 'linear-gradient(135deg,#B89060 0%,#907040 50%,#A08050 100%)';
+}
+
+// ─── TEXTURE OVERLAYS ────────────────────────────────────
+function ucTexture(type) {
+  if (type==='tile') return `<div class="uc-swatch-texture" style="background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(0,0,0,.08) 24px,rgba(0,0,0,.08) 25px),repeating-linear-gradient(90deg,transparent,transparent 24px,rgba(0,0,0,.08) 24px,rgba(0,0,0,.08) 25px);"></div>`;
+  if (type==='lvp')  return `<div class="uc-swatch-texture" style="background-image:repeating-linear-gradient(90deg,transparent,transparent 18px,rgba(0,0,0,.06) 18px,rgba(0,0,0,.06) 19px);"></div>`;
+  if (type==='carpet') return `<div class="uc-swatch-texture" style="background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0px,rgba(255,255,255,.06) 2px,transparent 2px,transparent 8px);"></div>`;
+  return `<div class="uc-swatch-grain"></div>`;
+}
+
+// ─── PRODUCT DATA — TILE (120) ────────────────────────────
+const TILE_DATA = [
+  // ── RAK Ceramics ──────────────────────────────────────
+  {id:'t001',brand:'RAK Ceramics',series:'Calacatta',name:'Calacatta Gold',color:'White/Gold Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t002',brand:'RAK Ceramics',series:'Calacatta',name:'Calacatta Gold',color:'White/Gold Veining',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t003',brand:'RAK Ceramics',series:'Calacatta',name:'Calacatta Gold',color:'White/Gold Veining',size:'24×48',finish:'Matte',isNew:false},
+  {id:'t004',brand:'RAK Ceramics',series:'Calacatta',name:'Calacatta Africa',color:'White/Grey Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t005',brand:'RAK Ceramics',series:'Calacatta',name:'Calacatta Africa',color:'White/Grey Veining',size:'24×48',finish:'Polished',isNew:true},
+  {id:'t006',brand:'RAK Ceramics',series:'Calacatta',name:'Calacatta Imperiale',color:'White/Dramatic Veining',size:'24×48',finish:'Polished',isNew:true},
+  {id:'t007',brand:'RAK Ceramics',series:'Marble',name:'Black Beauty',color:'Black/Gold Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t008',brand:'RAK Ceramics',series:'Marble',name:'Black Beauty',color:'Black/Gold Veining',size:'24×24',finish:'Polished',isNew:false},
+  {id:'t009',brand:'RAK Ceramics',series:'Marble',name:'Black Beauty',color:'Black/Gold Veining',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t010',brand:'RAK Ceramics',series:'Marble',name:'Breccia Adige',color:'Ivory/Burgundy Veining',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t011',brand:'RAK Ceramics',series:'Marble',name:'Breccia Adige',color:'Ivory/Burgundy Veining',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t012',brand:'RAK Ceramics',series:'Marble',name:'Carrara Grey',color:'White/Grey Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t013',brand:'RAK Ceramics',series:'Marble',name:'Carrara Grey',color:'White/Grey Veining',size:'24×24',finish:'Polished',isNew:false},
+  {id:'t014',brand:'RAK Ceramics',series:'Marble',name:'Amani Marble',color:'Warm Beige/Veining',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t015',brand:'RAK Ceramics',series:'Marble',name:'Amani Marble',color:'Warm Beige/Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t016',brand:'RAK Ceramics',series:'Marble',name:'Spider Marble',color:'Dark/White Veining',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t017',brand:'RAK Ceramics',series:'Marble',name:'Versilia',color:'Warm White/Gold Veining',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t018',brand:'RAK Ceramics',series:'Marble',name:'Rain Marble',color:'White/Bold Grey Veining',size:'24×48',finish:'Polished',isNew:true},
+  {id:'t019',brand:'RAK Ceramics',series:'Marble',name:'Iceland White',color:'Pure White',size:'24×48',finish:'Polished',isNew:true},
+  {id:'t020',brand:'RAK Ceramics',series:'Marble',name:'Rapolano Marble',color:'Warm Cream/Veining',size:'24×48',finish:'Polished',isNew:true},
+  {id:'t021',brand:'RAK Ceramics',series:'Stone',name:'City Stone Cool Grey',color:'Light Grey',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t022',brand:'RAK Ceramics',series:'Stone',name:'City Stone Warm Beige',color:'Warm Beige',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t023',brand:'RAK Ceramics',series:'Stone',name:'Stelvio Natural Stone',color:'Natural Grey',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t024',brand:'RAK Ceramics',series:'Stone',name:'Stelvio Natural Stone',color:'Natural Grey',size:'24×48',finish:'Matte',isNew:false},
+  {id:'t025',brand:'RAK Ceramics',series:'Stone',name:'Travertine Cross Cut Light',color:'Travertine Beige',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t026',brand:'RAK Ceramics',series:'Stone',name:'Travertine Cross Cut Dark',color:'Travertine Walnut',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t027',brand:'RAK Ceramics',series:'Stone',name:'Travertine Cross Cut',color:'Travertine Classic',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t028',brand:'RAK Ceramics',series:'Concrete',name:'Basic Concrete Light',color:'Light Concrete',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t029',brand:'RAK Ceramics',series:'Concrete',name:'Basic Concrete Dark',color:'Dark Concrete Grey',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t030',brand:'RAK Ceramics',series:'Concrete',name:'Opificio Anthracite',color:'Deep Anthracite',size:'12×24',finish:'Matte',isNew:true},
+  {id:'t031',brand:'RAK Ceramics',series:'Concrete',name:'Opificio Grey',color:'Medium Grey',size:'24×48',finish:'Matte',isNew:true},
+  {id:'t032',brand:'RAK Ceramics',series:'Concrete',name:'Opificio Light Grey',color:'Light Grey',size:'12×24',finish:'Matte',isNew:true},
+  {id:'t033',brand:'RAK Ceramics',series:'Concrete',name:'Opificio Sand',color:'Warm Sand',size:'12×24',finish:'Matte',isNew:true},
+  {id:'t034',brand:'RAK Ceramics',series:'Wood',name:'Essential Wood Oak',color:'Natural Oak',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t035',brand:'RAK Ceramics',series:'Wood',name:'Essential Wood Walnut',color:'Dark Walnut',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t036',brand:'RAK Ceramics',series:'Wood',name:'Essential Wood Ash',color:'Grey Ash',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t037',brand:'RAK Ceramics',series:'Feature',name:'Fantastic Green',color:'Deep Forest Green',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t038',brand:'RAK Ceramics',series:'Feature',name:'Crystal White',color:'Pure Crystal White',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t039',brand:'RAK Ceramics',series:'Feature',name:'Crystal White',color:'Pure Crystal White',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t040',brand:'RAK Ceramics',series:'Feature',name:'Moonstone Beige',color:'Warm Beige Stone',size:'24×24',finish:'Matte',isNew:true},
+  // ── Anda ──────────────────────────────────────────────
+  {id:'t041',brand:'Anda',series:'Marble Look',name:'Marble Bianco',color:'White/Grey Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t042',brand:'Anda',series:'Marble Look',name:'Marble Grigio',color:'Light Grey Marble',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t043',brand:'Anda',series:'Marble Look',name:'Marble Cream',color:'Warm Cream Marble',size:'24×24',finish:'Polished',isNew:false},
+  {id:'t044',brand:'Anda',series:'Wood Look',name:'Wood Look Oak',color:'Natural Oak',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t045',brand:'Anda',series:'Wood Look',name:'Wood Look Walnut',color:'Warm Walnut',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t046',brand:'Anda',series:'Wood Look',name:'Wood Look Ash Grey',color:'Cool Ash Grey',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t047',brand:'Anda',series:'Concrete Look',name:'Concrete Light',color:'Light Concrete',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t048',brand:'Anda',series:'Concrete Look',name:'Concrete Dark',color:'Dark Concrete',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t049',brand:'Anda',series:'Stone',name:'Stone White',color:'Natural White Stone',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t050',brand:'Anda',series:'Stone',name:'Stone Beige',color:'Warm Beige Stone',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t051',brand:'Anda',series:'Metro',name:'Metro White',color:'Bright White',size:'4×16',finish:'Gloss',isNew:false},
+  {id:'t052',brand:'Anda',series:'Metro',name:'Metro Cream',color:'Warm Cream',size:'4×16',finish:'Gloss',isNew:false},
+  {id:'t053',brand:'Anda',series:'Mosaic',name:'Mosaic Hex White',color:'Bright White',size:'12×12',finish:'Matte',isNew:false},
+  {id:'t054',brand:'Anda',series:'Mosaic',name:'Mosaic Hex Black',color:'Matte Black',size:'12×12',finish:'Matte',isNew:false},
+  {id:'t055',brand:'Anda',series:'Outdoor',name:'Large Format Grey',color:'Cool Grey',size:'24×48',finish:'Anti-Slip',isNew:false},
+  // ── Keystone ──────────────────────────────────────────
+  {id:'t056',brand:'Keystone',series:'Classic',name:'Classic White',color:'Bright White',size:'12×12',finish:'Polished',isNew:false},
+  {id:'t057',brand:'Keystone',series:'Classic',name:'Classic Ivory',color:'Warm Ivory',size:'12×12',finish:'Matte',isNew:false},
+  {id:'t058',brand:'Keystone',series:'Classic',name:'Classic Cream',color:'Soft Cream',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t059',brand:'Keystone',series:'Travertine',name:'Travertine Light',color:'Light Travertine',size:'18×18',finish:'Honed',isNew:false},
+  {id:'t060',brand:'Keystone',series:'Travertine',name:'Travertine Noce',color:'Dark Travertine',size:'18×18',finish:'Honed',isNew:false},
+  {id:'t061',brand:'Keystone',series:'Slate',name:'Slate Charcoal',color:'Charcoal Grey',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t062',brand:'Keystone',series:'Slate',name:'Slate Graphite',color:'Deep Graphite',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t063',brand:'Keystone',series:'Wood',name:'Wood Plank Cedar',color:'Natural Cedar',size:'8×36',finish:'Matte',isNew:false},
+  {id:'t064',brand:'Keystone',series:'Subway',name:'Subway White Gloss',color:'Bright White',size:'3×12',finish:'Gloss',isNew:false},
+  {id:'t065',brand:'Keystone',series:'Subway',name:'Subway Cream',color:'Warm Cream',size:'3×12',finish:'Gloss',isNew:false},
+  {id:'t066',brand:'Keystone',series:'Mosaic',name:'Herringbone White',color:'White',size:'2×8',finish:'Gloss',isNew:false},
+  {id:'t067',brand:'Keystone',series:'Mosaic',name:'Hex Matte Black',color:'Matte Black',size:'12×12',finish:'Matte',isNew:false},
+  {id:'t068',brand:'Keystone',series:'Terrazzo',name:'Terrazzo White',color:'White/Mixed Chips',size:'24×24',finish:'Polished',isNew:true},
+  {id:'t069',brand:'Keystone',series:'Terrazzo',name:'Terrazzo Mix',color:'Multi-Color Mix',size:'24×24',finish:'Matte',isNew:true},
+  {id:'t070',brand:'Keystone',series:'Stone',name:'Stone Effect Sand',color:'Warm Sand',size:'12×24',finish:'Matte',isNew:false},
+  // ── Piedmont ──────────────────────────────────────────
+  {id:'t071',brand:'Piedmont',series:'Marble Select',name:'Carrara Select',color:'White/Grey Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t072',brand:'Piedmont',series:'Marble Select',name:'Carrara Select',color:'White/Grey Veining',size:'24×24',finish:'Polished',isNew:false},
+  {id:'t073',brand:'Piedmont',series:'Marble Select',name:'Bianco Dolomite',color:'White/Gold Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t074',brand:'Piedmont',series:'Marble Select',name:'Statuario White',color:'White/Dramatic Veining',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t075',brand:'Piedmont',series:'Marble Select',name:'Grigio Marble',color:'Warm Grey Marble',size:'18×18',finish:'Polished',isNew:false},
+  {id:'t076',brand:'Piedmont',series:'Nero',name:'Nero Marquina',color:'Black/White Veining',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t077',brand:'Piedmont',series:'Nero',name:'Nero Marquina',color:'Black/White Veining',size:'24×24',finish:'Polished',isNew:false},
+  {id:'t078',brand:'Piedmont',series:'Premium',name:'Calacatta Viola',color:'White/Purple Veining',size:'12×24',finish:'Polished',isNew:true},
+  {id:'t079',brand:'Piedmont',series:'Premium',name:'Arabescato',color:'White/Grey Arabesque',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t080',brand:'Piedmont',series:'Premium',name:'Onyx White',color:'Translucent White',size:'12×24',finish:'Polished',isNew:false},
+  {id:'t081',brand:'Piedmont',series:'Large Format',name:'Large Slab Bianco',color:'Brilliant White',size:'24×48',finish:'Polished',isNew:false},
+  {id:'t082',brand:'Piedmont',series:'Neutral',name:'Texture Stone Grey',color:'Warm Grey',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t083',brand:'Piedmont',series:'Neutral',name:'Polished Cream',color:'Warm Ivory',size:'18×18',finish:'Polished',isNew:false},
+  {id:'t084',brand:'Piedmont',series:'Neutral',name:'Matte Dove Grey',color:'Soft Dove Grey',size:'12×12',finish:'Matte',isNew:false},
+  {id:'t085',brand:'Piedmont',series:'Neutral',name:'Fusion White',color:'Bright White',size:'24×24',finish:'Polished',isNew:false},
+  // ── Duraston ──────────────────────────────────────────
+  {id:'t086',brand:'Duraston',series:'Collection',name:'Charcoal',color:'Deep Charcoal',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t087',brand:'Duraston',series:'Collection',name:'Sand',color:'Warm Sand',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t088',brand:'Duraston',series:'Collection',name:'Ivory',color:'Warm Ivory',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t089',brand:'Duraston',series:'Collection',name:'Slate',color:'Natural Slate',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t090',brand:'Duraston',series:'Collection',name:'Terracotta',color:'Warm Terracotta',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t091',brand:'Duraston',series:'Collection',name:'Mocha',color:'Rich Mocha',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t092',brand:'Duraston',series:'Collection',name:'Carbon',color:'Carbon Black',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t093',brand:'Duraston',series:'Collection',name:'Ash',color:'Warm Ash',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t094',brand:'Duraston',series:'Collection',name:'Driftwood',color:'Bleached Driftwood',size:'24×24',finish:'Matte',isNew:false},
+  {id:'t095',brand:'Duraston',series:'Collection',name:'Cement',color:'Raw Cement',size:'12×24',finish:'Matte',isNew:false},
+  // ── ABC Flooring ──────────────────────────────────────
+  {id:'t096',brand:'ABC Flooring',series:'Granite Look',name:'Granite Dark',color:'Dark Granite',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t097',brand:'ABC Flooring',series:'Granite Look',name:'Granite Light',color:'Light Granite',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t098',brand:'ABC Flooring',series:'Travertine',name:'Travertine Dark',color:'Dark Travertine',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t099',brand:'ABC Flooring',series:'Travertine',name:'Travertine Cream',color:'Cream Travertine',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t100',brand:'ABC Flooring',series:'Wood Effect',name:'Wood Effect Bark',color:'Warm Bark Brown',size:'8×48',finish:'Matte',isNew:false},
+  {id:'t101',brand:'ABC Flooring',series:'Wood Effect',name:'Wood Effect Grey Oak',color:'Cool Grey Oak',size:'6×36',finish:'Matte',isNew:false},
+  {id:'t102',brand:'ABC Flooring',series:'Slate',name:'Slate Black',color:'Matte Black',size:'12×12',finish:'Matte',isNew:false},
+  {id:'t103',brand:'ABC Flooring',series:'Concrete',name:'Concrete Grey',color:'Medium Grey',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t104',brand:'ABC Flooring',series:'Marble',name:'Marble White',color:'Classic White',size:'24×24',finish:'Polished',isNew:false},
+  {id:'t105',brand:'ABC Flooring',series:'Stone',name:'Stone Beige',color:'Warm Beige',size:'18×18',finish:'Matte',isNew:false},
+  // ── Elephant Design ───────────────────────────────────
+  {id:'t106',brand:'Elephant Design',series:'Artisan',name:'Artisan Cobalt Blue',color:'Rich Cobalt Blue',size:'4×4',finish:'Gloss',isNew:false},
+  {id:'t107',brand:'Elephant Design',series:'Artisan',name:'Artisan Terracotta',color:'Warm Terracotta',size:'4×4',finish:'Gloss',isNew:false},
+  {id:'t108',brand:'Elephant Design',series:'Mosaic',name:'Mosaic Art Glass Aqua',color:'Aqua/Teal Mix',size:'12×12',finish:'Gloss',isNew:false},
+  {id:'t109',brand:'Elephant Design',series:'Mosaic',name:'Feature Wall Hex Gold',color:'Gold/White Mix',size:'4×4',finish:'Gloss',isNew:false},
+  {id:'t110',brand:'Elephant Design',series:'Encaustic',name:'Encaustic Cement Classic',color:'Grey/White Pattern',size:'8×8',finish:'Matte',isNew:false},
+  {id:'t111',brand:'Elephant Design',series:'Encaustic',name:'Talavera Blue & White',color:'Cobalt Blue/White',size:'4×4',finish:'Gloss',isNew:false},
+  {id:'t112',brand:'Elephant Design',series:'Moroccan',name:'Moroccan Star Ivory',color:'Ivory/Cream',size:'8×8',finish:'Matte',isNew:false},
+  {id:'t113',brand:'Elephant Design',series:'Moroccan',name:'Mediterranean Blue',color:'Deep Mediterranean',size:'4×4',finish:'Gloss',isNew:false},
+  {id:'t114',brand:'Elephant Design',series:'Decorative',name:'Floral Pattern White',color:'White/Gold',size:'12×12',finish:'Gloss',isNew:true},
+  {id:'t115',brand:'Elephant Design',series:'Decorative',name:'Geometric Checker',color:'Black/White',size:'12×12',finish:'Matte',isNew:false},
+  // ── Lawson's ──────────────────────────────────────────
+  {id:'t116',brand:"Lawson's",series:'Premium',name:"Premium Limestone Cream",color:'Warm Cream',size:'18×18',finish:'Matte',isNew:false},
+  {id:'t117',brand:"Lawson's",series:'Premium',name:"Premium Sandstone",color:'Natural Sand',size:'12×24',finish:'Matte',isNew:false},
+  {id:'t118',brand:"Lawson's",series:'Mosaic',name:"Tumbled Marble Beige",color:'Beige Marble',size:'4×4',finish:'Tumbled',isNew:false},
+  {id:'t119',brand:"Lawson's",series:'Outdoor',name:"Stone Pavers Charcoal",color:'Dark Charcoal',size:'24×24',finish:'Anti-Slip',isNew:false},
+  {id:'t120',brand:"Lawson's",series:'Mosaic',name:"Pebble Mosaic Natural",color:'Natural Mixed',size:'12×12',finish:'Natural',isNew:false}
+];
+
+// ─── PRODUCT DATA — LVP/SPC (125) ────────────────────────
+const LVP_DATA = [
+  // ── Republic Floor ────────────────────────────────────
+  {id:'v001',brand:'Republic Floor',series:'Countryside',name:'Natural Hickory',color:'Natural Hickory',thick:'5mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v002',brand:'Republic Floor',series:'Countryside',name:'Mountain Oak',color:'Light Oak',thick:'5mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v003',brand:'Republic Floor',series:'Countryside',name:'Rustic Walnut',color:'Rich Walnut',thick:'5mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v004',brand:'Republic Floor',series:'Countryside',name:'Pine Valley',color:'Warm Pine',thick:'5mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v005',brand:'Republic Floor',series:'Countryside',name:'Golden Harvest',color:'Golden Oak',thick:'5mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v006',brand:'Republic Floor',series:'Countryside',name:'Autumn Chestnut',color:'Warm Chestnut',thick:'5mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v007',brand:'Republic Floor',series:'Countryside',name:'Desert Sand',color:'Pale Sand Oak',thick:'5mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v008',brand:'Republic Floor',series:'The Creek',name:'Majestic Valley',color:'Rich Mocha',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v009',brand:'Republic Floor',series:'The Creek',name:'Snow Drift',color:'Light Whitewash',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v010',brand:'Republic Floor',series:'The Creek',name:'African Desert',color:'Warm Desert',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v011',brand:'Republic Floor',series:'The Creek',name:'Sandstone Creek',color:'Warm Sandstone',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v012',brand:'Republic Floor',series:'The Creek',name:'Golden Creek',color:'Golden Honey',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v013',brand:'Republic Floor',series:'The Meadows',name:'Desert Blend',color:'Warm Desert Mix',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v014',brand:'Republic Floor',series:'The Meadows',name:'Prairie Sunrise',color:'Warm Amber Oak',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v015',brand:'Republic Floor',series:'The Meadows',name:'Spring Thaw',color:'Natural Light',thick:'6mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v016',brand:'Republic Floor',series:'The Meadows',name:'Mountain Mist',color:'Cool Grey Oak',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v017',brand:'Republic Floor',series:'Glacier Point',name:'Sahara Beige',color:'Warm Sahara',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v018',brand:'Republic Floor',series:'Glacier Point',name:'Alpine White',color:'Cool White Oak',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v019',brand:'Republic Floor',series:'Glacier Point',name:'Rocky Pass',color:'Natural Oak',thick:'6mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v020',brand:'Republic Floor',series:'Cliffs XL',name:'Obsidian Peak',color:'Dark Charcoal',thick:'6mm',width:'9-1/16"',finish:'EIR',isNew:false},
+  {id:'v021',brand:'Republic Floor',series:'Cliffs XL',name:'Sandstone Ridge',color:'Warm Sandstone',thick:'6mm',width:'9-1/16"',finish:'EIR',isNew:false},
+  {id:'v022',brand:'Republic Floor',series:'Cliffs XL',name:'Charcoal Cliff',color:'Soft Charcoal',thick:'6mm',width:'9-1/16"',finish:'EIR',isNew:false},
+  {id:'v023',brand:'Republic Floor',series:'Clover Creek',name:'Rustic Oak',color:'Rustic Brown Oak',thick:'6mm',width:'7-11/64"',finish:'EIR',isNew:false},
+  {id:'v024',brand:'Republic Floor',series:'Clover Creek',name:'Barrel Oak',color:'Medium Brown',thick:'6mm',width:'7-11/64"',finish:'EIR',isNew:false},
+  {id:'v025',brand:'Republic Floor',series:'Clover Creek',name:'Natural Birch',color:'Natural Blonde',thick:'6mm',width:'7-11/64"',finish:'BP',isNew:false},
+  {id:'v026',brand:'Republic Floor',series:'The Rock',name:'California Gold',color:'Warm Honey',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v027',brand:'Republic Floor',series:'The Rock',name:'Desert Rose',color:'Warm Rose Beige',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v028',brand:'Republic Floor',series:'Country Gem',name:'Farmhouse Oak',color:'Natural Farmhouse',thick:'5mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v029',brand:'Republic Floor',series:'Country Gem',name:'Weathered Pine',color:'Grey Weathered',thick:'5mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v030',brand:'Republic Floor',series:'Country Gem',name:'Barley Field',color:'Light Barley',thick:'5mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v031',brand:'Republic Floor',series:'North Water',name:'Baltic Sea',color:'Cool Blue Grey',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v032',brand:'Republic Floor',series:'North Water',name:'Arctic Birch',color:'Pale Nordic',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v033',brand:'Republic Floor',series:'Pacific Oak',name:'Coyote Brush',color:'Medium Oak Brown',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v034',brand:'Republic Floor',series:'Pacific Oak',name:'Coastal Sage',color:'Grey-Green',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v035',brand:'Republic Floor',series:'Pacific Oak',name:'Dune Grass',color:'Warm Sand',thick:'6mm',width:'7-1/8"',finish:'BP',isNew:false},
+  {id:'v036',brand:'Republic Floor',series:'Blackwater Canyon',name:'Storm Grey',color:'Cool Storm Grey',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v037',brand:'Republic Floor',series:'Blackwater Canyon',name:'Canyon Brown',color:'Warm Canyon',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v038',brand:'Republic Floor',series:'Blackwater Canyon',name:'Midnight Oak',color:'Dark Midnight',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v039',brand:'Republic Floor',series:'Green Mountains',name:'Vermont Maple',color:'Warm Maple',thick:'5mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v040',brand:'Republic Floor',series:'Designer Pro',name:'Platinum Series',color:'Light Platinum',thick:'6.5mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v041',brand:'Republic Floor',series:'Designer Pro',name:'Gold Series',color:'Warm Honey Gold',thick:'6.5mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v042',brand:'Republic Floor',series:'Misty Tree',name:'Appalachian Fog',color:'Cool Grey Mist',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v043',brand:'Republic Floor',series:'Misty Tree',name:'Forest Floor',color:'Natural Forest',thick:'6mm',width:'7-1/8"',finish:'EIR',isNew:false},
+  {id:'v044',brand:'Republic Floor',series:'Pure SPC Max',name:'North Water Baltic',color:'Nordic Blue Grey',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v045',brand:'Republic Floor',series:'Pure SPC Max',name:'Canyon Ridge Premium',color:'Warm Canyon',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  // ── Lions Floor ────────────────────────────────────────
+  {id:'v046',brand:'Lions Floor',series:'District',name:'Marquee',color:'Natural Oak',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v047',brand:'Lions Floor',series:'District',name:'Metro',color:'Warm Brown',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v048',brand:'Lions Floor',series:'District',name:'Pearl',color:'Light Pearl',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v049',brand:'Lions Floor',series:'District',name:'Aspen',color:'Cool Aspen',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v050',brand:'Lions Floor',series:'District',name:'Espresso',color:'Dark Espresso',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v051',brand:'Lions Floor',series:'District Pro',name:'Marquee Pro',color:'Natural Oak',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v052',brand:'Lions Floor',series:'District Pro',name:'Metro Pro',color:'Warm Brown',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v053',brand:'Lions Floor',series:'District Pro',name:'Pearl Pro',color:'Light Pearl',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v054',brand:'Lions Floor',series:'District Pro',name:'Aspen Pro',color:'Cool Aspen',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v055',brand:'Lions Floor',series:'District Pro',name:'Espresso Pro',color:'Dark Espresso',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v056',brand:'Lions Floor',series:'District Pro',name:'Sandstorm Pro',color:'Warm Sandstone',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v057',brand:'Lions Floor',series:'District Pro',name:'Storm Pro',color:'Cool Storm Grey',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v058',brand:'Lions Floor',series:'District Max',name:'Marquee Max',color:'Natural Oak',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v059',brand:'Lions Floor',series:'District Max',name:'Metro Max',color:'Warm Brown',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v060',brand:'Lions Floor',series:'District Max',name:'Pearl Max',color:'Light Pearl Oak',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v061',brand:'Lions Floor',series:'District Max',name:'Aspen Max',color:'Cool Aspen',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v062',brand:'Lions Floor',series:'District Max',name:'Carbon Max',color:'Dark Charcoal',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v063',brand:'Lions Floor',series:'District Max',name:'Ivory Max',color:'Light Ivory',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v064',brand:'Lions Floor',series:'Comfort Heights',name:'Golden Oak',color:'Golden Honey Oak',thick:'12mm',width:'Plank',finish:'EIR',isNew:false},
+  {id:'v065',brand:'Lions Floor',series:'Comfort Heights',name:'Natural Maple',color:'Natural Blonde',thick:'12mm',width:'Plank',finish:'EIR',isNew:false},
+  {id:'v066',brand:'Lions Floor',series:'Comfort Heights',name:'Rustic Pine',color:'Warm Pine',thick:'12mm',width:'Plank',finish:'EIR',isNew:false},
+  {id:'v067',brand:'Lions Floor',series:'Comfort Heights',name:'Espresso',color:'Dark Espresso',thick:'12mm',width:'Plank',finish:'EIR',isNew:false},
+  {id:'v068',brand:'Lions Floor',series:'Comfort Heights',name:'Driftwood',color:'Bleached Drift',thick:'12mm',width:'Plank',finish:'EIR',isNew:false},
+  {id:'v069',brand:'Lions Floor',series:'Comfort Heights',name:'Ash Grey',color:'Cool Ash',thick:'12mm',width:'Plank',finish:'EIR',isNew:false},
+  {id:'v070',brand:'Lions Floor',series:'WPC Premiere',name:'Harvest Oak',color:'Rich Harvest',thick:'7mm',width:'8"',finish:'EIR',isNew:false},
+  {id:'v071',brand:'Lions Floor',series:'WPC Premiere',name:'Birch Grove',color:'Natural Birch',thick:'7mm',width:'8"',finish:'EIR',isNew:false},
+  {id:'v072',brand:'Lions Floor',series:'WPC Premiere',name:'Mountain Ash',color:'Mountain Grey',thick:'7mm',width:'8"',finish:'EIR',isNew:false},
+  {id:'v073',brand:'Lions Floor',series:'WPC Premiere',name:'Storm Grey',color:'Cool Storm',thick:'7mm',width:'8"',finish:'EIR',isNew:false},
+  {id:'v074',brand:'Lions Floor',series:'WPC Premiere',name:'Ivory Coast',color:'Warm Ivory',thick:'7mm',width:'8"',finish:'EIR',isNew:false},
+  {id:'v075',brand:'Lions Floor',series:'WPC Premiere',name:'Cedar Run',color:'Natural Cedar',thick:'7mm',width:'8"',finish:'EIR',isNew:false},
+  // ── Fuzion Flooring ────────────────────────────────────
+  {id:'v076',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Flint',color:'Grey Flint',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v077',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Mocha',color:'Warm Mocha',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v078',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Driftwood',color:'Bleached Driftwood',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v079',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Birch',color:'Natural Birch',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v080',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Ash',color:'Warm Ash',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v081',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Natural Oak',color:'Natural Oak',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v082',brand:'Fuzion Flooring',series:'Dynamix Endure',name:'Harvest',color:'Golden Harvest',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v083',brand:'Fuzion Flooring',series:'Dynamix LoneStar',name:'Texas Tan',color:'Warm Texas Tan',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v084',brand:'Fuzion Flooring',series:'Dynamix LoneStar',name:'Prairie Smoke',color:'Smoky Prairie',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v085',brand:'Fuzion Flooring',series:'Dynamix LoneStar',name:'Lone Pine',color:'Natural Pine',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v086',brand:'Fuzion Flooring',series:'Dynamix LoneStar',name:'Sagebrush',color:'Green-Grey',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v087',brand:'Fuzion Flooring',series:'SmartDrop',name:'Rustic Oak',color:'Rustic Oak',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v088',brand:'Fuzion Flooring',series:'SmartDrop',name:'Natural Maple',color:'Natural Maple',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v089',brand:'Fuzion Flooring',series:'SmartDrop',name:'Whitewashed Oak',color:'White Wash',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v090',brand:'Fuzion Flooring',series:'SmartDrop',name:'Espresso Walnut',color:'Dark Espresso',thick:'5mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v091',brand:'Fuzion Flooring',series:'SmartDrop Elite Pro',name:'Coffee',color:'Deep Coffee',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v092',brand:'Fuzion Flooring',series:'SmartDrop Elite Pro',name:'Driftwood',color:'Grey Driftwood',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v093',brand:'Fuzion Flooring',series:'SmartDrop Elite Pro',name:'Sandstone',color:'Warm Sandstone',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v094',brand:'Fuzion Flooring',series:'SmartDrop Elite Pro',name:'Storm',color:'Cool Storm Grey',thick:'6mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v095',brand:'Fuzion Flooring',series:'Timberline',name:'Commercial Oak',color:'Natural Commercial',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v096',brand:'Fuzion Flooring',series:'Timberline',name:'Commercial Maple',color:'Maple Blonde',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v097',brand:'Fuzion Flooring',series:'Timberline',name:'Commercial Ash',color:'Warm Ash',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v098',brand:'Fuzion Flooring',series:'Timberline',name:'Commercial Grey',color:'Storm Grey',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v099',brand:'Fuzion Flooring',series:'Atelier',name:'Premium Oak',color:'Premium Natural',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v100',brand:'Fuzion Flooring',series:'Atelier',name:'Premium Walnut',color:'Rich Walnut',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  {id:'v101',brand:'Fuzion Flooring',series:'Atelier',name:'Multi-Width Rustic',color:'Rustic Multi',thick:'8mm',width:'Multi',finish:'EIR',isNew:true},
+  {id:'v102',brand:'Fuzion Flooring',series:'Atelier',name:'Premium Ash',color:'Cool Ash Grey',thick:'8mm',width:'9"',finish:'EIR',isNew:true},
+  // ── LW Flooring ────────────────────────────────────────
+  {id:'v103',brand:'LW Flooring',series:'Engineered SPC',name:'Oak Natural',color:'Natural Oak',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v104',brand:'LW Flooring',series:'Engineered SPC',name:'Oak Autumn',color:'Warm Amber',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v105',brand:'LW Flooring',series:'Engineered SPC',name:'Oak Smoke',color:'Smoked Grey',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v106',brand:'LW Flooring',series:'Wide Plank SPC',name:'Ash Wide Plank',color:'Natural Ash',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v107',brand:'LW Flooring',series:'Wide Plank SPC',name:'Sand Wide Plank',color:'Sandy Blonde',thick:'6.5mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v108',brand:'LW Flooring',series:'Classic SPC',name:'Birch Classic',color:'Natural Birch',thick:'5mm',width:'6"',finish:'BP',isNew:false},
+  {id:'v109',brand:'LW Flooring',series:'Classic SPC',name:'Walnut Classic',color:'Warm Walnut',thick:'5mm',width:'6"',finish:'BP',isNew:false},
+  {id:'v110',brand:'LW Flooring',series:'Classic SPC',name:'Grey Classic',color:'Cool Grey',thick:'5mm',width:'6"',finish:'BP',isNew:false},
+  // ── Knoas Flooring ─────────────────────────────────────
+  {id:'v111',brand:'Knoas Flooring',series:'Signature',name:'Amber Oak',color:'Warm Amber',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v112',brand:'Knoas Flooring',series:'Signature',name:'Natural Birch',color:'Natural Blonde',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v113',brand:'Knoas Flooring',series:'Signature',name:'Smoked Grey',color:'Grey Smoke',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v114',brand:'Knoas Flooring',series:'Signature',name:'Harvest Brown',color:'Harvest Brown',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  {id:'v115',brand:'Knoas Flooring',series:'Signature',name:'Whitewash',color:'Pale Whitewash',thick:'6mm',width:'7"',finish:'EIR',isNew:false},
+  // ── Argo ───────────────────────────────────────────────
+  {id:'v116',brand:'Argo',series:'Wide Plank Oak',name:'Natural Oak',color:'Natural Honey',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v117',brand:'Argo',series:'Wide Plank Oak',name:'Smoked Oak',color:'Cool Grey Smoke',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v118',brand:'Argo',series:'Wide Plank Oak',name:'Sand Oak',color:'Warm Sandy',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v119',brand:'Argo',series:'Wide Plank Oak',name:'Carbon Oak',color:'Dark Carbon',thick:'6mm',width:'9"',finish:'EIR',isNew:false},
+  {id:'v120',brand:'Argo',series:'Classic',name:'Engineered Oak Classic',color:'Classic Natural',thick:'5mm',width:'7"',finish:'BP',isNew:false},
+  // ── Legheds ────────────────────────────────────────────
+  {id:'v121',brand:'Legheds Collections',series:'Premium',name:'Oak Caramel',color:'Warm Caramel',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v122',brand:'Legheds Collections',series:'Premium',name:'Oak Natural',color:'Natural Oak',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v123',brand:'Legheds Collections',series:'Premium',name:'Oak Smoked',color:'Grey Smoke',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v124',brand:'Legheds Collections',series:'Premium',name:'Oak Ivory',color:'Light Ivory',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false},
+  {id:'v125',brand:'Legheds Collections',series:'Premium',name:'Oak Charcoal',color:'Charcoal Grey',thick:'6mm',width:'7.5"',finish:'EIR',isNew:false}
+];
+
+// ─── PRODUCT DATA — CARPET & LAMINATE (100) ──────────────
+const CARPET_DATA = [
+  // ── Fuzion Laminate ────────────────────────────────────
+  {id:'c001',brand:'Fuzion Flooring',series:'Country Homes',name:'Old Growth Oak',color:'Rustic Brown',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c002',brand:'Fuzion Flooring',series:'Country Homes',name:'Autumn Harvest',color:'Warm Amber',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c003',brand:'Fuzion Flooring',series:'Country Homes',name:'Natural Oak',color:'Natural Honey',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c004',brand:'Fuzion Flooring',series:'Country Homes',name:'Rustic Elm',color:'Rustic Grey-Brown',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c005',brand:'Fuzion Flooring',series:'Momentum',name:'Caramel Oak',color:'Warm Caramel',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c006',brand:'Fuzion Flooring',series:'Momentum',name:'Natural Oak',color:'Natural Blonde',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c007',brand:'Fuzion Flooring',series:'Momentum',name:'Ash Grey',color:'Cool Ash',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c008',brand:'Fuzion Flooring',series:'Vintage Chic',name:'Weathered Oak',color:'Weathered Grey-Brown',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c009',brand:'Fuzion Flooring',series:'Vintage Chic',name:'Farmhouse Grey',color:'Cool Farmhouse',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c010',brand:'Fuzion Flooring',series:'Vintage Chic',name:'Antiqued Maple',color:'Antique Honey',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c011',brand:'Fuzion Flooring',series:'Continental',name:'Hickory 12mm',color:'Natural Hickory',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c012',brand:'Fuzion Flooring',series:'Continental',name:'Walnut 12mm',color:'Rich Walnut',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c013',brand:'Fuzion Flooring',series:'Continental',name:'Pine 12mm',color:'Warm Pine',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c014',brand:'Fuzion Flooring',series:'Apex',name:'Herringbone Natural',color:'Natural Oak',thick:'10mm',type:'Laminate',isNew:true},
+  {id:'c015',brand:'Fuzion Flooring',series:'Apex',name:'Herringbone Smoke',color:'Smoked Grey',thick:'10mm',type:'Laminate',isNew:true},
+  {id:'c016',brand:'Fuzion Flooring',series:'TruNorth',name:'White Oak Natural',color:'Natural White Oak',thick:'9.5mm',type:'Laminate',isNew:true},
+  {id:'c017',brand:'Fuzion Flooring',series:'TruNorth',name:'Fumed Oak',color:'Fumed Grey Brown',thick:'9.5mm',type:'Laminate',isNew:true},
+  {id:'c018',brand:'Fuzion Flooring',series:'TruNorth',name:'Smoked Oak',color:'Deep Smoke',thick:'9.5mm',type:'Laminate',isNew:true},
+  {id:'c019',brand:'Fuzion Flooring',series:'Timbercraft',name:'Wide Plank Natural',color:'Wide Plank Oak',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c020',brand:'Fuzion Flooring',series:'Timbercraft',name:'Wide Plank Grey',color:'Wide Plank Grey',thick:'12mm',type:'Laminate',isNew:false},
+  // ── Republic Floor Laminate ────────────────────────────
+  {id:'c021',brand:'Republic Floor',series:'Heritage',name:'Heritage Oak Light',color:'Light Natural Oak',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c022',brand:'Republic Floor',series:'Heritage',name:'Heritage Oak Medium',color:'Medium Honey Oak',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c023',brand:'Republic Floor',series:'Heritage',name:'Heritage Oak Dark',color:'Dark Rich Oak',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c024',brand:'Republic Floor',series:'European',name:'European Oak Natural',color:'Natural European',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c025',brand:'Republic Floor',series:'European',name:'European Oak Smoke',color:'Smoked European',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c026',brand:'Republic Floor',series:'European',name:'European Oak Sand',color:'Sandy Blonde',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c027',brand:'Republic Floor',series:'Continental',name:'Continental Chestnut',color:'Warm Chestnut',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c028',brand:'Republic Floor',series:'Continental',name:'Continental Birch',color:'Natural Birch',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c029',brand:'Republic Floor',series:'Premium Plus',name:'Premium Maple',color:'Natural Maple',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c030',brand:'Republic Floor',series:'Premium Plus',name:'Premium Walnut',color:'Rich Walnut',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c031',brand:'Republic Floor',series:'Premium Plus',name:'Premium Pine',color:'Warm Pine',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c032',brand:'Republic Floor',series:'Designer',name:'Designer Hardwood Look',color:'Premium Wood Look',thick:'12mm',type:'Laminate',isNew:true},
+  {id:'c033',brand:'Republic Floor',series:'Designer',name:'Designer Grey Oak',color:'Cool Grey Oak',thick:'12mm',type:'Laminate',isNew:true},
+  {id:'c034',brand:'Republic Floor',series:'Value',name:'Value Oak Natural',color:'Natural Oak',thick:'7mm',type:'Laminate',isNew:false},
+  {id:'c035',brand:'Republic Floor',series:'Value',name:'Value Oak Grey',color:'Cool Grey',thick:'7mm',type:'Laminate',isNew:false},
+  // ── Lions Floor Laminate ───────────────────────────────
+  {id:'c036',brand:'Lions Floor',series:'Comfort Heights',name:'Golden Oak',color:'Golden Honey',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c037',brand:'Lions Floor',series:'Comfort Heights',name:'Silver Oak',color:'Silver Grey',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c038',brand:'Lions Floor',series:'Comfort Heights',name:'Natural Maple',color:'Natural Blonde',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c039',brand:'Lions Floor',series:'Comfort Heights',name:'Rustic Pine',color:'Warm Pine',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c040',brand:'Lions Floor',series:'Comfort Heights',name:'Espresso',color:'Dark Espresso',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c041',brand:'Lions Floor',series:'Comfort Heights',name:'Driftwood',color:'Bleached Drift',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c042',brand:'Lions Floor',series:'Comfort Heights',name:'Ash Grey',color:'Cool Ash Grey',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c043',brand:'Lions Floor',series:'Comfort Heights',name:'Ivory',color:'Light Ivory',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c044',brand:'Lions Floor',series:'Comfort Heights',name:'Storm Grey',color:'Storm Grey',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c045',brand:'Lions Floor',series:'Comfort Heights',name:'Cedar Run',color:'Natural Cedar',thick:'12mm',type:'Laminate',isNew:false},
+  // ── LW Flooring Laminate ───────────────────────────────
+  {id:'c046',brand:'LW Flooring',series:'Premium Laminate',name:'Premium Oak',color:'Natural Oak',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c047',brand:'LW Flooring',series:'Premium Laminate',name:'Premium Walnut',color:'Rich Walnut',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c048',brand:'LW Flooring',series:'Premium Laminate',name:'Premium Ash',color:'Cool Ash',thick:'12mm',type:'Laminate',isNew:false},
+  {id:'c049',brand:'LW Flooring',series:'Wide Laminate',name:'Wide Plank Natural',color:'Natural Plank',thick:'10mm',type:'Laminate',isNew:false},
+  {id:'c050',brand:'LW Flooring',series:'Wide Laminate',name:'Wide Plank Grey',color:'Cool Grey',thick:'10mm',type:'Laminate',isNew:false},
+  {id:'c051',brand:'LW Flooring',series:'Wide Laminate',name:'Wide Plank Coffee',color:'Rich Coffee',thick:'10mm',type:'Laminate',isNew:false},
+  {id:'c052',brand:'LW Flooring',series:'Classic Laminate',name:'Classic Harvest',color:'Harvest Gold',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c053',brand:'LW Flooring',series:'Classic Laminate',name:'Classic Pine',color:'Warm Pine',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c054',brand:'LW Flooring',series:'Classic Laminate',name:'Classic Maple',color:'Natural Maple',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c055',brand:'LW Flooring',series:'Commercial',name:'Commercial Grade Grey',color:'Durable Grey',thick:'12mm',type:'Laminate',isNew:false},
+  // ── ABC Flooring Carpet ────────────────────────────────
+  {id:'c056',brand:'ABC Flooring',series:'Plush Comfort',name:'Ivory Plush',color:'Soft Ivory',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c057',brand:'ABC Flooring',series:'Plush Comfort',name:'Beige Plush',color:'Warm Beige',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c058',brand:'ABC Flooring',series:'Plush Comfort',name:'Grey Plush',color:'Medium Grey',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c059',brand:'ABC Flooring',series:'Berber Loop',name:'Cream Berber',color:'Natural Cream',thick:'3/8"',type:'Carpet',isNew:false},
+  {id:'c060',brand:'ABC Flooring',series:'Berber Loop',name:'Taupe Berber',color:'Warm Taupe',thick:'3/8"',type:'Carpet',isNew:false},
+  {id:'c061',brand:'ABC Flooring',series:'Berber Loop',name:'Charcoal Berber',color:'Deep Charcoal',thick:'3/8"',type:'Carpet',isNew:false},
+  {id:'c062',brand:'ABC Flooring',series:'Cut & Loop',name:'Wheat Cut Loop',color:'Warm Wheat',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c063',brand:'ABC Flooring',series:'Cut & Loop',name:'Stone Cut Loop',color:'Neutral Stone',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c064',brand:'ABC Flooring',series:'Cut & Loop',name:'Coffee Cut Loop',color:'Rich Coffee',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c065',brand:'ABC Flooring',series:'Texture Plus',name:'Sand Texture',color:'Warm Sand',thick:'9/16"',type:'Carpet',isNew:false},
+  {id:'c066',brand:'ABC Flooring',series:'Texture Plus',name:'Mocha Texture',color:'Deep Mocha',thick:'9/16"',type:'Carpet',isNew:false},
+  {id:'c067',brand:'ABC Flooring',series:'Pattern',name:'Geometric Blue',color:'Navy Blue Pattern',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c068',brand:'ABC Flooring',series:'Pattern',name:'Floral Cream',color:'Cream Floral',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c069',brand:'ABC Flooring',series:'Commercial',name:'Dove Commercial',color:'Soft Dove',thick:'3/8"',type:'Carpet',isNew:false},
+  {id:'c070',brand:'ABC Flooring',series:'Commercial',name:'Graphite Commercial',color:'Dark Graphite',thick:'3/8"',type:'Carpet',isNew:false},
+  // ── Lawson's Carpet ────────────────────────────────────
+  {id:'c071',brand:"Lawson's",series:'Wool Plush',name:'Natural Wool',color:'Natural Cream',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c072',brand:"Lawson's",series:'Wool Plush',name:'Ivory Wool',color:'Warm Ivory',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c073',brand:"Lawson's",series:'Wool Plush',name:'Charcoal Wool',color:'Deep Charcoal',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c074',brand:"Lawson's",series:'Wool Berber',name:'Oatmeal Berber',color:'Natural Oatmeal',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c075',brand:"Lawson's",series:'Wool Berber',name:'Pebble Berber',color:'Warm Pebble',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c076',brand:"Lawson's",series:'Wool Textured',name:'Slate Texture',color:'Natural Slate',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c077',brand:"Lawson's",series:'Premium Nylon',name:'Bisque Nylon',color:'Warm Bisque',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c078',brand:"Lawson's",series:'Premium Nylon',name:'Smoke Nylon',color:'Cool Smoke',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c079',brand:"Lawson's",series:'Premium Nylon',name:'Caramel Nylon',color:'Warm Caramel',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c080',brand:"Lawson's",series:'Saxony Twist',name:'Wheat Saxony',color:'Golden Wheat',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c081',brand:"Lawson's",series:'Saxony Twist',name:'Pearl Saxony',color:'Soft Pearl',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c082',brand:"Lawson's",series:'Loop Pile',name:'Sand Loop',color:'Warm Sand',thick:'⅜"',type:'Carpet',isNew:false},
+  {id:'c083',brand:"Lawson's",series:'FreeStyle',name:'Mocha Cut Pile',color:'Rich Mocha',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c084',brand:"Lawson's",series:'FreeStyle',name:'Beige Cut Pile',color:'Warm Beige',thick:'⅝"',type:'Carpet',isNew:false},
+  {id:'c085',brand:"Lawson's",series:'Premium Nylon',name:'Cream Nylon',color:'Light Cream',thick:'⅝"',type:'Carpet',isNew:false},
+  // ── Legheds Carpet ─────────────────────────────────────
+  {id:'c086',brand:'Legheds Collections',series:'Collections',name:'Ivory Collection',color:'Soft Ivory',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c087',brand:'Legheds Collections',series:'Collections',name:'Wheat Collection',color:'Natural Wheat',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c088',brand:'Legheds Collections',series:'Collections',name:'Slate Collection',color:'Cool Slate',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c089',brand:'Legheds Collections',series:'Collections',name:'Cream Collection',color:'Warm Cream',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c090',brand:'Legheds Collections',series:'Collections',name:'Taupe Collection',color:'Warm Taupe',thick:'½"',type:'Carpet',isNew:false},
+  // ── Elephant Design ────────────────────────────────────
+  {id:'c091',brand:'Elephant Design',series:'Custom Pattern',name:'Blue Tones Geometric',color:'Navy & Ivory',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c092',brand:'Elephant Design',series:'Custom Pattern',name:'Earth Tones Weave',color:'Terracotta Mix',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c093',brand:'Elephant Design',series:'Border',name:'Classic Border Design',color:'Cream & Gold',thick:'½"',type:'Carpet',isNew:false},
+  {id:'c094',brand:'Elephant Design',series:'Specialty',name:'Specialty Geometric',color:'Charcoal & White',thick:'⅝"',type:'Carpet',isNew:true},
+  {id:'c095',brand:'Elephant Design',series:'Feature',name:'Feature Art Piece',color:'Multicolor',thick:'⅝"',type:'Carpet',isNew:true},
+  // ── Keystone Laminate ──────────────────────────────────
+  {id:'c096',brand:'Keystone',series:'Classic Plank',name:'Classic Oak Plank',color:'Natural Oak',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c097',brand:'Keystone',series:'Classic Plank',name:'Classic Walnut Plank',color:'Rich Walnut',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c098',brand:'Keystone',series:'Classic Plank',name:'Classic Ash Plank',color:'Cool Ash',thick:'8mm',type:'Laminate',isNew:false},
+  {id:'c099',brand:'Keystone',series:'Value Plus',name:'Value Pine',color:'Warm Pine',thick:'7mm',type:'Laminate',isNew:false},
+  {id:'c100',brand:'Keystone',series:'Value Plus',name:'Value Maple',color:'Natural Maple',thick:'7mm',type:'Laminate',isNew:false}
+];
+
+// ─── PRODUCT DATA — NATURAL STONE (100) ──────────────────
+const STONE_DATA = [
+  // ── Piedmont Stone ─────────────────────────────────────
+  {id:'s001',brand:'Piedmont',series:'Marble',name:'Calacatta Select',color:'White/Gold Veining',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s002',brand:'Piedmont',series:'Marble',name:'Calacatta Select',color:'White/Gold Veining',size:'24×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s003',brand:'Piedmont',series:'Marble',name:'Carrara White',color:'White/Grey Veining',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s004',brand:'Piedmont',series:'Marble',name:'Carrara White',color:'White/Grey Veining',size:'24×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s005',brand:'Piedmont',series:'Marble',name:'Statuario Premium',color:'White/Dramatic Veining',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s006',brand:'Piedmont',series:'Marble',name:'Statuario Premium',color:'White/Bold Veining',size:'24×48',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s007',brand:'Piedmont',series:'Marble',name:'Nero Marquina',color:'Black/White Veining',size:'12×12',finish:'Polished',origin:'Spain',isNew:false},
+  {id:'s008',brand:'Piedmont',series:'Marble',name:'Nero Marquina',color:'Black/White Veining',size:'12×24',finish:'Polished',origin:'Spain',isNew:false},
+  {id:'s009',brand:'Piedmont',series:'Travertine',name:'Silver Travertine',color:'Silver/Cream',size:'18×18',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s010',brand:'Piedmont',series:'Travertine',name:'Roman Classic',color:'Warm Cream',size:'12×24',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s011',brand:'Piedmont',series:'Travertine',name:'Noce Travertine',color:'Dark Walnut',size:'18×18',finish:'Filled',origin:'Turkey',isNew:false},
+  {id:'s012',brand:'Piedmont',series:'Travertine',name:'Gold Travertine',color:'Warm Gold',size:'12×24',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s013',brand:'Piedmont',series:'Slate',name:'Black Slate Cleft',color:'Natural Black',size:'12×12',finish:'Cleft',origin:'Brazil',isNew:false},
+  {id:'s014',brand:'Piedmont',series:'Slate',name:'Multicolor Slate',color:'Mixed Rustic',size:'12×12',finish:'Cleft',origin:'India',isNew:false},
+  {id:'s015',brand:'Piedmont',series:'Limestone',name:'Cream Limestone',color:'Warm Cream',size:'12×24',finish:'Honed',origin:'France',isNew:false},
+  {id:'s016',brand:'Piedmont',series:'Limestone',name:'Grey Limestone',color:'Cool Grey',size:'12×24',finish:'Honed',origin:'France',isNew:false},
+  {id:'s017',brand:'Piedmont',series:'Onyx',name:'Honey Onyx',color:'Translucent Honey',size:'12×12',finish:'Polished',origin:'Turkey',isNew:false},
+  {id:'s018',brand:'Piedmont',series:'Onyx',name:'White Onyx',color:'Translucent White',size:'12×12',finish:'Polished',origin:'Turkey',isNew:false},
+  {id:'s019',brand:'Piedmont',series:'Quartzite',name:'Quartzite White',color:'Bright White',size:'12×24',finish:'Honed',origin:'Brazil',isNew:false},
+  {id:'s020',brand:'Piedmont',series:'Quartzite',name:'Fantasy Brown',color:'Brown/Grey',size:'12×24',finish:'Polished',origin:'India',isNew:false},
+  {id:'s021',brand:'Piedmont',series:'Granite',name:'Black Granite',color:'Absolute Black',size:'12×24',finish:'Polished',origin:'India',isNew:false},
+  {id:'s022',brand:'Piedmont',series:'Granite',name:'White Granite',color:'Crystal White',size:'12×24',finish:'Polished',origin:'India',isNew:false},
+  {id:'s023',brand:'Piedmont',series:'Granite',name:'Kashmir White',color:'White/Pink Flecks',size:'12×12',finish:'Polished',origin:'India',isNew:false},
+  {id:'s024',brand:'Piedmont',series:'Mosaic',name:'Marble Mix Mosaic',color:'Mixed Marble',size:'12×12',finish:'Polished',origin:'Mixed',isNew:false},
+  {id:'s025',brand:'Piedmont',series:'Pebble',name:'River Rock Pebble',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  // ── RAK Ceramics Stone ─────────────────────────────────
+  {id:'s026',brand:'RAK Ceramics',series:'Amani',name:'Amani Marble Natural',color:'Warm Beige',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s027',brand:'RAK Ceramics',series:'Amani',name:'Amani Marble Natural',color:'Warm Beige',size:'24×48',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s028',brand:'RAK Ceramics',series:'Travertine',name:'Cross Cut Light',color:'Light Travertine',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s029',brand:'RAK Ceramics',series:'Travertine',name:'Cross Cut Dark',color:'Dark Travertine',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s030',brand:'RAK Ceramics',series:'Stelvio',name:'Stelvio Natural Grey',color:'Natural Grey',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s031',brand:'RAK Ceramics',series:'Stelvio',name:'Stelvio Large',color:'Natural Grey',size:'24×48',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s032',brand:'RAK Ceramics',series:'Baltico',name:'Baltico Stone Look',color:'Blue-Grey Stone',size:'24×48',finish:'Polished',origin:'UAE',isNew:false},
+  {id:'s033',brand:'RAK Ceramics',series:'B-Materia',name:'Earthy Clay',color:'Warm Terracotta',size:'12×24',finish:'Matte',origin:'UAE',isNew:true},
+  {id:'s034',brand:'RAK Ceramics',series:'B-Materia',name:'Clay Tones',color:'Natural Clay',size:'24×24',finish:'Matte',origin:'UAE',isNew:true},
+  {id:'s035',brand:'RAK Ceramics',series:'B-Materia',name:'Ash Earth',color:'Cool Ash',size:'12×24',finish:'Matte',origin:'UAE',isNew:true},
+  {id:'s036',brand:'RAK Ceramics',series:'City Stone',name:'Cool Grey',color:'Light Cool Grey',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s037',brand:'RAK Ceramics',series:'City Stone',name:'Warm Beige',color:'Warm Sandy Beige',size:'24×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s038',brand:'RAK Ceramics',series:'Terra',name:'Terra Natural',color:'Rustic Natural',size:'12×12',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s039',brand:'RAK Ceramics',series:'Terra',name:'Terra Rustic',color:'Rustic Earth Tone',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s040',brand:'RAK Ceramics',series:'Curton',name:'Curton Stone Effect',color:'Natural Grey Stone',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s041',brand:'RAK Ceramics',series:'Surface',name:'Surface Stone Light',color:'Light Stone',size:'24×48',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s042',brand:'RAK Ceramics',series:'Surface',name:'Surface Stone Dark',color:'Dark Stone',size:'24×48',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s043',brand:'RAK Ceramics',series:'Opificio',name:'Opificio Stone',color:'Industrial Stone',size:'12×24',finish:'Matte',origin:'UAE',isNew:true},
+  {id:'s044',brand:'RAK Ceramics',series:'Concrete',name:'Concrete Stone',color:'Raw Concrete',size:'12×24',finish:'Matte',origin:'UAE',isNew:false},
+  {id:'s045',brand:'RAK Ceramics',series:'Essential',name:'Essential Stone Wood',color:'Natural Wood Stone',size:'8×48',finish:'Matte',origin:'UAE',isNew:false},
+  // ── Keystone Natural ───────────────────────────────────
+  {id:'s046',brand:'Keystone',series:'Travertine',name:'Natural Ivory',color:'Ivory Travertine',size:'18×18',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s047',brand:'Keystone',series:'Travertine',name:'Natural Gold',color:'Golden Travertine',size:'12×24',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s048',brand:'Keystone',series:'Travertine',name:'Natural Noce',color:'Dark Walnut',size:'18×18',finish:'Filled',origin:'Turkey',isNew:false},
+  {id:'s049',brand:'Keystone',series:'Slate',name:'Natural Cleft Black',color:'Natural Black',size:'12×12',finish:'Natural',origin:'India',isNew:false},
+  {id:'s050',brand:'Keystone',series:'Slate',name:'Split Face',color:'Mixed Grey',size:'4×12',finish:'Natural',origin:'India',isNew:false},
+  {id:'s051',brand:'Keystone',series:'Limestone',name:'Classic Limestone',color:'Warm Cream',size:'12×24',finish:'Honed',origin:'France',isNew:false},
+  {id:'s052',brand:'Keystone',series:'Limestone',name:'Premium Limestone',color:'Buff Cream',size:'18×18',finish:'Honed',origin:'France',isNew:false},
+  {id:'s053',brand:'Keystone',series:'Quartzite',name:'White Quartzite',color:'Bright White',size:'12×24',finish:'Natural',origin:'Brazil',isNew:false},
+  {id:'s054',brand:'Keystone',series:'Marble',name:'Bianco Marble',color:'Classic White',size:'12×12',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s055',brand:'Keystone',series:'Marble',name:'Classic Grey Marble',color:'Classic Grey',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s056',brand:'Keystone',series:'Cobblestone',name:'Rustic Cobblestone',color:'Mixed Rustic',size:'12×12',finish:'Tumbled',origin:'Mixed',isNew:false},
+  {id:'s057',brand:'Keystone',series:'Cobblestone',name:'Grey Cobblestone',color:'Cool Grey',size:'4×4',finish:'Tumbled',origin:'Mixed',isNew:false},
+  {id:'s058',brand:'Keystone',series:'Pebble',name:'River Pebble Natural',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  {id:'s059',brand:'Keystone',series:'Slate',name:'Garden Slate Charcoal',color:'Deep Charcoal',size:'24×24',finish:'Cleft',origin:'India',isNew:false},
+  {id:'s060',brand:'Keystone',series:'Sandstone',name:'Natural Sandstone',color:'Warm Sand',size:'12×24',finish:'Honed',origin:'India',isNew:false},
+  // ── Lawson's Premium Stone ─────────────────────────────
+  {id:'s061',brand:"Lawson's",series:'Italian Marble',name:'Carrara Premium',color:'White/Grey Veining',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s062',brand:"Lawson's",series:'Italian Marble',name:'Carrara Grand',color:'White/Grey Veining',size:'24×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s063',brand:"Lawson's",series:'Italian Marble',name:'Statuario Select',color:'White/Bold Veining',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s064',brand:"Lawson's",series:'Turkish Travertine',name:'Light Travertine',color:'Ivory Cream',size:'12×24',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s065',brand:"Lawson's",series:'Turkish Travertine',name:'Walnut Travertine',color:'Warm Walnut',size:'18×18',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s066',brand:"Lawson's",series:'Turkish Travertine',name:'Dark Travertine',color:'Dark Brown',size:'12×24',finish:'Filled',origin:'Turkey',isNew:false},
+  {id:'s067',brand:"Lawson's",series:'Brazilian Quartzite',name:'White Quartzite',color:'Pure White',size:'12×24',finish:'Natural',origin:'Brazil',isNew:false},
+  {id:'s068',brand:"Lawson's",series:'Brazilian Quartzite',name:'Golden Quartzite',color:'Golden Yellow',size:'12×24',finish:'Natural',origin:'Brazil',isNew:true},
+  {id:'s069',brand:"Lawson's",series:'Granite',name:'Indian Black Granite',color:'Absolute Black',size:'12×24',finish:'Polished',origin:'India',isNew:false},
+  {id:'s070',brand:"Lawson's",series:'Granite',name:'Indian White Granite',color:'Salt & Pepper',size:'12×24',finish:'Polished',origin:'India',isNew:false},
+  {id:'s071',brand:"Lawson's",series:'Basalt',name:'Grey Basalt',color:'Cool Natural Grey',size:'12×24',finish:'Honed',origin:'Indonesia',isNew:false},
+  {id:'s072',brand:"Lawson's",series:'Basalt',name:'Black Basalt',color:'Deep Black',size:'12×12',finish:'Honed',origin:'Indonesia',isNew:false},
+  {id:'s073',brand:"Lawson's",series:'Onyx',name:'Green Onyx Rare',color:'Translucent Green',size:'12×12',finish:'Polished',origin:'Pakistan',isNew:true},
+  {id:'s074',brand:"Lawson's",series:'Onyx',name:'Honey Onyx Select',color:'Warm Honey',size:'12×12',finish:'Polished',origin:'Turkey',isNew:false},
+  {id:'s075',brand:"Lawson's",series:'Limestone',name:'Jerusalem Limestone',color:'Sandy Cream',size:'12×24',finish:'Honed',origin:'Israel',isNew:false},
+  {id:'s076',brand:"Lawson's",series:'Limestone',name:'Jerusalem Gold',color:'Golden Cream',size:'18×18',finish:'Honed',origin:'Israel',isNew:false},
+  {id:'s077',brand:"Lawson's",series:'Limestone',name:'Fleury Limestone',color:'Light Cream',size:'12×24',finish:'Honed',origin:'France',isNew:false},
+  {id:'s078',brand:"Lawson's",series:'Pebble',name:'Round Pebble Mosaic',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  {id:'s079',brand:"Lawson's",series:'Pebble',name:'Flat Pebble Mosaic',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  {id:'s080',brand:"Lawson's",series:'Lava Stone',name:'Lava Stone Black',color:'Natural Volcanic',size:'12×12',finish:'Natural',origin:'Indonesia',isNew:false},
+  // ── Elephant Design Stone Mosaic ───────────────────────
+  {id:'s081',brand:'Elephant Design',series:'Marble Mosaic',name:'Herringbone White',color:'Bright White',size:'12×12',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s082',brand:'Elephant Design',series:'Marble Mosaic',name:'Basketweave Classic',color:'White/Black Dot',size:'12×12',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s083',brand:'Elephant Design',series:'Marble Mosaic',name:'Linear Grey Strips',color:'Grey/White',size:'12×12',finish:'Polished',origin:'Mixed',isNew:false},
+  {id:'s084',brand:'Elephant Design',series:'Marble Mosaic',name:'Arabesque Pattern',color:'White/Grey',size:'12×12',finish:'Polished',origin:'Turkey',isNew:false},
+  {id:'s085',brand:'Elephant Design',series:'Travertine Mosaic',name:'Travertine Mix',color:'Mixed Warm Tones',size:'12×12',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s086',brand:'Elephant Design',series:'Slate Mosaic',name:'Slate Multicolor',color:'Rustic Mixed',size:'12×12',finish:'Natural',origin:'India',isNew:false},
+  {id:'s087',brand:'Elephant Design',series:'Pebble Mosaic',name:'River Rock Natural',color:'Natural Stone Mix',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  {id:'s088',brand:'Elephant Design',series:'Mixed Material',name:'Glass & Stone Aqua',color:'Aqua/Stone Mix',size:'12×12',finish:'Mixed',origin:'Mixed',isNew:true},
+  {id:'s089',brand:'Elephant Design',series:'Geometric',name:'Marble Hexagon',color:'White/Grey Hex',size:'12×12',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s090',brand:'Elephant Design',series:'Geometric',name:'Marble Fan Pattern',color:'White Fan Design',size:'12×12',finish:'Polished',origin:'Italy',isNew:true},
+  // ── ABC Natural Stone ──────────────────────────────────
+  {id:'s091',brand:'ABC Flooring',series:'Natural Stone',name:'Classic Limestone Cream',color:'Warm Cream',size:'12×24',finish:'Honed',origin:'Mixed',isNew:false},
+  {id:'s092',brand:'ABC Flooring',series:'Natural Stone',name:'Classic Limestone Grey',color:'Cool Grey',size:'12×24',finish:'Honed',origin:'Mixed',isNew:false},
+  {id:'s093',brand:'ABC Flooring',series:'Natural Stone',name:'Economy Travertine Light',color:'Light Travertine',size:'12×12',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s094',brand:'ABC Flooring',series:'Natural Stone',name:'Economy Travertine Dark',color:'Dark Travertine',size:'12×12',finish:'Honed',origin:'Turkey',isNew:false},
+  {id:'s095',brand:'ABC Flooring',series:'Natural Stone',name:'Standard Marble White',color:'White Marble',size:'12×12',finish:'Polished',origin:'Mixed',isNew:false},
+  {id:'s096',brand:'ABC Flooring',series:'Natural Stone',name:'Standard Marble Beige',color:'Beige Marble',size:'12×12',finish:'Polished',origin:'Mixed',isNew:false},
+  {id:'s097',brand:'ABC Flooring',series:'Natural Stone',name:'Natural Slate Black',color:'Black Slate',size:'12×12',finish:'Natural',origin:'India',isNew:false},
+  {id:'s098',brand:'ABC Flooring',series:'Natural Stone',name:'Natural Slate Rust',color:'Rustic Rust',size:'12×12',finish:'Natural',origin:'India',isNew:false},
+  {id:'s099',brand:'ABC Flooring',series:'Granite',name:'Economy Granite Grey',color:'Grey Granite',size:'12×12',finish:'Polished',origin:'India',isNew:false},
+  {id:'s100',brand:'ABC Flooring',series:'Granite',name:'Economy Granite Dark',color:'Dark Granite',size:'12×24',finish:'Polished',origin:'India',isNew:false}
+];
+
+// ─── DATA MAP ─────────────────────────────────────────────
+const UC_DATA = { tile: TILE_DATA, lvp: LVP_DATA, carpet: CARPET_DATA, stone: STONE_DATA };
+
+// ─── SPEC FORMATTERS ─────────────────────────────────────
+function ucSpec(type, p) {
+  if (type==='tile')   return `${p.size}" · ${p.finish} · ${p.series}`;
+  if (type==='lvp')    return `${p.thick} · ${p.width} wide · ${p.finish} finish`;
+  if (type==='carpet') return `${p.thick} pile · ${p.type} · ${p.series}`;
+  if (type==='stone')  return `${p.size}" · ${p.finish} · ${p.origin}`;
+}
+
+// ─── BUILD BRAND FILTER TABS ─────────────────────────────
+function ucBuildBrands(type) {
+  const data = UC_DATA[type];
+  const counts = {};
+  data.forEach(p => { counts[p.brand] = (counts[p.brand]||0)+1; });
+  const brands = Object.keys(counts);
+  const bar = document.getElementById(type+'-brands');
+  bar.innerHTML = `<button class="uc-brand-btn active" data-brand="all" onclick="ucBrand('${type}','all')">All Brands <span class="cnt">${data.length}</span></button>`;
+  brands.forEach(b => {
+    bar.innerHTML += `<button class="uc-brand-btn" data-brand="${b}" onclick="ucBrand('${type}','${b.replace(/'/g,"\\'")}')">
+      ${b} <span class="cnt">${counts[b]}</span></button>`;
+  });
+}
+
+// ─── BRAND FILTER ────────────────────────────────────────
+function ucBrand(type, brand) {
+  UC[type].brand = brand;
+  UC[type].series = 'all';
+  UC[type].page = 1;
+  // update brand button states
+  document.querySelectorAll(`#${type}-brands .uc-brand-btn`).forEach(b => {
+    b.classList.toggle('active', b.dataset.brand === brand);
+  });
+  // build series sub-filter
+  ucBuildSeries(type);
+  ucAnimate(type);
+}
+
+// ─── SERIES SUB-FILTER ────────────────────────────────────
+function ucBuildSeries(type) {
+  const data = ucFiltered(type, true); // brand-filtered only
+  const seriesBar = document.getElementById(type+'-series');
+  if (UC[type].brand === 'all') {
+    seriesBar.classList.add('hidden');
+    seriesBar.innerHTML = '';
+    return;
+  }
+  const counts = {};
+  data.forEach(p => { counts[p.series] = (counts[p.series]||0)+1; });
+  const series = Object.keys(counts);
+  if (series.length <= 1) { seriesBar.classList.add('hidden'); return; }
+  seriesBar.classList.remove('hidden');
+  seriesBar.innerHTML = `<button class="uc-series-btn active" data-series="all" onclick="ucSeries('${type}','all')">All <span class="cnt">${data.length}</span></button>`;
+  series.forEach(s => {
+    seriesBar.innerHTML += `<button class="uc-series-btn" data-series="${s}" onclick="ucSeries('${type}','${s.replace(/'/g,"\\'")}')">
+      ${s} <span class="cnt">${counts[s]}</span></button>`;
+  });
+}
+
+function ucSeries(type, series) {
+  UC[type].series = series;
+  UC[type].page = 1;
+  document.querySelectorAll(`#${type}-series .uc-series-btn`).forEach(b => {
+    b.classList.toggle('active', b.dataset.series === series);
+  });
+  ucAnimate(type);
+}
+
+// ─── FILTER PRODUCTS ─────────────────────────────────────
+function ucFiltered(type, brandOnly) {
+  const st = UC[type];
+  return UC_DATA[type].filter(p => {
+    const brandOk = st.brand === 'all' || p.brand === st.brand;
+    const seriesOk = brandOnly || st.series === 'all' || p.series === st.series;
+    return brandOk && seriesOk;
+  });
+}
+
+// ─── RENDER GRID ──────────────────────────────────────────
+function ucRender(type) {
+  const st = UC[type];
+  const all = ucFiltered(type, false);
+  const start = (st.page-1)*UC_PER_PAGE;
+  const page = all.slice(start, start+UC_PER_PAGE);
+  const grid = document.getElementById(type+'-grid');
+  grid.innerHTML = page.map((p,i) => {
+    const swatch = ucSwatch(p.name+' '+p.color);
+    const imgUrl = ucImg(type, p);
+    return `<div class="uc-card" role="listitem" style="animation-delay:${i*0.04}s" onclick="ucCardClick('${type}','${p.id}')">
+      <div class="uc-swatch">
+        ${imgUrl
+          ? `<img class="uc-swatch-img" src="${imgUrl}" alt="${p.brand} ${p.name}" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+             <div class="uc-swatch-bg" style="background:${swatch};display:none;"></div>`
+          : `<div class="uc-swatch-bg" style="background:${swatch};"></div>`
+        }
+        <div class="uc-brand-tag">${p.brand}</div>
+        ${p.isNew ? '<div class="uc-new-tag">New 2025</div>' : ''}
+        ${p.finish ? `<div class="uc-finish-tag">${p.finish}</div>` : ''}
+      </div>
+      <div class="uc-card-body">
+        <p class="uc-collection">${p.series}</p>
+        <h3 class="uc-card-name">${p.name}${p.color !== p.name ? ' — '+p.color : ''}</h3>
+        <p class="uc-card-spec">${ucSpec(type,p)}</p>
+        <p class="uc-card-cta">Visit Showroom to Order →</p>
+      </div>
+    </div>`;
+  }).join('');
+  // Update page info
+  const total = all.length;
+  const pages = Math.ceil(total/UC_PER_PAGE);
+  document.getElementById(type+'-pg-info').textContent =
+    `Showing ${start+1}–${Math.min(start+UC_PER_PAGE,total)} of ${total} products`;
+  document.getElementById(type+'-subtitle').textContent =
+    `${total} products across ${new Set(UC_DATA[type].map(p=>p.brand)).size} brands — available at our Houston showroom.`;
+  ucPaginate(type, pages);
+}
+
+// ─── PAGINATE ────────────────────────────────────────────
+function ucPaginate(type, pages) {
+  const cur = UC[type].page;
+  const bar = document.getElementById(type+'-pagination');
+  if (pages <= 1) { bar.innerHTML=''; return; }
+  let html = `<button class="uc-pg" ${cur===1?'disabled':''} onclick="ucPage('${type}',${cur-1})" aria-label="Previous">‹</button>`;
+  const show = new Set([1, pages, cur, cur-1, cur+1].filter(n=>n>=1&&n<=pages));
+  let prev = 0;
+  [...show].sort((a,b)=>a-b).forEach(n => {
+    if (prev && n-prev>1) html += `<button class="uc-pg" disabled>…</button>`;
+    html += `<button class="uc-pg${cur===n?' active':''}" onclick="ucPage('${type}',${n})">${n}</button>`;
+    prev = n;
+  });
+  html += `<button class="uc-pg" ${cur===pages?'disabled':''} onclick="ucPage('${type}',${cur+1})" aria-label="Next">›</button>`;
+  bar.innerHTML = html;
+}
+
+// ─── PAGE NAV ────────────────────────────────────────────
+function ucPage(type, n) {
+  UC[type].page = n;
+  ucAnimate(type);
+  document.getElementById(type+'-catalog').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ─── ANIMATE SWAP ────────────────────────────────────────
+function ucAnimate(type) {
+  const grid = document.getElementById(type+'-grid');
+  grid.classList.add('uc-fade-out');
+  setTimeout(() => {
+    grid.classList.remove('uc-fade-out');
+    ucRender(type);
+    grid.classList.add('uc-fade-in');
+    setTimeout(() => grid.classList.remove('uc-fade-in'), 320);
+  }, 180);
+}
+
+// ─── OPEN CATALOG ─────────────────────────────────────────
+function openCatalog(type) {
+  // Close all catalogs first
+  ['tile','lvp','carpet','stone'].forEach(t => {
+    document.getElementById(t+'-catalog').classList.remove('open');
+  });
+  document.getElementById('jh-catalog').classList.remove('open');
+  // Build and open requested
+  const section = document.getElementById(type+'-catalog');
+  section.classList.add('open');
+  // Build brand filters if not yet built
+  if (!document.getElementById(type+'-brands').hasChildNodes()) {
+    ucBuildBrands(type);
+    ucRender(type);
+  }
+  setTimeout(() => section.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+}
+
+// ─── CARD CLICK → SHOWROOM MODAL ─────────────────────────
+function ucCardClick(type, id) {
+  const p = UC_DATA[type].find(x=>x.id===id);
+  if (!p) return;
+  // Populate existing product modal
+  document.getElementById('pmodal-series').textContent = p.brand;
+  document.getElementById('pmodal-title').textContent = p.name + (p.color && p.color!==p.name ? ' — '+p.color : '');
+  document.getElementById('pmodal-sku').textContent = p.id.toUpperCase();
+  document.getElementById('pmodal-desc').textContent =
+    `This ${p.brand} product is part of the ${p.series} series. Available exclusively at Flooring Outlet TX, Houston's authorized dealer.`;
+  document.getElementById('pmodal-specs').innerHTML = buildUCSpecs(type, p);
+  const img = document.getElementById('pmodal-main-img');
+  const realImg = ucImg(type, p);
+  img.style.cssText = 'width:100%;height:100%;object-fit:cover;background:' + ucSwatch(p.name+' '+p.color) + ';';
+  img.src = realImg || '';
+  img.alt = p.brand + ' ' + p.name;
+  document.getElementById('pmodal-thumbs').innerHTML='';
+  const jhLink = document.getElementById('pmodal-jh-link');
+  jhLink.href = 'https://'+p.brand.replace(/\s+/g,'').toLowerCase()+'.com';
+  jhLink.textContent = `View on ${p.brand} →`;
+  document.getElementById('productModalOverlay').classList.add('open');
+}
+
+function buildUCSpecs(type, p) {
+  const specs = [];
+  specs.push({l:'Brand',v:p.brand},{l:'Collection',v:p.series},{l:'Color',v:p.color});
+  if (type==='tile')   { specs.push({l:'Size',v:p.size+'"'},{l:'Finish',v:p.finish}); }
+  if (type==='lvp')    { specs.push({l:'Thickness',v:p.thick},{l:'Width',v:p.width},{l:'Finish',v:p.finish}); }
+  if (type==='carpet') { specs.push({l:'Pile Height',v:p.thick},{l:'Type',v:p.type}); }
+  if (type==='stone')  { specs.push({l:'Size',v:p.size+'"'},{l:'Finish',v:p.finish},{l:'Origin',v:p.origin}); }
+  return specs.map(s=>`<div class="pmodal-spec-item"><span class="spec-label">${s.l}</span><span class="spec-val">${s.v}</span></div>`).join('');
+}
+
+// ─── ALSO OVERRIDE JH CATALOG TO CLOSE OTHERS ────────────
+const _origOpenJH = window.openJHCatalog;
+window.openJHCatalog = function() {
+  ['tile','lvp','carpet','stone'].forEach(t => {
+    document.getElementById(t+'-catalog').classList.remove('open');
+  });
+  if (typeof _origOpenJH === 'function') _origOpenJH();
+  else {
+    document.getElementById('jh-catalog').classList.add('open');
+    document.getElementById('jh-catalog').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+};
+</script>
 </body>
 </html>
