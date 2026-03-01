@@ -23,6 +23,8 @@
   
     --accent-light: #E8DADA;
   --classy-gold: #C6A75E;
+  --outlet-prices: #f0d9b5; /* matches “Outlet Prices” hero emphasis */
+
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1101,6 +1103,30 @@
   @media (max-width: 700px) {
     .topbar { display: none; }
   }
+/* ─── UX COLOR TWEAKS (requested) ─── */
+/* “Shop Collections” button uses the same tone as the “Outlet Prices” highlight */
+.hero .hero-actions .btn-primary{
+  background: var(--outlet-prices);
+  color: var(--charcoal);
+  border-color: rgba(0,0,0,.18);
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+}
+.hero .hero-actions .btn-primary:hover{
+  background: #ead1a9; /* slightly deeper on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,.28);
+}
+
+/* “Every Floor, Every Vision” category product names: higher contrast + new color */
+.categories .cat-name{
+  color: var(--outlet-prices);
+  text-shadow: 0 14px 30px rgba(0,0,0,.55);
+  letter-spacing: .01em;
+}
+.categories .cat-count{
+  color: rgba(255,255,255,.78);
+  text-shadow: 0 10px 22px rgba(0,0,0,.45);
+}
 </style>
 
   <link rel="preload" as="image" href="./assets/hero/livingroom-hero.png">
@@ -1146,7 +1172,7 @@
 <p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#collections">Shop Collections</a>
-<a class="btn btn-ghost" href="#showroom">Visit Showroom</a>
+<a class="btn btn-ghost" href="#showroom"><span style="color:#000000 !important;">Visit Showroom</span></a>
 </div>
 </div>
 <div class="hero-scroll">
