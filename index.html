@@ -1211,6 +1211,348 @@ a.nav-cta:hover{
   }
 }
 
+
+/* === NAV: hide category links in hero, reveal only after scroll (desktop/laptop only) === */
+nav .nav-links{
+  transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+  will-change: opacity, transform;
+}
+nav:not(.scrolled) .nav-links{
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  visibility: hidden;
+}
+nav.scrolled .nav-links{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* === Laptop hero card root-cause fix (900–1280px only) ===
+   More breathing room above badge/logo AND allow the glass card to sit lower
+   by overlapping the ticker slightly (negative bottom margin). */
+@media (min-width: 900px) and (max-width: 1280px){
+  .hero-content{
+    padding-top: 5.25rem !important;    /* more space above badge/logo */
+    margin-bottom: -1.25rem !important; /* allow card to sit lower / overlap ticker */
+  }
+  .hero-content::before{
+    inset: -1.35rem -1.6rem -1.1rem -1.6rem !important;
+  }
+}
+
+
+/* === Sticky header: center + lower the product links when they appear === */
+@media (min-width: 641px){
+  nav.scrolled{
+    justify-content: center !important;
+  }
+  nav.scrolled .nav-logo{
+    position: absolute !important;
+    left: 48px !important;
+  }
+  nav.scrolled .nav-links{
+    flex: 1 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 6px !important; /* lowers the row slightly */
+  }
+}
+@media (max-width: 640px){
+  /* keep mobile layout untouched */
+}
+
+
+/* === Sticky header layout refinement === */
+/* Keep product links centered but push Get a Quote to far right */
+@media (min-width: 641px){
+  nav.scrolled{
+    justify-content: space-between !important;
+  }
+
+  nav.scrolled .nav-logo{
+    position: relative !important;
+    left: auto !important;
+  }
+
+  nav.scrolled .nav-links{
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Center product links only */
+  nav.scrolled .nav-links li:not(:last-child){
+    margin-right: 36px !important;
+  }
+
+  nav.scrolled .nav-links{
+    justify-content: center !important;
+  }
+
+  /* Push CTA to far right */
+  nav.scrolled .nav-links li:last-child{
+    margin-left: auto !important;
+  }
+}
+
+
+/* === SMART STICKY NAV (responsive + centered links + CTA right) === */
+nav{
+  display:grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items:center !important;
+  column-gap: clamp(10px, 2.2vw, 22px) !important;
+}
+
+/* Typography scales cleanly by viewport */
+nav .nav-logo{
+  font-size: clamp(1.05rem, 1.2vw, 1.45rem) !important;
+  line-height: 1 !important;
+}
+nav .nav-links{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap: clamp(10px, 2.2vw, 30px) !important;
+  padding:0 !important;
+  margin:0 !important;
+  list-style:none !important;
+}
+nav .nav-links a{
+  font-size: clamp(.82rem, .85vw, .98rem) !important;
+  letter-spacing: .10em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  padding: 10px 10px !important;
+  border-radius: 999px !important;
+  color: rgba(255,255,255,.92) !important;
+  transition: background .2s ease, transform .2s ease, opacity .2s ease;
+}
+nav .nav-links a:hover{
+  background: rgba(255,255,255,.10) !important;
+  transform: translateY(-1px);
+}
+
+/* CTA stays far right, consistent size */
+nav .nav-cta{
+  justify-self:end !important;
+  margin-left: 0 !important;
+  font-size: clamp(.85rem, .9vw, 1rem) !important;
+  padding: 12px 16px !important;
+}
+
+/* Hide products + CTA until user scrolls (keeps hero clean) */
+nav:not(.scrolled) .nav-links,
+nav:not(.scrolled) .nav-cta{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform: translateY(-6px);
+}
+
+/* When sticky is active, show centered products and right CTA */
+nav.scrolled .nav-links,
+nav.scrolled .nav-cta{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform: translateY(0);
+}
+
+/* Slightly lower the products row on sticky header */
+@media (min-width: 641px){
+  nav.scrolled .nav-links{ margin-top: 6px !important; }
+}
+
+/* === Mobile: hamburger menu only, desktop untouched === */
+.nav-burger{
+  display:none;
+  width:44px; height:44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(14px);
+  cursor:pointer;
+  place-self:end;
+}
+.nav-burger .burger-line{
+  display:block;
+  width:18px; height:2px;
+  background: rgba(255,255,255,.92);
+  margin:4px auto;
+  border-radius: 99px;
+}
+
+/* Mobile layout */
+@media (max-width: 640px){
+  nav{
+    grid-template-columns: 1fr auto !important;
+    padding: 14px 16px !important;
+  }
+  .nav-burger{ display:block !important; }
+
+  /* Keep desktop links/cta hidden on mobile unless menu open */
+  nav .nav-links,
+  nav .nav-cta{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:none !important;
+  }
+
+  /* Slide-down panel when open */
+  nav.menu-open .nav-links{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+
+    position: fixed !important;
+    top: 64px !important;
+    left: 12px !important;
+    right: 12px !important;
+    z-index: 120 !important;
+
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content:flex-start !important;
+    gap: 10px !important;
+
+    padding: 14px !important;
+    border-radius: 18px !important;
+    background: rgba(20,18,16,.92) !important;
+    border: 1px solid rgba(255,255,255,.10) !important;
+    backdrop-filter: blur(22px) !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.35) !important;
+  }
+  nav.menu-open .nav-links a{
+    font-size: .95rem !important;
+    letter-spacing: .12em !important;
+    padding: 14px 14px !important;
+    background: rgba(255,255,255,.06) !important;
+  }
+
+  /* CTA appears as a full-width button at bottom of panel */
+  nav.menu-open .nav-cta{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+
+    position: fixed !important;
+    top: calc(64px + 14px + (6 * (44px + 10px))) !important; /* safe-ish placement; panel height may vary */
+    left: 12px !important;
+    right: 12px !important;
+    z-index: 121 !important;
+
+    display:flex !important;
+    justify-content:center !important;
+    padding: 14px 16px !important;
+  }
+}
+
+/* If your menu length changes, CTA positioning above may shift.
+   As a fallback, keep CTA inside panel visually by forcing it after links. */
+@media (max-width: 640px){
+  nav.menu-open{
+    padding-bottom: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   FIX: Sticky header true-centering (desktop + laptop)
+   Root cause: grid with 4 items caused implicit wrapping;
+   plus width constraints made last items drop.
+   Solution: flex shell + absolutely-centered nav-links.
+   ========================================================= */
+
+/* Desktop/Laptop header layout */
+@media (min-width: 641px){
+  nav{
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 18px !important;
+  }
+
+  /* Keep logo left, CTA right */
+  nav .nav-logo{ flex: 0 0 auto !important; }
+  nav .nav-cta{ flex: 0 0 auto !important; }
+
+  /* True center: links are centered to viewport, not between logo & CTA */
+  nav .nav-links{
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Make sure links NEVER wrap on laptop — shrink intelligently */
+  nav .nav-links a{
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    border-radius: 999px !important;
+  }
+
+  /* Desktop tuning */
+  @media (min-width: 1281px){
+    nav .nav-links{ gap: 30px !important; }
+    nav .nav-links a{
+      font-size: .95rem !important;
+      letter-spacing: .12em !important;
+      padding: 10px 10px !important;
+    }
+  }
+
+  /* Laptop tuning (this is where it was breaking) */
+  @media (min-width: 900px) and (max-width: 1280px){
+    nav.scrolled{ padding: 16px 36px !important; }
+    nav .nav-links{ gap: 18px !important; }
+    nav .nav-links a{
+      font-size: .80rem !important;
+      letter-spacing: .10em !important;
+      padding: 8px 8px !important;
+      opacity: .95 !important;
+    }
+    nav .nav-logo{ font-size: 1.20rem !important; }
+    nav .nav-cta{ padding: 11px 14px !important; font-size: .88rem !important; }
+  }
+}
+
+/* Mobile keeps hamburger/menu system; don't let desktop centering rules interfere */
+@media (max-width: 640px){
+  nav{ position: fixed !important; }
+  nav .nav-links{ position: fixed !important; left: 12px !important; transform: none !important; width: auto !important; }
+}
+
+/* =========================================================
+   FIX: Lower hero card + add space above logo on laptop only
+   Root cause: hero card vertical positioning constrained by
+   hero-content padding/margins and its ::before glass inset.
+   ========================================================= */
+@media (min-width: 900px) and (max-width: 1280px){
+  /* Lower the card and create breathing room above logo/badge */
+  .hero-content{
+    padding-top: 6.25rem !important;   /* more space above logo */
+    margin-bottom: -2.0rem !important; /* lower card by overlapping below */
+  }
+  .hero-content::before{
+    inset: -1.55rem -1.75rem -1.35rem -1.75rem !important;
+  }
+  /* Slightly push whole hero down from nav */
+  .hero{ padding-top: 92px !important; }
+}
+
 </style>
 
   <link rel="preload" as="image" href="./assets/hero/livingroom-hero.png">
@@ -1225,16 +1567,24 @@ a.nav-cta:hover{
 <span> Mon-Sat: 9am-6pm</span>
 <span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
 </div><nav id="nav">
-<a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
-<ul class="nav-links">
-<li><a data-tab="tile" href="#collections">Tile</a></li>
-<li><a data-tab="hardwood" href="#collections">Hardwood</a></li>
-<li><a data-tab="lvp" href="#collections">LVP / LVT</a></li>
-<li><a data-tab="other" href="#collections">Carpet</a></li>
-<li><a data-tab="tile" href="#collections">Natural Stone</a></li>
-<li><a href="#showroom">Showroom</a></li>
-<li><a class="nav-cta" href="#showroom">Get a Quote</a></li>
-</ul>
+  <a class="nav-logo" href="#">Flooring <span>Outlet</span> TX</a>
+
+  <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+  </button>
+
+  <ul class="nav-links" aria-label="Products">
+    <li><a data-tab="tile" href="#collections">Tile</a></li>
+    <li><a data-tab="hardwood" href="#collections">Hardwood</a></li>
+    <li><a data-tab="lvp" href="#collections">LVP / LVT</a></li>
+    <li><a data-tab="other" href="#collections">Carpet</a></li>
+    <li><a data-tab="tile" href="#collections">Natural Stone</a></li>
+    <li><a href="#showroom">Showroom</a></li>
+  </ul>
+
+  <a class="nav-cta" href="#showroom">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -1996,5 +2346,48 @@ a.nav-cta:hover{
   );
   reveals.forEach(el => obs.observe(el));
 </script>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  if(!nav) return;
+
+  const burger = nav.querySelector('.nav-burger');
+  const links = nav.querySelector('.nav-links');
+
+  const setNav = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+
+  const closeMenu = () => {
+    nav.classList.remove('menu-open');
+    if(burger) burger.setAttribute('aria-expanded','false');
+  };
+
+  if(burger){
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('menu-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Close menu when a link is clicked
+  if(links){
+    links.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if(a) closeMenu();
+    });
+  }
+  // Close on outside tap
+  document.addEventListener('click', (e) => {
+    if(!nav.classList.contains('menu-open')) return;
+    if(e.target.closest('#nav')) return;
+    closeMenu();
+  });
+
+  window.addEventListener('scroll', () => { setNav(); closeMenu(); }, {passive:true});
+  window.addEventListener('load', setNav, {passive:true});
+  setNav();
+})();
+</script>
+
 </body>
 </html>
