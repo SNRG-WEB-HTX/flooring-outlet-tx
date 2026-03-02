@@ -2105,6 +2105,101 @@ nav.scrolled .nav-cta{
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bedroom-hero.png" rel="preload"/>
+
+<style id="mobile-revamp-20260302">
+/* === Mobile Revamp (keeps desktop/laptop untouched) === */
+@media (max-width: 640px){
+  /* HERO glass card: clearer + less dark/blur */
+  .hero::after{
+    background:
+      radial-gradient(1000px 520px at 18% 34%, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.10) 60%),
+      linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.25));
+  }
+  .hero-content{
+    padding: 2.05rem 1.2rem 1.9rem;
+    margin-bottom: 1.35rem;
+    max-width: 100%;
+  }
+  .hero-content::before{
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.30);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Hero typography + buttons */
+  .hero h1{
+    font-size: clamp(2.05rem, 8.6vw, 2.75rem);
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+  }
+  .hero p{
+    font-size: 0.98rem;
+    line-height: 1.55;
+    max-width: none;
+    margin-bottom: 1.55rem;
+  }
+  .btn, .btn-primary, .btn-secondary, .cta-button, .hero .btn{
+    min-height: 44px;
+    padding: 0.78rem 1.05rem;
+    font-size: 0.92rem;
+    border-radius: 999px;
+  }
+  .hero-buttons{ gap: 0.7rem; flex-wrap: wrap; }
+
+  /* Sticky CTA: always on-screen on mobile, smaller, no scroll gating */
+  nav .nav-cta{
+    position: fixed !important;
+    bottom: 12px;
+    right: 12px;
+    z-index: 1200;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+
+    padding: 0.55rem 0.85rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1 !important;
+    min-height: 0 !important;
+    border-radius: 999px !important;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  }
+  /* Give it breathing room so it never covers footer buttons/links */
+  body{ padding-bottom: 72px; }
+
+  /* Section spacing + readability */
+  section, .section{ padding-left: 1.1rem; padding-right: 1.1rem; }
+  .section-title{ font-size: 1.6rem; line-height: 1.15; }
+  .section-subtitle, .section p{ font-size: 0.98rem; }
+
+  /* Cards/grids stack cleanly */
+  .grid, .cards, .collections-grid, .vendors-grid, .products-grid{
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .card, .collection-card, .vendor-card, .product-card{
+    border-radius: 18px;
+  }
+
+  /* Footer: tighter + single column */
+  footer .footer-grid, footer .footer-columns, .footer-grid{
+    grid-template-columns: 1fr !important;
+    gap: 1.15rem !important;
+  }
+  footer{ padding-bottom: 2.2rem; }
+}
+
+/* Slightly larger phones */
+@media (min-width: 641px) and (max-width: 860px){
+  .hero-content::before{
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.26);
+  }
+}
+</style>
 </head>
 <body>
 <!-- ─── NAV ─── -->
