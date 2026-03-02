@@ -2108,196 +2108,157 @@ nav.scrolled .nav-cta{
 
 
 <style id="mobile-revamp-20260302">
-/* ═══════════════════════════════════════════════════════════════
-   MOBILE REVAMP — max-width: 640px only
-   Desktop / laptop (641px+) untouched.
-   ROOT CAUSES FIXED:
-     1. visibility:hidden !important never overridden → added visibility:visible !important
-     2. top:auto !important never set → FAB was inheriting nav top:0
-     3. Hero overlay too dark + glass blur trapping darkness → slashed both
-   ═══════════════════════════════════════════════════════════════ */
-
+/* ═══════════════════════════════════════════
+   MOBILE ONLY ≤640px — 641px+ untouched
+   ═══════════════════════════════════════════ */
 @media (max-width: 640px) {
 
-  /* ── 1. HERO OVERLAY: much lighter so image breathes through ── */
-  .hero::after {
-    background:
-      radial-gradient(900px 480px at 12% 70%, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.06) 65%),
-      linear-gradient(175deg,
-        rgba(0,0,0,0.08) 0%,
-        rgba(0,0,0,0.20) 55%,
-        rgba(0,0,0,0.48) 100%) !important;
+  /* NAV: kill transition so it never flashes tall on load,
+     force compact height immediately */
+  nav {
+    transition: background .4s ease, backdrop-filter .4s ease !important;
+    /* NO padding transition — instant compact */
+    padding: 8px 14px !important;
+    background: rgba(20,18,16,0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+  }
+  nav.scrolled {
+    padding: 8px 14px !important;
+  }
+  /* Burger: tighter */
+  .nav-burger {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
   }
 
-  /* ── 2. GLASS CARD: crystal clear like desktop ── */
+  /* HERO: shorter on mobile, content higher up */
+  .hero {
+    height: 72vh !important;
+    min-height: 440px !important;
+    align-items: flex-end !important;
+  }
   .hero-content {
-    padding: 1.75rem 1.15rem 1.6rem !important;
-    margin-bottom: 1.2rem !important;
+    padding: 1.4rem 1rem 1.3rem !important;
+    margin: 0 0 1.2rem 0 !important;
     max-width: 100% !important;
   }
+
+  /* GLASS CARD: transparent, zero blur (blur smears dark overlay = grey card) */
   .hero-content::before {
-    /* Near-zero fill + hairline border = reads image clearly */
-    background: rgba(255,255,255,0.03) !important;
-    border: 1px solid rgba(255,255,255,0.18) !important;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.14) !important;
-    /* Minimal blur — enough for depth, not enough to muddy */
-    -webkit-backdrop-filter: blur(4px) !important;
-    backdrop-filter: blur(4px) !important;
-    inset: -0.65rem -0.65rem -0.65rem -0.65rem !important;
-    border-radius: 12px !important;
+    background: rgba(0,0,0,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.13) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    inset: -0.45rem -0.45rem -0.45rem -0.45rem !important;
+    border-radius: 10px !important;
   }
 
-  /* ── 3. HERO TYPOGRAPHY: fluid, legible, tight ── */
+  /* HERO OVERLAY: lighter so image reads through */
+  .hero::after {
+    background:
+      linear-gradient(175deg,
+        rgba(0,0,0,0.04) 0%,
+        rgba(0,0,0,0.14) 50%,
+        rgba(0,0,0,0.42) 100%) !important;
+  }
+
+  /* HERO TYPE */
   .hero h1 {
-    font-size: clamp(1.9rem, 8vw, 2.6rem) !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.025em !important;
-    margin-bottom: 0.9rem !important;
+    font-size: clamp(1.75rem, 7.2vw, 2.4rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 0.7rem !important;
   }
   .hero p {
-    font-size: clamp(0.88rem, 3.6vw, 1rem) !important;
-    line-height: 1.58 !important;
+    font-size: clamp(0.82rem, 3.3vw, 0.94rem) !important;
+    line-height: 1.54 !important;
+    margin-bottom: 1.1rem !important;
     max-width: none !important;
-    margin-bottom: 1.4rem !important;
   }
   .hero-badge {
-    font-size: 0.6rem !important;
-    padding: 0.32rem 0.72rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 0.57rem !important;
+    padding: 0.26rem 0.6rem !important;
+    margin-bottom: 0.75rem !important;
   }
 
-  /* ── 4. HERO BUTTONS: Fitts's Law — 44px min touch target ── */
-  .btn,
-  .btn-primary,
-  .btn-ghost,
-  .btn-secondary,
-  .cta-button,
-  .hero .btn,
-  .hero-actions a {
+  /* HERO BUTTONS: 44px min touch targets */
+  .btn, .btn-primary, .btn-ghost, .btn-secondary, .hero-actions a {
     min-height: 44px !important;
-    padding: 0.72rem 1.15rem !important;
-    font-size: 0.8rem !important;
-    letter-spacing: 0.1em !important;
+    padding: 0.65rem 1rem !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.09em !important;
     border-radius: 999px !important;
   }
-  .hero-actions {
-    gap: 0.65rem !important;
-    flex-wrap: wrap !important;
+  .hero-actions { gap: 0.5rem !important; flex-wrap: wrap !important; }
+
+  /* FAB clearance */
+  body { padding-bottom: 58px !important; }
+
+  /* SECTION SPACING */
+  section, .section { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .section-title, h2.section-title {
+    font-size: clamp(1.3rem, 5.5vw, 1.7rem) !important;
+    line-height: 1.14 !important;
+  }
+  .section-subtitle, .section p {
+    font-size: clamp(0.83rem, 3.2vw, 0.94rem) !important;
   }
 
-  /* ── 5. FAB "GET A QUOTE" — always-on, half-size, nuclear override ──
-     ROOT CAUSE: visibility:hidden !important was never flipped back.
-     top:auto !important prevents nav's top:0 from anchoring the FAB high. */
-  nav .nav-cta,
-  nav.scrolled .nav-cta,
-  nav:not(.scrolled) .nav-cta,
-  nav.menu-open .nav-cta {
-    /* Detach completely from nav flow */
-    position: fixed !important;
-    top: auto !important;            /* ← kills inherited nav top:0 */
-    bottom: 16px !important;
-    right: 16px !important;
-    left: auto !important;
-    z-index: 9999 !important;
+  /* GRIDS */
+  .grid, .cards, .cat-grid, .collections-grid, .vendors-grid,
+  .products-grid, .jh-grid, .uc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+  }
+  .card, .cat-card, .collection-card, .vendor-card, .product-card {
+    border-radius: 14px !important;
+  }
 
-    /* Visibility root-cause fix */
-    visibility: visible !important;  /* ← THE missing override */
-    opacity: 1 !important;
+  /* FOOTER */
+  footer .footer-grid, footer .footer-columns, .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  footer { padding-bottom: 1.8rem !important; }
+}
+
+/* FAB: body-scoped, nav cascade cannot touch it */
+#mobile-fab-cta { display: none; }
+@media (max-width: 640px) {
+  #mobile-fab-cta {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transform: none !important;
+    position: fixed !important;
+    bottom: 14px !important;
+    right: 14px !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     pointer-events: auto !important;
-
-    /* Half-size pill */
-    padding: 0.42rem 0.95rem !important;
-    font-size: 0.68rem !important;
+    transform: none !important;
+    background: #C6A75E !important;
+    color: #fdfaf6 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 0.66rem !important;
+    font-weight: 600 !important;
     letter-spacing: 0.11em !important;
-    line-height: 1 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    width: auto !important;
+    text-transform: uppercase !important;
+    padding: 0.4rem 0.9rem !important;
     border-radius: 999px !important;
-
-    /* Elevated shadow for FAB feel */
-    box-shadow:
-      0 2px 8px rgba(0,0,0,0.18),
-      0 6px 20px rgba(0,0,0,0.22) !important;
-  }
-
-  /* Body breathing room so FAB never covers footer actions */
-  body { padding-bottom: 68px !important; }
-
-  /* ── 6. SECTION TYPOGRAPHY: scale down gracefully ── */
-  section,
-  .section {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  .section-title,
-  h2.section-title {
-    font-size: clamp(1.45rem, 6.5vw, 1.85rem) !important;
-    line-height: 1.14 !important;
-  }
-  .section-subtitle,
-  .section p,
-  p.section-subtitle {
-    font-size: clamp(0.87rem, 3.5vw, 0.98rem) !important;
-    line-height: 1.62 !important;
-  }
-  h3 { font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important; }
-
-  /* ── 7. GRIDS: clean single-column stacking ── */
-  .grid,
-  .cards,
-  .cat-grid,
-  .collections-grid,
-  .vendors-grid,
-  .products-grid,
-  .jh-grid,
-  .uc-grid {
-    grid-template-columns: 1fr !important;
-    gap: 0.9rem !important;
-  }
-  /* Exception: let 2-col grids stay 2-col on wider phones */
-  @media (min-width: 480px) {
-    .cat-grid,
-    .vendors-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-  }
-
-  .card,
-  .cat-card,
-  .collection-card,
-  .vendor-card,
-  .product-card {
-    border-radius: 16px !important;
-  }
-
-  /* ── 8. FOOTER ── */
-  footer .footer-grid,
-  footer .footer-columns,
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.1rem !important;
-  }
-  footer { padding-bottom: 2rem !important; }
-
-} /* end @media (max-width: 640px) */
-
-/* ── Tablet / small laptop (641–860px): glass card stays clean ── */
-@media (min-width: 641px) and (max-width: 860px) {
-  .hero-content::before {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.20) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    backdrop-filter: blur(10px) !important;
-    box-shadow: 0 14px 40px rgba(0,0,0,0.18) !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.22), 0 5px 16px rgba(0,0,0,0.26) !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
   }
 }
 </style>
-
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -5186,5 +5147,6 @@ window.openJHCatalog = function() {
   }
 };
 </script>
+<button id="mobile-fab-cta" onclick="if(typeof openShowroomModal==='function'){openShowroomModal();}">Get a Quote</button>
 </body>
 </html>
