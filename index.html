@@ -2240,6 +2240,51 @@ nav.scrolled .nav-cta{
 }
 /* === END MOBILE FIXES v2 === */
 
+/* ─────────────────────────────────────────────────────────────
+   HERO CENTERING OVERRIDE V3 (all devices)
+   Goal: center the glass card in the hero (both axes), keep it
+   safely below fixed nav, and add bottom padding to lift it.
+   ───────────────────────────────────────────────────────────── */
+.hero{
+  /* stop bottom-docking; true centering */
+  align-items: center !important;
+  justify-content: center !important;
+
+  /* account for fixed header + safe-area; bottom padding lifts content */
+  padding-top: calc(env(safe-area-inset-top, 0px) + clamp(72px, 9vh, 112px)) !important;
+  padding-bottom: clamp(84px, 14vh, 160px) !important;
+}
+
+.hero-content{
+  /* center the card horizontally */
+  margin: 0 auto !important;
+
+  /* responsive, elegant interior spacing */
+  padding: clamp(22px, 4.2vw, 64px) !important;
+
+  /* keep the card sized nicely on every screen */
+  width: min(860px, calc(100% - 2 * clamp(16px, 5vw, 64px))) !important;
+  max-width: 860px !important;
+}
+
+/* slightly tighter on phones, and a touch more lift */
+@media (max-width: 640px){
+  .hero{
+    padding-top: calc(env(safe-area-inset-top, 0px) + 76px) !important;
+    padding-bottom: clamp(120px, 18vh, 200px) !important;
+    min-height: 640px; /* prevents cramped card + dots overlap */
+  }
+  .hero-content{
+    width: calc(100% - 32px) !important;
+    padding: 26px 22px 28px !important;
+  }
+}
+
+/* ultra-small phones */
+@media (max-width: 380px){
+  .hero-content{ padding: 22px 18px 24px !important; }
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
