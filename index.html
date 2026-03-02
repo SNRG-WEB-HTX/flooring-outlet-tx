@@ -2101,6 +2101,145 @@ nav.scrolled .nav-cta{
   white-space:nowrap;
 }
 .uc-sample-btn:hover { background:var(--terracotta); }
+
+/* === MOBILE FIXES v2 === */
+/* Purely mobile (<=640px): compact header, raise hero glass, improve contrast, shrink footer */
+@media (max-width: 640px){
+
+  /* ---------- HEADER: make it half the height ---------- */
+  nav{
+    padding: 10px 14px !important;
+    min-height: 56px !important;
+    height: auto !important;
+    row-gap: 0 !important;
+  }
+  nav.scrolled{
+    padding: 10px 14px !important;
+    min-height: 56px !important;
+  }
+
+  /* Logo slightly bigger, but tight */
+  nav .nav-logo{
+    font-size: 1.38rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: .02em !important;
+  }
+
+  /* Burger slightly bigger */
+  .nav-burger{
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+  }
+  .nav-burger .burger-line{
+    width: 20px !important;
+    height: 2px !important;
+    margin: 4.5px auto !important;
+  }
+
+  /* IMPORTANT: remove hidden links from layout so header doesn't stay tall */
+  nav:not(.menu-open) .nav-links,
+  nav:not(.menu-open) .nav-cta{
+    display: none !important;
+  }
+  nav.menu-open .nav-links{
+    display: flex !important;
+  }
+  /* If CTA is used inside the menu, let it show; otherwise harmless */
+  nav.menu-open .nav-cta{
+    display: inline-flex !important;
+  }
+
+  /* Menu panel should start under compact header */
+  nav.menu-open .nav-links{
+    top: 56px !important;
+  }
+
+  /* ---------- HERO: raise glass + readability ---------- */
+  .hero{
+    height: 88vh !important;
+    min-height: 560px !important;
+  }
+
+  /* Raise the glass card (bigger bottom margin pushes it up) */
+  .hero-content{
+    padding: 2.6rem 1.15rem 2.15rem !important;
+    margin: 0 0 6.75rem 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Darken overlay on mobile only (keeps white text readable on bright images) */
+  .hero::after{
+    background:
+      radial-gradient(980px 620px at 30% 62%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.06) 100%),
+      linear-gradient(175deg,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.30) 45%,
+        rgba(0,0,0,0.76) 100%) !important;
+  }
+
+  .hero h1{
+    font-size: clamp(2.35rem, 9.2vw, 3.25rem) !important;
+    text-shadow: 0 18px 44px rgba(0,0,0,0.62) !important;
+  }
+  .hero p{
+    font-size: 1.08rem !important;
+    color: rgba(255,255,255,0.92) !important;
+    text-shadow: 0 16px 34px rgba(0,0,0,0.60) !important;
+  }
+
+  /* Slightly stronger glass backing on mobile without changing look */
+  .hero-content::before{
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid rgba(255,255,255,0.24) !important;
+    box-shadow: 0 18px 56px rgba(0,0,0,0.30) !important;
+  }
+
+  /* ---------- FOOTER: remove columns, shrink height, center everything ---------- */
+  footer{
+    padding: 40px 16px 14px !important;
+  }
+  footer .footer-top{
+    display: block !important;
+    padding-bottom: 10px !important;
+    gap: 0 !important;
+  }
+  footer .footer-col{
+    display: none !important; /* removes Products / Services / Visit on mobile */
+  }
+  footer .footer-brand{
+    max-width: none !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+  footer .footer-brand .nav-logo{
+    display: inline-block !important;
+    margin-bottom: 10px !important;
+  }
+  footer .footer-brand p{
+    font-size: 1.02rem !important; /* bigger, readable */
+    line-height: 1.55 !important;
+    margin: 0 auto 14px !important;
+    max-width: 28rem !important;
+  }
+  footer .footer-social{
+    justify-content: center !important;
+    margin-top: 10px !important;
+  }
+
+  footer .footer-bottom{
+    padding-top: 12px !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+  }
+  footer .footer-bottom p,
+  footer .footer-bottom a{
+    font-size: 0.98rem !important; /* bigger footer text */
+    line-height: 1.35 !important;
+  }
+}
+/* === END MOBILE FIXES v2 === */
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -2257,6 +2396,68 @@ nav.scrolled .nav-cta{
     white-space: nowrap !important;
     text-decoration: none !important;
   }
+
+  /* === MOBILE FIXES (9:46 AM) === */
+
+  /* Header: make it compact but keep logo/burger slightly larger */
+  nav { padding: 6px 12px !important; min-height: 56px !important; }
+  nav.scrolled { padding: 6px 12px !important; }
+  .nav-logo { font-size: 1.62rem !important; line-height: 1 !important; }
+  .nav-burger { width: 40px !important; height: 40px !important; border-radius: 10px !important; }
+
+  /* Hero: raise glass card + improve white text contrast */
+  .hero-content { margin: 0 0 2.35rem 0 !important; }
+  .hero-content::before {
+    background: rgba(0,0,0,0.18) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.22) !important;
+  }
+  .hero::after {
+    background:
+      linear-gradient(175deg,
+        rgba(0,0,0,0.10) 0%,
+        rgba(0,0,0,0.22) 52%,
+        rgba(0,0,0,0.60) 100%) !important;
+  }
+  .hero h1 { text-shadow: 0 18px 46px rgba(0,0,0,0.62) !important; }
+  .hero p  { color: rgba(255,255,255,0.90) !important; text-shadow: 0 14px 34px rgba(0,0,0,0.55) !important; }
+
+  /* Footer: mobile-only minimal + centered */
+  footer { padding: 42px 16px 22px !important; }
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 16px !important;
+    text-align: center !important;
+  }
+  .footer-top .footer-col { display: none !important; }
+  .footer-brand .nav-logo { margin-bottom: 12px !important; font-size: 1.75rem !important; }
+  .footer-brand p {
+    max-width: none !important;
+    margin: 0 auto 12px !important;
+    font-size: 1.02rem !important;
+    line-height: 1.55 !important;
+    color: rgba(253,250,246,0.72) !important;
+  }
+  .footer-social { justify-content: center !important; margin-bottom: 2px !important; }
+  .social-btn { width: 38px !important; height: 38px !important; font-size: 0.95rem !important; }
+  .footer-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-align: center !important;
+  }
+  .footer-copy { font-size: 1.02rem !important; line-height: 1.4 !important; }
+  .footer-legal {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+
 }
 </style>
 </head>
