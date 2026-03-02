@@ -2339,6 +2339,441 @@ nav.scrolled .nav-cta{
   }
 }
 
+
+/* ───────── DESKTOP/LAPTOP TYPOGRAPHY + FOOTER READABILITY ───────── */
+@media (min-width: 1025px) {
+
+  /* Section rhythm: slightly larger typography without breaking layout */
+  .section-label{
+    font-size: .72rem !important;
+    letter-spacing: .24em !important;
+  }
+
+  .section-title{
+    font-size: clamp(2.9rem, 3.2vw, 4.35rem) !important;
+    line-height: 1.06 !important;
+  }
+
+  .section-sub{
+    font-size: 1.06rem !important;
+    line-height: 1.8 !important;
+    max-width: 620px !important;
+  }
+
+  /* Cards & body copy */
+  .service-title{ font-size: 1.8rem !important; line-height: 1.18 !important; }
+  .service-text{ font-size: .98rem !important; line-height: 1.85 !important; }
+
+  .product-name{ font-size: 1.38rem !important; }
+  .product-size{ font-size: .8rem !important; }
+  .product-price{ font-size: .95rem !important; }
+
+  /* Category tiles */
+  .cat-name{ font-size: 1.75rem !important; }
+  .cat-card:nth-child(1) .cat-name{ font-size: 2.5rem !important; }
+
+  /* Footer readability */
+  footer, .footer, .site-footer{
+    font-size: 1rem !important;
+  }
+
+  footer p, footer a, footer li, footer span,
+  .footer p, .footer a, .footer li, .footer span,
+  .site-footer p, .site-footer a, .site-footer li, .site-footer span{
+    color: rgba(253,250,246,0.86) !important;
+  }
+
+  /* Make the copyright row bigger & crisper */
+  .footer-bottom, .footer-legal, .copyright, .footer-copy{
+    font-size: 1.02rem !important;
+    color: rgba(253,250,246,0.9) !important;
+  }
+
+  /* Built by link prominence */
+  a.snrg-link{
+    color: var(--classy-gold) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    letter-spacing: .04em !important;
+    border-bottom: 1px solid rgba(198,167,94,0.45);
+    padding-bottom: 1px;
+  }
+  a.snrg-link:hover{
+    border-bottom-color: rgba(198,167,94,0.85);
+    filter: brightness(1.05);
+  }
+}
+
+
+/* ───────── VISIT US TODAY (BACKGROUND IMAGE) ───────── */
+.visit-today{
+  position: relative;
+  padding: 110px 48px;
+  color: #fff;
+  background-image: url('visit-us-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.visit-today::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(900px 520px at 18% 45%, rgba(0,0,0,.52) 0%, rgba(0,0,0,.22) 55%, rgba(0,0,0,.08) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.58) 100%);
+  z-index: 0;
+}
+.visit-today .visit-inner{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+}
+.visit-today .visit-kicker{
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 14px;
+}
+.visit-today h2{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 3.2vw, 4.15rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  text-shadow: 0 18px 34px rgba(0,0,0,.55);
+}
+.visit-today .visit-text{
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,.86);
+  max-width: 640px;
+  text-shadow: 0 16px 30px rgba(0,0,0,.50);
+}
+.visit-today .visit-actions{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+/* ───────── FOOTER: GOLD BG + WHITE TEXT (ALL DEVICES) ───────── */
+footer{
+  background: var(--classy-gold) !important;
+  color: rgba(255,255,255,.92) !important;
+}
+footer .footer-top{
+  padding: 64px 48px 34px !important;
+  background: transparent !important;
+}
+footer .footer-brand p{
+  color: rgba(255,255,255,.86) !important;
+}
+footer .footer-social .social-btn{
+  border-color: rgba(255,255,255,.35) !important;
+  color: rgba(255,255,255,.92) !important;
+}
+footer .footer-col h4{
+  color: rgba(255,255,255,.96) !important;
+  font-size: 1.02rem !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+footer .footer-col a{
+  color: rgba(255,255,255,.86) !important;
+}
+footer .footer-col a:hover{
+  color: rgba(255,255,255,1) !important;
+  text-decoration: underline;
+}
+footer .footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.22) !important;
+  padding: 18px 48px 22px !important;
+  position: relative;
+}
+/* Split copy so © can be left/right while Built by is dead-centered */
+footer .footer-copy{
+  width: 100%;
+  position: relative;
+  min-height: 26px;
+  margin: 0 !important;
+}
+footer .footer-copyright{
+  display: inline-block;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.92);
+}
+footer .footer-builtby{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  font-size: 1.10rem;
+  color: rgba(255,255,255,.98);
+  white-space: nowrap;
+}
+/* Make SNRG link pop */
+footer a.snrg-link{
+  color: #fff !important;
+  font-weight: 900 !important;
+  letter-spacing: .06em !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(255,255,255,.60) !important;
+}
+footer a.snrg-link:hover{
+  border-bottom-color: rgba(255,255,255,.95) !important;
+}
+
+/* Mobile footer: stack and center */
+@media (max-width: 860px){
+  .visit-today{ padding: 86px 20px; }
+  footer .footer-top{ padding: 42px 20px 20px !important; }
+  footer .footer-bottom{ padding: 14px 20px 18px !important; }
+  footer .footer-copy{ text-align: center; min-height: 0; display: grid; gap: 6px; }
+  footer .footer-builtby{ position: static; transform: none; left: auto; }
+  footer .footer-copyright{ font-size: 1.02rem; }
+  footer .footer-builtby{ font-size: 1.08rem; }
+}
+
+
+
+/* ───────── V8: FOOTER BACK TO BLACK + ALWAYS-STICKY DESKTOP NAV ───────── */
+
+/* Desktop/Laptop: make the sticky/scrolled nav the default (no scroll needed) */
+@media (min-width: 1025px){
+  nav{
+    background: rgba(20,18,16,.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    padding: 18px 48px !important;
+  }
+}
+
+/* Footer: match header (black + white/gold) on ALL devices */
+footer{
+  background: rgba(20,18,16,.96) !important;
+  color: rgba(253,250,246,.92) !important;
+}
+footer .footer-top{
+  background: transparent !important;
+}
+footer .footer-brand p,
+footer .footer-col a,
+footer .footer-col li,
+footer .footer-bottom,
+footer .footer-bottom a{
+  color: rgba(253,250,246,.82) !important;
+}
+footer .footer-col h4{
+  color: rgba(253,250,246,.96) !important;
+}
+footer .footer-social .social-btn{
+  border-color: rgba(253,250,246,.22) !important;
+  color: rgba(253,250,246,.9) !important;
+}
+footer .footer-col a:hover,
+footer .footer-bottom a:hover{
+  color: rgba(253,250,246,1) !important;
+}
+footer a.snrg-link{
+  color: var(--classy-gold) !important;
+  font-weight: 900 !important;
+  border-bottom: 1px solid rgba(198,167,94,.55) !important;
+}
+footer a.snrg-link:hover{
+  border-bottom-color: rgba(198,167,94,.95) !important;
+}
+
+/* Keep © left/right and Built-by perfectly centered (desktop), stacked on mobile */
+footer .footer-bottom{
+  border-top: 1px solid rgba(253,250,246,.14) !important;
+}
+
+
+
+/* ───────── V9: SHOWROOM SECTION + FOOTER TUNING ───────── */
+
+/* Replace CTA banner with the Tile-file "Houston Showroom" visit section */
+.visit-today{
+  position: relative;
+  padding: 92px 48px;
+  color: #fff;
+  background-image: url('houston-showroom-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.visit-today::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 650px at 18% 45%, rgba(0,0,0,.62) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,.18) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.72) 100%);
+  z-index: 0;
+}
+.visit-today .visit-inner{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+}
+.visit-today .visit-kicker{
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 14px;
+}
+.visit-today h2{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 3.1vw, 4.0rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  text-shadow: 0 18px 34px rgba(0,0,0,.55);
+}
+.visit-today .visit-text{
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,.86);
+  max-width: 680px;
+  text-shadow: 0 16px 30px rgba(0,0,0,.50);
+}
+.visit-today .visit-actions{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+@media (max-width: 860px){
+  .visit-today{ padding: 72px 20px; }
+}
+
+/* Footer headings: same gold as SNRG link */
+footer .footer-col h4{
+  color: var(--classy-gold) !important;
+}
+
+/* Copyright formatting: no periods after TX or SNRG WEB */
+footer .footer-copyright{
+  color: rgba(253,250,246,.92) !important; /* keep © line white */
+}
+
+
+/* ───────── V10: FOOTER SPACING TIGHTEN (ALL DEVICES) ───────── */
+footer .footer-top{
+  padding: 44px 48px 22px !important;
+  gap: 28px !important;
+}
+footer .footer-brand p{
+  margin-top: 10px !important;
+  line-height: 1.7 !important;
+}
+footer .footer-social{
+  margin-top: 14px !important;
+  gap: 10px !important;
+}
+footer .footer-social .social-btn{
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 12px !important;
+}
+footer .footer-col h4{
+  margin-bottom: 10px !important;
+}
+footer .footer-col ul{
+  display: grid !important;
+  gap: 8px !important;
+}
+footer .footer-col a{
+  line-height: 1.45 !important;
+}
+footer .footer-bottom{
+  padding: 14px 48px 16px !important;
+}
+/* reduce legal gap if any leftover */
+footer .footer-legal{
+  gap: 14px !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px){
+  footer .footer-top{
+    padding: 38px 28px 18px !important;
+    gap: 22px !important;
+  }
+  footer .footer-bottom{
+    padding: 12px 28px 14px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  footer .footer-top{
+    padding: 30px 18px 14px !important;
+    gap: 18px !important;
+  }
+  footer .footer-brand p{
+    font-size: 1.02rem !important;
+  }
+  footer .footer-social .social-btn{
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 11px !important;
+  }
+  footer .footer-bottom{
+    padding: 12px 18px 14px !important;
+  }
+}
+
+
+/* ───────── V11: ELITE FOOTER SPACING (OVERRIDES BASE MARGINS/PADDING) ───────── */
+footer{
+  padding: 42px 48px 18px !important; /* kills the huge base footer padding */
+}
+footer .footer-top{
+  margin-bottom: 18px !important;     /* kills the huge base spacing */
+  padding-bottom: 18px !important;
+  border-bottom: 1px solid rgba(253,250,246,.10) !important;
+  align-items: start !important;
+}
+/* Remove double-divider feeling by keeping footer-bottom clean */
+footer .footer-bottom{
+  border-top: 0 !important;
+}
+
+/* Brand title in footer: gold */
+footer .footer-brand .nav-logo,
+footer .footer-brand .nav-logo span{
+  color: var(--classy-gold) !important;
+}
+/* Keep span also gold (no two-tone in footer) */
+footer .footer-brand .nav-logo span{
+  filter: brightness(1.02);
+}
+
+/* Lists: tighter but breathable */
+footer .footer-col ul{
+  gap: 7px !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px){
+  footer{ padding: 34px 28px 16px !important; }
+  footer .footer-top{ margin-bottom: 14px !important; padding-bottom: 14px !important; }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  footer{ padding: 26px 18px 14px !important; }
+  footer .footer-top{ margin-bottom: 12px !important; padding-bottom: 12px !important; }
+}
+
 </style>
 <link as="image" href="assets/hero/tile-1.png" rel="preload"/>
 <link as="image" href="assets/hero/tile-2.png" rel="preload"/>
@@ -2544,6 +2979,441 @@ nav.scrolled .nav-cta{
   }
 }
 
+
+/* ───────── DESKTOP/LAPTOP TYPOGRAPHY + FOOTER READABILITY ───────── */
+@media (min-width: 1025px) {
+
+  /* Section rhythm: slightly larger typography without breaking layout */
+  .section-label{
+    font-size: .72rem !important;
+    letter-spacing: .24em !important;
+  }
+
+  .section-title{
+    font-size: clamp(2.9rem, 3.2vw, 4.35rem) !important;
+    line-height: 1.06 !important;
+  }
+
+  .section-sub{
+    font-size: 1.06rem !important;
+    line-height: 1.8 !important;
+    max-width: 620px !important;
+  }
+
+  /* Cards & body copy */
+  .service-title{ font-size: 1.8rem !important; line-height: 1.18 !important; }
+  .service-text{ font-size: .98rem !important; line-height: 1.85 !important; }
+
+  .product-name{ font-size: 1.38rem !important; }
+  .product-size{ font-size: .8rem !important; }
+  .product-price{ font-size: .95rem !important; }
+
+  /* Category tiles */
+  .cat-name{ font-size: 1.75rem !important; }
+  .cat-card:nth-child(1) .cat-name{ font-size: 2.5rem !important; }
+
+  /* Footer readability */
+  footer, .footer, .site-footer{
+    font-size: 1rem !important;
+  }
+
+  footer p, footer a, footer li, footer span,
+  .footer p, .footer a, .footer li, .footer span,
+  .site-footer p, .site-footer a, .site-footer li, .site-footer span{
+    color: rgba(253,250,246,0.86) !important;
+  }
+
+  /* Make the copyright row bigger & crisper */
+  .footer-bottom, .footer-legal, .copyright, .footer-copy{
+    font-size: 1.02rem !important;
+    color: rgba(253,250,246,0.9) !important;
+  }
+
+  /* Built by link prominence */
+  a.snrg-link{
+    color: var(--classy-gold) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    letter-spacing: .04em !important;
+    border-bottom: 1px solid rgba(198,167,94,0.45);
+    padding-bottom: 1px;
+  }
+  a.snrg-link:hover{
+    border-bottom-color: rgba(198,167,94,0.85);
+    filter: brightness(1.05);
+  }
+}
+
+
+/* ───────── VISIT US TODAY (BACKGROUND IMAGE) ───────── */
+.visit-today{
+  position: relative;
+  padding: 110px 48px;
+  color: #fff;
+  background-image: url('visit-us-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.visit-today::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(900px 520px at 18% 45%, rgba(0,0,0,.52) 0%, rgba(0,0,0,.22) 55%, rgba(0,0,0,.08) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.58) 100%);
+  z-index: 0;
+}
+.visit-today .visit-inner{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+}
+.visit-today .visit-kicker{
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 14px;
+}
+.visit-today h2{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 3.2vw, 4.15rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  text-shadow: 0 18px 34px rgba(0,0,0,.55);
+}
+.visit-today .visit-text{
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,.86);
+  max-width: 640px;
+  text-shadow: 0 16px 30px rgba(0,0,0,.50);
+}
+.visit-today .visit-actions{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+/* ───────── FOOTER: GOLD BG + WHITE TEXT (ALL DEVICES) ───────── */
+footer{
+  background: var(--classy-gold) !important;
+  color: rgba(255,255,255,.92) !important;
+}
+footer .footer-top{
+  padding: 64px 48px 34px !important;
+  background: transparent !important;
+}
+footer .footer-brand p{
+  color: rgba(255,255,255,.86) !important;
+}
+footer .footer-social .social-btn{
+  border-color: rgba(255,255,255,.35) !important;
+  color: rgba(255,255,255,.92) !important;
+}
+footer .footer-col h4{
+  color: rgba(255,255,255,.96) !important;
+  font-size: 1.02rem !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+footer .footer-col a{
+  color: rgba(255,255,255,.86) !important;
+}
+footer .footer-col a:hover{
+  color: rgba(255,255,255,1) !important;
+  text-decoration: underline;
+}
+footer .footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.22) !important;
+  padding: 18px 48px 22px !important;
+  position: relative;
+}
+/* Split copy so © can be left/right while Built by is dead-centered */
+footer .footer-copy{
+  width: 100%;
+  position: relative;
+  min-height: 26px;
+  margin: 0 !important;
+}
+footer .footer-copyright{
+  display: inline-block;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.92);
+}
+footer .footer-builtby{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  font-size: 1.10rem;
+  color: rgba(255,255,255,.98);
+  white-space: nowrap;
+}
+/* Make SNRG link pop */
+footer a.snrg-link{
+  color: #fff !important;
+  font-weight: 900 !important;
+  letter-spacing: .06em !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(255,255,255,.60) !important;
+}
+footer a.snrg-link:hover{
+  border-bottom-color: rgba(255,255,255,.95) !important;
+}
+
+/* Mobile footer: stack and center */
+@media (max-width: 860px){
+  .visit-today{ padding: 86px 20px; }
+  footer .footer-top{ padding: 42px 20px 20px !important; }
+  footer .footer-bottom{ padding: 14px 20px 18px !important; }
+  footer .footer-copy{ text-align: center; min-height: 0; display: grid; gap: 6px; }
+  footer .footer-builtby{ position: static; transform: none; left: auto; }
+  footer .footer-copyright{ font-size: 1.02rem; }
+  footer .footer-builtby{ font-size: 1.08rem; }
+}
+
+
+
+/* ───────── V8: FOOTER BACK TO BLACK + ALWAYS-STICKY DESKTOP NAV ───────── */
+
+/* Desktop/Laptop: make the sticky/scrolled nav the default (no scroll needed) */
+@media (min-width: 1025px){
+  nav{
+    background: rgba(20,18,16,.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    padding: 18px 48px !important;
+  }
+}
+
+/* Footer: match header (black + white/gold) on ALL devices */
+footer{
+  background: rgba(20,18,16,.96) !important;
+  color: rgba(253,250,246,.92) !important;
+}
+footer .footer-top{
+  background: transparent !important;
+}
+footer .footer-brand p,
+footer .footer-col a,
+footer .footer-col li,
+footer .footer-bottom,
+footer .footer-bottom a{
+  color: rgba(253,250,246,.82) !important;
+}
+footer .footer-col h4{
+  color: rgba(253,250,246,.96) !important;
+}
+footer .footer-social .social-btn{
+  border-color: rgba(253,250,246,.22) !important;
+  color: rgba(253,250,246,.9) !important;
+}
+footer .footer-col a:hover,
+footer .footer-bottom a:hover{
+  color: rgba(253,250,246,1) !important;
+}
+footer a.snrg-link{
+  color: var(--classy-gold) !important;
+  font-weight: 900 !important;
+  border-bottom: 1px solid rgba(198,167,94,.55) !important;
+}
+footer a.snrg-link:hover{
+  border-bottom-color: rgba(198,167,94,.95) !important;
+}
+
+/* Keep © left/right and Built-by perfectly centered (desktop), stacked on mobile */
+footer .footer-bottom{
+  border-top: 1px solid rgba(253,250,246,.14) !important;
+}
+
+
+
+/* ───────── V9: SHOWROOM SECTION + FOOTER TUNING ───────── */
+
+/* Replace CTA banner with the Tile-file "Houston Showroom" visit section */
+.visit-today{
+  position: relative;
+  padding: 92px 48px;
+  color: #fff;
+  background-image: url('houston-showroom-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.visit-today::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 650px at 18% 45%, rgba(0,0,0,.62) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,.18) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.72) 100%);
+  z-index: 0;
+}
+.visit-today .visit-inner{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+}
+.visit-today .visit-kicker{
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 14px;
+}
+.visit-today h2{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 3.1vw, 4.0rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  text-shadow: 0 18px 34px rgba(0,0,0,.55);
+}
+.visit-today .visit-text{
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,.86);
+  max-width: 680px;
+  text-shadow: 0 16px 30px rgba(0,0,0,.50);
+}
+.visit-today .visit-actions{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+@media (max-width: 860px){
+  .visit-today{ padding: 72px 20px; }
+}
+
+/* Footer headings: same gold as SNRG link */
+footer .footer-col h4{
+  color: var(--classy-gold) !important;
+}
+
+/* Copyright formatting: no periods after TX or SNRG WEB */
+footer .footer-copyright{
+  color: rgba(253,250,246,.92) !important; /* keep © line white */
+}
+
+
+/* ───────── V10: FOOTER SPACING TIGHTEN (ALL DEVICES) ───────── */
+footer .footer-top{
+  padding: 44px 48px 22px !important;
+  gap: 28px !important;
+}
+footer .footer-brand p{
+  margin-top: 10px !important;
+  line-height: 1.7 !important;
+}
+footer .footer-social{
+  margin-top: 14px !important;
+  gap: 10px !important;
+}
+footer .footer-social .social-btn{
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 12px !important;
+}
+footer .footer-col h4{
+  margin-bottom: 10px !important;
+}
+footer .footer-col ul{
+  display: grid !important;
+  gap: 8px !important;
+}
+footer .footer-col a{
+  line-height: 1.45 !important;
+}
+footer .footer-bottom{
+  padding: 14px 48px 16px !important;
+}
+/* reduce legal gap if any leftover */
+footer .footer-legal{
+  gap: 14px !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px){
+  footer .footer-top{
+    padding: 38px 28px 18px !important;
+    gap: 22px !important;
+  }
+  footer .footer-bottom{
+    padding: 12px 28px 14px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  footer .footer-top{
+    padding: 30px 18px 14px !important;
+    gap: 18px !important;
+  }
+  footer .footer-brand p{
+    font-size: 1.02rem !important;
+  }
+  footer .footer-social .social-btn{
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 11px !important;
+  }
+  footer .footer-bottom{
+    padding: 12px 18px 14px !important;
+  }
+}
+
+
+/* ───────── V11: ELITE FOOTER SPACING (OVERRIDES BASE MARGINS/PADDING) ───────── */
+footer{
+  padding: 42px 48px 18px !important; /* kills the huge base footer padding */
+}
+footer .footer-top{
+  margin-bottom: 18px !important;     /* kills the huge base spacing */
+  padding-bottom: 18px !important;
+  border-bottom: 1px solid rgba(253,250,246,.10) !important;
+  align-items: start !important;
+}
+/* Remove double-divider feeling by keeping footer-bottom clean */
+footer .footer-bottom{
+  border-top: 0 !important;
+}
+
+/* Brand title in footer: gold */
+footer .footer-brand .nav-logo,
+footer .footer-brand .nav-logo span{
+  color: var(--classy-gold) !important;
+}
+/* Keep span also gold (no two-tone in footer) */
+footer .footer-brand .nav-logo span{
+  filter: brightness(1.02);
+}
+
+/* Lists: tighter but breathable */
+footer .footer-col ul{
+  gap: 7px !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px){
+  footer{ padding: 34px 28px 16px !important; }
+  footer .footer-top{ margin-bottom: 14px !important; padding-bottom: 14px !important; }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  footer{ padding: 26px 18px 14px !important; }
+  footer .footer-top{ margin-bottom: 12px !important; padding-bottom: 12px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -2739,6 +3609,19 @@ nav.scrolled .nav-cta{
 <!-- ─── CTA ─── -->
 
 <!-- ─── FOOTER ─── -->
+
+<section class="visit-today reveal" id="visit">
+  <div class="visit-inner">
+    <p class="visit-kicker">Visit Us Today</p>
+    <h2>Houston Showroom</h2>
+    <p class="visit-text">See tile, hardwood, LVP, carpet, and natural stone in person. Serving the Greater Houston area since 1998.</p>
+    <div class="visit-actions">
+      <a class="btn btn-primary" href="#contact">Get Directions</a>
+      <a class="btn btn-ghost" href="tel:+12815550100">Call (281) 555-0100</a>
+    </div>
+  </div>
+</section>
+
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
@@ -2788,12 +3671,7 @@ nav.scrolled .nav-cta{
 </div>
 </div>
 <div class="footer-bottom">
-<p class="footer-copy">© 2026 Flooring Outlet TX. Built by <a href="#">SNRG WEB</a>.</p>
-<div class="footer-legal">
-<a href="#">Privacy Policy</a>
-<a href="#">Terms of Use</a>
-<a href="#">Sitemap</a>
-</div>
+<div class="footer-copy"><span class="footer-copyright">© 2026 Flooring Outlet TX</span><span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com" target="_blank" rel="noopener">SNRG WEB</a></span></div>
 </div>
 </footer>
 <!-- ═══════════════════════════════════════════════════════════
