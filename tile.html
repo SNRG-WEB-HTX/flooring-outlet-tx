@@ -2093,10 +2093,303 @@ nav.scrolled .nav-cta{
   white-space:nowrap;
 }
 .uc-sample-btn:hover { background:var(--terracotta); }
+
+/* === MOBILE FIXES v2 === */
+/* Purely mobile (<=640px): compact header, raise hero glass, improve contrast, shrink footer */
+@media (max-width: 640px){
+
+  /* ---------- HEADER: make it half the height ---------- */
+  nav{
+    padding: 10px 14px !important;
+    min-height: 56px !important;
+    height: auto !important;
+    row-gap: 0 !important;
+  }
+  nav.scrolled{
+    padding: 10px 14px !important;
+    min-height: 56px !important;
+  }
+
+  /* Logo slightly bigger, but tight */
+  nav .nav-logo{
+    font-size: 1.38rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: .02em !important;
+  }
+
+  /* Burger slightly bigger */
+  .nav-burger{
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+  }
+  .nav-burger .burger-line{
+    width: 20px !important;
+    height: 2px !important;
+    margin: 4.5px auto !important;
+  }
+
+  /* IMPORTANT: remove hidden links from layout so header doesn't stay tall */
+  nav:not(.menu-open) .nav-links,
+  nav:not(.menu-open) .nav-cta{
+    display: none !important;
+  }
+  nav.menu-open .nav-links{
+    display: flex !important;
+  }
+  /* If CTA is used inside the menu, let it show; otherwise harmless */
+  nav.menu-open .nav-cta{
+    display: inline-flex !important;
+  }
+
+  /* Menu panel should start under compact header */
+  nav.menu-open .nav-links{
+    top: 56px !important;
+  }
+
+  /* ---------- HERO: raise glass + readability ---------- */
+  .hero{
+    height: 88vh !important;
+    min-height: 560px !important;
+  }
+
+  /* Raise the glass card (bigger bottom margin pushes it up) */
+  .hero-content{
+    padding: 2.6rem 1.15rem 2.15rem !important;
+    margin: 0 0 6.75rem 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Darken overlay on mobile only (keeps white text readable on bright images) */
+  .hero::after{
+    background:
+      radial-gradient(980px 620px at 30% 62%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.06) 100%),
+      linear-gradient(175deg,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.30) 45%,
+        rgba(0,0,0,0.76) 100%) !important;
+  }
+
+  .hero h1{
+    font-size: clamp(2.35rem, 9.2vw, 3.25rem) !important;
+    text-shadow: 0 18px 44px rgba(0,0,0,0.62) !important;
+  }
+  .hero p{
+    font-size: 1.08rem !important;
+    color: rgba(255,255,255,0.92) !important;
+    text-shadow: 0 16px 34px rgba(0,0,0,0.60) !important;
+  }
+
+  /* Slightly stronger glass backing on mobile without changing look */
+  .hero-content::before{
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid rgba(255,255,255,0.24) !important;
+    box-shadow: 0 18px 56px rgba(0,0,0,0.30) !important;
+  }
+
+  /* ---------- FOOTER: remove columns, shrink height, center everything ---------- */
+  footer{
+    padding: 40px 16px 14px !important;
+  }
+  footer .footer-top{
+    display: block !important;
+    padding-bottom: 10px !important;
+    gap: 0 !important;
+  }
+  footer .footer-col{
+    display: none !important; /* removes Products / Services / Visit on mobile */
+  }
+  footer .footer-brand{
+    max-width: none !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+  footer .footer-brand .nav-logo{
+    display: inline-block !important;
+    margin-bottom: 10px !important;
+  }
+  footer .footer-brand p{
+    font-size: 1.02rem !important; /* bigger, readable */
+    line-height: 1.55 !important;
+    margin: 0 auto 14px !important;
+    max-width: 28rem !important;
+  }
+  footer .footer-social{
+    justify-content: center !important;
+    margin-top: 10px !important;
+  }
+
+  footer .footer-bottom{
+    padding-top: 12px !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+  }
+  footer .footer-bottom p,
+  footer .footer-bottom a{
+    font-size: 0.98rem !important; /* bigger footer text */
+    line-height: 1.35 !important;
+  }
+}
+/* === END MOBILE FIXES v2 === */
+
 </style>
 <link as="image" href="assets/hero/tile-1.png" rel="preload"/>
 <link as="image" href="assets/hero/tile-2.png" rel="preload"/>
 <link as="image" href="assets/hero/tile-3.png" rel="preload"/>
+
+
+<style id="mobile-revamp-20260302">
+/* ═══════════════════════════════════════════
+   MOBILE ONLY ≤640px — 641px+ untouched
+   ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* NAV: kill transition so it never flashes tall on load,
+     force compact height immediately */
+  nav {
+    transition: background .4s ease, backdrop-filter .4s ease !important;
+    /* NO padding transition — instant compact */
+    padding: 8px 14px !important;
+    background: rgba(20,18,16,0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+  }
+  nav.scrolled {
+    padding: 8px 14px !important;
+  }
+  /* Burger: tighter */
+  .nav-burger {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+  }
+
+  /* HERO: shorter on mobile, content higher up */
+  .hero {
+    height: 72vh !important;
+    min-height: 440px !important;
+    align-items: flex-end !important;
+  }
+  .hero-content {
+    padding: 1.4rem 1rem 1.3rem !important;
+    margin: 0 0 1.2rem 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* GLASS CARD: transparent, zero blur (blur smears dark overlay = grey card) */
+  .hero-content::before {
+    background: rgba(0,0,0,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.13) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    inset: -0.45rem -0.45rem -0.45rem -0.45rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* HERO OVERLAY: lighter so image reads through */
+  .hero::after {
+    background:
+      linear-gradient(175deg,
+        rgba(0,0,0,0.04) 0%,
+        rgba(0,0,0,0.14) 50%,
+        rgba(0,0,0,0.42) 100%) !important;
+  }
+
+  /* HERO TYPE */
+  .hero h1 {
+    font-size: clamp(1.75rem, 7.2vw, 2.4rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .hero p {
+    font-size: clamp(0.82rem, 3.3vw, 0.94rem) !important;
+    line-height: 1.54 !important;
+    margin-bottom: 1.1rem !important;
+    max-width: none !important;
+  }
+  .hero-badge {
+    font-size: 0.57rem !important;
+    padding: 0.26rem 0.6rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* HERO BUTTONS: 44px min touch targets */
+  .btn, .btn-primary, .btn-ghost, .btn-secondary, .hero-actions a {
+    min-height: 44px !important;
+    padding: 0.65rem 1rem !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.09em !important;
+    border-radius: 999px !important;
+  }
+  .hero-actions { gap: 0.5rem !important; flex-wrap: wrap !important; }
+
+  /* FAB clearance */
+  body { padding-bottom: 58px !important; }
+
+  /* SECTION SPACING */
+  section, .section { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .section-title, h2.section-title {
+    font-size: clamp(1.3rem, 5.5vw, 1.7rem) !important;
+    line-height: 1.14 !important;
+  }
+  .section-subtitle, .section p {
+    font-size: clamp(0.83rem, 3.2vw, 0.94rem) !important;
+  }
+
+  /* GRIDS */
+  .grid, .cards, .cat-grid, .collections-grid, .vendors-grid,
+  .products-grid, .jh-grid, .uc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+  }
+  .card, .cat-card, .collection-card, .vendor-card, .product-card {
+    border-radius: 14px !important;
+  }
+
+  /* FOOTER */
+  footer .footer-grid, footer .footer-columns, .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  footer { padding-bottom: 1.8rem !important; }
+}
+
+/* FAB: body-scoped, nav cascade cannot touch it */
+#mobile-fab-cta { display: none; }
+@media (max-width: 640px) {
+  #mobile-fab-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    bottom: 14px !important;
+    right: 14px !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    background: #C6A75E !important;
+    color: #fdfaf6 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 0.66rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.11em !important;
+    text-transform: uppercase !important;
+    padding: 0.4rem 0.9rem !important;
+    border-radius: 999px !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.22), 0 5px 16px rgba(0,0,0,0.26) !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+}
+</style>
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -4358,6 +4651,7 @@ window.openJHCatalog = function() {
   }
 };
 </script>
+<button id="mobile-fab-cta" onclick="if(typeof openShowroomModal==='function'){openShowroomModal();}">Get a Quote</button>
 </body>
 </html>
 
