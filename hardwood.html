@@ -965,7 +965,7 @@
   }
 
   /* ─── BRAND COLLECTIONS ─── */
-  .brand-collections { background: var(--parchment); }
+  
   .bc-header { margin-bottom: 48px; }
   .bc-header .section-sub { margin-top: 12px; }
 
@@ -2795,6 +2795,366 @@ footer .footer-col ul{
   footer .footer-top{ margin-bottom: 12px !important; padding-bottom: 12px !important; }
 }
 
+
+/* ═══ VENDOR NAVIGATION SYSTEM ═══ */
+.vendor-section {
+  background: var(--parchment);
+  padding: 100px 0;
+}
+
+.vendor-header {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.vendor-header .section-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 12px;
+}
+
+.vendor-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.vendor-header h2 em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.vendor-header p {
+  font-size: .95rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Material Tabs */
+.vendor-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 0 32px;
+}
+
+.vendor-tab {
+  background: transparent;
+  border: 1px solid var(--stone);
+  color: var(--stone);
+  padding: 14px 28px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .3s ease;
+  border-radius: 2px;
+}
+
+.vendor-tab:hover {
+  border-color: var(--clay);
+  color: var(--clay);
+  transform: translateY(-2px);
+}
+
+.vendor-tab.active {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+
+/* Vendor Grid Container */
+.vendor-panel {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.vendor-panel.active {
+  display: block;
+}
+
+.vendor-list {
+  display: grid;
+  gap: 24px;
+}
+
+/* Individual Vendor Card */
+.vendor-card {
+  background: var(--white);
+  border: 1px solid rgba(58,53,48,.12);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all .3s ease;
+}
+
+.vendor-card:hover {
+  box-shadow: 0 8px 32px rgba(20,18,16,.08);
+  transform: translateY(-2px);
+}
+
+/* Vendor Header (Clickable) */
+.vendor-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--white) 0%, var(--cream) 100%);
+  border-bottom: 1px solid rgba(58,53,48,.08);
+  transition: background .3s ease;
+}
+
+.vendor-card-header:hover {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--parchment) 100%);
+}
+
+.vendor-info {
+  flex: 1;
+}
+
+.vendor-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+  letter-spacing: .01em;
+}
+
+.vendor-count {
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.vendor-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--parchment);
+  border-radius: 50%%;
+  font-size: 1.2rem;
+  color: var(--clay);
+  transition: all .3s ease;
+  flex-shrink: 0;
+}
+
+.vendor-card.expanded .vendor-toggle {
+  background: var(--clay);
+  color: var(--white);
+  transform: rotate(180deg);
+}
+
+/* Product List (Expandable) */
+.vendor-products {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+.vendor-card.expanded .vendor-products {
+  max-height: 2000px;
+}
+
+.product-item {
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(58,53,48,.06);
+  transition: background .2s ease;
+}
+
+.product-item:last-child {
+  border-bottom: none;
+}
+
+.product-item:hover {
+  background: rgba(198,167,94,.03);
+}
+
+.product-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  letter-spacing: -.01em;
+}
+
+.product-detail {
+  font-size: .85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.product-price {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--clay);
+  letter-spacing: .02em;
+}
+
+.product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  transition: all .25s ease;
+}
+
+.product-link:hover {
+  background: var(--gold);
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.product-link::after {
+  content: '→';
+  font-size: 1rem;
+  transition: transform .25s ease;
+}
+
+.product-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .vendor-section {
+    padding: 60px 0;
+  }
+
+  .vendor-header {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .vendor-header h2 {
+    font-size: 2rem;
+  }
+
+  .vendor-tabs {
+    padding: 0 20px;
+    margin-bottom: 32px;
+  }
+
+  .vendor-tab {
+    padding: 12px 20px;
+    font-size: .7rem;
+  }
+
+  .vendor-panel {
+    padding: 0 20px;
+  }
+
+  .vendor-list {
+    gap: 16px;
+  }
+
+  .vendor-card-header {
+    padding: 20px;
+  }
+
+  .vendor-name {
+    font-size: 1.35rem;
+  }
+
+  .vendor-count {
+    font-size: .7rem;
+  }
+
+  .vendor-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .product-item {
+    padding: 20px;
+  }
+
+  .product-name {
+    font-size: .95rem;
+  }
+
+  .product-detail {
+    font-size: .8rem;
+  }
+
+  .product-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .product-link {
+    width: 100%%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .vendor-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .vendor-tab {
+    flex: 1 1 calc(50%% - 6px);
+    min-width: 140px;
+    font-size: .65rem;
+    padding: 12px 16px;
+  }
+}
+
+/* Showroom inquiry link styling */
+.product-link-showroom {
+  background: var(--gold) !important;
+  color: var(--white) !important;
+  border-color: var(--gold) !important;
+}
+
+.product-link-showroom:hover {
+  background: var(--gold-dk) !important;
+  color: var(--white) !important;
+  transform: translateX(0) !important;
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -3529,85 +3889,152 @@ footer .footer-col ul{
 ══════════════════════════════════════════ -->
 <!-- ─── FEATURED PRODUCTS ─── -->
 <!-- ─── BRAND COLLECTIONS ─── -->
-<section class="brand-collections reveal" id="vendors">
-<div class="bc-header">
-<p class="section-label">Hardwood</p>
-<h2 class="section-title">Hardwood <em>Vendors</em> &amp; Collections</h2>
-<p class="section-sub">All hardwood brands and collections featured on our site — plus the full Johnson Hardwood catalog below.</p>
-</div>
-<div class="bc-tabs">
-<button class="bc-tab active" data-tab="hardwood">Hardwood</button>
-</div>
-<!-- HARDWOOD TAB -->
-<div class="bc-panel active" id="tab-hardwood">
-<div class="bc-grid">
-<!-- BARLEY ALE CARD -->
-<!-- COPPER ALE CARD -->
-<div class="bc-card">
-<div class="bc-swatch" style="background:linear-gradient(135deg,#C8A870 0%,#A88040 50%,#D4B47A 100%);background-image:repeating-linear-gradient(92deg,rgba(0,0,0,.08) 0,rgba(0,0,0,.08) 1px,transparent 1px,transparent 10px),linear-gradient(135deg,#C8A870,#A88040);"></div>
-<div class="bc-card-info">
-<p class="bc-brand">LW Flooring</p>
-<p class="bc-product">Paradise Island Collection</p>
-<p class="bc-detail">European Oak · 10¼" Wide · 4mm Wire-Brushed Veneer · 5/8" Thick</p>
-<p class="bc-price">From $6.80 / sq ft</p>
-<a class="bc-link" href="#">View Collection →</a>
-</div>
-</div>
-<div class="bc-card">
-<div class="bc-swatch" style="background:linear-gradient(135deg,#B09060 0%,#907040 50%,#C0A070 100%);background-image:repeating-linear-gradient(175deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 2px,transparent 2px,transparent 25px),linear-gradient(135deg,#B09060,#907040);"></div>
-<div class="bc-card-info">
-<p class="bc-brand">LW Flooring</p>
-<p class="bc-product">French Impressions — Monet</p>
-<p class="bc-detail">European White Oak · 7" Wide · 3/8" Thick · Gentle Wire-Brushed</p>
-<p class="bc-price">From $5.90 / sq ft</p>
-<a class="bc-link" href="#">View Collection →</a>
-</div>
-</div>
-<div class="bc-card">
-<div class="bc-swatch" style="background:linear-gradient(135deg,#6A4A2A 0%,#4A2A0A 50%,#7A5A3A 100%);background-image:repeating-linear-gradient(95deg,rgba(255,255,255,.07) 0,rgba(255,255,255,.07) 1px,transparent 1px,transparent 8px),linear-gradient(135deg,#6A4A2A,#4A2A0A);"></div>
-<div class="bc-card-info">
-<p class="bc-brand">Fuzion Flooring</p>
-<p class="bc-product">TruNorth — White Oak</p>
-<p class="bc-detail">8½" Wide · Air-Dried · Natural Fumed Finish · Zero Artificial Scraping</p>
-<p class="bc-price">From $7.27 / sq ft</p>
-<a class="bc-link" href="#">View Collection →</a>
-</div>
-</div>
-<div class="bc-card">
-<div class="bc-swatch" style="background:linear-gradient(135deg,#D4B890 0%,#B49060 50%,#E4C8A0 100%);"></div>
-<div class="bc-card-info">
-<p class="bc-brand">Fuzion Flooring</p>
-<p class="bc-product">Homestead — Euro Oak Savanna</p>
-<p class="bc-detail">Wide Plank · 4mm Dry Sawn Face · Low Gloss · Engineered Multi-Ply</p>
-<p class="bc-price">From $6.50 / sq ft</p>
-<a class="bc-link" href="#">View Collection →</a>
-</div>
-</div>
-<div class="bc-card">
-<div class="bc-swatch" style="background:linear-gradient(135deg,#9A7040 0%,#7A5020 50%,#AA8050 100%);background-image:repeating-linear-gradient(170deg,rgba(255,255,255,.06) 0,rgba(255,255,255,.06) 2px,transparent 2px,transparent 30px),linear-gradient(135deg,#9A7040,#7A5020);"></div>
-<div class="bc-card-info">
-<p class="bc-brand">Knoas Flooring</p>
-<p class="bc-product">Castle Collection — Wire Brushed Oak</p>
-<p class="bc-detail">Engineered Hardwood · 7½" Wide · UV Coating · VALSPAR® Stain</p>
-<p class="bc-price">From $4.20 / sq ft</p>
-<a class="bc-link" href="#">View Collection →</a>
-</div>
-</div>
-<div class="bc-card">
-<div class="bc-swatch" style="background:linear-gradient(135deg,#E0C8A0 0%,#C0A880 50%,#D8B888 100%);"></div>
-<div class="bc-card-info">
-<p class="bc-brand">Argo</p>
-<p class="bc-product">Argo Oak — Wide Plank Series</p>
-<p class="bc-detail">9/16" Thick · 7½" Sawn Lumber · Lightly Brushed · Vibrant Tones</p>
-<p class="bc-price">From $4.80 / sq ft</p>
-<a class="bc-link" href="#">View Collection →</a>
-</div>
-</div>
-</div>
-</div>
-<!-- LVP TAB -->
-<!-- TILE TAB -->
-<!-- CARPET & MORE TAB -->
+<section class="vendor-section" id="vendors">
+  <div class="vendor-header">
+    <p class="section-label">Hardwood</p>
+    <h2>Hardwood <em>Vendors</em> & Collections</h2>
+    <p>All hardwood brands and collections featured on our site — plus the full Johnson Hardwood catalog below.</p>
+  </div>
+
+  <div class="vendor-panel active" id="vendor-panel-hardwood">
+    <div class="vendor-list">
+      <div class="vendor-card">
+        <div class="vendor-card-header">
+          <div class="vendor-info">
+            <div class="vendor-name">Johnson Hardwood</div>
+            <div class="vendor-count">4 Collections Available</div>
+          </div>
+          <div class="vendor-toggle">▼</div>
+        </div>
+        <div class="vendor-products">
+          <div class="product-item">
+            <div class="product-name">Grand Chateau Collection</div>
+            <div class="product-detail">European Oak · 7½" Wide · Hand-Scraped & Wire-Brushed</div>
+            <div class="product-footer">
+              <div class="product-price">From $5.40 / sq ft</div>
+              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">British Isles Collection — Oak</div>
+            <div class="product-detail">Artisan Oak · Knots & Mineral Streaks · Light / Dark Tones</div>
+            <div class="product-footer">
+              <div class="product-price">From $5.10 / sq ft</div>
+              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">Barley Ale — AME-AHM19004</div>
+            <div class="product-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Vintage · 35-yr Warranty</div>
+            <div class="product-footer">
+              <div class="product-price">Ask in-store for pricing</div>
+              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">Copper Ale — AME-AHM19003</div>
+            <div class="product-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Full Bevel · High Color Variation</div>
+            <div class="product-footer">
+              <div class="product-price">Ask in-store for pricing</div>
+              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-card-header">
+          <div class="vendor-info">
+            <div class="vendor-name">LW Flooring</div>
+            <div class="vendor-count">2 Collections Available</div>
+          </div>
+          <div class="vendor-toggle">▼</div>
+        </div>
+        <div class="vendor-products">
+          <div class="product-item">
+            <div class="product-name">Paradise Island Collection</div>
+            <div class="product-detail">European Oak · 10¼" Wide · 4mm Wire-Brushed Veneer · 5/8" Thick</div>
+            <div class="product-footer">
+              <div class="product-price">From $6.80 / sq ft</div>
+              <a href="https://www.lwmontana.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">French Impressions — Monet</div>
+            <div class="product-detail">European White Oak · 7" Wide · 3/8" Thick · Gentle Wire-Brushed</div>
+            <div class="product-footer">
+              <div class="product-price">From $5.90 / sq ft</div>
+              <a href="https://www.lwmontana.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-card-header">
+          <div class="vendor-info">
+            <div class="vendor-name">Fuzion Flooring</div>
+            <div class="vendor-count">2 Collections Available</div>
+          </div>
+          <div class="vendor-toggle">▼</div>
+        </div>
+        <div class="vendor-products">
+          <div class="product-item">
+            <div class="product-name">TruNorth — White Oak</div>
+            <div class="product-detail">8½" Wide · Air-Dried · Natural Fumed Finish · Zero Artificial Scraping</div>
+            <div class="product-footer">
+              <div class="product-price">From $7.27 / sq ft</div>
+              <a href="https://www.fuzionflooring.com/en-us/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">Homestead — Euro Oak Savanna</div>
+            <div class="product-detail">Wide Plank · 4mm Dry Sawn Face · Low Gloss · Engineered Multi-Ply</div>
+            <div class="product-footer">
+              <div class="product-price">From $6.50 / sq ft</div>
+              <a href="https://www.fuzionflooring.com/en-us/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-card-header">
+          <div class="vendor-info">
+            <div class="vendor-name">Knoas Flooring</div>
+            <div class="vendor-count">1 Collection Available</div>
+          </div>
+          <div class="vendor-toggle">▼</div>
+        </div>
+        <div class="vendor-products">
+          <div class="product-item">
+            <div class="product-name">Castle Collection — Wire Brushed Oak</div>
+            <div class="product-detail">Engineered Hardwood · 7½" Wide · UV Coating · VALSPAR® Stain</div>
+            <div class="product-footer">
+              <div class="product-price">From $4.20 / sq ft</div>
+              <a href="https://www.knoasflooring.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-card-header">
+          <div class="vendor-info">
+            <div class="vendor-name">Argo</div>
+            <div class="vendor-count">1 Collection Available</div>
+          </div>
+          <div class="vendor-toggle">▼</div>
+        </div>
+        <div class="vendor-products">
+          <div class="product-item">
+            <div class="product-name">Argo Oak — Wide Plank Series</div>
+            <div class="product-detail">9/16" Thick · 7½" Sawn Lumber · Lightly Brushed · Vibrant Tones</div>
+            <div class="product-footer">
+              <div class="product-price">From $4.80 / sq ft</div>
+              <a href="https://www.argofloors.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- ─── GALLERY STRIP ─── -->
 <!-- ─── STATS ─── -->
@@ -4063,5 +4490,41 @@ document.addEventListener('keydown', function(e) {
 ══════════════════════════════════════════════════════════ -->
 
 <button id="mobile-fab-cta" onclick="if(typeof openShowroomModal==='function'){openShowroomModal();}">Get a Quote</button>
+
+<script>
+// Initialize vendor navigation
+function initVendorNavigation() {
+  // Tab switching
+  document.querySelectorAll('.vendor-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabName = tab.dataset.tab;
+      
+      // Update active tab
+      document.querySelectorAll('.vendor-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      
+      // Update active panel
+      document.querySelectorAll('.vendor-panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById(`vendor-panel-${tabName}`);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // Vendor card toggle
+  document.querySelectorAll('.vendor-card-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.vendor-card');
+      card.classList.toggle('expanded');
+    });
+  });
+}
+
+// Initialize on page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVendorNavigation);
+} else {
+  initVendorNavigation();
+}
+</script>
 </body>
 </html>
