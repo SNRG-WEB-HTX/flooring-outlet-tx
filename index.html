@@ -2241,48 +2241,81 @@ nav.scrolled .nav-cta{
 /* === END MOBILE FIXES v2 === */
 
 /* ─────────────────────────────────────────────────────────────
-   HERO CENTERING OVERRIDE V3 (all devices)
-   Goal: center the glass card in the hero (both axes), keep it
-   safely below fixed nav, and add bottom padding to lift it.
-   ───────────────────────────────────────────────────────────── */
+   HERO ALIGNMENT OVERRIDES (v4)
+   Goal:
+   - Keep the "perfect" vertical alignment (card lifted toward header)
+   - Desktop/Laptop: shift hero card back to the LEFT (original feel)
+   - Mobile: lower the card ~50% of the recent lift (slightly lower)
+   Applies across all device sizes with safe fixed-nav padding.
+───────────────────────────────────────────────────────────── */
+
 .hero{
-  /* stop bottom-docking; true centering */
-  align-items: center !important;
-  justify-content: center !important;
-
-  /* account for fixed header + safe-area; bottom padding lifts content */
-  padding-top: calc(env(safe-area-inset-top, 0px) + clamp(72px, 9vh, 112px)) !important;
-  padding-bottom: clamp(84px, 14vh, 160px) !important;
+  /* Center vertically within the hero, but keep room for fixed nav */
+  display:flex;
+  align-items:center;
+  /* top padding protects content from fixed header; bottom padding lifts the centered card */
+  padding-top: clamp(92px, 10vh, 150px);
+  padding-bottom: clamp(140px, 18vh, 240px);
 }
 
+/* The card itself should not be "bottom-docked" anymore */
 .hero-content{
-  /* center the card horizontally */
-  margin: 0 auto !important;
-
-  /* responsive, elegant interior spacing */
-  padding: clamp(22px, 4.2vw, 64px) !important;
-
-  /* keep the card sized nicely on every screen */
-  width: min(860px, calc(100% - 2 * clamp(16px, 5vw, 64px))) !important;
-  max-width: 860px !important;
+  margin: 0;
 }
 
-/* slightly tighter on phones, and a touch more lift */
-@media (max-width: 640px){
+/* Desktop / laptop: keep vertical alignment, shift the card LEFT like original */
+@media (min-width: 861px){
   .hero{
-    padding-top: calc(env(safe-area-inset-top, 0px) + 76px) !important;
-    padding-bottom: clamp(120px, 18vh, 200px) !important;
-    min-height: 640px; /* prevents cramped card + dots overlap */
+    justify-content:flex-start;
   }
   .hero-content{
-    width: calc(100% - 32px) !important;
-    padding: 26px 22px 28px !important;
+    /* match original left offset rhythm */
+    margin-left: 5rem;
+    margin-right: auto;
+    text-align: left;
   }
 }
 
-/* ultra-small phones */
-@media (max-width: 380px){
-  .hero-content{ padding: 22px 18px 24px !important; }
+/* Mobile / small screens: center horizontally; lower the card about half of the lift */
+@media (max-width: 860px){
+  .hero{
+    justify-content:center;
+    /* lower the card by reducing the extra bottom padding (≈ half lift) */
+    padding-top: clamp(88px, 12vh, 140px);
+    padding-bottom: clamp(92px, 14vh, 150px);
+  }
+  .hero-content{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
+}
+
+/* Extra small phones: keep it stable under notch + compact nav */
+@media (max-width: 420px){
+  .hero{
+    padding-top: clamp(84px, 12vh, 130px);
+    padding-bottom: clamp(84px, 13vh, 140px);
+  }
+}
+
+
+/* ───────── DESKTOP / LAPTOP HERO LEFT ALIGN (VERTICAL PRESERVED) ───────── */
+@media (min-width: 1025px) {
+
+  .hero {
+    display: flex;
+    align-items: center;      /* preserve vertical alignment */
+    justify-content: flex-start;  /* shift card left */
+  }
+
+  .hero-content {
+    margin-left: 6vw;
+    margin-right: 0;
+    max-width: 780px;
+    text-align: left;
+  }
+
 }
 
 </style>
@@ -2504,6 +2537,25 @@ nav.scrolled .nav-cta{
 
 
 }
+
+/* ───────── DESKTOP / LAPTOP HERO LEFT ALIGN (VERTICAL PRESERVED) ───────── */
+@media (min-width: 1025px) {
+
+  .hero {
+    display: flex;
+    align-items: center;      /* preserve vertical alignment */
+    justify-content: flex-start;  /* shift card left */
+  }
+
+  .hero-content {
+    margin-left: 6vw;
+    margin-right: 0;
+    max-width: 780px;
+    text-align: left;
+  }
+
+}
+
 </style>
 </head>
 <body>
