@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Tile &amp; Stone — Flooring Outlet TX</title>
+<title>Flooring Outlet TX — Premium Tile &amp; Flooring Houston</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -1230,7 +1230,15 @@ nav.scrolled .nav-links{
   visibility: visible;
 }
 
-.hero-content::before{
+/* === Laptop hero card root-cause fix (900–1280px only) ===
+   More breathing room above badge/logo AND allow the glass card to sit lower
+   by overlapping the ticker slightly (negative bottom margin). */
+@media (min-width: 900px) and (max-width: 1280px){
+  .hero-content{
+    padding-top: 5.25rem !important;    /* more space above badge/logo */
+    margin-bottom: -1.25rem !important; /* allow card to sit lower / overlap ticker */
+  }
+  .hero-content::before{
     inset: -1.35rem -1.6rem -1.1rem -1.6rem !important;
   }
 }
@@ -2593,6 +2601,27 @@ footer .footer-bottom{
 }
 
 
+/* ───────── INDEX: WHY CHOOSE US BACKGROUND (HEFEWEIZEN PLANK) ───────── */
+.stats-section{
+  position: relative;
+  background-image: url('why-choose-bg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.stats-section::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 650px at 18% 45%, rgba(0,0,0,.66) 0%, rgba(0,0,0,.34) 55%, rgba(0,0,0,.22) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.72) 100%);
+  z-index:0;
+}
+.stats-section > *{
+  position: relative;
+  z-index: 1;
+}
+
 
 /* ───────── V9: SHOWROOM SECTION + FOOTER TUNING ───────── */
 
@@ -2775,6 +2804,35 @@ footer .footer-col ul{
 }
 
 
+/* ───────── V12: WHY CHOOSE US BACKGROUND IMAGE + GOLD LABEL/EM ───────── */
+.stats-section{
+  position: relative !important;
+  background-image: url('why-choose-us.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Keep readability with a lighter, image-respecting overlay (not "black section") */
+.stats-section::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 650px at 18% 45%, rgba(0,0,0,.55) 0%, rgba(0,0,0,.28) 55%, rgba(0,0,0,.18) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.62) 100%);
+  z-index:0;
+}
+.stats-section > *{ position: relative; z-index: 1; }
+
+/* Make “WHY CHOOSE US” and “Most Trusted” the same gold as header */
+.stats-section .section-label{
+  color: var(--classy-gold) !important;
+}
+.stats-section .section-title em{
+  color: var(--classy-gold) !important;
+}
+
+
 /* ───────── V13: HOUSTON SHOWROOM BG (FOYER) + MOBILE READABILITY ───────── */
 .visit-today{
   background-image: url('houston-showroom-bg.png') !important;
@@ -2822,65 +2880,10 @@ footer .footer-col ul{
   }
 }
 
-
-/* ───────── V14: SHOWROOM BG EXACT + OUTLET PRICES ONE-LINE + HERO READABILITY ───────── */
-
-/* Ensure the foyer image is used everywhere for the Houston Showroom section */
-.visit-today{
-  background-image: url('houston-showroom-bg.png') !important;
-}
-
-/* Outlet Prices: keep on a single line on phones */
-@media (max-width: 640px){
-  .hero h1 strong{ white-space: nowrap !important; display: inline-block; }
-}
-
-/* HERO readability: all device types */
-.hero{
-  position: relative;
-}
-.hero::before{
-  /* strengthen overlay slightly for contrast without darkening the whole hero */
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(1200px 700px at 20% 35%, rgba(0,0,0,.40) 0%, rgba(0,0,0,.22) 55%, rgba(0,0,0,.18) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.56) 100%);
-  pointer-events:none;
-  z-index: 0;
-}
-.hero > *{
-  position: relative;
-  z-index: 1;
-}
-.hero h1, .hero p, .hero .hero-badge{
-  text-shadow: 0 18px 38px rgba(0,0,0,.62) !important;
-}
-.hero p{
-  color: rgba(255,255,255,.90) !important;
-}
-
-/* Phone: increase hero font sizes smoothly */
-@media (max-width: 640px){
-  .hero h1{
-    font-size: clamp(2.05rem, 8.6vw, 2.9rem) !important;
-    line-height: 1.05 !important;
-  }
-  .hero p{
-    font-size: 1.05rem !important;
-    line-height: 1.72 !important;
-    max-width: 38ch !important;
-  }
-  .hero .hero-badge{
-    font-size: .78rem !important;
-    letter-spacing: .20em !important;
-  }
-}
-
 </style>
-<link as="image" href="assets/hero/tile-1.png" rel="preload"/>
-<link as="image" href="assets/hero/tile-2.png" rel="preload"/>
-<link as="image" href="assets/hero/tile-3.png" rel="preload"/>
+<link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
+<link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
+<link as="image" href="./assets/hero/bedroom-hero.png" rel="preload"/>
 
 
 <style id="mobile-revamp-20260302">
@@ -3033,6 +3036,68 @@ footer .footer-col ul{
     white-space: nowrap !important;
     text-decoration: none !important;
   }
+
+  /* === MOBILE FIXES (9:46 AM) === */
+
+  /* Header: make it compact but keep logo/burger slightly larger */
+  nav { padding: 6px 12px !important; min-height: 56px !important; }
+  nav.scrolled { padding: 6px 12px !important; }
+  .nav-logo { font-size: 1.62rem !important; line-height: 1 !important; }
+  .nav-burger { width: 40px !important; height: 40px !important; border-radius: 10px !important; }
+
+  /* Hero: raise glass card + improve white text contrast */
+  .hero-content { margin: 0 0 2.35rem 0 !important; }
+  .hero-content::before {
+    background: rgba(0,0,0,0.18) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.22) !important;
+  }
+  .hero::after {
+    background:
+      linear-gradient(175deg,
+        rgba(0,0,0,0.10) 0%,
+        rgba(0,0,0,0.22) 52%,
+        rgba(0,0,0,0.60) 100%) !important;
+  }
+  .hero h1 { text-shadow: 0 18px 46px rgba(0,0,0,0.62) !important; }
+  .hero p  { color: rgba(255,255,255,0.90) !important; text-shadow: 0 14px 34px rgba(0,0,0,0.55) !important; }
+
+  /* Footer: mobile-only minimal + centered */
+  footer { padding: 42px 16px 22px !important; }
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 16px !important;
+    text-align: center !important;
+  }
+  .footer-top .footer-col { display: none !important; }
+  .footer-brand .nav-logo { margin-bottom: 12px !important; font-size: 1.75rem !important; }
+  .footer-brand p {
+    max-width: none !important;
+    margin: 0 auto 12px !important;
+    font-size: 1.02rem !important;
+    line-height: 1.55 !important;
+    color: rgba(253,250,246,0.72) !important;
+  }
+  .footer-social { justify-content: center !important; margin-bottom: 2px !important; }
+  .social-btn { width: 38px !important; height: 38px !important; font-size: 0.95rem !important; }
+  .footer-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-align: center !important;
+  }
+  .footer-copy { font-size: 1.02rem !important; line-height: 1.4 !important; }
+  .footer-legal {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+
 }
 
 /* ───────── DESKTOP / LAPTOP HERO LEFT ALIGN (VERTICAL PRESERVED) ───────── */
@@ -3336,6 +3401,27 @@ footer .footer-bottom{
 }
 
 
+/* ───────── INDEX: WHY CHOOSE US BACKGROUND (HEFEWEIZEN PLANK) ───────── */
+.stats-section{
+  position: relative;
+  background-image: url('why-choose-bg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.stats-section::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 650px at 18% 45%, rgba(0,0,0,.66) 0%, rgba(0,0,0,.34) 55%, rgba(0,0,0,.22) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.72) 100%);
+  z-index:0;
+}
+.stats-section > *{
+  position: relative;
+  z-index: 1;
+}
+
 
 /* ───────── V9: SHOWROOM SECTION + FOOTER TUNING ───────── */
 
@@ -3518,6 +3604,35 @@ footer .footer-col ul{
 }
 
 
+/* ───────── V12: WHY CHOOSE US BACKGROUND IMAGE + GOLD LABEL/EM ───────── */
+.stats-section{
+  position: relative !important;
+  background-image: url('why-choose-us.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Keep readability with a lighter, image-respecting overlay (not "black section") */
+.stats-section::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 650px at 18% 45%, rgba(0,0,0,.55) 0%, rgba(0,0,0,.28) 55%, rgba(0,0,0,.18) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.62) 100%);
+  z-index:0;
+}
+.stats-section > *{ position: relative; z-index: 1; }
+
+/* Make “WHY CHOOSE US” and “Most Trusted” the same gold as header */
+.stats-section .section-label{
+  color: var(--classy-gold) !important;
+}
+.stats-section .section-title em{
+  color: var(--classy-gold) !important;
+}
+
+
 /* ───────── V13: HOUSTON SHOWROOM BG (FOYER) + MOBILE READABILITY ───────── */
 .visit-today{
   background-image: url('houston-showroom-bg.png') !important;
@@ -3565,61 +3680,6 @@ footer .footer-col ul{
   }
 }
 
-
-/* ───────── V14: SHOWROOM BG EXACT + OUTLET PRICES ONE-LINE + HERO READABILITY ───────── */
-
-/* Ensure the foyer image is used everywhere for the Houston Showroom section */
-.visit-today{
-  background-image: url('houston-showroom-bg.png') !important;
-}
-
-/* Outlet Prices: keep on a single line on phones */
-@media (max-width: 640px){
-  .hero h1 strong{ white-space: nowrap !important; display: inline-block; }
-}
-
-/* HERO readability: all device types */
-.hero{
-  position: relative;
-}
-.hero::before{
-  /* strengthen overlay slightly for contrast without darkening the whole hero */
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(1200px 700px at 20% 35%, rgba(0,0,0,.40) 0%, rgba(0,0,0,.22) 55%, rgba(0,0,0,.18) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.56) 100%);
-  pointer-events:none;
-  z-index: 0;
-}
-.hero > *{
-  position: relative;
-  z-index: 1;
-}
-.hero h1, .hero p, .hero .hero-badge{
-  text-shadow: 0 18px 38px rgba(0,0,0,.62) !important;
-}
-.hero p{
-  color: rgba(255,255,255,.90) !important;
-}
-
-/* Phone: increase hero font sizes smoothly */
-@media (max-width: 640px){
-  .hero h1{
-    font-size: clamp(2.05rem, 8.6vw, 2.9rem) !important;
-    line-height: 1.05 !important;
-  }
-  .hero p{
-    font-size: 1.05rem !important;
-    line-height: 1.72 !important;
-    max-width: 38ch !important;
-  }
-  .hero .hero-badge{
-    font-size: .78rem !important;
-    letter-spacing: .20em !important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -3639,9 +3699,9 @@ footer .footer-col ul{
 <ul aria-label="Products" class="nav-links">
 <li><a href="tile.html">Tile</a></li>
 <li><a href="hardwood.html">Hardwood</a></li>
-<li><a data-tab="lvp" href="index.html#collections">LVP / LVT</a></li>
-<li><a data-tab="other" href="index.html#collections">Carpet</a></li>
-<li><a data-tab="tile" href="#collections">Natural Stone</a></li>
+<li><a href="lvp-lvt.html">LVP / LVT</a></li>
+<li><a data-tab="other" href="carpet.html">Carpet</a></li>
+<li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
 <a class="nav-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Quote</a>
@@ -3651,22 +3711,22 @@ footer .footer-col ul{
 <div class="hero-slides">
 <!-- Local hero images (repo: assets/hero/) -->
 <div class="hero-slide active">
-<img alt="Premium Hardwood Flooring Living Room" onerror="this.onerror=null;this.src='assets/hero/tile-1.png';" src="assets/hero/tile-1.png"/>
+<img alt="Premium Hardwood Flooring Living Room" onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';" src="./assets/hero/livingroom-hero.png"/>
 </div>
 <div class="hero-slide">
-<img alt="Luxury Bathroom Tile Installation" onerror="this.onerror=null;this.src='assets/hero/tile-2.png';" src="assets/hero/tile-2.png"/>
+<img alt="Luxury Bathroom Tile Installation" onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';" src="./assets/hero/bathroom-hero.png"/>
 </div>
 <div class="hero-slide">
-<img alt="Modern Bedroom Plush Carpet" onerror="this.onerror=null;this.src='assets/hero/tile-3.png';" src="assets/hero/tile-3.png"/>
+<img alt="Modern Bedroom Plush Carpet" onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';" src="./assets/hero/bedroom-hero.png"/>
 </div>
 </div>
 <div class="hero-content">
 <span class="hero-badge">Houston's Flooring Outlet</span>
-<h1>Tile &amp; Stone, <strong>Designer Looks</strong>.</h1>
-<p>Porcelain, ceramic, slabs, and natural stone — browse our tile vendors and every product we feature.</p>
+<h1>Premium Floors at <strong>Outlet Prices</strong></h1>
+<p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#vendors">Shop Tile</a>
-<a class="btn btn-ghost" href="index.html#collections" onclick="event.preventDefault();openShowroomModal();">Back to Home</a>
+<a class="btn btn-primary" href="#collections">Shop Collections</a>
+<a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
 </div>
 </div>
 <div class="hero-scroll">
@@ -3697,28 +3757,480 @@ footer .footer-col ul{
 </div>
 </div>
 <!-- ─── CATEGORIES ─── -->
-
+<section class="categories reveal">
+<div class="cat-header">
+<div>
+<p class="section-label">Browse By Category</p>
+<h2 class="section-title">Every Floor,<br/><em>Every Vision</em></h2>
+</div>
+<a class="view-all" href="#">View All Categories</a>
+</div>
+<div class="cat-grid">
+<a class="cat-card" href="tile.html">
+<div class="cat-bg cat-bg-1"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Porcelain &amp;<br/>Ceramic Tile</span>
+<span class="cat-count">2,400+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" href="hardwood.html">
+<div class="cat-bg cat-bg-2"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Hardwood</span>
+<span class="cat-count">850+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" href="natural-stone.html">
+<div class="cat-bg cat-bg-3"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Natural Stone</span>
+<span class="cat-count">600+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" href="lvp-lvt.html">
+<div class="cat-bg cat-bg-4"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">LVP / SPC</span>
+<span class="cat-count">1,200+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" data-tab="other" href="carpet.html">
+<div class="cat-bg cat-bg-5"></div>
+<div class="cat-overlay"></div>
+<div class="cat-info">
+<span class="cat-name">Carpet &amp; Laminate</span>
+<span class="cat-count">400+ Products</span>
+</div>
+<div class="cat-arrow">→</div>
+</a>
+</div>
+</section>
+<!-- ══════════════════════════════════════════
+     JOHNSON HARDWOOD FULL CATALOG
+══════════════════════════════════════════ -->
+<section aria-label="Johnson Hardwood Collection" id="jh-catalog">
+<div class="jh-header">
+<div>
+<p class="section-label">Authorized Dealer · Johnson Hardwood</p>
+<h2 class="section-title">Complete <em>Wood Collection</em></h2>
+<p class="section-sub" id="jh-count">88 products across 8 series — available at our Houston showroom.</p>
+</div>
+<a class="view-all" href="https://johnsonhardwood.com/products/" rel="noopener" target="_blank">View All on JohnsonHardwood.com →</a>
+</div>
+<div class="jh-series-tabs" id="jh-tabs" role="tablist">
+<button class="jh-tab active" data-series="all">All Series <span class="cnt">88</span></button>
+<button class="jh-tab" data-series="alehouse">Alehouse <span class="cnt">10</span></button>
+<button class="jh-tab" data-series="grandchateau">Grand Chateau <span class="cnt">12</span></button>
+<button class="jh-tab" data-series="englishpub">English Pub <span class="cnt">12</span></button>
+<button class="jh-tab" data-series="tuscan">Tuscan <span class="cnt">12</span></button>
+<button class="jh-tab" data-series="canyonridge">Canyon Ridge ★ <span class="cnt">6</span></button>
+<button class="jh-tab" data-series="olympus">Olympus ★ <span class="cnt">6</span></button>
+<button class="jh-tab" data-series="texastimber">Texas Timber ★ <span class="cnt">10</span></button>
+<button class="jh-tab" data-series="countrysideoak">Countryside Oak ★ <span class="cnt">10</span></button>
+<button class="jh-tab" data-series="oakgrove">Oak Grove <span class="cnt">10</span></button>
+</div>
+<div class="jh-grid" id="jh-grid" role="list"></div>
+<div class="jh-pagination" id="jh-pagination"></div>
+<p class="jh-pg-info" id="jh-pg-info"></p>
+</section>
+<!-- ══════════════════════════════════════════
+     TILE & PORCELAIN CATALOG
+══════════════════════════════════════════ -->
+<section aria-label="Tile &amp; Porcelain Collection" class="uc-section" id="tile-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">⬡</div>
+<div>
+<h2>Tile &amp; Porcelain</h2>
+<p id="tile-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">8 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="tile-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="tile-series" role="tablist"></div>
+<div class="uc-grid" id="tile-grid" role="list"></div>
+<div class="uc-pagination" id="tile-pagination"></div>
+<p class="uc-pg-info" id="tile-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>Request Free Tile Samples</strong>
+<p>Choose up to 5 samples — delivered to your door or pick up in-store.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Request Samples →</button>
+</div>
+</section>
+<!-- ══════════════════════════════════════════
+     LVP / SPC CATALOG
+══════════════════════════════════════════ -->
+<section aria-label="LVP SPC Collection" class="uc-section" id="lvp-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">▭</div>
+<div>
+<h2>LVP &amp; SPC Flooring</h2>
+<p id="lvp-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">7 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="lvp-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="lvp-series" role="tablist"></div>
+<div class="uc-grid" id="lvp-grid" role="list"></div>
+<div class="uc-pagination" id="lvp-pagination"></div>
+<p class="uc-pg-info" id="lvp-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>100% Waterproof — See It In Person</strong>
+<p>Visit our Houston showroom to walk on samples and compare brands side-by-side.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Visit Showroom →</button>
+</div>
+</section>
+<!-- ══════════════════════════════════════════
+     CARPET & LAMINATE CATALOG
+══════════════════════════════════════════ -->
+<section aria-label="Carpet &amp; Laminate Collection" class="uc-section" id="carpet-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">≋</div>
+<div>
+<h2>Carpet &amp; Laminate</h2>
+<p id="carpet-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">7 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="carpet-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="carpet-series" role="tablist"></div>
+<div class="uc-grid" id="carpet-grid" role="list"></div>
+<div class="uc-pagination" id="carpet-pagination"></div>
+<p class="uc-pg-info" id="carpet-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>Comfort Underfoot, Value That Lasts</strong>
+<p>Feel the difference in-store — our staff will help you find the perfect match.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Get a Quote →</button>
+</div>
+</section>
+<!-- ══════════════════════════════════════════
+     NATURAL STONE CATALOG
+══════════════════════════════════════════ -->
+<section aria-label="Natural Stone Collection" class="uc-section" id="stone-catalog">
+<div class="uc-banner">
+<div class="uc-banner-left">
+<div class="uc-type-icon">◈</div>
+<div>
+<h2>Natural Stone</h2>
+<p id="stone-subtitle">Loading collection...</p>
+</div>
+</div>
+<div class="uc-banner-right">
+<span class="uc-brand-count">6 Authorized Brands</span>
+</div>
+</div>
+<div class="uc-brand-bar" id="stone-brands" role="tablist"></div>
+<div class="uc-series-bar hidden" id="stone-series" role="tablist"></div>
+<div class="uc-grid" id="stone-grid" role="list"></div>
+<div class="uc-pagination" id="stone-pagination"></div>
+<p class="uc-pg-info" id="stone-pg-info"></p>
+<div class="uc-sample-bar">
+<div>
+<strong>Timeless. Unique. Yours.</strong>
+<p>Every natural stone piece is one-of-a-kind — visit our showroom for expert selection.</p>
+</div>
+<button class="uc-sample-btn" onclick="openShowroomModal()">Book Consultation →</button>
+</div>
+</section>
 <!-- ─── FEATURED PRODUCTS ─── -->
-
+<section class="products reveal" id="featured">
+<div class="products-header">
+<div>
+<p class="section-label">Editor's Picks</p>
+<h2 class="section-title">Trending <em>Right Now</em></h2>
+</div>
+<a class="view-all" href="#collections">View All Collections</a>
+</div>
+<div class="product-grid">
+<a class="product-card" href="tile.html">
+<div class="product-img">
+<div class="product-swatch swatch-marble"></div>
+<span class="product-tag">Best Seller</span>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">RAK Ceramics</p>
+<p class="product-name">Calacatta Gold Maximus</p>
+<p class="product-size">24" × 48" Polished Porcelain Slab · Marble Effect</p>
+<p class="product-price">$4.89 / sq ft <span>$6.50</span></p>
+</div>
+</a>
+<a class="product-card" href="hardwood.html">
+<div class="product-img">
+<div class="product-swatch swatch-travertine"></div>
+<span class="product-tag">New Arrival</span>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">Johnson Hardwood</p>
+<p class="product-name">Tuscan Collection — Hickory</p>
+<p class="product-size">4½" / 6" / 7½" Wide · Hand-Scraped Engineered</p>
+<p class="product-price">$5.20 / sq ft</p>
+</div>
+</a>
+<a class="product-card" href="lvp-lvt.html">
+<div class="product-img">
+<div class="product-swatch swatch-slate"></div>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">Republic Floor</p>
+<p class="product-name">Woodland Oak — Valley Oak</p>
+<p class="product-size">9" × 60" SPC Rigid Core · 25-yr Residential Warranty</p>
+<p class="product-price">$3.89 / sq ft</p>
+</div>
+</a>
+<a class="product-card" href="lvp-lvt.html">
+<div class="product-img">
+<div class="product-swatch swatch-wood"></div>
+<span class="product-tag">Sale</span>
+<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
+</div>
+<div class="product-info">
+<p class="product-brand">Fuzion Flooring</p>
+<p class="product-name">Dynamix HardCore 3DGE — Beach Sands</p>
+<p class="product-size">7" × 60" LVP · 6mm Waterproof Rigid Core</p>
+<p class="product-price">$3.79 / sq ft <span>$4.99</span></p>
+</div>
+</a>
+</div>
+</section>
 <!-- ─── BRAND COLLECTIONS ─── -->
-<section class="brand-collections reveal" id="vendors">
+<section class="brand-collections reveal" id="collections">
 <div class="bc-header">
-<p class="section-label">Tile &amp; Stone</p>
-<h2 class="section-title">Tile &amp; Stone <em>Vendors</em> &amp; Collections</h2>
-<p class="section-sub">All tile &amp; stone brands and collections featured on our site — plus full tile + natural stone catalogs below.</p>
+<p class="section-label">Shop By Brand</p>
+<h2 class="section-title">16 Premium <em>Partners</em></h2>
+<p class="section-sub">We're authorized dealers for every brand below — shop in-store or request samples online.</p>
 </div>
 <div class="bc-tabs">
-
-
+<button class="bc-tab active" data-tab="hardwood">Hardwood</button>
+<button class="bc-tab" data-tab="lvp">LVP / SPC</button>
 <button class="bc-tab" data-tab="tile">Tile &amp; Stone</button>
-
+<button class="bc-tab" data-tab="other">Carpet &amp; More</button>
 </div>
 <!-- HARDWOOD TAB -->
-
+<div class="bc-panel active" id="tab-hardwood">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#8B6914 0%,#6B4F0E 40%,#9A7520 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood</p>
+<p class="bc-product">Grand Chateau Collection</p>
+<p class="bc-detail">European Oak · 7½" Wide · Hand-Scraped &amp; Wire-Brushed</p>
+<p class="bc-price">From $5.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#7A5C3A 0%,#5A3C1A 50%,#8A6C4A 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood</p>
+<p class="bc-product">British Isles Collection — Oak</p>
+<p class="bc-detail">Artisan Oak · Knots &amp; Mineral Streaks · Light / Dark Tones</p>
+<p class="bc-price">From $5.10 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<!-- BARLEY ALE CARD -->
+<div class="bc-card bc-card--alehouse" onclick="openProductModal('barleyale')">
+<div class="bc-swatch" style="position:relative;overflow:hidden;">
+<img alt="Barley Ale Hardwood" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#C4994A 0%,#A07830 50%,#D4AA5A 100%)';" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"/>
+</div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood · Alehouse Series</p>
+<p class="bc-product">Barley Ale — AME-AHM19004</p>
+<p class="bc-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Vintage · 35-yr Warranty</p>
+<p class="bc-price">Ask in-store for pricing</p>
+<a class="bc-link" href="#" onclick="event.preventDefault();openProductModal('barleyale')">View Product Details →</a>
+</div>
+</div>
+<!-- COPPER ALE CARD -->
+<div class="bc-card bc-card--alehouse" onclick="openProductModal('copperale')">
+<div class="bc-swatch" style="position:relative;overflow:hidden;">
+<img alt="Copper Ale Hardwood" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#B07A3A 0%,#8A5418 50%,#C08A4A 100%)';" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"/>
+</div>
+<div class="bc-card-info">
+<p class="bc-brand">Johnson Hardwood · Alehouse Series</p>
+<p class="bc-product">Copper Ale — AME-AHM19003</p>
+<p class="bc-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Full Bevel · High Color Variation</p>
+<p class="bc-price">Ask in-store for pricing</p>
+<a class="bc-link" href="#" onclick="event.preventDefault();openProductModal('copperale')">View Product Details →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C8A870 0%,#A88040 50%,#D4B47A 100%);background-image:repeating-linear-gradient(92deg,rgba(0,0,0,.08) 0,rgba(0,0,0,.08) 1px,transparent 1px,transparent 10px),linear-gradient(135deg,#C8A870,#A88040);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">LW Flooring</p>
+<p class="bc-product">Paradise Island Collection</p>
+<p class="bc-detail">European Oak · 10¼" Wide · 4mm Wire-Brushed Veneer · 5/8" Thick</p>
+<p class="bc-price">From $6.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#B09060 0%,#907040 50%,#C0A070 100%);background-image:repeating-linear-gradient(175deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 2px,transparent 2px,transparent 25px),linear-gradient(135deg,#B09060,#907040);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">LW Flooring</p>
+<p class="bc-product">French Impressions — Monet</p>
+<p class="bc-detail">European White Oak · 7" Wide · 3/8" Thick · Gentle Wire-Brushed</p>
+<p class="bc-price">From $5.90 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#6A4A2A 0%,#4A2A0A 50%,#7A5A3A 100%);background-image:repeating-linear-gradient(95deg,rgba(255,255,255,.07) 0,rgba(255,255,255,.07) 1px,transparent 1px,transparent 8px),linear-gradient(135deg,#6A4A2A,#4A2A0A);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">TruNorth — White Oak</p>
+<p class="bc-detail">8½" Wide · Air-Dried · Natural Fumed Finish · Zero Artificial Scraping</p>
+<p class="bc-price">From $7.27 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D4B890 0%,#B49060 50%,#E4C8A0 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">Homestead — Euro Oak Savanna</p>
+<p class="bc-detail">Wide Plank · 4mm Dry Sawn Face · Low Gloss · Engineered Multi-Ply</p>
+<p class="bc-price">From $6.50 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#9A7040 0%,#7A5020 50%,#AA8050 100%);background-image:repeating-linear-gradient(170deg,rgba(255,255,255,.06) 0,rgba(255,255,255,.06) 2px,transparent 2px,transparent 30px),linear-gradient(135deg,#9A7040,#7A5020);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Knoas Flooring</p>
+<p class="bc-product">Castle Collection — Wire Brushed Oak</p>
+<p class="bc-detail">Engineered Hardwood · 7½" Wide · UV Coating · VALSPAR® Stain</p>
+<p class="bc-price">From $4.20 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#E0C8A0 0%,#C0A880 50%,#D8B888 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Argo</p>
+<p class="bc-product">Argo Oak — Wide Plank Series</p>
+<p class="bc-detail">9/16" Thick · 7½" Sawn Lumber · Lightly Brushed · Vibrant Tones</p>
+<p class="bc-price">From $4.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
 <!-- LVP TAB -->
-
+<div class="bc-panel" id="tab-lvp">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#A89060 0%,#887040 50%,#B8A070 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 1px,transparent 1px,transparent 12px),linear-gradient(135deg,#A89060,#887040);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Republic Floor</p>
+<p class="bc-product">Woodland Oak — Post Oak</p>
+<p class="bc-detail">SPC Max · 9" × 60" · 8mm · Bio-Guard Pad · 25-yr Residential</p>
+<p class="bc-price">$3.89 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#6A6058 0%,#4A4038 50%,#7A7068 100%);background-image:repeating-linear-gradient(92deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 9px),linear-gradient(135deg,#6A6058,#4A4038);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Republic Floor</p>
+<p class="bc-product">Walnut Hills — Granito Nero</p>
+<p class="bc-detail">Pure SPC · 9" Wide · Classic Elegance · 50-yr Residential Warranty</p>
+<p class="bc-price">$4.49 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D4C4A8 0%,#B4A488 50%,#C4B498 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lions Floor</p>
+<p class="bc-product">Lone Star Spirit Collection</p>
+<p class="bc-detail">SPC Rigid Core · FloorScore Certified · 100% Ecological · Waterproof</p>
+<p class="bc-price">From $3.20 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#8A7860 0%,#6A5840 50%,#9A8870 100%);background-image:repeating-linear-gradient(93deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 11px),linear-gradient(135deg,#8A7860,#6A5840);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lions Floor</p>
+<p class="bc-product">Uptown Collection — Capitol Hill</p>
+<p class="bc-detail">LVP Glue-Down · 7¼" × 48" · 12-mil Wear Layer · Multi-Family Grade</p>
+<p class="bc-price">From $2.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#7A6A50 0%,#5A4A30 50%,#8A7A60 100%);background-image:repeating-linear-gradient(95deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 7px),linear-gradient(135deg,#7A6A50,#5A4A30);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">Dynamix HardCore 3DGE — Claymore</p>
+<p class="bc-detail">7" × 48" LVP · 6mm · Waterproof · Beyond Expectation Series</p>
+<p class="bc-price">$3.79 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C0B0A0 0%,#A09080 50%,#D0C0B0 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Fuzion Flooring</p>
+<p class="bc-product">Dynamix Grande Tile — Zirconia</p>
+<p class="bc-detail">18" × 36" Vinyl Tile · Stone Look · Commercial Grade</p>
+<p class="bc-price">$1.67 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#B0A090 0%,#907870 50%,#C0A898 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) 1px,transparent 1px,transparent 10px),linear-gradient(135deg,#B0A090,#907870);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">LW Flooring</p>
+<p class="bc-product">Riverstone Collection</p>
+<p class="bc-detail">SPC Rigid Core Vinyl · 9" Wide · White Oak / Acacia / Hickory · Waterproof</p>
+<p class="bc-price">From $3.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#A09888 0%,#807868 50%,#B0A898 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Legheds Collections</p>
+<p class="bc-product">Rigid Core Plank Series</p>
+<p class="bc-detail">SPC Waterproof · Click-Lock · Residential &amp; Light Commercial</p>
+<p class="bc-price">From $2.90 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
 <!-- TILE TAB -->
-<div class="bc-panel active" id="tab-tile">
+<div class="bc-panel" id="tab-tile">
 <div class="bc-grid">
 <div class="bc-card">
 <div class="bc-swatch" style="background:radial-gradient(ellipse at 30% 25%,rgba(255,255,255,.5) 0%,transparent 45%),linear-gradient(135deg,#E8E0D8 0%,#D4CCC4 40%,#E0D8D0 100%);"></div>
@@ -3803,17 +4315,187 @@ footer .footer-col ul{
 </div>
 </div>
 <!-- CARPET & MORE TAB -->
-
+<div class="bc-panel" id="tab-other">
+<div class="bc-grid">
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#8A7868 0%,#6A5848 50%,#9A8878 100%);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">ABC Flooring</p>
+<p class="bc-product">Commercial Carpet Tile Series</p>
+<p class="bc-detail">24" × 24" Modular · Stain-Resistant · Office &amp; Retail Grade</p>
+<p class="bc-price">From $2.40 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#7A6858 0%,#5A4838 50%,#8A7868 100%);background-image:repeating-linear-gradient(130deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 1px,transparent 6px),linear-gradient(135deg,#7A6858,#5A4838);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Elephant Design</p>
+<p class="bc-product">Plush Residential Carpet</p>
+<p class="bc-detail">SmartStrand® Fiber · Fade-Resistant · Pet &amp; Family Friendly</p>
+<p class="bc-price">From $2.10 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#C0A880 0%,#A08860 50%,#D0B890 100%);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 40px),linear-gradient(135deg,#C0A880,#A08860);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lawson's</p>
+<p class="bc-product">High-Performance Laminate</p>
+<p class="bc-detail">AC4 Wear Layer · 12mm · Water-Resistant Core · Easy Click Install</p>
+<p class="bc-price">From $2.60 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+<div class="bc-card">
+<div class="bc-swatch" style="background:linear-gradient(135deg,#D4BC98 0%,#B49C78 50%,#C4AC88 100%);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 1px,transparent 1px,transparent 40px),linear-gradient(135deg,#D4BC98,#B49C78);"></div>
+<div class="bc-card-info">
+<p class="bc-brand">Lions Floor</p>
+<p class="bc-product">Comfort Heights Laminate — Village Park</p>
+<p class="bc-detail">60" × 9¼" · 12mm · AC4 Wear Layer · Water-Resistant</p>
+<p class="bc-price">From $2.80 / sq ft</p>
+<a class="bc-link" href="#">View Collection →</a>
+</div>
+</div>
+</div>
+</div>
 </section>
 <!-- ─── GALLERY STRIP ─── -->
-
+<div class="gallery-strip">
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-1"></div>
+<span class="gallery-panel-label">Living Rooms</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-2"></div>
+<span class="gallery-panel-label">Kitchens</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-3"></div>
+<span class="gallery-panel-label">Bathrooms</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-4"></div>
+<span class="gallery-panel-label">Outdoors</span>
+</div>
+<div class="gallery-panel">
+<div class="gallery-panel-bg gpb-5"></div>
+<span class="gallery-panel-label">Commercial</span>
+</div>
+</div>
 <!-- ─── STATS ─── -->
+<div class="stats-section reveal">
+<div class="stats-left">
+<p class="section-label">Why Choose Us</p>
+<h2 class="section-title">The Gulf Coast's<br/><em>Most Trusted</em><br/>Flooring Source</h2>
+<p class="section-sub">Since 1998, Flooring Outlet TX has been the go-to destination for homeowners, designers, and builders across the Greater Houston area. Our buying power means better prices — passed directly to you.</p>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">25<sup>+</sup></div>
+<div class="stat-label">Years in Business</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">10K<sup>+</sup></div>
+<div class="stat-label">Products In-Stock</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">20K</div>
+<div class="stat-label">Sq Ft Showroom</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">5K<sup>+</sup></div>
+<div class="stat-label">Happy Customers</div>
+</div>
+</div>
+</div>
 <!-- ─── SERVICES ─── -->
-
+<section class="services reveal">
+<p class="section-label">What We Offer</p>
+<h2 class="section-title">More Than Just <em>Products</em></h2>
+<p class="section-sub">From selection to installation, we support your project every step of the way.</p>
+<div class="services-grid">
+<div class="service-card">
+<span class="service-icon">🏠</span>
+<h3 class="service-title">Free Design Consultation</h3>
+<p class="service-text">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🔧</span>
+<h3 class="service-title">Professional Installation</h3>
+<p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🚚</span>
+<h3 class="service-title">Fast Local Delivery</h3>
+<p class="service-text">In-stock orders ship to Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Contractor rush delivery available.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">💼</span>
+<h3 class="service-title">Contractor Trade Program</h3>
+<p class="service-text">Builders, remodelers, and designers get exclusive pricing, dedicated support, and flexible billing. Apply for a trade account in minutes.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">🎨</span>
+<h3 class="service-title">Sample Ordering</h3>
+<p class="service-text">Can't decide in-store? Order samples delivered to your home. See how your shortlisted tiles and planks look under your actual lighting conditions.</p>
+</div>
+<div class="service-card">
+<span class="service-icon">💳</span>
+<h3 class="service-title">Flexible Financing</h3>
+<p class="service-text">0% APR financing available for qualified buyers. Don't let budget hold back your vision — we have options to suit every project size.</p>
+</div>
+</div>
+</section>
 <!-- ─── TESTIMONIALS ─── -->
-
+<section class="testimonials reveal">
+<p class="section-label">Customer Stories</p>
+<h2 class="section-title">What Houston <em>Is Saying</em></h2>
+<div class="testi-grid">
+<div class="testi-card">
+<div class="stars">★★★★★</div>
+<div class="testi-quote">"</div>
+<p class="testi-text">The showroom blew me away. I came in looking for basic bathroom tile and left with a complete vision for my whole home. The staff didn't rush me for three hours.</p>
+<div class="testi-author">
+<div class="testi-avatar">MR</div>
+<div>
+<p class="testi-name">Maria R.</p>
+<p class="testi-loc">Sugar Land, TX</p>
+</div>
+</div>
+</div>
+<div class="testi-card">
+<div class="stars">★★★★★</div>
+<div class="testi-quote">"</div>
+<p class="testi-text">As a contractor I've tried a dozen flooring suppliers. Flooring Outlet TX wins on price, selection, and they actually have it in stock when they say they do.</p>
+<div class="testi-author">
+<div class="testi-avatar">JK</div>
+<div>
+<p class="testi-name">James K.</p>
+<p class="testi-loc">Katy, TX — Contractor</p>
+</div>
+</div>
+</div>
+<div class="testi-card">
+<div class="stars">★★★★★</div>
+<div class="testi-quote">"</div>
+<p class="testi-text">Redid our entire downstairs with LVP from here. The free measurement and installation referral made it so easy. We love how it turned out. Already recommending to neighbors.</p>
+<div class="testi-author">
+<div class="testi-avatar">TP</div>
+<div>
+<p class="testi-name">Tracy &amp; Paul</p>
+<p class="testi-loc">The Woodlands, TX</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- ─── CTA ─── -->
-
+<div class="cta-actions">
+<a class="btn-white" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Free Quote</a>
+<a class="btn-outline-white" href="#" onclick="event.preventDefault();openShowroomModal();">Find Our Showroom</a>
+</div>
+</div>
 <!-- ─── FOOTER ─── -->
 
 <section class="visit-today reveal" id="visit">
@@ -3843,14 +4525,14 @@ footer .footer-col ul{
 <div class="footer-col">
 <h4>Products</h4>
 <ul>
-<li><a data-tab="tile" href="#collections">RAK Ceramics Tile</a></li>
-<li><a data-tab="hardwood" href="#collections">Johnson Hardwood</a></li>
-<li><a data-tab="hardwood" href="#collections">LW Flooring Engineered</a></li>
-<li><a data-tab="lvp" href="#collections">Republic Floor SPC</a></li>
-<li><a data-tab="lvp" href="#collections">Lions Floor LVP</a></li>
-<li><a data-tab="lvp" href="#collections">Fuzion Vinyl &amp; Laminate</a></li>
-<li><a data-tab="hardwood" href="#collections">Knoas &amp; Argo Hardwood</a></li>
-<li><a data-tab="other" href="#collections">Carpet &amp; Laminate</a></li>
+<li><a href="tile.html">RAK Ceramics Tile</a></li>
+<li><a href="hardwood.html">Johnson Hardwood</a></li>
+<li><a href="hardwood.html">LW Flooring Engineered</a></li>
+<li><a href="lvp-lvt.html">Republic Floor SPC</a></li>
+<li><a href="lvp-lvt.html">Lions Floor LVP</a></li>
+<li><a href="lvp-lvt.html">Fuzion Vinyl &amp; Laminate</a></li>
+<li><a href="hardwood.html">Knoas &amp; Argo Hardwood</a></li>
+<li><a data-tab="other" href="carpet.html">Carpet &amp; Laminate</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -5893,4 +6575,3 @@ window.openJHCatalog = function() {
 <button id="mobile-fab-cta" onclick="if(typeof openShowroomModal==='function'){openShowroomModal();}">Get a Quote</button>
 </body>
 </html>
-
