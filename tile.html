@@ -2232,6 +2232,113 @@ nav.scrolled .nav-cta{
 }
 /* === END MOBILE FIXES v2 === */
 
+/* ─────────────────────────────────────────────────────────────
+   HERO ALIGNMENT OVERRIDES (v4)
+   Goal:
+   - Keep the "perfect" vertical alignment (card lifted toward header)
+   - Desktop/Laptop: shift hero card back to the LEFT (original feel)
+   - Mobile: lower the card ~50% of the recent lift (slightly lower)
+   Applies across all device sizes with safe fixed-nav padding.
+───────────────────────────────────────────────────────────── */
+
+.hero{
+  /* Center vertically within the hero, but keep room for fixed nav */
+  display:flex;
+  align-items:center;
+  /* top padding protects content from fixed header; bottom padding lifts the centered card */
+  padding-top: clamp(92px, 10vh, 150px);
+  padding-bottom: clamp(140px, 18vh, 240px);
+}
+
+/* The card itself should not be "bottom-docked" anymore */
+.hero-content{
+  margin: 0;
+}
+
+/* Desktop / laptop: keep vertical alignment, shift the card LEFT like original */
+@media (min-width: 861px){
+  .hero{
+    justify-content:flex-start;
+  }
+  .hero-content{
+    /* match original left offset rhythm */
+    margin-left: 5rem;
+    margin-right: auto;
+    text-align: left;
+  }
+}
+
+/* Mobile / small screens: center horizontally; lower the card about half of the lift */
+@media (max-width: 860px){
+  .hero{
+    justify-content:center;
+    /* lower the card by reducing the extra bottom padding (≈ half lift) */
+    padding-top: clamp(88px, 12vh, 140px);
+    padding-bottom: clamp(92px, 14vh, 150px);
+  }
+  .hero-content{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
+}
+
+/* Extra small phones: keep it stable under notch + compact nav */
+@media (max-width: 420px){
+  .hero{
+    padding-top: clamp(84px, 12vh, 130px);
+    padding-bottom: clamp(84px, 13vh, 140px);
+  }
+}
+
+
+/* ───────── DESKTOP / LAPTOP HERO LEFT ALIGN (VERTICAL PRESERVED) ───────── */
+@media (min-width: 1025px) {
+
+  .hero {
+    display: flex;
+    align-items: center;      /* preserve vertical alignment */
+    justify-content: flex-start;  /* shift card left */
+  }
+
+  .hero-content {
+    margin-left: 6vw;
+    margin-right: 0;
+    max-width: 780px;
+    text-align: left;
+  }
+
+}
+
+
+/* ───────── FINAL HERO OVERRIDES (fix conflicting mobile rules) ───────── */
+/* Keep the same vertical alignment logic, but ensure mobile/tablet never reverts to flex-end */
+@media (max-width: 860px) {
+
+  .hero{
+    display: flex !important;
+    align-items: center !important;         /* true vertical center */
+    justify-content: center !important;     /* horizontal center (mobile/tablet) */
+    /* "Half-lower" from the previous raise: balanced padding shifts perceived center down slightly */
+    padding-top: clamp(88px, 11vh, 140px) !important;   /* accounts for fixed header */
+    padding-bottom: clamp(78px, 12vh, 135px) !important; /* adds space below to lift overall composition */
+  }
+
+  .hero-content{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: left !important;
+  }
+}
+
+/* Mobile-specific: ensure any older rules (like align-items:flex-end) are overridden */
+@media (max-width: 640px) {
+  .hero{
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
 </style>
 <link as="image" href="assets/hero/tile-1.png" rel="preload"/>
 <link as="image" href="assets/hero/tile-2.png" rel="preload"/>
@@ -2389,6 +2496,54 @@ nav.scrolled .nav-cta{
     text-decoration: none !important;
   }
 }
+
+/* ───────── DESKTOP / LAPTOP HERO LEFT ALIGN (VERTICAL PRESERVED) ───────── */
+@media (min-width: 1025px) {
+
+  .hero {
+    display: flex;
+    align-items: center;      /* preserve vertical alignment */
+    justify-content: flex-start;  /* shift card left */
+  }
+
+  .hero-content {
+    margin-left: 6vw;
+    margin-right: 0;
+    max-width: 780px;
+    text-align: left;
+  }
+
+}
+
+
+/* ───────── FINAL HERO OVERRIDES (fix conflicting mobile rules) ───────── */
+/* Keep the same vertical alignment logic, but ensure mobile/tablet never reverts to flex-end */
+@media (max-width: 860px) {
+
+  .hero{
+    display: flex !important;
+    align-items: center !important;         /* true vertical center */
+    justify-content: center !important;     /* horizontal center (mobile/tablet) */
+    /* "Half-lower" from the previous raise: balanced padding shifts perceived center down slightly */
+    padding-top: clamp(88px, 11vh, 140px) !important;   /* accounts for fixed header */
+    padding-bottom: clamp(78px, 12vh, 135px) !important; /* adds space below to lift overall composition */
+  }
+
+  .hero-content{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: left !important;
+  }
+}
+
+/* Mobile-specific: ensure any older rules (like align-items:flex-end) are overridden */
+@media (max-width: 640px) {
+  .hero{
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
 </style>
 </head>
 <body>
