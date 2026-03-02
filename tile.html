@@ -1230,15 +1230,7 @@ nav.scrolled .nav-links{
   visibility: visible;
 }
 
-/* === Laptop hero card root-cause fix (900–1280px only) ===
-   More breathing room above badge/logo AND allow the glass card to sit lower
-   by overlapping the ticker slightly (negative bottom margin). */
-@media (min-width: 900px) and (max-width: 1280px){
-  .hero-content{
-    padding-top: 5.25rem !important;    /* more space above badge/logo */
-    margin-bottom: -1.25rem !important; /* allow card to sit lower / overlap ticker */
-  }
-  .hero-content::before{
+.hero-content::before{
     inset: -1.35rem -1.6rem -1.1rem -1.6rem !important;
   }
 }
