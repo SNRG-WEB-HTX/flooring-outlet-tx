@@ -3238,6 +3238,12 @@ footer .footer-col ul{
   transform: translateX(0) !important;
 }
 
+
+/* ─── MOBILE: HIDE “EVERY FLOOR, EVERY VISION” CATEGORIES SECTION ─── */
+@media (max-width: 768px) {
+  .categories { display: none !important; }
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -4055,10 +4061,11 @@ footer .footer-col ul{
 <span class="burger-line"></span>
 </button>
 <ul aria-label="Products" class="nav-links">
+<li><a href="index.html">Home</a></li>
 <li><a href="tile.html">Tile</a></li>
 <li><a href="hardwood.html">Hardwood</a></li>
-<li><a href="lvp-lvt.html">LVP / LVT</a></li>
-<li><a data-tab="other" href="carpet.html">Carpet</a></li>
+<li><a href="lvp-lvt.html">LVP / SPC</a></li>
+<li><a href="carpet.html">Carpet</a></li>
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
@@ -4389,7 +4396,7 @@ footer .footer-col ul{
   <div class="vendor-tabs">
     <button class="vendor-tab" data-tab="tile">Tile</button>
     <button class="vendor-tab active" data-tab="hardwood">Hardwood</button>
-    <button class="vendor-tab" data-tab="lvp">LVP / LVT</button>
+    <button class="vendor-tab" data-tab="lvp">LVP / SPC</button>
     <button class="vendor-tab" data-tab="carpet">Carpet</button>
     <button class="vendor-tab" data-tab="naturalStone">Natural Stone</button>
   </div>
