@@ -2941,6 +2941,29 @@ footer .footer-col ul{
 
 
 /* ═══ VENDOR NAVIGATION SYSTEM ═══ */
+/* ─── Vendor simple link layout (replaces collection dropdowns) ─── */
+.vendor-simple{background:var(--white);border:1px solid rgba(58,53,48,.12);border-radius:6px;padding:28px 28px 26px;}
+.vendor-simple-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--charcoal);margin:0 0 14px;}
+.vendor-linklist{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.vendor-chip{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(58,53,48,.18);background:linear-gradient(135deg,var(--white),var(--cream));color:var(--stone);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.02em;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease;}
+.vendor-chip:hover{transform:translateY(-1px);border-color:rgba(90,58,39,.55);box-shadow:0 10px 24px rgba(20,18,16,.08);color:var(--charcoal);}
+/* Logo chips (world-class, consistent) */
+.vendor-chip.vendor-logo-chip{padding:10px 12px;gap:0;}
+.vendor-chip .vendor-logo{display:block;background:#fff;border-radius:12px;padding:6px;box-shadow:inset 0 0 0 1px rgba(20,18,16,.06);}
+.vendor-chip .vendor-logo img{display:block;height:44px;width:160px;object-fit:contain;image-rendering:auto;}
+@media (max-width:640px){
+  .vendor-chip.vendor-logo-chip{justify-content:center;}
+  .vendor-chip .vendor-logo img{width:100%;max-width:220px;height:48px;}
+}
+/* Accessibility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+@media (max-width:640px){
+  .vendor-simple{padding:20px 18px;}
+  .vendor-simple-title{font-size:1.25rem;}
+  .vendor-chip{width:100%;justify-content:space-between;padding:12px 14px;}
+}
+
 .vendor-section {
   background: var(--parchment);
   padding: 100px 0;
@@ -4450,484 +4473,118 @@ footer .footer-col ul{
 <section class="vendor-section" id="collections">
   <div class="vendor-header">
     <p class="section-label">Shop By Brand</p>
-    <h2>Premium <em>Vendors</em> & Collections</h2>
-    <p>We're authorized dealers for every brand below — shop in-store or request samples online.</p>
+    <h2>Premium <em>Vendors</em> &amp; Collections</h2>
+    <p>Select a category, then tap a vendor name to browse their official collections.</p>
   </div>
 
-  <div class="vendor-tabs">
-    <button class="vendor-tab" data-tab="tile">Tile</button>
-    <button class="vendor-tab active" data-tab="hardwood">Hardwood</button>
-    <button class="vendor-tab" data-tab="lvp">LVP / SPC</button>
-    <button class="vendor-tab" data-tab="carpet">Carpet</button>
-    <button class="vendor-tab" data-tab="naturalStone">Natural Stone</button>
+  <div class="vendor-tabs" role="tablist" aria-label="Vendor categories">
+    <button class="vendor-tab active" data-tab="tile" role="tab" aria-selected="true">Tile</button>
+    <button class="vendor-tab" data-tab="hardwood" role="tab" aria-selected="false">Hardwood</button>
+    <button class="vendor-tab" data-tab="lvp" role="tab" aria-selected="false">LVP / SPC</button>
+    <button class="vendor-tab" data-tab="carpet" role="tab" aria-selected="false">Carpet</button>
+    <button class="vendor-tab" data-tab="naturalStone" role="tab" aria-selected="false">Natural Stone</button>
   </div>
 
-  <div class="vendor-panel" id="vendor-panel-tile">
-    <div class="vendor-list">
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">RAK Ceramics</div>
-            <div class="vendor-count">4 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Calacatta Gold — Maximus Slab</div>
-            <div class="product-detail">120 × 260cm & 60 × 120cm · Polished Finish · Full-Body Porcelain</div>
-            <div class="product-footer">
-              <div class="product-price">From $4.89 / sq ft</div>
-              <a href="https://www.rakceramics.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Carrara Grey Porcelain</div>
-            <div class="product-detail">24" × 48" · Rectified · Matte & Polished Available · Floor & Wall</div>
-            <div class="product-footer">
-              <div class="product-price">From $3.60 / sq ft</div>
-              <a href="https://www.rakceramics.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Travertine Cross Cut</div>
-            <div class="product-detail">Natural Stone Look · 12" × 24" & 24" × 48" · Indoor / Outdoor</div>
-            <div class="product-footer">
-              <div class="product-price">From $3.20 / sq ft</div>
-              <a href="https://www.rakceramics.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">City Stone Collection</div>
-            <div class="product-detail">Urban Concrete Effect · 24" × 24" · Commercial & Residential</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.90 / sq ft</div>
-              <a href="https://www.rakceramics.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Anda</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Large Format Porcelain Series</div>
-            <div class="product-detail">24" × 48" & 32" × 32" · Rectified Edges · Multiple Finishes</div>
-            <div class="product-footer">
-              <div class="product-price">From $3.40 / sq ft</div>
-              <a href="https://andatile.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Keystone</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Classic Ceramic Floor Tile</div>
-            <div class="product-detail">12" × 12" & 18" × 18" · High-Traffic Rated · Easy Grout Maintenance</div>
-            <div class="product-footer">
-              <div class="product-price">From $1.85 / sq ft</div>
-              <a href="https://www.keystoneflooring.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
+  <div class="vendor-panel active" id="vendor-panel-tile" data-panel="tile" role="tabpanel">
+    <div class="vendor-simple">
+      <h3 class="vendor-simple-title">Tile</h3>
+      <div class="vendor-linklist">
+        <a class="vendor-chip vendor-logo-chip" href="https://www.rakceramics.com/usa/en/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/rak-ceramics-logo.webp" type="image/webp">
+  <img src="./assets/hero/rak-ceramics-logo.png" alt="RAK Ceramics" loading="lazy" decoding="async">
+</picture><span class="sr-only">RAK Ceramics</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://tileworldtx.com/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/tile-world-logo.webp" type="image/webp">
+  <img src="./assets/hero/tile-world-logo.png" alt="Tile World" loading="lazy" decoding="async">
+</picture><span class="sr-only">Tile World</span></a>
       </div>
     </div>
   </div>
-  <div class="vendor-panel active" id="vendor-panel-hardwood">
-    <div class="vendor-list">
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Johnson Hardwood</div>
-            <div class="vendor-count">4 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Grand Chateau Collection</div>
-            <div class="product-detail">European Oak · 7½" Wide · Hand-Scraped & Wire-Brushed</div>
-            <div class="product-footer">
-              <div class="product-price">From $5.40 / sq ft</div>
-              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">British Isles Collection — Oak</div>
-            <div class="product-detail">Artisan Oak · Knots & Mineral Streaks · Light / Dark Tones</div>
-            <div class="product-footer">
-              <div class="product-price">From $5.10 / sq ft</div>
-              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Barley Ale — AME-AHM19004</div>
-            <div class="product-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Vintage · 35-yr Warranty</div>
-            <div class="product-footer">
-              <div class="product-price">Ask in-store for pricing</div>
-              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Copper Ale — AME-AHM19003</div>
-            <div class="product-detail">Engineered Maple · 7½" Wide · Wire-Brushed · Full Bevel · High Color Variation</div>
-            <div class="product-footer">
-              <div class="product-price">Ask in-store for pricing</div>
-              <a href="https://johnsonhardwood.com/products/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">LW Flooring</div>
-            <div class="vendor-count">2 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Paradise Island Collection</div>
-            <div class="product-detail">European Oak · 10¼" Wide · 4mm Wire-Brushed Veneer · 5/8" Thick</div>
-            <div class="product-footer">
-              <div class="product-price">From $6.80 / sq ft</div>
-              <a href="https://www.lwmontana.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">French Impressions — Monet</div>
-            <div class="product-detail">European White Oak · 7" Wide · 3/8" Thick · Gentle Wire-Brushed</div>
-            <div class="product-footer">
-              <div class="product-price">From $5.90 / sq ft</div>
-              <a href="https://www.lwmontana.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Fuzion Flooring</div>
-            <div class="vendor-count">2 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">TruNorth — White Oak</div>
-            <div class="product-detail">8½" Wide · Air-Dried · Natural Fumed Finish · Zero Artificial Scraping</div>
-            <div class="product-footer">
-              <div class="product-price">From $7.27 / sq ft</div>
-              <a href="https://www.fuzionflooring.com/en-us/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Homestead — Euro Oak Savanna</div>
-            <div class="product-detail">Wide Plank · 4mm Dry Sawn Face · Low Gloss · Engineered Multi-Ply</div>
-            <div class="product-footer">
-              <div class="product-price">From $6.50 / sq ft</div>
-              <a href="https://www.fuzionflooring.com/en-us/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Knoas Flooring</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Castle Collection — Wire Brushed Oak</div>
-            <div class="product-detail">Engineered Hardwood · 7½" Wide · UV Coating · VALSPAR® Stain</div>
-            <div class="product-footer">
-              <div class="product-price">From $4.20 / sq ft</div>
-              <a href="https://www.knoasflooring.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Argo</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Argo Oak — Wide Plank Series</div>
-            <div class="product-detail">9/16" Thick · 7½" Sawn Lumber · Lightly Brushed · Vibrant Tones</div>
-            <div class="product-footer">
-              <div class="product-price">From $4.80 / sq ft</div>
-              <a href="https://www.argofloors.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
+
+  <div class="vendor-panel" id="vendor-panel-hardwood" data-panel="hardwood" role="tabpanel">
+    <div class="vendor-simple">
+      <h3 class="vendor-simple-title">Hardwood</h3>
+      <div class="vendor-linklist">
+        <a class="vendor-chip vendor-logo-chip" href="https://johnsonhardwood.com/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/johnson-hardwood-logo.webp" type="image/webp">
+  <img src="./assets/hero/johnson-hardwood-logo.png" alt="Johnson Hardwood" loading="lazy" decoding="async">
+</picture><span class="sr-only">Johnson Hardwood</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/lw-flooring-logo.webp" type="image/webp">
+  <img src="./assets/hero/lw-flooring-logo.png" alt="LW Flooring" loading="lazy" decoding="async">
+</picture><span class="sr-only">LW Flooring</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.fuzionflooring.com/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp">
+  <img src="./assets/hero/fuzion-flooring-logo.png" alt="Fuzion Flooring" loading="lazy" decoding="async">
+</picture><span class="sr-only">Fuzion Flooring</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.knoasflooring.com/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/knoas-flooring-logo.webp" type="image/webp">
+  <img src="./assets/hero/knoas-flooring-logo.png" alt="Knoas Flooring" loading="lazy" decoding="async">
+</picture><span class="sr-only">Knoas Flooring</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://lawsonfloors.com/legends-collection/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp">
+  <img src="./assets/hero/lawson-floors-logo.png" alt="Lawson Floors" loading="lazy" decoding="async">
+</picture><span class="sr-only">Lawson Floors</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp">
+  <img src="./assets/hero/piedmont-floors-logo.png" alt="Piedmont" loading="lazy" decoding="async">
+</picture><span class="sr-only">Piedmont</span></a>
       </div>
     </div>
   </div>
-  <div class="vendor-panel" id="vendor-panel-lvp">
-    <div class="vendor-list">
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Republic Floor</div>
-            <div class="vendor-count">2 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Woodland Oak — Post Oak</div>
-            <div class="product-detail">SPC Max · 9" × 60" · 8mm · Bio-Guard Pad · 25-yr Residential</div>
-            <div class="product-footer">
-              <div class="product-price">$3.89 / sq ft</div>
-              <a href="https://republicfloor.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Walnut Hills — Granito Nero</div>
-            <div class="product-detail">Pure SPC · 9" Wide · Classic Elegance · 50-yr Residential Warranty</div>
-            <div class="product-footer">
-              <div class="product-price">$4.49 / sq ft</div>
-              <a href="https://republicfloor.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Lions Floor</div>
-            <div class="vendor-count">2 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Lone Star Spirit Collection</div>
-            <div class="product-detail">SPC Rigid Core · FloorScore Certified · 100% Ecological · Waterproof</div>
-            <div class="product-footer">
-              <div class="product-price">From $3.20 / sq ft</div>
-              <a href="https://www.lionsfloor.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Uptown Collection — Capitol Hill</div>
-            <div class="product-detail">LVP Glue-Down · 7¼" × 48" · 12-mil Wear Layer · Multi-Family Grade</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.80 / sq ft</div>
-              <a href="https://www.lionsfloor.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Fuzion Flooring</div>
-            <div class="vendor-count">2 Collections Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Dynamix HardCore 3DGE — Claymore</div>
-            <div class="product-detail">7" × 48" LVP · 6mm · Waterproof · Beyond Expectation Series</div>
-            <div class="product-footer">
-              <div class="product-price">$3.79 / sq ft</div>
-              <a href="https://www.fuzionflooring.com/en-us/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-          <div class="product-item">
-            <div class="product-name">Dynamix Grande Tile — Zirconia</div>
-            <div class="product-detail">18" × 36" Vinyl Tile · Stone Look · Commercial Grade</div>
-            <div class="product-footer">
-              <div class="product-price">$1.67 / sq ft</div>
-              <a href="https://www.fuzionflooring.com/en-us/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">LW Flooring</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Riverstone Collection</div>
-            <div class="product-detail">SPC Rigid Core Vinyl · 9" Wide · White Oak / Acacia / Hickory · Waterproof</div>
-            <div class="product-footer">
-              <div class="product-price">From $3.40 / sq ft</div>
-              <a href="https://www.lwmontana.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Legheds Collections</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Rigid Core Plank Series</div>
-            <div class="product-detail">SPC Waterproof · Click-Lock · Residential & Light Commercial</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.90 / sq ft</div>
-              <a href="https://www.legheds.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
+
+  <div class="vendor-panel" id="vendor-panel-lvp" data-panel="lvp" role="tabpanel">
+    <div class="vendor-simple">
+      <h3 class="vendor-simple-title">LVP / SPC</h3>
+      <div class="vendor-linklist">
+        <a class="vendor-chip vendor-logo-chip" href="https://www.my-nfp.com/category/synthetic---loose-lay-collection" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/national-flooring-logo.webp" type="image/webp">
+  <img src="./assets/hero/national-flooring-logo.png" alt="National Flooring Products" loading="lazy" decoding="async">
+</picture><span class="sr-only">National Flooring Products</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://elephantfloors.net/flooring-store/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/elephant-floors-logo.webp" type="image/webp">
+  <img src="./assets/hero/elephant-floors-logo.png" alt="Elephant Floors" loading="lazy" decoding="async">
+</picture><span class="sr-only">Elephant Floors</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.fuzionflooring.com/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp">
+  <img src="./assets/hero/fuzion-flooring-logo.png" alt="Fuzion Flooring" loading="lazy" decoding="async">
+</picture><span class="sr-only">Fuzion Flooring</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://lawsonfloors.com/legends-collection/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp">
+  <img src="./assets/hero/lawson-floors-logo.png" alt="Lawson Floors" loading="lazy" decoding="async">
+</picture><span class="sr-only">Lawson Floors</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp">
+  <img src="./assets/hero/piedmont-floors-logo.png" alt="Piedmont" loading="lazy" decoding="async">
+</picture><span class="sr-only">Piedmont</span></a>
       </div>
     </div>
   </div>
-  <div class="vendor-panel" id="vendor-panel-carpet">
-    <div class="vendor-list">
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">ABC Flooring</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Commercial Carpet Tile Series</div>
-            <div class="product-detail">24" × 24" Modular · Stain-Resistant · Office & Retail Grade</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.40 / sq ft</div>
-              <a href="https://www.abcflooring.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Elephant Design</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Plush Residential Carpet</div>
-            <div class="product-detail">SmartStrand® Fiber · Fade-Resistant · Pet & Family Friendly</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.10 / sq ft</div>
-              <a href="https://www.mohawkflooring.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Lawson's</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">High-Performance Laminate</div>
-            <div class="product-detail">AC4 Wear Layer · 12mm · Water-Resistant Core · Easy Click Install</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.60 / sq ft</div>
-              <a href="https://www.lawsons.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Lions Floor</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Comfort Heights Laminate — Village Park</div>
-            <div class="product-detail">60" × 9¼" · 12mm · AC4 Wear Layer · Water-Resistant</div>
-            <div class="product-footer">
-              <div class="product-price">From $2.80 / sq ft</div>
-              <a href="https://www.lionsfloor.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
+
+  <div class="vendor-panel" id="vendor-panel-carpet" data-panel="carpet" role="tabpanel">
+    <div class="vendor-simple">
+      <h3 class="vendor-simple-title">Carpet</h3>
+      <div class="vendor-linklist">
+        <a class="vendor-chip vendor-logo-chip" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/keystone-carpets-logo.webp" type="image/webp">
+  <img src="./assets/hero/keystone-carpets-logo.png" alt="Keystone Carpets & Interiors" loading="lazy" decoding="async">
+</picture><span class="sr-only">Keystone Carpets &amp; Interiors</span></a>
+        <a class="vendor-chip vendor-logo-chip" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener"><picture class="vendor-logo">
+  <source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp">
+  <img src="./assets/hero/piedmont-floors-logo.png" alt="Piedmont" loading="lazy" decoding="async">
+</picture><span class="sr-only">Piedmont</span></a>
       </div>
     </div>
   </div>
-  <div class="vendor-panel" id="vendor-panel-naturalStone">
-    <div class="vendor-list">
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Piedmont</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Natural Stone Slate Collection</div>
-            <div class="product-detail">Hand-Finished Slate · 12" × 24" · Indoor / Outdoor · Pool Coping Available</div>
-            <div class="product-footer">
-              <div class="product-price">From $4.20 / sq ft</div>
-              <a href="https://www.piedmontmarble.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vendor-card">
-        <div class="vendor-card-header">
-          <div class="vendor-info">
-            <div class="vendor-name">Duraston Collection</div>
-            <div class="vendor-count">1 Collection Available</div>
-          </div>
-          <div class="vendor-toggle">▼</div>
-        </div>
-        <div class="vendor-products">
-          <div class="product-item">
-            <div class="product-name">Stone Composite Outdoor Series</div>
-            <div class="product-detail">20mm Thickness · Frost-Resistant · Patios · Driveways · Walkways</div>
-            <div class="product-footer">
-              <div class="product-price">From $5.10 / sq ft</div>
-              <a href="https://www.durastone.com/" target="_blank" rel="noopener" class="product-link">View at Vendor</a>
-            </div>
-          </div>
-        </div>
+
+  <div class="vendor-panel" id="vendor-panel-naturalStone" data-panel="naturalStone" role="tabpanel">
+    <div class="vendor-simple">
+      <h3 class="vendor-simple-title">Natural Stone</h3>
+      <div class="vendor-linklist">
+        <a class="vendor-chip vendor-logo-chip" href="https://durastoneusa.com/products/" target="_blank" rel="noopener"><picture class="vendor-logo">
+            <source srcset="./assets/hero/duraston-usa-logo.webp" type="image/webp">
+            <img src="./assets/hero/duraston-usa-logo.png" alt="Durastone USA" loading="lazy" decoding="async">
+          </picture></a>
       </div>
     </div>
   </div>
@@ -5099,7 +4756,7 @@ footer .footer-col ul{
 <li><a href="lvp-lvt.html">Republic Floor SPC</a></li>
 <li><a href="lvp-lvt.html">Lions Floor LVP</a></li>
 <li><a href="lvp-lvt.html">Fuzion Vinyl &amp; Laminate</a></li>
-<li><a href="hardwood.html">Knoas &amp; Argo Hardwood</a></li>
+<li><a href="hardwood.html">Knoas Flooring</a></li>
 <li><a data-tab="other" href="carpet.html">Carpet &amp; Laminate</a></li>
 </ul>
 </div>
