@@ -2944,19 +2944,73 @@ footer .footer-col ul{
 /* ─── Vendor simple link layout (replaces collection dropdowns) ─── */
 .vendor-simple{background:var(--white);border:1px solid rgba(58,53,48,.12);border-radius:6px;padding:28px 28px 26px;}
 .vendor-simple-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--charcoal);margin:0 0 14px;}
-.vendor-linklist{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
-.vendor-chip{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(58,53,48,.18);background:linear-gradient(135deg,var(--white),var(--cream));color:var(--stone);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.02em;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease;}
-.vendor-chip:hover{transform:translateY(-1px);border-color:rgba(90,58,39,.55);box-shadow:0 10px 24px rgba(20,18,16,.08);color:var(--charcoal);}
-/* Logo chips (world-class, consistent) */
-.vendor-chip.vendor-logo-chip{padding:10px 12px;gap:0;}
-.vendor-chip .vendor-logo{display:block;background:#fff;border-radius:12px;padding:6px;box-shadow:inset 0 0 0 1px rgba(20,18,16,.06);}
-.vendor-chip .vendor-logo img{display:block;height:44px;width:160px;object-fit:contain;image-rendering:auto;}
-@media (max-width:640px){
-  .vendor-chip.vendor-logo-chip{justify-content:center;}
-  .vendor-chip .vendor-logo img{width:100%;max-width:220px;height:48px;}
+.vendor-linklist{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;}
+/* ─── VENDOR LOGO BUTTONS (CRISP + LARGE + UNIFORM) ─── */
+.vendor-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  border:1px solid rgba(58,53,48,.18);
+  background:linear-gradient(135deg,var(--white),var(--cream));
+  text-decoration:none;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
 }
+.vendor-chip:hover{
+  transform:translateY(-2px);
+  border-color:rgba(90,58,39,.55);
+  box-shadow:0 14px 34px rgba(20,18,16,.10);
+}
+.vendor-chip:focus-visible{
+  outline:3px solid rgba(198,167,94,.55);
+  outline-offset:4px;
+}
+
+/* Logo chip sizing */
+.vendor-chip.vendor-logo-chip{
+  padding:14px 16px;
+  gap:0;
+}
+
+/* White “plaque” so every logo looks premium + readable */
+.vendor-chip .vendor-logo{
+  display:block;
+  background:#fff;
+  border-radius:14px;
+  padding:10px;
+  box-shadow:inset 0 0 0 1px rgba(20,18,16,.06);
+}
+
+/* IMPORTANT:
+   - We serve high-res images (processed) and display them smaller for razor sharpness.
+*/
+.vendor-chip .vendor-logo img{
+  display:block;
+  width:260px;
+  height:78px;
+  object-fit:contain;
+}
+
+/* Responsive: bigger touch targets + readable logos */
+@media (max-width: 980px){
+  .vendor-chip .vendor-logo img{ width:240px; height:72px; }
+}
+@media (max-width: 640px){
+  .vendor-chip.vendor-logo-chip{ width:100%; }
+  .vendor-chip .vendor-logo{ width:100%; }
+  .vendor-chip .vendor-logo img{
+    width:100%;
+    max-width:320px;
+    height:76px;
+    margin:0 auto;
+  }
+}
+
 /* Accessibility */
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
 
 @media (max-width:640px){
   .vendor-simple{padding:20px 18px;}
