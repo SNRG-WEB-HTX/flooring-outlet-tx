@@ -529,16 +529,6 @@
     transition: transform .6s ease;
   }
   .product-card:hover .product-swatch { transform: scale(1.05); }
-  /* Real product photo fills card */
-  .product-img-photo {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform .65s cubic-bezier(.25,1,.5,1);
-  }
-  .product-card:hover .product-img-photo { transform: scale(1.06); }
 
   /* Unique tile swatch patterns */
   .swatch-marble {
@@ -3663,6 +3653,93 @@ footer a.snrg-link:hover{
 .stats-section .section-label{ color: var(--classy-gold) !important; }
 .stats-section .section-title em{ color: var(--classy-gold) !important; }
 
+
+/* ═══════════════════════════════════════════════════════════════
+   BRAND CARD DEFINITIVE FIX — root cause resolved
+   Issue: logo-wrap had dark gradient, constrained dimensions,
+   transform:scale(1.35) overflow, padding creating inner-box look.
+   Solution: zero-pad card, full-bleed white logo zone, clean CTA.
+═══════════════════════════════════════════════════════════════ */
+.brand-card {
+  padding: 0 !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  min-height: clamp(148px, 16vw, 190px) !important;
+}
+.brand-logo-wrap {
+  width: 100% !important;
+  max-width: none !important;
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: clamp(96px, 10vw, 140px) !important;
+  margin: 0 !important;
+  padding: clamp(18px, 2.5vw, 34px) clamp(20px, 3vw, 44px) !important;
+  background: #ffffff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  transform: none !important;
+  transition: none !important;
+}
+.brand-card:hover .brand-logo-wrap {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.brand-logo-wrap picture,
+.brand-logo-wrap source {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.brand-logo-wrap img {
+  /* Remove scale(1.35) — root cause of overflow clipping */
+  transform: none !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 78% !important;
+  max-height: clamp(52px, 6vw, 80px) !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  filter: contrast(1.06) saturate(1.08) !important;
+  display: block !important;
+}
+/* Override all per-vendor scale boosts */
+.vendor-section .brand-logo-wrap img[src*="lw-flooring"],
+.vendor-section .brand-logo-wrap img[src*="fuzion-flooring"],
+.vendor-section .brand-logo-wrap img[src*="elephant-floors"],
+.vendor-section .brand-logo-wrap img[src*="tile-world"],
+.vendor-section .brand-logo-wrap img[src*="duraston"],
+.vendor-section .brand-logo-wrap img[src*="durastone"] {
+  transform: none !important;
+  max-width: 78% !important;
+}
+.vendor-section .brand-logo-wrap img { transform: none !important; }
+.brand-cta {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  padding: 10px 20px !important;
+  border-top: 1px solid rgba(58,53,48,.09) !important;
+  justify-content: center !important;
+  background: rgba(248,244,238,.55) !important;
+  font-size: .68rem !important;
+}
+@media (max-width: 900px) {
+  .brand-logo-wrap img { max-height: clamp(44px, 7vw, 68px) !important; }
+}
+@media (max-width: 640px) {
+  .brand-logo-wrap img { max-height: clamp(38px, 10vw, 58px) !important; max-width: 82% !important; }
+}
+@media (min-width: 1280px) {
+  .brand-logo-wrap img { max-height: clamp(64px, 5.5vw, 96px) !important; }
+}
 </style>
 <!-- ═══ STRUCTURED DATA: Houston Flooring SEO Authority ═══ -->
 <script type="application/ld+json">
@@ -3840,7 +3917,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Quote</a>
+<a class="nav-cta" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hello%20Flooring%20Outlet%20TX%20Team%2C%0A%0AI%E2%80%99m%20reaching%20out%20to%20request%20a%20flooring%20quote%20for%20my%20project.%0A%0A%E2%94%80%E2%94%80%20PROJECT%20DETAILS%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AFloor%20Type%20%28LVP/SPC%2C%20Hardwood%2C%20Tile%2C%20Carpet%2C%20Natural%20Stone%29%3A%20%0AEstimated%20Square%20Footage%3A%20%0ARoom%28s%29%20/%20Area%3A%20%0AInstallation%20Needed%20%28Yes%20/%20No%29%3A%20%0ADesired%20Timeline%3A%20%0A%0A%E2%94%80%E2%94%80%20CONTACT%20INFORMATION%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AName%3A%20%0APhone%3A%20%0ABest%20Time%20to%20Call%3A%20%0AAddress%20/%20Zip%20Code%3A%20%0A%0A%E2%94%80%E2%94%80%20ADDITIONAL%20NOTES%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A%0A%0AThank%20you%20%E2%80%94%20I%20look%20forward%20to%20hearing%20from%20you%21%0A">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -4056,7 +4133,7 @@ footer a.snrg-link:hover{
 <strong>Comfort Underfoot, Value That Lasts</strong>
 <p>Feel the difference in-store — our staff will help you find the perfect match.</p>
 </div>
-<button class="uc-sample-btn" onclick="openShowroomModal()">Get a Quote →</button>
+<a class="uc-sample-btn" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hello%20Flooring%20Outlet%20TX%20Team%2C%0A%0AI%E2%80%99m%20reaching%20out%20to%20request%20a%20flooring%20quote%20for%20my%20project.%0A%0A%E2%94%80%E2%94%80%20PROJECT%20DETAILS%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AFloor%20Type%20%28LVP/SPC%2C%20Hardwood%2C%20Tile%2C%20Carpet%2C%20Natural%20Stone%29%3A%20%0AEstimated%20Square%20Footage%3A%20%0ARoom%28s%29%20/%20Area%3A%20%0AInstallation%20Needed%20%28Yes%20/%20No%29%3A%20%0ADesired%20Timeline%3A%20%0A%0A%E2%94%80%E2%94%80%20CONTACT%20INFORMATION%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AName%3A%20%0APhone%3A%20%0ABest%20Time%20to%20Call%3A%20%0AAddress%20/%20Zip%20Code%3A%20%0A%0A%E2%94%80%E2%94%80%20ADDITIONAL%20NOTES%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A%0A%0AThank%20you%20%E2%80%94%20I%20look%20forward%20to%20hearing%20from%20you%21%0A" style="text-decoration:none;">Get a Quote →</a>
 </div>
 </section>
 <!-- ══════════════════════════════════════════
@@ -4097,9 +4174,8 @@ footer a.snrg-link:hover{
 </div>
 <div class="product-grid">
 <a class="product-card" href="tile.html">
-<div class="product-img">
+<div class="product-img trend-bg-1">
 <div class="product-swatch swatch-marble"></div>
-<img class="product-img-photo" src="./assets/hero/rak-ceramics-marble.webp" alt="RAK Ceramics Calacatta Gold Maximus Porcelain Tile" loading="lazy" decoding="async"/>
 <span class="product-tag">Best Seller</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4111,9 +4187,8 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="hardwood.html">
-<div class="product-img">
+<div class="product-img trend-bg-2">
 <div class="product-swatch swatch-travertine"></div>
-<img class="product-img-photo" src="./assets/hero/johson-hickory.webp" alt="Johnson Hardwood Tuscan Collection Hickory Engineered" loading="lazy" decoding="async"/>
 <span class="product-tag">New Arrival</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4125,9 +4200,8 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img">
+<div class="product-img trend-bg-3">
 <div class="product-swatch swatch-slate"></div>
-<img class="product-img-photo" src="./assets/hero/republic-valley-oak.webp" alt="Republic Floor Woodland Oak Valley Oak SPC" loading="lazy" decoding="async"/>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
 <div class="product-info">
@@ -4138,9 +4212,8 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img">
+<div class="product-img trend-bg-4">
 <div class="product-swatch swatch-wood"></div>
-<img class="product-img-photo" src="./assets/hero/fuzion-beach-sands.webp" alt="Fuzion Flooring Dynamix HardCore 3DGE Beach Sands LVP" loading="lazy" decoding="async"/>
 <span class="product-tag">Sale</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4378,7 +4451,7 @@ footer a.snrg-link:hover{
 </div>
 <h3 class="service-title">Professional<br/>Installation</h3>
 <p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Request a Quote</a>
+<a class="service-link" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hello%20Flooring%20Outlet%20TX%20Team%2C%0A%0AI%E2%80%99m%20reaching%20out%20to%20request%20a%20flooring%20quote%20for%20my%20project.%0A%0A%E2%94%80%E2%94%80%20PROJECT%20DETAILS%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AFloor%20Type%20%28LVP/SPC%2C%20Hardwood%2C%20Tile%2C%20Carpet%2C%20Natural%20Stone%29%3A%20%0AEstimated%20Square%20Footage%3A%20%0ARoom%28s%29%20/%20Area%3A%20%0AInstallation%20Needed%20%28Yes%20/%20No%29%3A%20%0ADesired%20Timeline%3A%20%0A%0A%E2%94%80%E2%94%80%20CONTACT%20INFORMATION%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AName%3A%20%0APhone%3A%20%0ABest%20Time%20to%20Call%3A%20%0AAddress%20/%20Zip%20Code%3A%20%0A%0A%E2%94%80%E2%94%80%20ADDITIONAL%20NOTES%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A%0A%0AThank%20you%20%E2%80%94%20I%20look%20forward%20to%20hearing%20from%20you%21%0A">Request a Quote</a>
 </div>
 <!-- 03 Fast Local Delivery -->
 <div class="service-card">
@@ -4567,7 +4640,7 @@ footer a.snrg-link:hover{
 <li><a href="#">Contact Us</a></li>
 <li><a href="#">About Us</a></li>
 <li><a href="#">Careers</a></li>
-<li><a href="#">(281) 555-0100</a></li>
+<li><a href="tel:+12818619800">(281) 861-9800</a></li>
 </ul>
 </div>
 </div>
@@ -4637,7 +4710,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0c6cccfcfd2c9cec7cfd5d4ccc5d4d4d88ec3cfcd"><span class="__cf_email__" data-cfemail="01686f676e41676d6e6e73686f666e74756d647575792f626e6c">[email&#160;protected]</span></a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#f29b9c949db2949e9d9d809b9c959d87869e9786868adc919d9f"><span class="__cf_email__" data-cfemail="5c35323a331c3a3033332e35323b3329283039282824723f3331">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -4702,7 +4775,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-field">
 <label for="sm-phone">Phone Number</label>
-<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(713) 555-0100" type="tel"/>
+<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(281) 861-9800" type="tel"/>
 </div>
 </div>
 <div class="sm-field">
