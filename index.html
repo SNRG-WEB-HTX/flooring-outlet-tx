@@ -529,6 +529,29 @@
     transition: transform .6s ease;
   }
   .product-card:hover .product-swatch { transform: scale(1.05); }
+  /* ── Product photo cards (real images, full-bleed cover) ── */
+  .product-img-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    transition: transform .7s cubic-bezier(.25,1,.5,1);
+    display: block;
+    z-index: 1;
+  }
+  .product-card:hover .product-img-photo { transform: scale(1.07); }
+  /* Fix aspect ratio for image-heavy cards */
+  .product-img.trend-bg-1,
+  .product-img.trend-bg-2,
+  .product-img.trend-bg-3,
+  .product-img.trend-bg-4 {
+    aspect-ratio: 4/3 !important;
+  }
+  /* Hide swatch when real photo is present */
+  .product-img:has(.product-img-photo) .product-swatch { display: none !important; }
+
 
   /* Unique tile swatch patterns */
   .swatch-marble {
@@ -2862,16 +2885,16 @@ footer a.snrg-link:hover{
   padding: clamp(6px, 0.9vw, 12px);
   overflow: hidden;
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(20,18,16,.10) 0%, rgba(20,18,16,.04) 100%);
-  border: 1px solid rgba(58,53,48,.14);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+  background: #ffffff;
+  border: 1px solid rgba(58,53,48,.08);
+  box-shadow: 0 2px 12px rgba(20,18,16,.06);
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 
 .brand-card:hover .brand-logo-wrap{
   transform: scale(1.02);
   border-color: rgba(198,167,94,.45);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 14px 34px rgba(20,18,16,.10);
+  box-shadow: 0 8px 24px rgba(20,18,16,.08);
 }
 
 .brand-logo-wrap picture{
@@ -2891,10 +2914,8 @@ footer a.snrg-link:hover{
   object-position: center;
   display: block;
   /* Uniform “fills the zone” feel even when source PNGs have extra whitespace */
-  transform: scale(1.35);
-  transform-origin: 50% 50%;
-  /* Make light/gold logos readable on bright cards */
-  filter: contrast(1.28) saturate(1.12) drop-shadow(0 3px 6px rgba(0,0,0,.42));
+  /* Clean rendering on white */
+  filter: none;
 }
 
 /* ─── Browse CTA ─── */
@@ -3394,7 +3415,7 @@ footer a.snrg-link:hover{
 ───────────────────────────────────────────── */
 .vendor-section .brand-card{ padding: clamp(16px, 1.6vw, 24px) !important; }
 .vendor-section .brand-logo-wrap{ height: clamp(92px, 10vw, 132px) !important; padding: clamp(6px, .9vw, 12px) !important; overflow:hidden !important; }
-.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; transform: scale(1.35) !important; }
+.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; padding: 8px !important; }
 @media (max-width: 640px){
   .vendor-section .brand-card{ min-height: clamp(148px, 36vw, 190px) !important; }
   .vendor-section .brand-logo-wrap{ height: clamp(86px, 22vw, 118px) !important; }
@@ -3740,6 +3761,70 @@ footer a.snrg-link:hover{
 @media (min-width: 1280px) {
   .brand-logo-wrap img { max-height: clamp(64px, 5.5vw, 96px) !important; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   PRODUCT CARD DEFINITIVE FIX
+   Root causes:
+   1. aspect-ratio 3/4 (portrait) on index → fix to 4/3
+   2. product-swatch not absolute on index → always absolute
+   3. product-info has no text-align:center
+   4. img ordering: swatch must render BEHIND img always
+═══════════════════════════════════════════════════════ */
+.product-img {
+  aspect-ratio: 4 / 3 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.product-swatch {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  transition: transform .6s ease !important;
+}
+.product-img-photo {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  z-index: 1 !important;
+  transition: transform .7s cubic-bezier(.25,1,.5,1) !important;
+}
+.product-card:hover .product-img-photo { transform: scale(1.07) !important; }
+.product-card:hover .product-swatch    { transform: scale(1.05) !important; }
+.product-tag  { z-index: 2 !important; position: absolute !important; }
+.product-hover{ z-index: 3 !important; }
+.product-info {
+  padding: 18px 20px 22px !important;
+  text-align: center !important;
+}
+.product-brand {
+  text-align: center !important;
+}
+.product-name {
+  text-align: center !important;
+}
+.product-size {
+  text-align: center !important;
+}
+.product-price {
+  text-align: center !important;
+}
+/* Remove competing CSS backgrounds on trend-bg cards — img handles it */
+.product-img.trend-bg-1,
+.product-img.trend-bg-2,
+.product-img.trend-bg-3,
+.product-img.trend-bg-4 {
+  background-image: none !important;
+}
+/* Responsive overrides */
+@media (max-width: 480px) {
+  .product-img { aspect-ratio: 1 / 1 !important; }
+}
 </style>
 <!-- ═══ STRUCTURED DATA: Houston Flooring SEO Authority ═══ -->
 <script type="application/ld+json">
@@ -3937,7 +4022,7 @@ footer a.snrg-link:hover{
 <h1>Premium Floors at <strong style="white-space: nowrap;">Outlet Prices</strong></h1>
 <p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#collections">Shop Collections</a>
+<a class="btn btn-primary" href="tel:+12818619800">(281) 861-9800</a>
 <a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
 </div>
 </div>
@@ -4174,7 +4259,8 @@ footer a.snrg-link:hover{
 </div>
 <div class="product-grid">
 <a class="product-card" href="tile.html">
-<div class="product-img trend-bg-1">
+<div class="product-img">
+<img class="product-img-photo" src="./assets/hero/rak-ceramics-marble.webp" alt="Calacatta Gold Maximus — RAK Ceramics" loading="lazy" decoding="async"/>
 <div class="product-swatch swatch-marble"></div>
 <span class="product-tag">Best Seller</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
@@ -4187,7 +4273,8 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="hardwood.html">
-<div class="product-img trend-bg-2">
+<div class="product-img">
+<img class="product-img-photo" src="./assets/hero/johson-hickory.webp" alt="Tuscan Hickory — Johnson Hardwood" loading="lazy" decoding="async"/>
 <div class="product-swatch swatch-travertine"></div>
 <span class="product-tag">New Arrival</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
@@ -4200,7 +4287,8 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img trend-bg-3">
+<div class="product-img">
+<img class="product-img-photo" src="./assets/hero/republic-valley-oak.webp" alt="Valley Oak — Republic Floor" loading="lazy" decoding="async"/>
 <div class="product-swatch swatch-slate"></div>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4212,7 +4300,8 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img trend-bg-4">
+<div class="product-img">
+<img class="product-img-photo" src="./assets/hero/fuzion-beach-sands.webp" alt="Beach Sands — Fuzion Flooring" loading="lazy" decoding="async"/>
 <div class="product-swatch swatch-wood"></div>
 <span class="product-tag">Sale</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
