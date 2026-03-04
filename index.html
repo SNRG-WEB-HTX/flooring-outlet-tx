@@ -529,6 +529,16 @@
     transition: transform .6s ease;
   }
   .product-card:hover .product-swatch { transform: scale(1.05); }
+  /* Real product photo fills card */
+  .product-img-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .65s cubic-bezier(.25,1,.5,1);
+  }
+  .product-card:hover .product-img-photo { transform: scale(1.06); }
 
   /* Unique tile swatch patterns */
   .swatch-marble {
@@ -4087,8 +4097,9 @@ footer a.snrg-link:hover{
 </div>
 <div class="product-grid">
 <a class="product-card" href="tile.html">
-<div class="product-img trend-bg-1">
+<div class="product-img">
 <div class="product-swatch swatch-marble"></div>
+<img class="product-img-photo" src="./assets/hero/rak-ceramics-marble.webp" alt="RAK Ceramics Calacatta Gold Maximus Porcelain Tile" loading="lazy" decoding="async"/>
 <span class="product-tag">Best Seller</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4100,8 +4111,9 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="hardwood.html">
-<div class="product-img trend-bg-2">
+<div class="product-img">
 <div class="product-swatch swatch-travertine"></div>
+<img class="product-img-photo" src="./assets/hero/johson-hickory.webp" alt="Johnson Hardwood Tuscan Collection Hickory Engineered" loading="lazy" decoding="async"/>
 <span class="product-tag">New Arrival</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4113,8 +4125,9 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img trend-bg-3">
+<div class="product-img">
 <div class="product-swatch swatch-slate"></div>
+<img class="product-img-photo" src="./assets/hero/republic-valley-oak.webp" alt="Republic Floor Woodland Oak Valley Oak SPC" loading="lazy" decoding="async"/>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
 <div class="product-info">
@@ -4125,8 +4138,9 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img trend-bg-4">
+<div class="product-img">
 <div class="product-swatch swatch-wood"></div>
+<img class="product-img-photo" src="./assets/hero/fuzion-beach-sands.webp" alt="Fuzion Flooring Dynamix HardCore 3DGE Beach Sands LVP" loading="lazy" decoding="async"/>
 <span class="product-tag">Sale</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4623,7 +4637,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0c6cccfcfd2c9cec7cfd5d4ccc5d4d4d88ec3cfcd"><span class="__cf_email__" data-cfemail="01686f676e41676d6e6e73686f666e74756d647575792f626e6c">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -4734,7 +4748,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -6746,15 +6760,4 @@ if (document.readyState === 'loading') {
     tx = null;
   }, { passive: true });
 
-  let rt;
-  window.addEventListener('resize', () => {
-    clearTimeout(rt);
-    rt = setTimeout(() => { buildDots(); goTo(Math.min(current, maxIndex())); }, 80);
-  });
-
-  buildDots();
-  requestAnimationFrame(() => goTo(0));
-})();
-</script>
-</body>
-</html>
+ 
