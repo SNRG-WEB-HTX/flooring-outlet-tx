@@ -2986,22 +2986,59 @@ footer .footer-col ul{
 */
 .vendor-chip .vendor-logo img{
   display:block;
-  width:320px; height:96px;
+  width:clamp(420px, 34vw, 800px); /* ~2.5x visual scale */
+  height:auto;
+  max-height:240px;
   object-fit:contain;
 }
 
-/* Responsive: bigger touch targets + readable logos */
 @media (max-width: 980px){
-  .vendor-chip .vendor-logo img{ width:300px; height:90px; }
+  .vendor-chip .vendor-logo img{
+    width:clamp(340px, 58vw, 720px);
+    max-height:220px;
+  }
 }
+
 @media (max-width: 640px){
   .vendor-chip.vendor-logo-chip{ width:100%; }
   .vendor-chip .vendor-logo{ width:100%; }
   .vendor-chip .vendor-logo img{
     width:100%;
-    max-width:360px;
-    height:88px;
+    max-width:560px;
+    max-height:220px;
     margin:0 auto;
+  }
+}
+
+/* 3x scale: Tile World, LW Flooring, Fuzion, Elephant Floors, Durastone */
+.vendor-chip .vendor-logo img[src*="tile-world-logo"],
+.vendor-chip .vendor-logo img[src*="lw-flooring-logo"],
+.vendor-chip .vendor-logo img[src*="fuzion-flooring-logo"],
+.vendor-chip .vendor-logo img[src*="elephant-floors-logo"],
+.vendor-chip .vendor-logo img[src*="durastone-usa-logo"]{
+  width:clamp(500px, 40vw, 960px);
+  max-height:280px;
+}
+
+@media (max-width: 980px){
+  .vendor-chip .vendor-logo img[src*="tile-world-logo"],
+  .vendor-chip .vendor-logo img[src*="lw-flooring-logo"],
+  .vendor-chip .vendor-logo img[src*="fuzion-flooring-logo"],
+  .vendor-chip .vendor-logo img[src*="elephant-floors-logo"],
+  .vendor-chip .vendor-logo img[src*="durastone-usa-logo"]{
+    width:clamp(420px, 64vw, 860px);
+    max-height:260px;
+  }
+}
+
+@media (max-width: 640px){
+  .vendor-chip .vendor-logo img[src*="tile-world-logo"],
+  .vendor-chip .vendor-logo img[src*="lw-flooring-logo"],
+  .vendor-chip .vendor-logo img[src*="fuzion-flooring-logo"],
+  .vendor-chip .vendor-logo img[src*="elephant-floors-logo"],
+  .vendor-chip .vendor-logo img[src*="durastone-usa-logo"]{
+    max-width:680px;
+    max-height:260px;
   }
 }
 
