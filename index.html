@@ -558,6 +558,20 @@
       linear-gradient(90deg, #a07850 0%, #8a6438 30%, #b08858 60%, #987040 100%);
   }
 
+
+/* ─── TRENDING: Use hero images as card backgrounds (if files exist in assets/hero) ─── */
+.product-img.trend-bg-1{ background: url('./assets/hero/tile-2.webp') center/cover no-repeat; }
+.product-img.trend-bg-2{ background: url('./assets/hero/bedroom-hero.webp') center/cover no-repeat; }
+.product-img.trend-bg-3{ background: url('./assets/hero/livingroom-hero.webp') center/cover no-repeat; }
+.product-img.trend-bg-4{ background: url('./assets/hero/bathroom-hero.webp') center/cover no-repeat; }
+.product-img[class*="trend-bg-"] .product-swatch{ display:none; }
+.product-img[class*="trend-bg-"]::after{
+  content:'';
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.22) 100%);
+  pointer-events:none;
+}
+
   .product-tag {
     position: absolute; top: 16px; left: 16px;
     background: var(--terracotta);
@@ -2845,9 +2859,10 @@ footer a.snrg-link:hover{
   align-items: center;
   justify-content: center;
   margin-bottom: clamp(10px, 1.2vw, 16px);
-  padding: clamp(10px, 1.2vw, 16px);
+  padding: clamp(6px, 0.9vw, 12px);
+  overflow: hidden;
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(20,18,16,.06) 0%, rgba(20,18,16,.02) 100%);
+  background: linear-gradient(180deg, rgba(20,18,16,.10) 0%, rgba(20,18,16,.04) 100%);
   border: 1px solid rgba(58,53,48,.14);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
@@ -2867,15 +2882,19 @@ footer a.snrg-link:hover{
   justify-content:center;
 }
 
-.brand-logo-wrap img{
+\.brand-logo-wrap img{
   width: 100%;
   height: 100%;
   max-width: none;
   max-height: none;
   object-fit: contain;
+  object-position: center;
   display: block;
+  /* Uniform “fills the zone” feel even when source PNGs have extra whitespace */
+  transform: scale(1.35);
+  transform-origin: 50% 50%;
   /* Make light/gold logos readable on bright cards */
-  filter: contrast(1.25) saturate(1.10) drop-shadow(0 2px 3px rgba(0,0,0,.38));
+  filter: contrast(1.28) saturate(1.12) drop-shadow(0 3px 6px rgba(0,0,0,.42));
 }
 
 /* ─── Browse CTA ─── */
@@ -2943,17 +2962,17 @@ footer a.snrg-link:hover{
   .vendor-tab { padding: 13px 18px; font-size: .66rem; letter-spacing: .12em; }
   .vendor-panel { padding: 0 16px; }
   .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .brand-card { padding: 32px 18px 26px; min-height: 128px; }
-  .brand-logo-wrap { height: 52px; margin-bottom: 16px; }
-  .brand-logo-wrap img { max-height: 44px; }
+  .brand-card { padding: clamp(14px, 3.8vw, 18px) !important; min-height: clamp(148px, 36vw, 190px) !important; }
+  .brand-logo-wrap { height: clamp(86px, 22vw, 118px) !important; margin-bottom: clamp(10px, 2.6vw, 14px) !important; padding: clamp(6px, 1.8vw, 10px) !important; }
+  .brand-logo-wrap img { max-height: none !important; }
   /* Always show CTA on mobile (no hover state) */
   .brand-cta { opacity: 1; transform: translateY(0); font-size: .6rem; }
 }
 
 @media (max-width: 380px) {
   .brand-grid { grid-template-columns: 1fr; gap: 10px; }
-  .brand-card { flex-direction: row; gap: 20px; padding: 22px 20px; min-height: 80px; justify-content: flex-start; }
-  .brand-logo-wrap { width: 100px; flex-shrink: 0; height: 44px; margin-bottom: 0; }
+  .brand-card { flex-direction: column !important; gap: 12px !important; padding: 16px 16px !important; min-height: 150px !important; justify-content: flex-start !important; }
+  .brand-logo-wrap { width: 100% !important; flex-shrink: 0; height: clamp(80px, 26vw, 110px) !important; margin-bottom: 10px !important; }
   .brand-cta { margin-left: auto; }
 }
 
@@ -3367,6 +3386,18 @@ footer a.snrg-link:hover{
 }
 @media (min-width: 1281px){
   .brand-logo-wrap{ max-width: 280px !important; height: 128px !important; }
+}
+
+
+/* ─────────────────────────────────────────────
+   FINAL OVERRIDE: Vendor logos fill uniformly
+───────────────────────────────────────────── */
+.vendor-section .brand-card{ padding: clamp(16px, 1.6vw, 24px) !important; }
+.vendor-section .brand-logo-wrap{ height: clamp(92px, 10vw, 132px) !important; padding: clamp(6px, .9vw, 12px) !important; overflow:hidden !important; }
+.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; transform: scale(1.35) !important; }
+@media (max-width: 640px){
+  .vendor-section .brand-card{ min-height: clamp(148px, 36vw, 190px) !important; }
+  .vendor-section .brand-logo-wrap{ height: clamp(86px, 22vw, 118px) !important; }
 }
 
 </style>
@@ -4036,7 +4067,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="product-grid">
 <a class="product-card" href="tile.html">
-<div class="product-img">
+<div class="product-img trend-bg-1">
 <div class="product-swatch swatch-marble"></div>
 <span class="product-tag">Best Seller</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
@@ -4049,7 +4080,7 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="hardwood.html">
-<div class="product-img">
+<div class="product-img trend-bg-2">
 <div class="product-swatch swatch-travertine"></div>
 <span class="product-tag">New Arrival</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
@@ -4062,7 +4093,7 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img">
+<div class="product-img trend-bg-3">
 <div class="product-swatch swatch-slate"></div>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
@@ -4074,7 +4105,7 @@ footer a.snrg-link:hover{
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
-<div class="product-img">
+<div class="product-img trend-bg-4">
 <div class="product-swatch swatch-wood"></div>
 <span class="product-tag">Sale</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
