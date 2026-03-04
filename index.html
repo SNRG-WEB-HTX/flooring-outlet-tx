@@ -2828,39 +2828,54 @@ footer a.snrg-link:hover{
 
 .brand-card:hover::after { opacity: 1; }
 
-/* ─── Logo Container ─── */
-.brand-logo-wrap {
+/* ─── Logo Container (fills cards, high-contrast) ─── */
+.brand-card{
+  padding: clamp(16px, 1.6vw, 24px) !important;
+  min-height: clamp(150px, 16vw, 190px) !important;
+  justify-content: flex-start !important;
+}
+
+.brand-logo-wrap{
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 180px;
-  height: 68px;
+  max-width: none;
+  height: clamp(92px, 10vw, 132px);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 22px;
-  transition: transform .28s ease;
+  margin-bottom: clamp(10px, 1.2vw, 16px);
+  padding: clamp(10px, 1.2vw, 16px);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(20,18,16,.06) 0%, rgba(20,18,16,.02) 100%);
+  border: 1px solid rgba(58,53,48,.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 
-.brand-card:hover .brand-logo-wrap { transform: scale(1.04); }
+.brand-card:hover .brand-logo-wrap{
+  transform: scale(1.02);
+  border-color: rgba(198,167,94,.45);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 14px 34px rgba(20,18,16,.10);
+}
 
-.brand-logo-wrap picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.brand-logo-wrap picture{
+  display:flex;
+  width:100%;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+}
+
+.brand-logo-wrap img{
   width: 100%;
   height: 100%;
-}
-
-.brand-logo-wrap img {
-  max-width: 100%;
-  max-height: 56px;
-  width: auto;
-  height: auto;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   display: block;
-  filter: none;
-  transition: filter .25s ease;
+  /* Make light/gold logos readable on bright cards */
+  filter: contrast(1.25) saturate(1.10) drop-shadow(0 2px 3px rgba(0,0,0,.38));
 }
 
 /* ─── Browse CTA ─── */
@@ -2868,17 +2883,22 @@ footer a.snrg-link:hover{
   position: relative;
   z-index: 1;
   font-family: 'Outfit', sans-serif;
-  font-size: .64rem;
-  font-weight: 600;
-  letter-spacing: .16em;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--clay);
-  display: flex;
+  color: rgba(58,53,48,.82);
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  transform: translateY(5px);
-  opacity: 0;
-  transition: opacity .25s ease, transform .25s ease;
+  gap: 6px;
+  opacity: 1;
+  transform: none;
+  transition: color .25s ease, opacity .25s ease, transform .25s ease;
+}
+
+.brand-card:hover .brand-cta{
+  color: rgba(58,53,48,.95);
+  transform: translateY(-1px);
 }
 
 .brand-cta::after {
@@ -3353,8 +3373,6 @@ footer a.snrg-link:hover{
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bedroom-hero.png" rel="preload"/>
-
-
 <style id="mobile-revamp-20260302">
 /* ═══════════════════════════════════════════
    MOBILE ONLY ≤640px — 641px+ untouched
@@ -3585,9 +3603,8 @@ footer a.snrg-link:hover{
 .stats-section .section-title em{ color: var(--classy-gold) !important; }
 
 </style>
-
-  <!-- ═══ STRUCTURED DATA: Houston Flooring SEO Authority ═══ -->
-  <script type="application/ld+json">
+<!-- ═══ STRUCTURED DATA: Houston Flooring SEO Authority ═══ -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -3876,7 +3893,7 @@ footer a.snrg-link:hover{
 <p class="section-label">Authorized Dealer · Johnson Hardwood</p>
 <h2 class="section-title">Complete <em>Wood Collection</em></h2>
 <p class="section-sub" id="jh-count">88 products across 8 series — available at our Houston showroom.</p>
-<a class="view-all" href="https://johnsonhardwood.com/products/" rel="noopener" target="_blank" style="display:inline-block;margin-top:8px;">View All on JohnsonHardwood.com →</a>
+<a class="view-all" href="https://johnsonhardwood.com/products/" rel="noopener" style="display:inline-block;margin-top:8px;" target="_blank">View All on JohnsonHardwood.com →</a>
 </div>
 <div class="jh-series-tabs" id="jh-tabs" role="tablist">
 <button class="jh-tab active" data-series="all">All Series <span class="cnt">88</span></button>
@@ -4073,398 +4090,374 @@ footer a.snrg-link:hover{
 </section>
 <!-- ─── BRAND COLLECTIONS ─── -->
 <section class="vendor-section reveal" id="collections">
-  <div class="vendor-header">
-    <p class="section-label">Shop By Brand</p>
-    <h2>Premium <em>Vendors</em> &amp; Collections</h2>
-    <p>Select a category, then tap a vendor name to browse their official collections.</p>
-  </div>
-
-  <div class="vendor-tabbar" role="tablist" aria-label="Vendor categories">
-    <button class="vendor-tab" data-tab="true" role="tab" aria-selected="false">LVP / SPC</button>
-    <button class="vendor-tab" data-tab="false" role="tab" aria-selected="false">Hardwood</button>
-    <button class="vendor-tab" data-tab="false" role="tab" aria-selected="false">Tile</button>
-    <button class="vendor-tab" data-tab="false" role="tab" aria-selected="false">Carpet</button>
-    <button class="vendor-tab" data-tab="false" role="tab" aria-selected="false">Natural Stone</button>
-  </div>
-
-  <!-- TILE -->
-  <div class="vendor-panel" id="vendor-panel-tile" data-panel="tile" role="tabpanel">
-    <div class="brand-grid">
-      <a class="brand-card" href="https://www.rakceramics.com/usa/en/" target="_blank" rel="noopener" aria-label="RAK Ceramics — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/rak-ceramics-logo.webp" type="image/webp">
-            <img src="./assets/hero/rak-ceramics-logo.png" alt="RAK Ceramics" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://tileworldtx.com/" target="_blank" rel="noopener" aria-label="Tile World — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/tile-world-logo.webp" type="image/webp">
-            <img src="./assets/hero/tile-world-logo.png" alt="Tile World" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- HARDWOOD -->
-  <div class="vendor-panel" id="vendor-panel-hardwood" data-panel="hardwood" role="tabpanel">
-    <div class="brand-grid">
-      <a class="brand-card" href="https://johnsonhardwood.com/" target="_blank" rel="noopener" aria-label="Johnson Hardwood — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/johnson-hardwood-logo.webp" type="image/webp">
-            <img src="./assets/hero/johnson-hardwood-logo.png" alt="Johnson Hardwood" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener" aria-label="LW Flooring — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/lw-flooring-logo.webp" type="image/webp">
-            <img src="./assets/hero/lw-flooring-logo.png" alt="LW Flooring" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.fuzionflooring.com/" target="_blank" rel="noopener" aria-label="Fuzion Flooring — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp">
-            <img src="./assets/hero/fuzion-flooring-logo.png" alt="Fuzion Flooring" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.knoasflooring.com/" target="_blank" rel="noopener" aria-label="Knoas Flooring — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/knoas-flooring-logo.webp" type="image/webp">
-            <img src="./assets/hero/knoas-flooring-logo.png" alt="Knoas Flooring" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://lawsonfloors.com/legends-collection/" target="_blank" rel="noopener" aria-label="Lawson Floors — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp">
-            <img src="./assets/hero/lawson-floors-logo.png" alt="Lawson Floors" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener" aria-label="Piedmont — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp">
-            <img src="./assets/hero/piedmont-floors-logo.png" alt="Piedmont" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- LVP / SPC -->
-  <div class="vendor-panel active" id="vendor-panel-lvp" data-panel="lvp" role="tabpanel">
-    <div class="brand-grid">
-      <a class="brand-card" href="https://www.my-nfp.com/category/synthetic---loose-lay-collection" target="_blank" rel="noopener" aria-label="National Flooring Products — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/national-flooring-logo.webp" type="image/webp">
-            <img src="./assets/hero/national-flooring-logo.png" alt="National Flooring Products" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://elephantfloors.net/flooring-store/" target="_blank" rel="noopener" aria-label="Elephant Floors — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/elephant-floors-logo.webp" type="image/webp">
-            <img src="./assets/hero/elephant-floors-logo.png" alt="Elephant Floors" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.fuzionflooring.com/" target="_blank" rel="noopener" aria-label="Fuzion Flooring — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp">
-            <img src="./assets/hero/fuzion-flooring-logo.png" alt="Fuzion Flooring" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://lawsonfloors.com/legends-collection/" target="_blank" rel="noopener" aria-label="Lawson Floors — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp">
-            <img src="./assets/hero/lawson-floors-logo.png" alt="Lawson Floors" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener" aria-label="Piedmont — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp">
-            <img src="./assets/hero/piedmont-floors-logo.png" alt="Piedmont" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARPET -->
-  <div class="vendor-panel" id="vendor-panel-carpet" data-panel="carpet" role="tabpanel">
-    <div class="brand-grid">
-      <a class="brand-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener" aria-label="Keystone Carpets & Interiors — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/keystone-carpets-logo.webp" type="image/webp">
-            <img src="./assets/hero/keystone-carpets-logo.png" alt="Keystone Carpets &amp; Interiors" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-      <a class="brand-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener" aria-label="Piedmont — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp">
-            <img src="./assets/hero/piedmont-floors-logo.png" alt="Piedmont" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- NATURAL STONE -->
-  <div class="vendor-panel" id="vendor-panel-naturalStone" data-panel="naturalStone" role="tabpanel">
-    <div class="brand-grid">
-      <a class="brand-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener" aria-label="Durastone USA — Browse Collection">
-        <div class="brand-logo-wrap">
-          <picture>
-            <source srcset="./assets/hero/duraston-usa-logo.webp" type="image/webp">
-            <img src="./assets/hero/duraston-usa-logo.png" alt="Durastone USA" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <span class="brand-cta">Browse Collection</span>
-      </a>
-    </div>
-  </div>
+<div class="vendor-header">
+<p class="section-label">Shop By Brand</p>
+<h2>Premium <em>Vendors</em> &amp; Collections</h2>
+<p>Select a category, then tap a vendor name to browse their official collections.</p>
+</div>
+<div aria-label="Vendor categories" class="vendor-tabbar" role="tablist">
+<button aria-selected="true" class="vendor-tab active" data-active="true" data-tab="lvp" role="tab">LVP / SPC</button>
+<button aria-selected="false" class="vendor-tab" data-tab="hardwood" role="tab">Hardwood</button>
+<button aria-selected="false" class="vendor-tab" data-tab="tile" role="tab">Tile</button>
+<button aria-selected="false" class="vendor-tab" data-tab="carpet" role="tab">Carpet</button>
+<button aria-selected="false" class="vendor-tab" data-tab="naturalStone" role="tab">Natural Stone</button>
+</div>
+<!-- TILE -->
+<div class="vendor-panel" data-panel="tile" id="vendor-panel-tile" role="tabpanel">
+<div class="brand-grid">
+<a aria-label="RAK Ceramics — Browse Collection" class="brand-card" href="https://www.rakceramics.com/usa/en/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/rak-ceramics-logo.webp" type="image/webp"/>
+<img alt="RAK Ceramics" decoding="async" loading="lazy" src="./assets/hero/rak-ceramics-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Tile World — Browse Collection" class="brand-card" href="https://tileworldtx.com/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/tile-world-logo.webp" type="image/webp"/>
+<img alt="Tile World" decoding="async" loading="lazy" src="./assets/hero/tile-world-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+</div>
+</div>
+<!-- HARDWOOD -->
+<div class="vendor-panel" data-panel="hardwood" id="vendor-panel-hardwood" role="tabpanel">
+<div class="brand-grid">
+<a aria-label="Johnson Hardwood — Browse Collection" class="brand-card" href="https://johnsonhardwood.com/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/johnson-hardwood-logo.webp" type="image/webp"/>
+<img alt="Johnson Hardwood" decoding="async" loading="lazy" src="./assets/hero/johnson-hardwood-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="LW Flooring — Browse Collection" class="brand-card" href="https://www.lwflooring.com/collections/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/lw-flooring-logo.webp" type="image/webp"/>
+<img alt="LW Flooring" decoding="async" loading="lazy" src="./assets/hero/lw-flooring-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp"/>
+<img alt="Fuzion Flooring" decoding="async" loading="lazy" src="./assets/hero/fuzion-flooring-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Knoas Flooring — Browse Collection" class="brand-card" href="https://www.knoasflooring.com/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/knoas-flooring-logo.webp" type="image/webp"/>
+<img alt="Knoas Flooring" decoding="async" loading="lazy" src="./assets/hero/knoas-flooring-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Lawson Floors — Browse Collection" class="brand-card" href="https://lawsonfloors.com/legends-collection/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp"/>
+<img alt="Lawson Floors" decoding="async" loading="lazy" src="./assets/hero/lawson-floors-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Piedmont — Browse Collection" class="brand-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp"/>
+<img alt="Piedmont" decoding="async" loading="lazy" src="./assets/hero/piedmont-floors-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+</div>
+</div>
+<!-- LVP / SPC -->
+<div class="vendor-panel active" data-panel="lvp" id="vendor-panel-lvp" role="tabpanel">
+<div class="brand-grid">
+<a aria-label="National Flooring Products — Browse Collection" class="brand-card" href="https://www.my-nfp.com/category/synthetic---loose-lay-collection" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/national-flooring-logo.webp" type="image/webp"/>
+<img alt="National Flooring Products" decoding="async" loading="lazy" src="./assets/hero/national-flooring-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Elephant Floors — Browse Collection" class="brand-card" href="https://elephantfloors.net/flooring-store/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/elephant-floors-logo.webp" type="image/webp"/>
+<img alt="Elephant Floors" decoding="async" loading="lazy" src="./assets/hero/elephant-floors-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp"/>
+<img alt="Fuzion Flooring" decoding="async" loading="lazy" src="./assets/hero/fuzion-flooring-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Lawson Floors — Browse Collection" class="brand-card" href="https://lawsonfloors.com/legends-collection/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp"/>
+<img alt="Lawson Floors" decoding="async" loading="lazy" src="./assets/hero/lawson-floors-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Piedmont — Browse Collection" class="brand-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp"/>
+<img alt="Piedmont" decoding="async" loading="lazy" src="./assets/hero/piedmont-floors-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+</div>
+</div>
+<!-- CARPET -->
+<div class="vendor-panel" data-panel="carpet" id="vendor-panel-carpet" role="tabpanel">
+<div class="brand-grid">
+<a aria-label="Keystone Carpets &amp; Interiors — Browse Collection" class="brand-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/keystone-carpets-logo.webp" type="image/webp"/>
+<img alt="Keystone Carpets &amp; Interiors" decoding="async" loading="lazy" src="./assets/hero/keystone-carpets-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+<a aria-label="Piedmont — Browse Collection" class="brand-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp"/>
+<img alt="Piedmont" decoding="async" loading="lazy" src="./assets/hero/piedmont-floors-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+</div>
+</div>
+<!-- NATURAL STONE -->
+<div class="vendor-panel" data-panel="naturalStone" id="vendor-panel-naturalStone" role="tabpanel">
+<div class="brand-grid">
+<a aria-label="Durastone USA — Browse Collection" class="brand-card" href="https://durastoneusa.com/products/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<picture>
+<source srcset="./assets/hero/duraston-usa-logo.webp" type="image/webp"/>
+<img alt="Durastone USA" decoding="async" loading="lazy" src="./assets/hero/duraston-usa-logo.png"/>
+</picture>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+</div>
+</div>
 </section>
-
 <!-- ─── SERVICES ─── -->
 <section class="services reveal" id="services">
-  <div class="services-header" style="text-align:center;display:block;max-width:720px;margin:0 auto 72px;">
-    <p class="section-label">What We Offer</p>
-    <h2 class="section-title">More Than Just<br/><em>Products</em></h2>
-    <p style="font-size:.92rem;font-weight:300;line-height:1.65;color:rgba(253,250,246,.52);max-width:520px;margin:0 auto;">From your first visit to your finished floor, we handle every detail — so you can focus on what matters: the result.</p>
-  </div>
-  <div class="services-grid">
-
-    <!-- 01 Design Consultation -->
-    <div class="service-card">
-      <span class="service-num">01</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="6" y="10" width="36" height="28" rx="2" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M6 18h36" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M16 10v8" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M32 10v8" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M14 27h8M14 33h14" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="36" cy="32" r="5" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M39.5 35.5l3 3" stroke="#8c6f57" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Free Design<br/>Consultation</h3>
-      <p class="service-text">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Book a Visit</a>
-    </div>
-
-    <!-- 02 Professional Installation -->
-    <div class="service-card">
-      <span class="service-num">02</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M10 38L24 8l14 30" stroke="#8c6f57" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M15 28h18" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="24" cy="8" r="2.5" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M18 38h12" stroke="#8c6f57" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M34 38l4 0" stroke="#8c6f57" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
-          <path d="M10 38l-4 0" stroke="#8c6f57" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Professional<br/>Installation</h3>
-      <p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Request a Quote</a>
-    </div>
-
-    <!-- 03 Fast Local Delivery -->
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="4" y="16" width="26" height="18" rx="1.5" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M30 22h7l7 8v6h-14V22z" stroke="#8c6f57" stroke-width="1.5" stroke-linejoin="round"/>
-          <circle cx="12" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"/>
-          <circle cx="36" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M8 16V10h18v6" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M12 22h10" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Fast Local<br/>Delivery</h3>
-      <p class="service-text">In-stock orders reach Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Rush delivery available for active job sites.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Check Availability</a>
-    </div>
-
-    <!-- 04 Flexible Financing -->
-    <div class="service-card">
-      <span class="service-num">04</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="6" y="12" width="36" height="24" rx="2" stroke="#8c6f57" stroke-width="1.5"/>
-          <path d="M6 20h36" stroke="#8c6f57" stroke-width="1.5"/>
-          <rect x="11" y="27" width="8" height="4" rx="1" fill="#c9a96e" opacity=".6"/>
-          <rect x="23" y="27" width="14" height="4" rx="1" stroke="#8c6f57" stroke-width="1.2" opacity=".4"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Flexible<br/>Financing</h3>
-      <p class="service-text">0% APR financing available for qualified buyers. Don't let budget stand between you and your vision — we have plans to fit every project and timeline.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Explore Options</a>
-    </div>
-
-  </div>
+<div class="services-header" style="text-align:center;display:block;max-width:720px;margin:0 auto 72px;">
+<p class="section-label">What We Offer</p>
+<h2 class="section-title">More Than Just<br/><em>Products</em></h2>
+<p style="font-size:.92rem;font-weight:300;line-height:1.65;color:rgba(253,250,246,.52);max-width:520px;margin:0 auto;">From your first visit to your finished floor, we handle every detail — so you can focus on what matters: the result.</p>
+</div>
+<div class="services-grid">
+<!-- 01 Design Consultation -->
+<div class="service-card">
+<span class="service-num">01</span>
+<div class="service-icon">
+<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect height="28" rx="2" stroke="#8c6f57" stroke-width="1.5" width="36" x="6" y="10"></rect>
+<path d="M6 18h36" stroke="#8c6f57" stroke-width="1.5"></path>
+<path d="M16 10v8" stroke="#8c6f57" stroke-width="1.5"></path>
+<path d="M32 10v8" stroke="#8c6f57" stroke-width="1.5"></path>
+<path d="M14 27h8M14 33h14" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="36" cy="32" r="5" stroke="#8c6f57" stroke-width="1.5"></circle>
+<path d="M39.5 35.5l3 3" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<h3 class="service-title">Free Design<br/>Consultation</h3>
+<p class="service-text">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
+<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Book a Visit</a>
+</div>
+<!-- 02 Professional Installation -->
+<div class="service-card">
+<span class="service-num">02</span>
+<div class="service-icon">
+<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 38L24 8l14 30" stroke="#8c6f57" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M15 28h18" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="24" cy="8" r="2.5" stroke="#8c6f57" stroke-width="1.5"></circle>
+<path d="M18 38h12" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.5"></path>
+<path d="M34 38l4 0" opacity=".4" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M10 38l-4 0" opacity=".4" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.2"></path>
+</svg>
+</div>
+<h3 class="service-title">Professional<br/>Installation</h3>
+<p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
+<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Request a Quote</a>
+</div>
+<!-- 03 Fast Local Delivery -->
+<div class="service-card">
+<span class="service-num">03</span>
+<div class="service-icon">
+<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect height="18" rx="1.5" stroke="#8c6f57" stroke-width="1.5" width="26" x="4" y="16"></rect>
+<path d="M30 22h7l7 8v6h-14V22z" stroke="#8c6f57" stroke-linejoin="round" stroke-width="1.5"></path>
+<circle cx="12" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"></circle>
+<circle cx="36" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"></circle>
+<path d="M8 16V10h18v6" stroke="#8c6f57" stroke-width="1.5"></path>
+<path d="M12 22h10" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<h3 class="service-title">Fast Local<br/>Delivery</h3>
+<p class="service-text">In-stock orders reach Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Rush delivery available for active job sites.</p>
+<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Check Availability</a>
+</div>
+<!-- 04 Flexible Financing -->
+<div class="service-card">
+<span class="service-num">04</span>
+<div class="service-icon">
+<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect height="24" rx="2" stroke="#8c6f57" stroke-width="1.5" width="36" x="6" y="12"></rect>
+<path d="M6 20h36" stroke="#8c6f57" stroke-width="1.5"></path>
+<rect fill="#c9a96e" height="4" opacity=".6" rx="1" width="8" x="11" y="27"></rect>
+<rect height="4" opacity=".4" rx="1" stroke="#8c6f57" stroke-width="1.2" width="14" x="23" y="27"></rect>
+</svg>
+</div>
+<h3 class="service-title">Flexible<br/>Financing</h3>
+<p class="service-text">0% APR financing available for qualified buyers. Don't let budget stand between you and your vision — we have plans to fit every project and timeline.</p>
+<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Explore Options</a>
+</div>
+</div>
 </section>
-
 <!-- ─── TESTIMONIALS ─── -->
 <!-- ─── REVIEWS CAROUSEL ─── -->
 <section class="reviews-section reveal" id="reviews">
-  <div class="reviews-header">
-    <p class="section-label">Customer Stories</p>
-    <h2 class="section-title">What Houston<br/><em>Is Saying</em></h2>
-    <div class="reviews-meta">
-      <div class="reviews-overall">
-        <span class="reviews-score">5.0</span>
-        <div class="reviews-stars-col">
-          <div class="reviews-stars">★★★★★</div>
-          <span class="reviews-count">Google Reviews</span>
-        </div>
-        <div class="reviews-google-badge">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        </div>
-      </div>
-      <div class="reviews-controls">
-        <button class="rev-arrow" id="rev-prev" aria-label="Previous reviews">←</button>
-        <button class="rev-arrow" id="rev-next" aria-label="Next reviews">→</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="reviews-viewport">
-    <div class="reviews-track" id="reviews-track">
-
-      <!-- Review 1 -->
-      <div class="rev-card">
-        <div class="rev-card-stars">★★★★★</div>
-        <p class="rev-card-text">I've used them twice now and both times the crew came out extremely professional, provided tips on maintaining the floors, and they were fast! Highly recommend.</p>
-        <div class="rev-card-footer">
-          <div class="rev-avatar">L</div>
-          <div>
-            <p class="rev-name">lalibob3121</p>
-            <span class="rev-meta">Houston, TX <span class="rev-dot"></span> 10 years ago</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 2 -->
-      <div class="rev-card">
-        <div class="rev-card-stars">★★★★★</div>
-        <p class="rev-card-text">I had a new house built and the contracted installation company did a poor job. Paul came and looked at my floor right away. Flooring Services stood behind the installation 100%. Paul was amazing.</p>
-        <div class="rev-card-footer">
-          <div class="rev-avatar">MB</div>
-          <div>
-            <p class="rev-name">Maria B.</p>
-            <span class="rev-meta">Local Guide <span class="rev-dot"></span> 3 years ago</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="rev-card">
-        <div class="rev-card-stars">★★★★★</div>
-        <p class="rev-card-text">This place has always been great to us. They offer great prices, great customer service, and genuinely help you make a decision — not just trying to sell you something. Bought from them twice.</p>
-        <div class="rev-card-footer">
-          <div class="rev-avatar">IP</div>
-          <div>
-            <p class="rev-name">Ivana Ponce</p>
-            <span class="rev-meta">Local Guide <span class="rev-dot"></span> 8 years ago</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 4 -->
-      <div class="rev-card">
-        <div class="rev-card-stars">★★★★★</div>
-        <p class="rev-card-text">Paul is a good guy and will be fair and honest with you. Straightforward, no games — exactly what you want when you're making a big purchase for your home.</p>
-        <div class="rev-card-footer">
-          <div class="rev-avatar">ML</div>
-          <div>
-            <p class="rev-name">Michael Livesay</p>
-            <span class="rev-meta">Houston, TX <span class="rev-dot"></span> 7 years ago</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 5 -->
-      <div class="rev-card">
-        <div class="rev-card-stars">★★★★★</div>
-        <p class="rev-card-text">Excellent professional service at a reasonable price. Everything was handled smoothly from start to finish. Will definitely be back for our next project.</p>
-        <div class="rev-card-footer">
-          <div class="rev-avatar">AK</div>
-          <div>
-            <p class="rev-name">Alex Keselman</p>
-            <span class="rev-meta">Local Guide <span class="rev-dot"></span> 1 year ago</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review 6 -->
-      <div class="rev-card">
-        <div class="rev-card-stars">★★★★★</div>
-        <p class="rev-card-text">Great customer service. The team was attentive and helpful throughout the entire process. You can tell they actually care about the customer experience.</p>
-        <div class="rev-card-footer">
-          <div class="rev-avatar">NN</div>
-          <div>
-            <p class="rev-name">Now Nowsheer</p>
-            <span class="rev-meta">Local Guide <span class="rev-dot"></span> 2 years ago</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="reviews-dots" id="reviews-dots" role="tablist" aria-label="Review pages"></div>
-  <!-- Mobile-only arrow row -->
-  <div class="reviews-mobile-nav">
-    <button class="rev-arrow-mob" id="rev-prev-mob" aria-label="Previous reviews">←</button>
-    <div id="reviews-dots-mob" class="reviews-dots" role="tablist" aria-label="Review pages" style="margin-top:0;"></div>
-    <button class="rev-arrow-mob" id="rev-next-mob" aria-label="Next reviews">→</button>
-  </div>
+<div class="reviews-header">
+<p class="section-label">Customer Stories</p>
+<h2 class="section-title">What Houston<br/><em>Is Saying</em></h2>
+<div class="reviews-meta">
+<div class="reviews-overall">
+<span class="reviews-score">5.0</span>
+<div class="reviews-stars-col">
+<div class="reviews-stars">★★★★★</div>
+<span class="reviews-count">Google Reviews</span>
+</div>
+<div class="reviews-google-badge">
+<svg aria-hidden="true" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>
+</div>
+</div>
+<div class="reviews-controls">
+<button aria-label="Previous reviews" class="rev-arrow" id="rev-prev">←</button>
+<button aria-label="Next reviews" class="rev-arrow" id="rev-next">→</button>
+</div>
+</div>
+</div>
+<div class="reviews-viewport">
+<div class="reviews-track" id="reviews-track">
+<!-- Review 1 -->
+<div class="rev-card">
+<div class="rev-card-stars">★★★★★</div>
+<p class="rev-card-text">I've used them twice now and both times the crew came out extremely professional, provided tips on maintaining the floors, and they were fast! Highly recommend.</p>
+<div class="rev-card-footer">
+<div class="rev-avatar">L</div>
+<div>
+<p class="rev-name">lalibob3121</p>
+<span class="rev-meta">Houston, TX <span class="rev-dot"></span> 10 years ago</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="rev-card">
+<div class="rev-card-stars">★★★★★</div>
+<p class="rev-card-text">I had a new house built and the contracted installation company did a poor job. Paul came and looked at my floor right away. Flooring Services stood behind the installation 100%. Paul was amazing.</p>
+<div class="rev-card-footer">
+<div class="rev-avatar">MB</div>
+<div>
+<p class="rev-name">Maria B.</p>
+<span class="rev-meta">Local Guide <span class="rev-dot"></span> 3 years ago</span>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="rev-card">
+<div class="rev-card-stars">★★★★★</div>
+<p class="rev-card-text">This place has always been great to us. They offer great prices, great customer service, and genuinely help you make a decision — not just trying to sell you something. Bought from them twice.</p>
+<div class="rev-card-footer">
+<div class="rev-avatar">IP</div>
+<div>
+<p class="rev-name">Ivana Ponce</p>
+<span class="rev-meta">Local Guide <span class="rev-dot"></span> 8 years ago</span>
+</div>
+</div>
+</div>
+<!-- Review 4 -->
+<div class="rev-card">
+<div class="rev-card-stars">★★★★★</div>
+<p class="rev-card-text">Paul is a good guy and will be fair and honest with you. Straightforward, no games — exactly what you want when you're making a big purchase for your home.</p>
+<div class="rev-card-footer">
+<div class="rev-avatar">ML</div>
+<div>
+<p class="rev-name">Michael Livesay</p>
+<span class="rev-meta">Houston, TX <span class="rev-dot"></span> 7 years ago</span>
+</div>
+</div>
+</div>
+<!-- Review 5 -->
+<div class="rev-card">
+<div class="rev-card-stars">★★★★★</div>
+<p class="rev-card-text">Excellent professional service at a reasonable price. Everything was handled smoothly from start to finish. Will definitely be back for our next project.</p>
+<div class="rev-card-footer">
+<div class="rev-avatar">AK</div>
+<div>
+<p class="rev-name">Alex Keselman</p>
+<span class="rev-meta">Local Guide <span class="rev-dot"></span> 1 year ago</span>
+</div>
+</div>
+</div>
+<!-- Review 6 -->
+<div class="rev-card">
+<div class="rev-card-stars">★★★★★</div>
+<p class="rev-card-text">Great customer service. The team was attentive and helpful throughout the entire process. You can tell they actually care about the customer experience.</p>
+<div class="rev-card-footer">
+<div class="rev-avatar">NN</div>
+<div>
+<p class="rev-name">Now Nowsheer</p>
+<span class="rev-meta">Local Guide <span class="rev-dot"></span> 2 years ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-label="Review pages" class="reviews-dots" id="reviews-dots" role="tablist"></div>
+<!-- Mobile-only arrow row -->
+<div class="reviews-mobile-nav">
+<button aria-label="Previous reviews" class="rev-arrow-mob" id="rev-prev-mob">←</button>
+<div aria-label="Review pages" class="reviews-dots" id="reviews-dots-mob" role="tablist" style="margin-top:0;"></div>
+<button aria-label="Next reviews" class="rev-arrow-mob" id="rev-next-mob">→</button>
+</div>
 </section>
-
 <div id="contact"></div>
 <!-- ─── FOOTER ─── -->
-
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
@@ -4514,9 +4507,9 @@ footer a.snrg-link:hover{
 </div>
 </div>
 <div class="footer-bottom">
-  <span class="footer-copyright">© 2026 Flooring Outlet TX</span>
-  <span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com" target="_blank" rel="noopener">SNRG WEB</a></span>
-  <span class="footer-spacer"></span>
+<span class="footer-copyright">© 2026 Flooring Outlet TX</span>
+<span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com" rel="noopener" target="_blank">SNRG WEB</a></span>
+<span class="footer-spacer"></span>
 </div>
 </footer>
 <!-- ═══════════════════════════════════════════════════════════
@@ -4526,9 +4519,9 @@ footer a.snrg-link:hover{
 <button aria-label="Close" class="pmodal-close" onclick="closeProductModal()">✕</button>
 <div class="product-modal" id="productModal">
 <div class="pmodal-gallery">
-<img alt="" class="pmodal-main-img" id="pmodal-main-img" src=""/>
+<img alt="" class="pmodal-main-img" id="pmodal-main-img" src="">
 <div class="pmodal-thumbs" id="pmodal-thumbs"></div>
-</div>
+</img></div>
 <div class="pmodal-info">
 <p class="pmodal-series" id="pmodal-series"></p>
 <h2 class="pmodal-title" id="pmodal-title"></h2>
@@ -4550,85 +4543,74 @@ footer a.snrg-link:hover{
 <!-- LEFT — Info Panel -->
 <div class="sm-left">
 <button aria-label="Close" class="sm-close" onclick="closeShowroomModal()">✕</button>
-
 <div class="sm-brand">
-  <div class="sm-logo">Flooring <span>Outlet</span> TX</div>
-  <div class="sm-tagline">Houston's Premium Flooring Destination</div>
+<div class="sm-logo">Flooring <span>Outlet</span> TX</div>
+<div class="sm-tagline">Houston's Premium Flooring Destination</div>
 </div>
-
 <div class="sm-info-group">
-
-  <div class="sm-info-item">
-    <div class="sm-info-icon">
-      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="17" height="17"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.75A1.75 1.75 0 1110 5.25a1.75 1.75 0 010 3.5z" fill="currentColor"/></svg>
-    </div>
-    <div class="sm-info-content">
-      <span class="sm-info-label">Showroom Address</span>
-      <span class="sm-info-value"><a href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" target="_blank" rel="noopener">15315 FM 529 #110<br/>Houston, TX 77095</a></span>
-    </div>
-  </div>
-
-  <div class="sm-info-item">
-    <div class="sm-info-icon">
-      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="17" height="17"><path d="M5.3 4a1 1 0 00-.95.68l-.8 2.4a1 1 0 00.23 1L5.5 9.8a11.1 11.1 0 004.7 4.7l1.72 1.72a1 1 0 001 .23l2.4-.8A1 1 0 0016 14.7l-.5-2A1 1 0 0014.53 12l-1.5-.37a1 1 0 00-.97.26l-.44.44a8.6 8.6 0 01-3.95-3.95l.44-.44a1 1 0 00.26-.97L7.99 5.47A1 1 0 007 4.5L5.3 4z" fill="currentColor"/></svg>
-    </div>
-    <div class="sm-info-content">
-      <span class="sm-info-label">Phone</span>
-      <span class="sm-info-value"><a href="tel:+12818619800">(281) 861-9800</a></span>
-    </div>
-  </div>
-
-  <div class="sm-info-item">
-    <div class="sm-info-icon">
-      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="17" height="17"><rect x="2" y="4" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </div>
-    <div class="sm-info-content">
-      <span class="sm-info-label">Email</span>
-      <span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
-    </div>
-  </div>
-
-  <div class="sm-info-item">
-    <div class="sm-info-icon">
-      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="17" height="17"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="sm-info-content">
-      <span class="sm-info-label">Showroom Hours</span>
-      <div class="sm-hours-grid">
-        <span class="day">Mon – Fri</span><span>8:30 AM – 6:00 PM</span>
-        <span class="day">Saturday</span><span>9:00 AM – 5:00 PM</span>
-        <span class="day">Sunday</span><span class="sm-closed">Closed</span>
-      </div>
-    </div>
-  </div>
-
+<div class="sm-info-item">
+<div class="sm-info-icon">
+<svg fill="none" height="17" viewbox="0 0 20 20" width="17" xmlns="http://www.w3.org/2000/svg"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.75A1.75 1.75 0 1110 5.25a1.75 1.75 0 010 3.5z" fill="currentColor"></path></svg>
 </div>
-
+<div class="sm-info-content">
+<span class="sm-info-label">Showroom Address</span>
+<span class="sm-info-value"><a href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" rel="noopener" target="_blank">15315 FM 529 #110<br/>Houston, TX 77095</a></span>
+</div>
+</div>
+<div class="sm-info-item">
+<div class="sm-info-icon">
+<svg fill="none" height="17" viewbox="0 0 20 20" width="17" xmlns="http://www.w3.org/2000/svg"><path d="M5.3 4a1 1 0 00-.95.68l-.8 2.4a1 1 0 00.23 1L5.5 9.8a11.1 11.1 0 004.7 4.7l1.72 1.72a1 1 0 001 .23l2.4-.8A1 1 0 0016 14.7l-.5-2A1 1 0 0014.53 12l-1.5-.37a1 1 0 00-.97.26l-.44.44a8.6 8.6 0 01-3.95-3.95l.44-.44a1 1 0 00.26-.97L7.99 5.47A1 1 0 007 4.5L5.3 4z" fill="currentColor"></path></svg>
+</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Phone</span>
+<span class="sm-info-value"><a href="tel:+12818619800">(281) 861-9800</a></span>
+</div>
+</div>
+<div class="sm-info-item">
+<div class="sm-info-icon">
+<svg fill="none" height="17" viewbox="0 0 20 20" width="17" xmlns="http://www.w3.org/2000/svg"><rect height="12" rx="1.5" stroke="currentColor" stroke-width="1.5" width="16" x="2" y="4"></rect><path d="M2 7l8 5 8-5" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg>
+</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Email</span>
+<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+</div>
+</div>
+<div class="sm-info-item">
+<div class="sm-info-icon">
+<svg fill="none" height="17" viewbox="0 0 20 20" width="17" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M10 6v4l2.5 2.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<div class="sm-info-content">
+<span class="sm-info-label">Showroom Hours</span>
+<div class="sm-hours-grid">
+<span class="day">Mon – Fri</span><span>8:30 AM – 6:00 PM</span>
+<span class="day">Saturday</span><span>9:00 AM – 5:00 PM</span>
+<span class="day">Sunday</span><span class="sm-closed">Closed</span>
+</div>
+</div>
+</div>
+</div>
 <div class="sm-map-embed">
-  <a class="sm-map-open" href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" target="_blank" rel="noopener">
-    <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2h8M10 2v8M10 2L2 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+<a class="sm-map-open" href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" rel="noopener" target="_blank">
+<svg fill="none" height="11" viewbox="0 0 12 12" width="11"><path d="M2 2h8M10 2v8M10 2L2 10" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg>
     Open in Maps
   </a>
-  <iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Flooring Outlet TX — 15315 FM 529 #110 Houston TX 77095"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.31!2d-95.65872!3d29.84521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e0b4b87eccf3%3A0x7b53c69b78a35b37!2s15315%20FM%20529%20%23110%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1710000000000">
-  </iframe>
+<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.31!2d-95.65872!3d29.84521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e0b4b87eccf3%3A0x7b53c69b78a35b37!2s15315%20FM%20529%20%23110%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1710000000000" title="Flooring Outlet TX — 15315 FM 529 #110 Houston TX 77095">
+</iframe>
 </div>
-
 <div class="sm-social-row">
-  <a class="sm-social-btn" href="https://www.facebook.com/flooringoutlettexas/" target="_blank" rel="noopener" aria-label="Facebook">
-    <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor"><path d="M17 2H3a1 1 0 00-1 1v14a1 1 0 001 1h7.5v-6H8V9.5h2.5V7.75C10.5 5.57 11.83 4.5 13.79 4.5c.94 0 1.71.07 1.71.07v1.88h-.96c-.95 0-1.24.59-1.24 1.2V9.5H15.5l-.38 2.5H13.3V18H17a1 1 0 001-1V3a1 1 0 00-1-1z"/></svg>
+<a aria-label="Facebook" class="sm-social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank">
+<svg fill="currentColor" height="15" viewbox="0 0 20 20" width="15"><path d="M17 2H3a1 1 0 00-1 1v14a1 1 0 001 1h7.5v-6H8V9.5h2.5V7.75C10.5 5.57 11.83 4.5 13.79 4.5c.94 0 1.71.07 1.71.07v1.88h-.96c-.95 0-1.24.59-1.24 1.2V9.5H15.5l-.38 2.5H13.3V18H17a1 1 0 001-1V3a1 1 0 00-1-1z"></path></svg>
     Facebook
   </a>
-  <a class="sm-social-btn" href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" target="_blank" rel="noopener" aria-label="Google Maps">
-    <svg viewBox="0 0 20 20" width="15" height="15" fill="none"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.75A1.75 1.75 0 1110 5.25a1.75 1.75 0 010 3.5z" fill="currentColor"/></svg>
+<a aria-label="Google Maps" class="sm-social-btn" href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" rel="noopener" target="_blank">
+<svg fill="none" height="15" viewbox="0 0 20 20" width="15"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.75A1.75 1.75 0 1110 5.25a1.75 1.75 0 010 3.5z" fill="currentColor"></path></svg>
     Directions
   </a>
-  <a class="sm-social-btn sm-gbp-btn" href="https://share.google/9fxIKhxpMd36RotmC" target="_blank" rel="noopener" aria-label="Google Business Profile">
-    <svg viewBox="0 0 20 20" width="15" height="15" fill="none"><path d="M18.6 10.2c0-.67-.06-1.31-.17-1.93H10v3.65h4.84a4.14 4.14 0 01-1.8 2.72v2.26h2.91c1.7-1.57 2.65-3.88 2.65-6.7z" fill="#4285F4"/><path d="M10 19c2.43 0 4.47-.8 5.96-2.17l-2.91-2.26c-.81.54-1.84.86-3.05.86-2.34 0-4.32-1.58-5.03-3.71H1.97v2.33A9 9 0 0010 19z" fill="#34A853"/><path d="M4.97 11.72A5.4 5.4 0 014.68 10c0-.6.1-1.17.29-1.72V5.95H1.97A9 9 0 001 10c0 1.45.35 2.82.97 4.05l3-2.33z" fill="#FBBC05"/><path d="M10 4.57c1.32 0 2.5.45 3.43 1.34l2.57-2.57C14.46 1.88 12.42 1 10 1 6.48 1 3.05 3.05 1.97 5.95l3 2.33C5.68 6.15 7.66 4.57 10 4.57z" fill="#EA4335"/></svg>
+<a aria-label="Google Business Profile" class="sm-social-btn sm-gbp-btn" href="https://share.google/9fxIKhxpMd36RotmC" rel="noopener" target="_blank">
+<svg fill="none" height="15" viewbox="0 0 20 20" width="15"><path d="M18.6 10.2c0-.67-.06-1.31-.17-1.93H10v3.65h4.84a4.14 4.14 0 01-1.8 2.72v2.26h2.91c1.7-1.57 2.65-3.88 2.65-6.7z" fill="#4285F4"></path><path d="M10 19c2.43 0 4.47-.8 5.96-2.17l-2.91-2.26c-.81.54-1.84.86-3.05.86-2.34 0-4.32-1.58-5.03-3.71H1.97v2.33A9 9 0 0010 19z" fill="#34A853"></path><path d="M4.97 11.72A5.4 5.4 0 014.68 10c0-.6.1-1.17.29-1.72V5.95H1.97A9 9 0 001 10c0 1.45.35 2.82.97 4.05l3-2.33z" fill="#FBBC05"></path><path d="M10 4.57c1.32 0 2.5.45 3.43 1.34l2.57-2.57C14.46 1.88 12.42 1 10 1 6.48 1 3.05 3.05 1.97 5.95l3 2.33C5.68 6.15 7.66 4.57 10 4.57z" fill="#EA4335"></path></svg>
     Reviews
   </a>
 </div>
-
 </div>
 <!-- RIGHT — Contact Form -->
 <div class="sm-right">
@@ -6569,7 +6551,6 @@ window.openJHCatalog = function() {
   }
 };
 </script>
-
 <script>
 // Initialize vendor navigation
 function initVendorNavigation() {
@@ -6593,7 +6574,6 @@ if (document.readyState === 'loading') {
   initVendorNavigation();
 }
 </script>
-
 <script>
 /* ─── NAV: Show Home only on sub-pages ─── */
 (function() {
@@ -6623,7 +6603,6 @@ if (document.readyState === 'loading') {
   /* index.html: no Home link shown */
 })();
 </script>
-
 <script>
 /* ─── REVIEWS CAROUSEL ─── */
 (function() {
