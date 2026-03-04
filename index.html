@@ -560,10 +560,10 @@
 
 
 /* ─── TRENDING: Use hero images as card backgrounds (if files exist in assets/hero) ─── */
-.product-img.trend-bg-1{ background: url('./assets/hero/tile-2.webp') center/cover no-repeat; }
-.product-img.trend-bg-2{ background: url('./assets/hero/bedroom-hero.webp') center/cover no-repeat; }
-.product-img.trend-bg-3{ background: url('./assets/hero/livingroom-hero.webp') center/cover no-repeat; }
-.product-img.trend-bg-4{ background: url('./assets/hero/bathroom-hero.webp') center/cover no-repeat; }
+.product-img.trend-bg-1{ background: url('./assets/hero/rak-ceramics-marble.webp') center/cover no-repeat; }
+.product-img.trend-bg-2{ background: url('./assets/hero/johson-hickory.webp') center/cover no-repeat; }
+.product-img.trend-bg-3{ background: url('./assets/hero/republic-valley-oak.webp') center/cover no-repeat; }
+.product-img.trend-bg-4{ background: url('./assets/hero/fuzion-beach-sands.webp') center/cover no-repeat; }
 .product-img[class*="trend-bg-"] .product-swatch{ display:none; }
 .product-img[class*="trend-bg-"]::after{
   content:'';
@@ -2882,7 +2882,7 @@ footer a.snrg-link:hover{
   justify-content:center;
 }
 
-\.brand-logo-wrap img{
+.brand-logo-wrap img{
   width: 100%;
   height: 100%;
   max-width: none;
@@ -3398,6 +3398,26 @@ footer a.snrg-link:hover{
 @media (max-width: 640px){
   .vendor-section .brand-card{ min-height: clamp(148px, 36vw, 190px) !important; }
   .vendor-section .brand-logo-wrap{ height: clamp(86px, 22vw, 118px) !important; }
+}
+
+
+
+/* === BOOST THESE LOGOS (requested): LW, Fuzion, Elephant, Tile World, Durastone === */
+.vendor-section .brand-logo-wrap img[src*="lw-flooring"],
+.vendor-section .brand-logo-wrap img[src*="fuzion-flooring"],
+.vendor-section .brand-logo-wrap img[src*="elephant-floors"],
+.vendor-section .brand-logo-wrap img[src*="tile-world"],
+.vendor-section .brand-logo-wrap img[src*="duraston"],
+.vendor-section .brand-logo-wrap img[src*="durastone"]{
+  transform: scale(1.75) !important;
+}
+
+/* Make sure logo is always perfectly centered */
+.vendor-section .brand-logo-wrap,
+.vendor-section .brand-logo-wrap picture{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
 }
 
 </style>
