@@ -3306,6 +3306,49 @@ footer a.snrg-link:hover{
     footer .footer-spacer { display: none !important; }
   }
 
+
+/* =========================================================
+   BRAND LOGO CARD FIT — make every vendor logo fill its card zone
+   (uniform sizing across all cards, all device types)
+   ========================================================= */
+.brand-logo-wrap{
+  max-width: 260px !important;
+  width: 100% !important;
+  height: clamp(84px, 7.5vw, 124px) !important;
+  margin-bottom: 18px !important;
+}
+.brand-logo-wrap picture,
+.brand-logo-wrap source,
+.brand-logo-wrap img{
+  width: 100% !important;
+  height: 100% !important;
+}
+.brand-logo-wrap img{
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Keep cards visually consistent while letting logos breathe */
+.brand-card{
+  padding: 44px 24px 30px !important;
+  min-height: 168px !important;
+}
+@media (max-width: 900px){
+  .brand-grid{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important; }
+  .brand-card{ padding: 38px 18px 26px !important; min-height: 156px !important; }
+  .brand-logo-wrap{ max-width: 230px !important; height: 104px !important; }
+}
+@media (max-width: 640px){
+  .brand-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; }
+  .brand-card{ padding: 32px 14px 22px !important; min-height: 148px !important; }
+  .brand-logo-wrap{ max-width: 210px !important; height: 96px !important; margin-bottom: 14px !important; }
+}
+@media (min-width: 1281px){
+  .brand-logo-wrap{ max-width: 280px !important; height: 128px !important; }
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
