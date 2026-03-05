@@ -2854,7 +2854,7 @@ footer a.snrg-link:hover{
 .brand-card{
   padding: clamp(16px, 1.6vw, 24px) !important;
   min-height: clamp(150px, 16vw, 190px) !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
 }
 
 .brand-logo-wrap{
@@ -2915,10 +2915,13 @@ footer a.snrg-link:hover{
   color: rgba(58,53,48,.82);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   opacity: 1;
   transform: none;
   transition: color .25s ease, opacity .25s ease, transform .25s ease;
+  width: 100%;
+  text-align: center;
 }
 
 .brand-card:hover .brand-cta{
@@ -2977,7 +2980,7 @@ footer a.snrg-link:hover{
 
 @media (max-width: 380px) {
   .brand-grid { grid-template-columns: 1fr; gap: 10px; }
-  .brand-card { flex-direction: column !important; gap: 12px !important; padding: 16px 16px !important; min-height: 150px !important; justify-content: flex-start !important; }
+  .brand-card { flex-direction: column !important; gap: 12px !important; padding: 16px 16px !important; min-height: 150px !important; justify-content: center !important; }
   .brand-logo-wrap { width: 100% !important; flex-shrink: 0; height: clamp(80px, 26vw, 110px) !important; margin-bottom: 10px !important; }
   .brand-cta { margin-left: auto; }
 }
@@ -3430,6 +3433,7 @@ footer a.snrg-link:hover{
   display:flex !important;
   flex-direction:column !important;
   align-items:center !important;
+  justify-content:center !important;
 }
 .vendor-section .brand-logo-wrap{
   width:100% !important;
