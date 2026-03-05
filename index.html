@@ -1234,7 +1234,7 @@
 /* “Shop Collections” button uses the same tone as the “Outlet Prices” highlight */
 /* Shop Collections: gold color handled by base .btn-primary — override removed */
 
-/* “Every Floor, Every Vision” category product names: higher contrast + new color */
+/* “Every Floor for Every Vision” category product names: higher contrast + new color */
 .categories .cat-name{
   color: var(--outlet-prices);
   text-shadow: 0 14px 30px rgba(0,0,0,.55);
@@ -6876,6 +6876,85 @@ if (document.readyState === 'loading') {
 
   buildDots();
   requestAnimationFrame(() => goTo(0));
+})();
+</script>
+<script>
+/* ─── BRAND LOGO PERFECT CENTER ─────────────────────────────────────────
+   JS setProperty('important') wins over ALL stylesheet !important rules.
+   No CSS cascade battle — this is the final word on every brand logo card.
+─────────────────────────────────────────────────────────────────────── */
+(function fixBrandLogos() {
+  function applyFix() {
+    document.querySelectorAll('.brand-card').forEach(function(card) {
+      // Card: column flex, perfectly centered both axes
+      var cs = card.style;
+      cs.setProperty('display',         'flex',    'important');
+      cs.setProperty('flex-direction',  'column',  'important');
+      cs.setProperty('align-items',     'center',  'important');
+      cs.setProperty('justify-content', 'center',  'important');
+
+      var wrap = card.querySelector('.brand-logo-wrap');
+      if (wrap) {
+        // Wrap: flex container, centered
+        var ws = wrap.style;
+        ws.setProperty('display',          'flex',    'important');
+        ws.setProperty('align-items',      'center',  'important');
+        ws.setProperty('justify-content',  'center',  'important');
+        ws.setProperty('width',            '100%',    'important');
+        ws.setProperty('overflow',         'hidden',  'important');
+
+        // Picture: flex container, fills wrap, centers img
+        var pic = wrap.querySelector('picture');
+        if (pic) {
+          var ps = pic.style;
+          ps.setProperty('display',         'flex',   'important');
+          ps.setProperty('align-items',     'center', 'important');
+          ps.setProperty('justify-content', 'center', 'important');
+          ps.setProperty('width',           '100%',   'important');
+          ps.setProperty('height',          '100%',   'important');
+        }
+
+        // Img: natural size, constrained, centered via margin auto
+        var img = wrap.querySelector('img');
+        if (img) {
+          var is = img.style;
+          is.setProperty('display',          'block',    'important');
+          is.setProperty('width',            'auto',     'important');
+          is.setProperty('height',           'auto',     'important');
+          is.setProperty('max-width',        '92%',      'important');
+          is.setProperty('max-height',       '92%',      'important');
+          is.setProperty('object-fit',       'contain',  'important');
+          is.setProperty('object-position',  'center',   'important');
+          is.setProperty('margin',           'auto',     'important');
+          is.setProperty('transform',        'none',     'important');
+        }
+      }
+
+      // CTA: centered
+      var cta = card.querySelector('.brand-cta');
+      if (cta) {
+        var cts = cta.style;
+        cts.setProperty('display',         'flex',   'important');
+        cts.setProperty('justify-content', 'center', 'important');
+        cts.setProperty('width',           '100%',   'important');
+        cts.setProperty('text-align',      'center', 'important');
+      }
+    });
+  }
+
+  // Run on DOM ready + after any tab switch (vendor panels swap visibility)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyFix);
+  } else {
+    applyFix();
+  }
+
+  // Re-apply after vendor tab clicks so newly visible panels also get fixed
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.vendor-tab')) {
+      setTimeout(applyFix, 50);
+    }
+  });
 })();
 </script>
 </body>
