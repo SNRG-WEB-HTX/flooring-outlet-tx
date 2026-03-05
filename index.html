@@ -2899,9 +2899,7 @@ footer a.snrg-link:hover{
   object-position: center;
   display: block;
   /* Uniform “fills the zone” feel even when source PNGs have extra whitespace */
-  transform: scale(1.35);
-  transform-origin: 50% 50%;
-  /* Make light/gold logos readable on bright cards */
+  transform: none;
   filter: contrast(1.28) saturate(1.12) drop-shadow(0 3px 6px rgba(0,0,0,.42));
 }
 
@@ -3402,7 +3400,7 @@ footer a.snrg-link:hover{
 ───────────────────────────────────────────── */
 .vendor-section .brand-card{ padding: clamp(16px, 1.6vw, 24px) !important; }
 .vendor-section .brand-logo-wrap{ height: clamp(92px, 10vw, 132px) !important; padding: clamp(6px, .9vw, 12px) !important; overflow:hidden !important; }
-.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; transform: scale(1.35) !important; }
+.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; object-position:center !important; transform: none !important; }
 @media (max-width: 640px){
   .vendor-section .brand-card{ min-height: clamp(148px, 36vw, 190px) !important; }
   .vendor-section .brand-logo-wrap{ height: clamp(86px, 22vw, 118px) !important; }
@@ -3410,15 +3408,7 @@ footer a.snrg-link:hover{
 
 
 
-/* === BOOST THESE LOGOS (requested): LW, Fuzion, Elephant, Tile World, Durastone === */
-.vendor-section .brand-logo-wrap img[src*="lw-flooring"],
-.vendor-section .brand-logo-wrap img[src*="fuzion-flooring"],
-.vendor-section .brand-logo-wrap img[src*="elephant-floors"],
-.vendor-section .brand-logo-wrap img[src*="tile-world"],
-.vendor-section .brand-logo-wrap img[src*="duraston"],
-.vendor-section .brand-logo-wrap img[src*="durastone"]{
-  transform: scale(1.75) !important;
-}
+/* BOOST LOGOS removed — object-fit:contain + object-position:center handles uniform alignment */
 
 /* Make sure logo is always perfectly centered */
 .vendor-section .brand-logo-wrap,
@@ -3457,7 +3447,7 @@ footer a.snrg-link:hover{
 .vendor-section .brand-logo-wrap img{
   display:block !important;
   margin:auto !important;
-  transform-origin:center center !important;
+  transform: none !important;
 }
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
