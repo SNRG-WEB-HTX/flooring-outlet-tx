@@ -2316,44 +2316,52 @@ nav.scrolled .nav-cta{
     top: 56px !important;
   }
 
-  /* ---------- HERO: raise glass + readability ---------- */
+  /* ---------- HERO (mobile): match hardwood page-hero layout ---------- */
+  /* Height: compact to match hardwood page-hero 56vh */
   .hero{
-    height: 88vh !important;
-    min-height: 560px !important;
+    height: 56vh !important;
+    min-height: 480px !important;
+    align-items: flex-end !important;
+    background: linear-gradient(135deg, #1a1208, #2a1e0e) !important;
   }
 
-  /* Raise the glass card (bigger bottom margin pushes it up) */
+  /* Overlay: match hardwood page-hero cinematic overlay exactly */
+  .hero::after{
+    background: linear-gradient(165deg, rgba(20,18,16,.18) 0%, rgba(20,18,16,.80) 100%) !important;
+  }
+
+  /* Content: match hardwood page-hero bottom-anchored padding — no glass card */
   .hero-content{
-    padding: 2.6rem 1.15rem 2.15rem !important;
-    margin: 0 0 6.75rem 0 !important;
+    padding: 0 clamp(20px, 4vw, 40px) clamp(48px, 8vh, 72px) !important;
+    margin: 0 !important;
     max-width: 100% !important;
   }
 
-  /* Darken overlay on mobile only (keeps white text readable on bright images) */
-  .hero::after{
-    background:
-      radial-gradient(980px 620px at 30% 62%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.06) 100%),
-      linear-gradient(175deg,
-        rgba(0,0,0,0.18) 0%,
-        rgba(0,0,0,0.30) 45%,
-        rgba(0,0,0,0.76) 100%) !important;
+  /* Remove glass card panel on mobile — matches flat hardwood page-hero style */
+  .hero-content::before{
+    display: none !important;
   }
 
+  /* Typography: match hardwood page-hero scale */
   .hero h1{
     font-size: clamp(2.35rem, 9.2vw, 3.25rem) !important;
-    text-shadow: 0 18px 44px rgba(0,0,0,0.62) !important;
+    text-shadow: 0 14px 34px rgba(0,0,0,0.55) !important;
   }
   .hero p{
-    font-size: 1.08rem !important;
-    color: rgba(255,255,255,0.92) !important;
-    text-shadow: 0 16px 34px rgba(0,0,0,0.60) !important;
+    font-size: clamp(.82rem, .95vw, .93rem) !important;
+    font-weight: 300 !important;
+    color: rgba(253,250,246,.70) !important;
+    text-shadow: none !important;
   }
 
-  /* Slightly stronger glass backing on mobile without changing look */
-  .hero-content::before{
-    background: rgba(255,255,255,0.07) !important;
-    border: 1px solid rgba(255,255,255,0.24) !important;
-    box-shadow: 0 18px 56px rgba(0,0,0,0.30) !important;
+  /* Scroll cue + dots: reposition for compact hero height */
+  .hero-scroll{
+    bottom: 1.2rem !important;
+    left: clamp(20px, 4vw, 40px) !important;
+  }
+  .hero-dots{
+    bottom: 1.2rem !important;
+    right: clamp(20px, 4vw, 40px) !important;
   }
 
   /* ---------- FOOTER: remove columns, shrink height, center everything ---------- */
@@ -3861,7 +3869,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hi Flooring Outlet TX,%0D%0A%0D%0AI’d like a quote for:%0D%0A• Product type (Tile / Hardwood / LVP / Carpet / Stone):%0D%0A• Approx. square footage:%0D%0A• Installation needed? (Yes/No):%0D%0A• Address / ZIP:%0D%0A• Timeline:%0D%0A%0D%0AMy contact info:%0D%0AName:%0D%0APhone:%0D%0A%0D%0AThanks!">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#cea7a0a8a18ea8a2a1a1bca7a0a9a1bbbaa2abbabab6e0ada1a3f1bdbbaca4abadbaf388a2a1a1bca7a0a9ebfcfe9fbba1baabebfcfe9cabbfbbabbdbaebfcfeeb8bfcebf6feebf7faebfcfe88a2a1a1bca7a0a9ebfcfe81bbbaa2abbaebfcfe9a96e8aca1aab7f386a7ee88a2a1a1bca7a0a9ee81bbbaa2abbaee9a96e2ebfe8aebfe8febfe8aebfe8f872c4e57aaeea2a7a5abeeafeebfbba1baabeea8a1bcf4ebfe8aebfe8f2c4e6cee9ebca1aabbadbaeebab7beabeee69aa7a2abeee1ee86afbcaab9a1a1aaeee1ee82989eeee1ee8dafbcbeabbaeee1ee9dbaa1a0abe7f4ebfe8aebfe8f2c4e6cee8fbebebca1b6e0eebdbfbbafbcabeea8a1a1baafa9abf4ebfe8aebfe8f2c4e6cee87a0bdbaafa2a2afbaa7a1a0eea0ababaaabaaf1eee697abbde180a1e7f4ebfe8aebfe8f2c4e6cee8faaaabcabbdbdeee1ee94879ef4ebfe8aebfe8f2c4e6cee9aa7a3aba2a7a0abf4ebfe8aebfe8febfe8aebfe8f83b7eeada1a0baafadbaeea7a0a8a1f4ebfe8aebfe8f80afa3abf4ebfe8aebfe8f9ea6a1a0abf4ebfe8aebfe8febfe8aebfe8f9aa6afa0a5bdef">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -4654,7 +4662,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdeded284c9c5c7"><span class="__cf_email__" data-cfemail="4920272f26092f2526263b20272e263c3d252c3d3d31672a2624">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -4765,7 +4773,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -6361,12 +6369,7 @@ const STONE_DATA = [
   {id:'s050',brand:'Keystone',series:'Slate',name:'Split Face',color:'Mixed Grey',size:'4×12',finish:'Natural',origin:'India',isNew:false},
   {id:'s051',brand:'Keystone',series:'Limestone',name:'Classic Limestone',color:'Warm Cream',size:'12×24',finish:'Honed',origin:'France',isNew:false},
   {id:'s052',brand:'Keystone',series:'Limestone',name:'Premium Limestone',color:'Buff Cream',size:'18×18',finish:'Honed',origin:'France',isNew:false},
-  {id:'s053',brand:'Keystone',series:'Quartzite',name:'White Quartzite',color:'Bright White',size:'12×24',finish:'Natural',origin:'Brazil',isNew:false},
-  {id:'s054',brand:'Keystone',series:'Marble',name:'Bianco Marble',color:'Classic White',size:'12×12',finish:'Polished',origin:'Italy',isNew:false},
-  {id:'s055',brand:'Keystone',series:'Marble',name:'Classic Grey Marble',color:'Classic Grey',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
-  {id:'s056',brand:'Keystone',series:'Cobblestone',name:'Rustic Cobblestone',color:'Mixed Rustic',size:'12×12',finish:'Tumbled',origin:'Mixed',isNew:false},
-  {id:'s057',brand:'Keystone',series:'Cobblestone',name:'Grey Cobblestone',color:'Cool Grey',size:'4×4',finish:'Tumbled',origin:'Mixed',isNew:false},
-  {id:'s058',brand:'Keystone',series:'Pebble',name:'River Pebble Natural',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  {id:'s053',brand:'Keystone',series:'Quartzite',name:'White Quartzite',color:'Bright White',size:'12×24',finish:'Naturable',name:'River Pebble Natural',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
   {id:'s059',brand:'Keystone',series:'Slate',name:'Garden Slate Charcoal',color:'Deep Charcoal',size:'24×24',finish:'Cleft',origin:'India',isNew:false},
   {id:'s060',brand:'Keystone',series:'Sandstone',name:'Natural Sandstone',color:'Warm Sand',size:'12×24',finish:'Honed',origin:'India',isNew:false},
   // ── Lawson's Premium Stone ─────────────────────────────
