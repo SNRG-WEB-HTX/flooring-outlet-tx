@@ -3840,6 +3840,100 @@ footer a.snrg-link:hover{
     ]
   }
   </script>
+<style id="brand-logo-nuclear-center">
+/* ═══════════════════════════════════════════════════════════════
+   BRAND LOGO PERFECT CENTER — nuclear override, wins everything
+   Strategy:
+     1. brand-card  → flex column, perfectly centered both axes
+     2. brand-logo-wrap → CSS Grid + place-items:center (most robust centering)
+     3. picture → display:contents (layout-transparent, img becomes grid child)
+     4. img → auto dimensions, max constraints, no forced width/height
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1. Card: true center on both axes, symmetric padding */
+.vendor-section .brand-card,
+.brand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(16px, 1.6vw, 24px) !important;
+  min-height: clamp(150px, 16vw, 190px) !important;
+}
+
+/* 2. Logo wrap: grid centering (bulletproof) */
+.vendor-section .brand-logo-wrap,
+.brand-logo-wrap {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: clamp(88px, 9.5vw, 128px) !important;
+  padding: clamp(8px, 1vw, 14px) !important;
+  margin-bottom: clamp(10px, 1.2vw, 14px) !important;
+  max-width: none !important;
+  overflow: hidden !important;
+  /* preserve existing border/bg styling */
+}
+
+/* 3. picture: layout-transparent so img is direct grid child */
+.vendor-section .brand-logo-wrap picture,
+.brand-logo-wrap picture {
+  display: contents !important;
+  width: unset !important;
+  height: unset !important;
+}
+
+/* 4. img: natural dimensions, constrained to fit, perfectly centered */
+.vendor-section .brand-logo-wrap img,
+.brand-logo-wrap img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: auto !important;
+  transform: none !important;
+  /* inherit existing filter for logo contrast */
+}
+
+/* 5. CTA: centered beneath logo on all cards */
+.vendor-section .brand-cta,
+.brand-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Responsive: maintain center logic at all breakpoints */
+@media (max-width: 900px) {
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap {
+    height: clamp(80px, 22vw, 108px) !important;
+  }
+}
+@media (max-width: 640px) {
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap {
+    height: clamp(72px, 24vw, 96px) !important;
+    margin-bottom: 10px !important;
+  }
+  .vendor-section .brand-card,
+  .brand-card {
+    padding: 16px !important;
+    min-height: 148px !important;
+  }
+}
+@media (min-width: 1281px) {
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap {
+    height: clamp(108px, 10.5vw, 144px) !important;
+  }
+}
+</style>
 </head>
 <body>
 <!-- ─── NAV ─── -->
