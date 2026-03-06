@@ -3432,6 +3432,67 @@ footer a.snrg-link:hover{
   justify-content:center !important;
 }
 
+
+/* ─── NATURAL STONE PRODUCT CARDS — slab close-up photography ─── */
+.page-product-grid .product-img {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  background: var(--parchment);
+}
+.page-product-grid .product-img-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  display: block;
+  z-index: 1;
+  transition: transform .7s cubic-bezier(.25,1,.5,1);
+  image-rendering: -webkit-optimize-contrast;
+}
+.page-product-grid .product-card:hover .product-img-photo {
+  transform: scale(1.06);
+}
+.page-product-grid .product-swatch {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.page-product-grid .product-tag {
+  z-index: 2;
+  position: absolute;
+}
+.page-product-grid .product-hover {
+  /* Keep position:absolute; inset:0 from base — only force z-index above photo */
+  z-index: 3 !important;
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.page-product-grid .product-hover-btn {
+  position: relative;
+  z-index: 4;
+}
+
+/* ─── RULER REMOVAL — per-image object-position overrides ─── */
+/* White Fantasy Quartzite (mont-blanc): ruler sits ~18% from top */
+.page-product-grid .product-img-photo[src*="mont-blanc"] {
+  object-position: center 45%;
+}
+/* French Limestone / Taj Mahal: ruler + scale card ~20% from top */
+.page-product-grid .product-img-photo[src*="taj-mahal"] {
+  object-position: center 48%;
+}
+/* Venetian Gold: wide-angle shot, ruler sits deep ~22% from top */
+.page-product-grid .product-img-photo[src*="new-venetian-gold"] {
+  object-position: center 50%;
+}
+
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -4026,7 +4087,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hello%20Flooring%20Outlet%20TX%20Team%2C%0A%0AI%E2%80%99m%20reaching%20out%20to%20request%20a%20flooring%20quote%20for%20my%20project.%0A%0A%E2%94%80%E2%94%80%20PROJECT%20DETAILS%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AFloor%20Type%20%28LVP/SPC%2C%20Hardwood%2C%20Tile%2C%20Carpet%2C%20Natural%20Stone%29%3A%20%0AEstimated%20Square%20Footage%3A%20%0ARoom%28s%29%20/%20Area%3A%20%0AInstallation%20Needed%20%28Yes%20/%20No%29%3A%20%0ADesired%20Timeline%3A%20%0A%0A%E2%94%80%E2%94%80%20CONTACT%20INFORMATION%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AName%3A%20%0APhone%3A%20%0ABest%20Time%20to%20Call%3A%20%0AAddress%20/%20Zip%20Code%3A%20%0A%0A%E2%94%80%E2%94%80%20ADDITIONAL%20NOTES%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A%0A%0AThank%20you%20%E2%80%94%20I%20look%20forward%20to%20hearing%20from%20you%21%0A">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#aec7c0c8c1eec8c2c1c1dcc7c0c9c1dbdac2cbdadad680cdc1c391dddbccc4cbcdda93e8c2c1c1dcc7c0c98b9c9effdbc1dacb8b9c9efccbdfdbcbddda8b9c9e8beb9c8b969e8b979a8b9c9ee8c2c1c1dcc7c0c98b9c9ee1dbdac2cbda8b9c9efaf688ccc1cad793e6cbc2c2c18b9c9ee8c2c1c1dcc7c0c98b9c9ee1dbdac2cbda8b9c9efaf68b9c9efacbcfc38b9ced8b9eef8b9eefe78beb9c8b969e8b9797c38b9c9edccbcfcdc6c7c0c98b9c9ec1dbda8b9c9edac18b9c9edccbdfdbcbddda8b9c9ecf8b9c9ec8c2c1c1dcc7c0c98b9c9edfdbc1dacb8b9c9ec8c1dc8b9c9ec3d78b9c9ededcc1c4cbcdda808b9eef8b9eef8beb9c8b979a8b969e8beb9c8b979a8b969e8b9c9efefce1e4ebedfa8b9c9eeaebfaefe7e2fd8b9c9e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8b9eefe8c2c1c1dc8b9c9efad7decb8b9c9e8b9c96e2f8fe81fdfeed8b9ced8b9c9ee6cfdccad9c1c1ca8b9ced8b9c9efac7c2cb8b9ced8b9c9eedcfdcdecbda8b9ced8b9c9ee0cfdadbdccfc28b9c9efddac1c0cb8b9c978b9def8b9c9e8b9eefebdddac7c3cfdacbca8b9c9efddfdbcfdccb8b9c9ee8c1c1dacfc9cb8b9def8b9c9e8b9eeffcc1c1c38b9c96dd8b9c978b9c9e818b9c9eefdccbcf8b9def8b9c9e8b9eefe7c0dddacfc2c2cfdac7c1c08b9c9ee0cbcbcacbca8b9c9e8b9c96f7cbdd8b9c9e818b9c9ee0c18b9c978b9def8b9c9e8b9eefeacbddc7dccbca8b9c9efac7c3cbc2c7c0cb8b9def8b9c9e8b9eef8b9eef8beb9c8b979a8b969e8beb9c8b979a8b969e8b9c9eede1e0faefedfa8b9c9ee7e0e8e1fce3effae7e1e08b9c9e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8b9eefe0cfc3cb8b9def8b9c9e8b9eeffec6c1c0cb8b9def8b9c9e8b9eefeccbddda8b9c9efac7c3cb8b9c9edac18b9c9eedcfc2c28b9def8b9c9e8b9eefefcacadccbdddd8b9c9e818b9c9ef4c7de8b9c9eedc1cacb8b9def8b9c9e8b9eef8b9eef8beb9c8b979a8b969e8beb9c8b979a8b969e8b9c9eefeaeae7fae7e1e0efe28b9c9ee0e1faebfd8b9c9e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8beb9c8b979a8b969e8b9eef8b9eef8b9eeffac6cfc0c58b9c9ed7c1db8b9c9e8beb9c8b969e8b979a8b9c9ee78b9c9ec2c1c1c58b9c9ec8c1dcd9cfdcca8b9c9edac18b9c9ec6cbcfdcc7c0c98b9c9ec8dcc1c38b9c9ed7c1db8b9c9f8b9eef">Get a Quote</a>
 </nav>
 <section class="page-hero hero-stone">
   <div class="page-hero-bg"></div>
@@ -4047,36 +4108,36 @@ footer a.snrg-link:hover{
   </div>
   <div class="product-grid page-product-grid">
   <a class="product-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Calacatta Extra — Italian Marble</p><p class="product-size">24" × 24" Polished · Book-Match Available</p><p class="product-price">$12.99 / sq ft <span>$16.50</span></p></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/Calacatta-3cm-Quartzite-1-scaled.jpg.webp" alt="Calacatta Extra — Italian Marble Polished" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Calacatta Extra — Italian Marble</p><p class="product-size">24" × 24" Polished · Book-Match Available</p></div>
   </a>
   <a class="product-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Silver Travertine — Honed</p><p class="product-size">18" × 18" Travertine · Filled &amp; Honed Finish</p><p class="product-price">$7.49 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/grand-lux-1.jpg.webp" alt="Silver Travertine — Honed Filled Finish" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Silver Travertine — Honed</p><p class="product-size">18" × 18" Travertine · Filled &amp; Honed Finish</p></div>
   </a>
   <a class="product-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Black Slate — Natural Cleft</p><p class="product-size">12" × 12" Natural Slate · Irregular Cleft Face</p><p class="product-price">$4.89 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/absolute-blackleathered-1.jpg.webp" alt="Black Slate — Natural Cleft Irregular Face" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Black Slate — Natural Cleft</p><p class="product-size">12" × 12" Natural Slate · Irregular Cleft Face</p></div>
   </a>
   <a class="product-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Walnut Travertine — Tumbled</p><p class="product-size">4" × 4" Tumbled Travertine · Antique Finish</p><p class="product-price">$6.29 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/Rainforest-Brown-2cm-Marble-1.jpg.webp" alt="Walnut Travertine — Tumbled Antique Finish" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">Walnut Travertine — Tumbled</p><p class="product-size">4" × 4" Tumbled Travertine · Antique Finish</p></div>
   </a>
   <a class="product-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">White Fantasy Quartzite — Slab</p><p class="product-size">24" × 48" Quartzite · Polished · High-Strength</p><p class="product-price">$14.99 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/mont-blanc-1.jpg.webp" style="object-position:center 55% !important" alt="White Fantasy Quartzite — Slab Polished" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">White Fantasy Quartzite — Slab</p><p class="product-size">24" × 48" Quartzite · Polished · High-Strength</p></div>
   </a>
   <a class="product-card" href="https://durastoneusa.com/products/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">French Limestone — Honed Antique</p><p class="product-size">12" × 24" Limestone · Honed · Reclaimed Look</p><p class="product-price">$9.49 / sq ft <span>$12.00</span></p></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/taj-mahal-1.jpg.webp" style="object-position:center 55% !important" alt="French Limestone — Honed Antique Reclaimed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Durastone USA</p><p class="product-name">French Limestone — Honed Antique</p><p class="product-size">12" × 24" Limestone · Honed · Reclaimed Look</p></div>
   </a>
   <a class="product-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Absolute Black Granite — Polished</p><p class="product-size">12" × 12" / 24" × 24" · Premium Granite Slab</p><p class="product-price">$8.99 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://cdn.msisurfaces.com/images/colornames/close-up/absolute-black-granite.jpg" alt="Absolute Black Granite — Polished Premium Piedmont" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Absolute Black Granite — Polished</p><p class="product-size">12" × 12" / 24" × 24" · Premium Granite Slab</p></div>
   </a>
   <a class="product-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Venetian Gold — Onyx Look Marble</p><p class="product-size">18" × 18" Onyx · Backlit-Design Ready</p><p class="product-price">$15.99 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://durastoneusa.com/wp-content/smush-webp/2023/12/new-venetian-gold-2cm-1.jpg.webp" style="object-position:center 58% !important" alt="Venetian Gold — Onyx Look Marble Backlit-Ready" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Venetian Gold — Onyx Look Marble</p><p class="product-size">18" × 18" Onyx · Backlit-Design Ready</p></div>
   </a>
   </div>
 </section>
@@ -4308,7 +4369,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -6273,53 +6334,4 @@ if (document.readyState === 'loading') {
     const pages = maxIndex() + 1;
     for (let i = 0; i < pages; i++) {
       const pip = document.createElement('button');
-      pip.className = 'rev-dot-pip' + (i === current ? ' active' : '');
-      pip.setAttribute('aria-label', 'Page ' + (i + 1));
-      pip.addEventListener('click', () => goTo(i));
-      wrap.appendChild(pip);
-    }
-  }
-
-  function buildDots() {
-    buildPips(dotsWrap);
-    buildPips(dotsMob);
-  }
-
-  function syncArrows(max) {
-    [prevBtn, prevMob].forEach(b => b && b.setAttribute('data-disabled', current === 0));
-    [nextBtn, nextMob].forEach(b => b && b.setAttribute('data-disabled', current >= max));
-  }
-
-  function syncPips(wrap) {
-    if (!wrap) return;
-    Array.from(wrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function goTo(idx) {
-    const max = maxIndex();
-    current = Math.max(0, Math.min(idx, max));
-    const { w, gap } = measure();
-    track.style.transform = 'translateX(' + (-current * (w + gap)) + 'px)';
-    syncArrows(max);
-    syncPips(dotsWrap);
-    syncPips(dotsMob);
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-  if (prevMob) prevMob.addEventListener('click', () => goTo(current - 1));
-  if (nextMob) nextMob.addEventListener('click', () => goTo(current + 1));
-
-  /* Swipe */
-  let tx = null;
-  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    if (tx === null) return;
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 30) goTo(current + (d > 0 ? 1 : -1));
-    tx = null;
-  }, { passive: true });
-
- 
-</body>
-</html>
+      pip.className = 'rev-dot-pi
