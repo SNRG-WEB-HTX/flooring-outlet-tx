@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flooring Outlet TX — Premium Tile &amp; Flooring Houston</title>
+<title>Porcelain &amp; Ceramic Tile Houston | RAK Ceramics | Flooring Outlet TX</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -529,6 +531,16 @@
     transition: transform .6s ease;
   }
   .product-card:hover .product-swatch { transform: scale(1.05); }
+  /* Real product photo fills card */
+  .product-img-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .65s cubic-bezier(.25,1,.5,1);
+  }
+  .product-card:hover .product-img-photo { transform: scale(1.06); }
 
   /* Unique tile swatch patterns */
   .swatch-marble {
@@ -1327,16 +1339,7 @@ a.nav-cta:hover{
 }
 
 /* Laptop display (900–1280px): clear topbar + fixed nav, match desktop spacing */
-@media (min-width: 900px) and (max-width: 1280px){
-  .hero {
-    padding-top: 111px; /* topbar ~35px + nav ~76px */
-    box-sizing: border-box;
-  }
-  .hero-content{
-    padding: 4rem 5rem 4rem !important;
-    margin: 0 0 3.5rem 0 !important;
-  }
-}
+
 
 
 /* === NAV: hide category links in hero, reveal only after scroll (desktop/laptop only) === */
@@ -1357,18 +1360,7 @@ nav.scrolled .nav-links{
   visibility: visible;
 }
 
-/* === Laptop hero card root-cause fix (900–1280px only) ===
-   More breathing room above badge/logo AND allow the glass card to sit lower
-   by overlapping the ticker slightly (negative bottom margin). */
-@media (min-width: 900px) and (max-width: 1280px){
-  .hero-content{
-    padding-top: 5.25rem !important;    /* more space above badge/logo */
-    margin-bottom: -1.25rem !important; /* allow card to sit lower / overlap ticker */
-  }
-  .hero-content::before{
-    inset: -1.35rem -1.6rem -1.1rem -1.6rem !important;
-  }
-}
+
 
 
 /* === Sticky header: center + lower the product links when they appear === */
@@ -2316,52 +2308,44 @@ nav.scrolled .nav-cta{
     top: 56px !important;
   }
 
-  /* ---------- HERO (mobile): match hardwood page-hero layout ---------- */
-  /* Height: compact to match hardwood page-hero 56vh */
+  /* ---------- HERO: raise glass + readability ---------- */
   .hero{
-    height: 56vh !important;
-    min-height: 480px !important;
-    align-items: flex-end !important;
-    background: linear-gradient(135deg, #1a1208, #2a1e0e) !important;
+    height: 88vh !important;
+    min-height: 560px !important;
   }
 
-  /* Overlay: match hardwood page-hero cinematic overlay exactly */
-  .hero::after{
-    background: linear-gradient(165deg, rgba(20,18,16,.18) 0%, rgba(20,18,16,.80) 100%) !important;
-  }
-
-  /* Content: match hardwood page-hero bottom-anchored padding — no glass card */
+  /* Raise the glass card (bigger bottom margin pushes it up) */
   .hero-content{
-    padding: 0 clamp(20px, 4vw, 40px) clamp(48px, 8vh, 72px) !important;
-    margin: 0 !important;
+    padding: 2.6rem 1.15rem 2.15rem !important;
+    margin: 0 0 6.75rem 0 !important;
     max-width: 100% !important;
   }
 
-  /* Remove glass card panel on mobile — matches flat hardwood page-hero style */
-  .hero-content::before{
-    display: none !important;
+  /* Darken overlay on mobile only (keeps white text readable on bright images) */
+  .hero::after{
+    background:
+      radial-gradient(980px 620px at 30% 62%, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.06) 100%),
+      linear-gradient(175deg,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.30) 45%,
+        rgba(0,0,0,0.76) 100%) !important;
   }
 
-  /* Typography: match hardwood page-hero scale */
   .hero h1{
     font-size: clamp(2.35rem, 9.2vw, 3.25rem) !important;
-    text-shadow: 0 14px 34px rgba(0,0,0,0.55) !important;
+    text-shadow: 0 18px 44px rgba(0,0,0,0.62) !important;
   }
   .hero p{
-    font-size: clamp(.82rem, .95vw, .93rem) !important;
-    font-weight: 300 !important;
-    color: rgba(253,250,246,.70) !important;
-    text-shadow: none !important;
+    font-size: 1.08rem !important;
+    color: rgba(255,255,255,0.92) !important;
+    text-shadow: 0 16px 34px rgba(0,0,0,0.60) !important;
   }
 
-  /* Scroll cue + dots: reposition for compact hero height */
-  .hero-scroll{
-    bottom: 1.2rem !important;
-    left: clamp(20px, 4vw, 40px) !important;
-  }
-  .hero-dots{
-    bottom: 1.2rem !important;
-    right: clamp(20px, 4vw, 40px) !important;
+  /* Slightly stronger glass backing on mobile without changing look */
+  .hero-content::before{
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid rgba(255,255,255,0.24) !important;
+    box-shadow: 0 18px 56px rgba(0,0,0,0.30) !important;
   }
 
   /* ---------- FOOTER: remove columns, shrink height, center everything ---------- */
@@ -2854,7 +2838,7 @@ footer a.snrg-link:hover{
 .brand-card{
   padding: clamp(16px, 1.6vw, 24px) !important;
   min-height: clamp(150px, 16vw, 190px) !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
 }
 
 .brand-logo-wrap{
@@ -2899,7 +2883,9 @@ footer a.snrg-link:hover{
   object-position: center;
   display: block;
   /* Uniform “fills the zone” feel even when source PNGs have extra whitespace */
-  transform: none;
+  transform: scale(1.35);
+  transform-origin: 50% 50%;
+  /* Make light/gold logos readable on bright cards */
   filter: contrast(1.28) saturate(1.12) drop-shadow(0 3px 6px rgba(0,0,0,.42));
 }
 
@@ -2915,13 +2901,10 @@ footer a.snrg-link:hover{
   color: rgba(58,53,48,.82);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 6px;
   opacity: 1;
   transform: none;
   transition: color .25s ease, opacity .25s ease, transform .25s ease;
-  width: 100%;
-  text-align: center;
 }
 
 .brand-card:hover .brand-cta{
@@ -2980,7 +2963,7 @@ footer a.snrg-link:hover{
 
 @media (max-width: 380px) {
   .brand-grid { grid-template-columns: 1fr; gap: 10px; }
-  .brand-card { flex-direction: column !important; gap: 12px !important; padding: 16px 16px !important; min-height: 150px !important; justify-content: center !important; }
+  .brand-card { flex-direction: column !important; gap: 12px !important; padding: 16px 16px !important; min-height: 150px !important; justify-content: flex-start !important; }
   .brand-logo-wrap { width: 100% !important; flex-shrink: 0; height: clamp(80px, 26vw, 110px) !important; margin-bottom: 10px !important; }
   .brand-cta { margin-left: auto; }
 }
@@ -3403,7 +3386,7 @@ footer a.snrg-link:hover{
 ───────────────────────────────────────────── */
 .vendor-section .brand-card{ padding: clamp(16px, 1.6vw, 24px) !important; }
 .vendor-section .brand-logo-wrap{ height: clamp(92px, 10vw, 132px) !important; padding: clamp(6px, .9vw, 12px) !important; overflow:hidden !important; }
-.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; object-position:center !important; transform: none !important; }
+.vendor-section .brand-logo-wrap img{ width:100% !important; height:100% !important; object-fit:contain !important; transform: scale(1.35) !important; }
 @media (max-width: 640px){
   .vendor-section .brand-card{ min-height: clamp(148px, 36vw, 190px) !important; }
   .vendor-section .brand-logo-wrap{ height: clamp(86px, 22vw, 118px) !important; }
@@ -3411,7 +3394,15 @@ footer a.snrg-link:hover{
 
 
 
-/* BOOST LOGOS removed — object-fit:contain + object-position:center handles uniform alignment */
+/* === BOOST THESE LOGOS (requested): LW, Fuzion, Elephant, Tile World, Durastone === */
+.vendor-section .brand-logo-wrap img[src*="lw-flooring"],
+.vendor-section .brand-logo-wrap img[src*="fuzion-flooring"],
+.vendor-section .brand-logo-wrap img[src*="elephant-floors"],
+.vendor-section .brand-logo-wrap img[src*="tile-world"],
+.vendor-section .brand-logo-wrap img[src*="duraston"],
+.vendor-section .brand-logo-wrap img[src*="durastone"]{
+  transform: scale(1.75) !important;
+}
 
 /* Make sure logo is always perfectly centered */
 .vendor-section .brand-logo-wrap,
@@ -3422,37 +3413,52 @@ footer a.snrg-link:hover{
 }
 
 
-/* === FIX: "Every Floor, Every Vision" one-line on laptop/desktop === */
-@media (min-width: 861px){
-  .cat-header .section-title br{ display:none !important; }
-  .cat-header .section-title em{ display:inline !important; }
+/* === Clean hero alignment fix for laptop/desktop === */
+.hero{
+  padding-top: 0 !important;
+}
+.hero-content{
+  margin-top: 0 !important;
+}
+@media (min-width: 900px) and (max-width: 1280px){
+  .hero{
+    min-height: 720px;
+    align-items: center;
+  }
+  .hero-content{
+    padding: 7.5rem 5rem 4rem !important;
+    margin: 0 !important;
+  }
 }
 
-/* === Vendor logos: perfectly centered + uniform fill on all devices === */
-.vendor-section .brand-card{
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:center !important;
-  justify-content:center !important;
+
+/* ── PRODUCT PHOTO LAYER (matches hardwood/natural-stone implementation) ── */
+.page-product-grid .product-img-photo {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: block;
+  transition: transform .7s cubic-bezier(.25,1,.5,1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
-.vendor-section .brand-logo-wrap{
-  width:100% !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
+/* Force swatch to be behind image, visible as fallback */
+.page-product-grid .product-swatch {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
-.vendor-section .brand-logo-wrap picture{
-  width:100% !important;
-  height:100% !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
+.page-product-grid .product-img-photo {
+  z-index: 1;
 }
-.vendor-section .brand-logo-wrap img{
-  display:block !important;
-  margin:auto !important;
-  transform: none !important;
+.page-product-grid .product-tag,
+.page-product-grid .product-hover {
+  z-index: 2;
 }
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -3699,7 +3705,7 @@ footer a.snrg-link:hover{
         "alternateName": ["Flooring Outlet Texas", "Flooring Outlet Houston"],
         "description": "Houston's premier flooring destination offering tile, hardwood, LVP, SPC, carpet, and natural stone. Family-owned since 1998. 20,000 sq ft showroom serving Greater Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland.",
         "url": "https://flooringoutlettx.com",
-        "telephone": "+13468671155",
+        "telephone": "+12818619800",
         "email": "info@flooringoutlettx.com",
         "priceRange": "$$",
         "currenciesAccepted": "USD",
@@ -3840,471 +3846,196 @@ footer a.snrg-link:hover{
     ]
   }
   </script>
-<style id="brand-logo-nuclear-center">
-/* ═══════════════════════════════════════════════════════════════
-   BRAND LOGO PERFECT CENTER — nuclear override, wins everything
-   Strategy:
-     1. brand-card  → flex column, perfectly centered both axes
-     2. brand-logo-wrap → CSS Grid + place-items:center (most robust centering)
-     3. picture → display:contents (layout-transparent, img becomes grid child)
-     4. img → auto dimensions, max constraints, no forced width/height
-   ═══════════════════════════════════════════════════════════════ */
+<style>
+.page-hero{min-height:56vh;display:flex;align-items:flex-end;padding:0 clamp(20px,4vw,72px) clamp(56px,8vh,90px);position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 40%;transform:scale(1.06);transition:transform 9s ease;}
+.page-hero:hover .page-hero-bg{transform:scale(1.0);}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(165deg,rgba(20,18,16,.18) 0%,rgba(20,18,16,.80) 100%);z-index:1;}
+.page-hero-content{position:relative;z-index:2;max-width:640px;}
+.page-hero-label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--classy-gold);margin-bottom:12px;}
+.page-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:300;line-height:1.04;color:var(--white);margin-bottom:16px;}
+.page-hero-title em{font-style:italic;font-weight:600;color:var(--classy-gold);}
+.page-hero-sub{font-size:clamp(.82rem,.95vw,.93rem);font-weight:300;line-height:1.7;color:rgba(253,250,246,.7);max-width:480px;margin-bottom:28px;}
+.page-hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-lvp{background:linear-gradient(135deg,#12141a,#1e2030);}
+.hero-lvp .page-hero-bg{background-image:url('./assets/hero/lvp-hero.jpg');}
+.hero-hardwood{background:linear-gradient(135deg,#1a1208,#2a1e0e);}
+.hero-hardwood .page-hero-bg{background-image:url('./assets/hero/hardwood-hero.jpg');}
+.hero-tile{background:linear-gradient(135deg,#111209,#1c1a0e);}
+.hero-tile .page-hero-bg{background-image:url('./assets/hero/bathroom-hero.png');}
+.hero-carpet{background:linear-gradient(135deg,#1a161e,#25212a);}
+.hero-carpet .page-hero-bg{background-image:url('./assets/hero/carpet-hero.jpg');}
+.hero-stone{background:linear-gradient(135deg,#141210,#21201e);}
+.hero-stone .page-hero-bg{background-image:url('./assets/hero/stone-hero.jpg');}
+.page-products{background:var(--white);padding:clamp(56px,8vw,96px) clamp(20px,4vw,72px);}
+.page-products .products-header{max-width:1200px;margin:0 auto 48px;}
+.page-product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto;}
+.page-product-grid .product-img{aspect-ratio:4/3;position:relative;overflow:hidden;}
+.product-img-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s cubic-bezier(.25,1,.5,1);}
+.product-card:hover .product-img-photo{transform:scale(1.07);}
+.page-product-grid .product-swatch{position:absolute;inset:0;}
+.page-cta{background:var(--charcoal);padding:clamp(64px,8vw,96px) clamp(20px,4vw,72px);position:relative;overflow:hidden;}
+.page-cta::before{content:'';position:absolute;right:-100px;bottom:-100px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(198,167,94,.11) 0%,transparent 70%);pointer-events:none;}
+.page-cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
+.page-cta-inner .section-label{color:var(--classy-gold);margin-bottom:8px;}
+.page-cta-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.1;margin:0 0 14px;}
+.page-cta-inner h2 em{font-style:italic;font-weight:600;color:var(--classy-gold);}
+.page-cta-inner>div>p{font-size:.9rem;font-weight:300;line-height:1.7;color:rgba(253,250,246,.6);max-width:420px;}
+.page-cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;}
+@media(max-width:1100px){.page-product-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:768px){.page-product-grid{grid-template-columns:repeat(2,1fr);gap:14px;}.page-cta-inner{flex-direction:column;align-items:flex-start;}.page-cta-btns{width:100%;}.page-cta-btns .btn{flex:1;text-align:center;}}
+@media(max-width:480px){.page-product-grid{gap:10px;}.page-product-grid .product-img{aspect-ratio:1/1;}}
 
-/* 1. Card: true center on both axes, symmetric padding */
-.vendor-section .brand-card,
+/* ═══════════════════════════════════════════════════════════════
+   BRAND CARD DEFINITIVE FIX — root cause resolved
+   Issue: logo-wrap had dark gradient, constrained dimensions,
+   transform:scale(1.35) overflow, padding creating inner-box look.
+   Solution: zero-pad card, full-bleed white logo zone, clean CTA.
+═══════════════════════════════════════════════════════════════ */
 .brand-card {
+  padding: 0 !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  min-height: clamp(148px, 16vw, 190px) !important;
+}
+.brand-logo-wrap {
+  width: 100% !important;
+  max-width: none !important;
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: clamp(96px, 10vw, 140px) !important;
+  margin: 0 !important;
+  padding: clamp(18px, 2.5vw, 34px) clamp(20px, 3vw, 44px) !important;
+  background: #ffffff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   display: flex !important;
-  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: clamp(16px, 1.6vw, 24px) !important;
-  min-height: clamp(150px, 16vw, 190px) !important;
+  overflow: visible !important;
+  transform: none !important;
+  transition: none !important;
 }
-
-/* 2. Logo wrap: grid centering (bulletproof) */
-.vendor-section .brand-logo-wrap,
-.brand-logo-wrap {
-  display: grid !important;
-  place-items: center !important;
+.brand-card:hover .brand-logo-wrap {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.brand-logo-wrap picture,
+.brand-logo-wrap source {
   width: 100% !important;
-  height: clamp(88px, 9.5vw, 128px) !important;
-  padding: clamp(8px, 1vw, 14px) !important;
-  margin-bottom: clamp(10px, 1.2vw, 14px) !important;
-  max-width: none !important;
-  overflow: hidden !important;
-  /* preserve existing border/bg styling */
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-
-/* 3. picture: layout-transparent so img is direct grid child */
-.vendor-section .brand-logo-wrap picture,
-.brand-logo-wrap picture {
-  display: contents !important;
-  width: unset !important;
-  height: unset !important;
-}
-
-/* 4. img: natural dimensions, constrained to fit, perfectly centered */
-.vendor-section .brand-logo-wrap img,
 .brand-logo-wrap img {
-  display: block !important;
+  /* Remove scale(1.35) — root cause of overflow clipping */
+  transform: none !important;
   width: auto !important;
   height: auto !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  max-width: 78% !important;
+  max-height: clamp(52px, 6vw, 80px) !important;
   object-fit: contain !important;
-  object-position: center center !important;
-  margin: auto !important;
+  object-position: center !important;
+  filter: contrast(1.06) saturate(1.08) !important;
+  display: block !important;
+}
+/* Override all per-vendor scale boosts */
+.vendor-section .brand-logo-wrap img[src*="lw-flooring"],
+.vendor-section .brand-logo-wrap img[src*="fuzion-flooring"],
+.vendor-section .brand-logo-wrap img[src*="elephant-floors"],
+.vendor-section .brand-logo-wrap img[src*="tile-world"],
+.vendor-section .brand-logo-wrap img[src*="duraston"],
+.vendor-section .brand-logo-wrap img[src*="durastone"] {
   transform: none !important;
-  /* inherit existing filter for logo contrast */
+  max-width: 78% !important;
 }
-
-/* 5. CTA: centered beneath logo on all cards */
-.vendor-section .brand-cta,
+.vendor-section .brand-logo-wrap img { transform: none !important; }
 .brand-cta {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  flex-shrink: 0 !important;
   width: 100% !important;
-  text-align: center !important;
+  padding: 10px 20px !important;
+  border-top: 1px solid rgba(58,53,48,.09) !important;
+  justify-content: center !important;
+  background: rgba(248,244,238,.55) !important;
+  font-size: .68rem !important;
 }
-
-/* Responsive: maintain center logic at all breakpoints */
 @media (max-width: 900px) {
-  .vendor-section .brand-logo-wrap,
-  .brand-logo-wrap {
-    height: clamp(80px, 22vw, 108px) !important;
-  }
+  .brand-logo-wrap img { max-height: clamp(44px, 7vw, 68px) !important; }
 }
 @media (max-width: 640px) {
-  .vendor-section .brand-logo-wrap,
-  .brand-logo-wrap {
-    height: clamp(72px, 24vw, 96px) !important;
-    margin-bottom: 10px !important;
-  }
-  .vendor-section .brand-card,
-  .brand-card {
-    padding: 16px !important;
-    min-height: 148px !important;
-  }
+  .brand-logo-wrap img { max-height: clamp(38px, 10vw, 58px) !important; max-width: 82% !important; }
 }
-@media (min-width: 1281px) {
-  .vendor-section .brand-logo-wrap,
-  .brand-logo-wrap {
-    height: clamp(108px, 10.5vw, 144px) !important;
-  }
+@media (min-width: 1280px) {
+  .brand-logo-wrap img { max-height: clamp(64px, 5.5vw, 96px) !important; }
 }
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Tile Flooring Houston","url":"https://flooringoutlettx.com/tile.html","provider":{"@id":"https://flooringoutlettx.com/#business"}}
+</script>
 
-<style id="mobile-home-hero-tile-reference-fix">
-/* MOBILE ONLY: homepage hero uses the carpet-page background treatment */
-@media (max-width: 640px){
-  .hero{
-    position: relative !important;
-    min-height: 56vh !important;
-    height: auto !important;
-    display: flex !important;
-    align-items: flex-end !important;
-    justify-content: flex-start !important;
-    padding: 0 20px 56px !important;
-    overflow: hidden !important;
-    background: #141210 !important;
+
+<style id="page-hero-tile-laptop-fix">
+/* REAL FIX: tile subpage hero sits below fixed topbar + nav on laptop */
+@media (min-width: 900px) and (max-width: 1280px){
+  .page-hero{
+    min-height: 720px !important;
+    padding-top: 170px !important;
+    padding-bottom: 72px !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
   }
-
-  /* Root-cause fix: mobile hero was still fighting earlier slide-based/mobile hero overrides.
-     Force a single background layer on the hero itself and kill the slideshow stack only on phones. */
-  .hero::before{
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background-image: url('./assets/hero/carpet-hero.jpg') !important;
-    background-size: cover !important;
-    background-position: center 40% !important;
-    transform: scale(1.06) !important;
-    z-index: 0 !important;
-    pointer-events: none !important;
+  .page-hero-content{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    max-width: 720px !important;
   }
-
-  .hero::after{
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(165deg,rgba(20,18,16,.18) 0%,rgba(20,18,16,.80) 100%) !important;
-    z-index: 1 !important;
+  .page-hero-label{
+    margin-bottom: 16px !important;
   }
-
-  .hero-slides,
-  .hero-slide,
-  .hero-slide img,
-  .hero-scroll,
-  .hero-dots{
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+  .page-hero-title{
+    font-size: clamp(3.1rem, 5vw, 4.3rem) !important;
+    line-height: 1.02 !important;
+    margin-bottom: 22px !important;
   }
-
-  .hero-content{
-    position: relative !important;
-    z-index: 2 !important;
-    max-width: 640px !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    animation: none !important;
-    transform: none !important;
-  }
-
-  .hero-content::before{
-    display: none !important;
-    content: none !important;
-  }
-
-  .hero h1{
-    font-family: 'Cormorant Garamond', serif !important;
-    font-size: clamp(2.4rem, 10vw, 4rem) !important;
-    font-weight: 300 !important;
-    line-height: 1.04 !important;
-    letter-spacing: 0 !important;
-    margin: 0 0 16px !important;
-    color: var(--white) !important;
-    text-shadow: none !important;
-    max-width: 10.5ch !important;
-  }
-
-  .hero h1 strong{
-    display: inline !important;
-    font-style: italic !important;
-    font-weight: 600 !important;
-    color: var(--classy-gold) !important;
-    white-space: normal !important;
-  }
-
-  .hero p{
-    font-size: .88rem !important;
-    font-weight: 300 !important;
-    line-height: 1.7 !important;
-    color: rgba(253,250,246,.72) !important;
-    max-width: 29ch !important;
-    margin: 0 0 28px !important;
-    text-shadow: none !important;
-  }
-
-  .hero-actions{
-    display: flex !important;
-    gap: 12px !important;
-    flex-wrap: wrap !important;
-  }
-
-  .hero-actions .btn{
-    min-height: 46px !important;
-    padding: 13px 20px !important;
-    font-size: .76rem !important;
-    letter-spacing: .12em !important;
+  .page-hero-sub{
+    max-width: 560px !important;
+    font-size: 1rem !important;
   }
 }
-</style>
-
-
-<style id="mobile-hero-lower-and-logo-fill-final">
-/* FINAL POLISH: mobile hero spacing + fully uniform vendor logo cards */
-@media (max-width: 640px){
-  .hero{
-    min-height: 59vh !important;
-    padding: 12px 20px 40px !important;
-  }
-  .hero::before{
-    background-position: center 43% !important;
-  }
-  .hero-content{
-    margin-top: 10px !important;
-  }
-}
-
-/* Stronger symmetry system for all vendor cards */
-.brand-grid{
-  align-items: stretch !important;
-}
-
-.vendor-section .brand-card,
-.brand-card{
-  display: grid !important;
-  grid-template-rows: minmax(0,1fr) auto !important;
-  align-items: center !important;
-  justify-items: center !important;
-  gap: clamp(10px, .9vw, 14px) !important;
-  padding: clamp(14px, 1.2vw, 18px) !important;
-  min-height: clamp(168px, 16.2vw, 204px) !important;
-}
-
-.vendor-section .brand-logo-wrap,
-.brand-logo-wrap{
-  --logo-scale: 1.18;
-  width: 100% !important;
-  height: clamp(110px, 10.8vw, 148px) !important;
-  margin: 0 !important;
-  padding: clamp(4px, 0.45vw, 7px) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.vendor-section .brand-logo-wrap picture,
-.brand-logo-wrap picture{
-  width: 100% !important;
-  height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.vendor-section .brand-logo-wrap img,
-.brand-logo-wrap img{
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  transform: scale(var(--logo-scale)) !important;
-  transform-origin: center center !important;
-}
-
-.vendor-section .brand-cta,
-.brand-cta{
-  align-self: end !important;
-  margin-top: 0 !important;
-}
-
-/* Per-logo tuning so white-background assets fill the gray stage evenly */
-.brand-logo-wrap img[src*="tile-world-logo"]{ --logo-scale: 1.28; }
-.brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-scale: 1.26; }
-.brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-scale: 1.24; }
-.brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-scale: 1.24; }
-.brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-scale: 1.26; }
-.brand-logo-wrap img[src*="national-flooring-logo"]{ --logo-scale: 1.22; }
-.brand-logo-wrap img[src*="keystone-carpets-logo"]{ --logo-scale: 1.22; }
-.brand-logo-wrap img[src*="piedmont-floors-logo"]{ --logo-scale: 1.24; }
-.brand-logo-wrap img[src*="johnson-logo"]{ --logo-scale: 1.22; }
-.brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.22; }
-.brand-logo-wrap img[src*="knoa"]{ --logo-scale: 1.23; }
-
-/* Portrait / tall white-background logos need extra fill without hurting landscape logos */
-.brand-logo-wrap img[src*="lawson-floors-logo"],
-.brand-logo-wrap img[src*="piedmont-floors-logo"]{
-  --logo-scale: 1.34;
-}
-.brand-logo-wrap:has(img[src*="lawson-floors-logo"]),
-.brand-logo-wrap:has(img[src*="piedmont-floors-logo"]){
-  padding: 2px !important;
-}
-
-@media (max-width: 900px){
-  .vendor-section .brand-card,
-  .brand-card{
-    min-height: clamp(158px, 24vw, 194px) !important;
-    gap: 10px !important;
-  }
-
-  .vendor-section .brand-logo-wrap,
-  .brand-logo-wrap{
-    height: clamp(98px, 16.8vw, 126px) !important;
-  }
-}
-
-@media (max-width: 640px){
-  .vendor-section .brand-card,
-  .brand-card{
-    min-height: 154px !important;
-    padding: 14px !important;
-    gap: 10px !important;
-  }
-
-  .vendor-section .brand-logo-wrap,
-  .brand-logo-wrap{
-    height: clamp(88px, 24vw, 110px) !important;
-    padding: 4px !important;
-  }
-
-  .brand-logo-wrap img[src*="tile-world-logo"]{ --logo-scale: 1.22; }
-  .brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-scale: 1.2; }
-  .brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-scale: 1.18; }
-  .brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-scale: 1.18; }
-  .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-scale: 1.2; }
-  .brand-logo-wrap img[src*="national-flooring-logo"]{ --logo-scale: 1.17; }
-  .brand-logo-wrap img[src*="keystone-carpets-logo"]{ --logo-scale: 1.17; }
-  .brand-logo-wrap img[src*="piedmont-floors-logo"]{ --logo-scale: 1.28; }
-  .brand-logo-wrap img[src*="johnson-logo"]{ --logo-scale: 1.17; }
-  .brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.3; }
-  .brand-logo-wrap img[src*="knoa"]{ --logo-scale: 1.18; }
-  .brand-logo-wrap:has(img[src*="lawson-floors-logo"]),
-  .brand-logo-wrap:has(img[src*="piedmont-floors-logo"]){
-    padding: 1px !important;
-  }
-}
-</style>
-
-
-<style id="logo-centering-final-20260306">
-/* Root cause fix: these source logos have uneven internal whitespace.
-   Use logo-specific translation after scale so they center visually per breakpoint. */
-.brand-logo-wrap img[src*="lw-flooring-logo"],
-.brand-logo-wrap img[src*="fuzion-flooring-logo"],
-.brand-logo-wrap img[src*="elephant-floors-logo"],
-.brand-logo-wrap img[src*="tile-world-logo"],
-.brand-logo-wrap img[src*="duraston-usa-logo"]{
-  --logo-shift-x: 0px;
-  --logo-shift-y: 0px;
-}
-
-.vendor-section .brand-logo-wrap img[src*="lw-flooring-logo"],
-.vendor-section .brand-logo-wrap img[src*="fuzion-flooring-logo"],
-.vendor-section .brand-logo-wrap img[src*="elephant-floors-logo"],
-.vendor-section .brand-logo-wrap img[src*="tile-world-logo"],
-.vendor-section .brand-logo-wrap img[src*="duraston-usa-logo"],
-.brand-logo-wrap img[src*="lw-flooring-logo"],
-.brand-logo-wrap img[src*="fuzion-flooring-logo"],
-.brand-logo-wrap img[src*="elephant-floors-logo"],
-.brand-logo-wrap img[src*="tile-world-logo"],
-.brand-logo-wrap img[src*="duraston-usa-logo"]{
-  transform: translate(var(--logo-shift-x), var(--logo-shift-y)) scale(var(--logo-scale)) !important;
-}
-
-/* Desktop + laptop: same logos need a slight left correction to become visually centered */
-@media (min-width: 641px){
-  .brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-shift-x: -8px; }
-  .brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-shift-x: -7px; }
-  .brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-shift-x: -8px; }
-  .brand-logo-wrap img[src*="tile-world-logo"]{ --logo-shift-x: -9px; }
-  .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-shift-x: -8px; }
-}
-
-/* Mobile: raise those same logos so they sit dead-center in the stage */
-@media (max-width: 640px){
-  .brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-shift-y: -7px; }
-  .brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-shift-y: -7px; }
-  .brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-shift-y: -8px; }
-  .brand-logo-wrap img[src*="tile-world-logo"]{ --logo-shift-y: -7px; }
-  .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-shift-y: -8px; }
-}
-</style>
-
-
-<style id="brand-logo-system-v7">
-/* Permanent vendor logo centering system
-   Root cause: some vendor logo assets have asymmetric internal whitespace.
-   Fix strategy: assign per-card optical offsets through CSS variables instead of ad hoc image rules. */
-.vendor-section .brand-card--visual-center-fix{
-  --brand-logo-desktop-x: 0px;
-  --brand-logo-mobile-y: 0px;
-}
-
-.vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
-  transform: translate(0, 0) scale(var(--logo-scale, 1)) !important;
-}
-
-@media (min-width: 641px){
-  .vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
-    transform: translate(var(--brand-logo-desktop-x), 0) scale(var(--logo-scale, 1)) !important;
-  }
-
-  .vendor-section .brand-card--lw{ --brand-logo-desktop-x: -12px; }
-  .vendor-section .brand-card--fuzion{ --brand-logo-desktop-x: -11px; }
-  .vendor-section .brand-card--elephant{ --brand-logo-desktop-x: -12px; }
-  .vendor-section .brand-card--tileworld{ --brand-logo-desktop-x: -13px; }
-  .vendor-section .brand-card--durastone{ --brand-logo-desktop-x: -12px; }
-}
-
-@media (max-width: 640px){
-  .vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
-    transform: translate(0, var(--brand-logo-mobile-y)) scale(var(--logo-scale, 1)) !important;
-  }
-
-  .vendor-section .brand-card--lw{ --brand-logo-mobile-y: -11px; }
-  .vendor-section .brand-card--fuzion{ --brand-logo-mobile-y: -11px; }
-  .vendor-section .brand-card--elephant{ --brand-logo-mobile-y: -12px; }
-  .vendor-section .brand-card--tileworld{ --brand-logo-mobile-y: -11px; }
-  .vendor-section .brand-card--durastone{ --brand-logo-mobile-y: -12px; }
-}
-</style>
-
-
-<style id="vendor-logo-clean-system-v8">
-/* Clean final centering system for the 5 problem logos.
-   Source files contain uneven transparent whitespace, so these need optical offsets.
-   Desktop stays untouched; laptop gets a left shift; mobile gets one more upward lift. */
-.vendor-section .brand-card--visual-center-fix{ --optical-x: 0px; --optical-y: 0px; }
-.vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
-  transform: translate(var(--optical-x), var(--optical-y)) scale(var(--logo-scale, 1)) !important;
-}
-
-/* Desktop: keep exactly centered as-is */
 @media (min-width: 1281px){
-  .vendor-section .brand-card--visual-center-fix{ --optical-x: 0px; --optical-y: 0px; }
+  .page-hero{
+    padding-top: 0 !important;
+    align-items: flex-end !important;
+  }
 }
+</style>
 
-/* Laptop only: one more left shift */
-@media (min-width: 769px) and (max-width: 1280px){
-  .vendor-section .brand-card--lw{ --optical-x: -18px; }
-  .vendor-section .brand-card--fuzion{ --optical-x: -17px; }
-  .vendor-section .brand-card--elephant{ --optical-x: -18px; }
-  .vendor-section .brand-card--tileworld{ --optical-x: -19px; }
-  .vendor-section .brand-card--durastone{ --optical-x: -18px; }
-}
 
-/* Mobile only: one more upward lift */
-@media (max-width: 768px){
-  .vendor-section .brand-card--lw{ --optical-y: -18px; }
-  .vendor-section .brand-card--fuzion{ --optical-y: -18px; }
-  .vendor-section .brand-card--elephant{ --optical-y: -20px; }
-  .vendor-section .brand-card--tileworld{ --optical-y: -18px; }
-  .vendor-section .brand-card--durastone{ --optical-y: -20px; }
+<style id="tile-laptop-hero-tuning">
+/* Reduce hero bottom space ~15% and lift title/sub on laptop only */
+@media (min-width: 900px) and (max-width: 1280px){
+  .page-hero{
+    padding-bottom: 40px !important; /* reduced bottom space */
+    min-height: 620px !important;   /* ~15% shorter hero */
+  }
+  .page-hero-content{
+    transform: translateY(-22px) !important; /* lift title/subsection */
+  }
+  .page-hero-title{
+    margin-top: -8px !important;
+  }
 }
 </style>
 
 </head>
-<body>
+<body class="subpage page-tile">
 <!-- ─── NAV ─── -->
 <div class="topbar">
-<span> <a href="tel:+13468671155">(346) 867-1155</a></span>
+<span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
 <span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email protected]</span></a></span>
@@ -4323,685 +4054,100 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="/cdn-cgi/l/email-protection#cea7a0a8a18ea8a2a1a1bca7a0a9a1bbbaa2abbabab6e0ada1a3f1bdbbaca4abadbaf388a2a1a1bca7a0a9ebfcfe9fbba1baabebfcfe9cabbfbbabbdbaebfcfeeb8bfcebf6feebf7faebfcfe88a2a1a1bca7a0a9ebfcfe81bbbaa2abbaebfcfe9a96e8aca1aab7f386a7ee88a2a1a1bca7a0a9ee81bbbaa2abbaee9a96e2ebfe8aebfe8febfe8aebfe8f872c4e57aaeea2a7a5abeeafeebfbba1baabeea8a1bcf4ebfe8aebfe8f2c4e6cee9ebca1aabbadbaeebab7beabeee69aa7a2abeee1ee86afbcaab9a1a1aaeee1ee82989eeee1ee8dafbcbeabbaeee1ee9dbaa1a0abe7f4ebfe8aebfe8f2c4e6cee8fbebebca1b6e0eebdbfbbafbcabeea8a1a1baafa9abf4ebfe8aebfe8f2c4e6cee87a0bdbaafa2a2afbaa7a1a0eea0ababaaabaaf1eee697abbde180a1e7f4ebfe8aebfe8f2c4e6cee8faaaabcabbdbdeee1ee94879ef4ebfe8aebfe8f2c4e6cee9aa7a3aba2a7a0abf4ebfe8aebfe8febfe8aebfe8f83b7eeada1a0baafadbaeea7a0a8a1f4ebfe8aebfe8f80afa3abf4ebfe8aebfe8f9ea6a1a0abf4ebfe8aebfe8febfe8aebfe8f9aa6afa0a5bdef">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#d0b9beb6bf90b6bcbfbfa2b9beb7bfa5a4bcb5a4a4a8feb3bfbdefa3a5b2bab5b3a4ed96bcbfbfa2b9beb7f5e2e081a5bfa4b5f5e2e082b5a1a5b5a3a4f5e2e0f595e2f5e8e0f5e9e4f5e2e096bcbfbfa2b9beb7f5e2e09fa5a4bcb5a4f5e2e08488f6b2bfb4a9ed98b5bcbcbff5e2e096bcbfbfa2b9beb7f5e2e09fa5a4bcb5a4f5e2e08488f5e2e084b5b1bdf5e293f5e091f5e09199f595e2f5e8e0f5e9e9bdf5e2e0a2b5b1b3b8b9beb7f5e2e0bfa5a4f5e2e0a4bff5e2e0a2b5a1a5b5a3a4f5e2e0b1f5e2e0b6bcbfbfa2b9beb7f5e2e0a1a5bfa4b5f5e2e0b6bfa2f5e2e0bda9f5e2e0a0a2bfbab5b3a4fef5e091f5e091f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f5e2e080829f9a959384f5e2e094958491999c83f5e2e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f5e09196bcbfbfa2f5e2e084a9a0b5f5e2e0f5e2e89c8680ff838093f5e293f5e2e098b1a2b4a7bfbfb4f5e293f5e2e084b9bcb5f5e293f5e2e093b1a2a0b5a4f5e293f5e2e09eb1a4a5a2b1bcf5e2e083a4bfbeb5f5e2e9f5e391f5e2e0f5e09195a3a4b9bdb1a4b5b4f5e2e083a1a5b1a2b5f5e2e096bfbfa4b1b7b5f5e391f5e2e0f5e09182bfbfbdf5e2e8a3f5e2e9f5e2e0fff5e2e091a2b5b1f5e391f5e2e0f5e09199bea3a4b1bcbcb1a4b9bfbef5e2e09eb5b5b4b5b4f5e2e0f5e2e889b5a3f5e2e0fff5e2e09ebff5e2e9f5e391f5e2e0f5e09194b5a3b9a2b5b4f5e2e084b9bdb5bcb9beb5f5e391f5e2e0f5e091f5e091f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f5e2e0939f9e84919384f5e2e0999e969f829d9184999f9ef5e2e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f5e0919eb1bdb5f5e391f5e2e0f5e09180b8bfbeb5f5e391f5e2e0f5e09192b5a3a4f5e2e084b9bdb5f5e2e0a4bff5e2e093b1bcbcf5e391f5e2e0f5e09191b4b4a2b5a3a3f5e2e0fff5e2e08ab9a0f5e2e093bfb4b5f5e391f5e2e0f5e091f5e091f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f5e2e09194949984999f9e919cf5e2e09e9f849583f5e2e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f595e2f5e9e4f5e8e0f5e091f5e091f5e09184b8b1bebbf5e2e0a9bfa5f5e2e0f595e2f5e8e0f5e9e4f5e2e099f5e2e0bcbfbfbbf5e2e0b6bfa2a7b1a2b4f5e2e0a4bff5e2e0b8b5b1a2b9beb7f5e2e0b6a2bfbdf5e2e0a9bfa5f5e2e1f5e091">Get a Quote</a>
 </nav>
-<!-- ─── HERO ─── -->
-<section class="hero">
-<div class="hero-slides">
-<!-- Local hero images (repo: assets/hero/) -->
-<div class="hero-slide active">
-<img alt="Premium Hardwood Flooring Living Room" onerror="this.onerror=null;this.src='/assets/hero/livingroom-hero.png';" src="./assets/hero/livingroom-hero.png"/>
-</div>
-<div class="hero-slide">
-<img alt="Luxury Bathroom Tile Installation" onerror="this.onerror=null;this.src='/assets/hero/bathroom-hero.png';" src="./assets/hero/bathroom-hero.png"/>
-</div>
-<div class="hero-slide">
-<img alt="Modern Bedroom Plush Carpet" onerror="this.onerror=null;this.src='/assets/hero/bedroom-hero.png';" src="./assets/hero/bedroom-hero.png"/>
-</div>
-</div>
-<div class="hero-content">
-<h1>Premium Floors at <strong style="white-space: nowrap;">Outlet Prices</strong></h1>
-<p>From timeless tile to rich hardwood and modern luxury vinyl - Flooring Outlet TX brings you designer-quality floors at prices that make sense. Serving Greater Houston since day one.</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="tel:+13468671155">(346) 867-1155</a>
-<a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
-</div>
-</div>
-<div class="hero-scroll">
-<div class="hero-scroll-line"></div>
-    Explore
+<section class="page-hero hero-tile">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <span class="page-hero-label">Porcelain &amp; Ceramic Tile</span>
+    <h1 class="page-hero-title">Designer Tile,<br/><em>Outlet Prices</em></h1>
+    <p class="page-hero-sub">From Calacatta Gold Maximus slabs to urban concrete and wood-effect porcelain — we carry the full RAK Ceramics USA collection plus curated imports.</p>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="tel:+12818619800">(281) 861-9800</a>
+      <a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
+    </div>
   </div>
-<div class="hero-dots">
-<button class="hero-dot active" data-slide="0"></button>
-<button class="hero-dot" data-slide="1"></button>
-<button class="hero-dot" data-slide="2"></button>
-</div>
 </section>
-<!-- ─── TICKER ─── -->
-<div class="ticker-wrap">
-<div class="ticker">
-<span class="ticker-item">Free Delivery in Greater Houston</span>
-<span class="ticker-item">10,000+ In-Stock SKUs</span>
-<span class="ticker-item">Professional Installation Available</span>
-<span class="ticker-item">Trade Discounts for Contractors</span>
-<span class="ticker-item">Financing Available</span>
-<span class="ticker-item">Family Owned Since 1998</span>
-<span class="ticker-item">Free Delivery in Greater Houston</span>
-<span class="ticker-item">10,000+ In-Stock SKUs</span>
-<span class="ticker-item">Professional Installation Available</span>
-<span class="ticker-item">Trade Discounts for Contractors</span>
-<span class="ticker-item">Financing Available</span>
-<span class="ticker-item">Family Owned Since 1998</span>
-</div>
-</div>
-<!-- ─── CATEGORIES ─── -->
-<section class="categories reveal">
-<div class="cat-header" style="text-align:center;display:block;">
-<p class="section-label">Browse By Category</p>
-<h2 class="section-title">Every Floor,<br/><em>Every Vision</em></h2>
-<a class="view-all" href="#" style="display:inline-block;margin-top:8px;">View All Categories</a>
-</div>
-<div class="cat-grid">
-<a class="cat-card" href="tile.html">
-<div class="cat-bg cat-bg-1"></div>
-<div class="cat-overlay"></div>
-<div class="cat-info">
-<span class="cat-name">Porcelain &amp;<br/>Ceramic Tile</span>
-<span class="cat-count">2,400+ Products</span>
-</div>
-<div class="cat-arrow">→</div>
-</a>
-<a class="cat-card" href="hardwood.html">
-<div class="cat-bg cat-bg-2"></div>
-<div class="cat-overlay"></div>
-<div class="cat-info">
-<span class="cat-name">Hardwood</span>
-<span class="cat-count">850+ Products</span>
-</div>
-<div class="cat-arrow">→</div>
-</a>
-<a class="cat-card" href="natural-stone.html">
-<div class="cat-bg cat-bg-3"></div>
-<div class="cat-overlay"></div>
-<div class="cat-info">
-<span class="cat-name">Natural Stone</span>
-<span class="cat-count">600+ Products</span>
-</div>
-<div class="cat-arrow">→</div>
-</a>
-<a class="cat-card" href="lvp-lvt.html">
-<div class="cat-bg cat-bg-4"></div>
-<div class="cat-overlay"></div>
-<div class="cat-info">
-<span class="cat-name">LVP / SPC</span>
-<span class="cat-count">1,200+ Products</span>
-</div>
-<div class="cat-arrow">→</div>
-</a>
-<a class="cat-card" data-tab="other" href="carpet.html">
-<div class="cat-bg cat-bg-5"></div>
-<div class="cat-overlay"></div>
-<div class="cat-info">
-<span class="cat-name">Carpet &amp; Laminate</span>
-<span class="cat-count">400+ Products</span>
-</div>
-<div class="cat-arrow">→</div>
-</a>
-</div>
+<section class="page-products reveal" id="products">
+  <div class="products-header" style="text-align:center;display:block;">
+    <p class="section-label">Porcelain &amp; Ceramic Tile</p>
+    <h2 class="section-title">Designer Tile, <em>Outlet Prices</em></h2>
+  </div>
+  <div class="product-grid page-product-grid">
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/collections/calacatta-gold/" target="_blank" rel="noopener">
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/357TS_00121_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="Calacatta Gold Maximus" loading="lazy" decoding="async"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Calacatta Gold Maximus</p><p class="product-size">24" × 48" Polished Porcelain Slab · Marble Effect</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/CS16M_00170_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Calacatta Africa — Large Format</p><p class="product-size">24" × 48" Matte Porcelain · Dramatic Vein-Cut</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/CS16M_00150_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-marble"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Carrara Grey — Book-Match</p><p class="product-size">24" × 48" Porcelain · Satin Finish · Rectified</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/618TS_00500_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-slate"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">City Stone — Urban Concrete</p><p class="product-size">12" × 24" Porcelain · Matte · R10 Anti-Slip</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/CS32V_00200_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-wood"></div><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Essential Wood — Oak Effect</p><p class="product-size">8" × 48" Wood-Look Porcelain · R10 Rating</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/591TS_00100_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Stelvio — Natural Stone Look</p><p class="product-size">12" × 24" · Digital Print Texture · R11</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/collections/re-use-mineral/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/618TS_00100_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-slate"></div><span class="product-tag">Eco</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Re-use Mineral — Eco Porcelain</p><p class="product-size">12" × 24" · 100% Recycled · LEED Eligible</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/619TS_00500_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-marble"></div><span class="product-tag">Award</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Grey Antique — ADA 2024 Award</p><p class="product-size">24" × 24" · Mix &amp; Match Concept · Award Winner</p></div>
+  </a>
+  <a class="product-card" href="https://www.rakceramics.com/usa/en/tiles-floors-coverings/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/668TS_00100_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">RAK Ceramics</p><p class="product-name">Bahia — Tropical Stone</p><p class="product-size">24" × 48" Porcelain Slab · Matte · Outdoor-Rated</p></div>
+  </a>
+  <a class="product-card" href="https://tileworldtx.com/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/591TS_00120_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Tile World</p><p class="product-name">Travertine Cross-Cut Look</p><p class="product-size">16" × 16" Ceramic · Classic Vein Detail</p></div>
+  </a>
+  <a class="product-card" href="https://tileworldtx.com/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/413TS_00100_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-marble"></div><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Tile World</p><p class="product-name">Subway Gloss White 3×6</p><p class="product-size">3" × 6" Ceramic Wall Tile · Bright Gloss Finish</p></div>
+  </a>
+  <a class="product-card" href="https://tileworldtx.com/" target="_blank" rel="noopener">
+    <div class="product-img">
+    <img class="product-img-photo" src="https://img.shawinc.com/s7/is/image/ShawIndustries/690TS_00900_ROOM?fmt=Jpeg&qlt=85&wid=840" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<div class="product-swatch swatch-slate"></div><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Tile World</p><p class="product-name">Hexagon Mosaic — Nero Marquina</p><p class="product-size">2" Hex Mosaic · Polished Black Marble Look</p></div>
+  </a>
+  </div>
 </section>
-<!-- ══════════════════════════════════════════
-     JOHNSON HARDWOOD FULL CATALOG
-══════════════════════════════════════════ -->
-<section aria-label="Johnson Hardwood Collection" id="jh-catalog">
-<div class="jh-header" style="text-align:center;display:block;">
-<p class="section-label">Authorized Dealer · Johnson Hardwood</p>
-<h2 class="section-title">Complete <em>Wood Collection</em></h2>
-<p class="section-sub" id="jh-count">88 products across 8 series — available at our Houston showroom.</p>
-<a class="view-all" href="https://johnsonhardwood.com/products/" rel="noopener" style="display:inline-block;margin-top:8px;" target="_blank">View All on JohnsonHardwood.com →</a>
-</div>
-<div class="jh-series-tabs" id="jh-tabs" role="tablist">
-<button class="jh-tab active" data-series="all">All Series <span class="cnt">88</span></button>
-<button class="jh-tab" data-series="alehouse">Alehouse <span class="cnt">10</span></button>
-<button class="jh-tab" data-series="grandchateau">Grand Chateau <span class="cnt">12</span></button>
-<button class="jh-tab" data-series="englishpub">English Pub <span class="cnt">12</span></button>
-<button class="jh-tab" data-series="tuscan">Tuscan <span class="cnt">12</span></button>
-<button class="jh-tab" data-series="canyonridge">Canyon Ridge ★ <span class="cnt">6</span></button>
-<button class="jh-tab" data-series="olympus">Olympus ★ <span class="cnt">6</span></button>
-<button class="jh-tab" data-series="texastimber">Texas Timber ★ <span class="cnt">10</span></button>
-<button class="jh-tab" data-series="countrysideoak">Countryside Oak ★ <span class="cnt">10</span></button>
-<button class="jh-tab" data-series="oakgrove">Oak Grove <span class="cnt">10</span></button>
-</div>
-<div class="jh-grid" id="jh-grid" role="list"></div>
-<div class="jh-pagination" id="jh-pagination"></div>
-<p class="jh-pg-info" id="jh-pg-info"></p>
-</section>
-<!-- ══════════════════════════════════════════
-     TILE & PORCELAIN CATALOG
-══════════════════════════════════════════ -->
-<section aria-label="Tile &amp; Porcelain Collection" class="uc-section" id="tile-catalog">
-<div class="uc-banner">
-<div class="uc-banner-left">
-<div class="uc-type-icon">⬡</div>
-<div>
-<h2>Tile &amp; Porcelain</h2>
-<p id="tile-subtitle">Loading collection...</p>
-</div>
-</div>
-<div class="uc-banner-right">
-<span class="uc-brand-count">8 Authorized Brands</span>
-</div>
-</div>
-<div class="uc-brand-bar" id="tile-brands" role="tablist"></div>
-<div class="uc-series-bar hidden" id="tile-series" role="tablist"></div>
-<div class="uc-grid" id="tile-grid" role="list"></div>
-<div class="uc-pagination" id="tile-pagination"></div>
-<p class="uc-pg-info" id="tile-pg-info"></p>
-<div class="uc-sample-bar">
-<div>
-<strong>Request Free Tile Samples</strong>
-<p>Choose up to 5 samples — delivered to your door or pick up in-store.</p>
-</div>
-<button class="uc-sample-btn" onclick="openShowroomModal()">Request Samples →</button>
-</div>
-</section>
-<!-- ══════════════════════════════════════════
-     LVP / SPC CATALOG
-══════════════════════════════════════════ -->
-<section aria-label="LVP SPC Collection" class="uc-section" id="lvp-catalog">
-<div class="uc-banner">
-<div class="uc-banner-left">
-<div class="uc-type-icon">▭</div>
-<div>
-<h2>LVP &amp; SPC Flooring</h2>
-<p id="lvp-subtitle">Loading collection...</p>
-</div>
-</div>
-<div class="uc-banner-right">
-<span class="uc-brand-count">7 Authorized Brands</span>
-</div>
-</div>
-<div class="uc-brand-bar" id="lvp-brands" role="tablist"></div>
-<div class="uc-series-bar hidden" id="lvp-series" role="tablist"></div>
-<div class="uc-grid" id="lvp-grid" role="list"></div>
-<div class="uc-pagination" id="lvp-pagination"></div>
-<p class="uc-pg-info" id="lvp-pg-info"></p>
-<div class="uc-sample-bar">
-<div>
-<strong>100% Waterproof — See It In Person</strong>
-<p>Visit our Houston showroom to walk on samples and compare brands side-by-side.</p>
-</div>
-<button class="uc-sample-btn" onclick="openShowroomModal()">Visit Showroom →</button>
-</div>
-</section>
-<!-- ══════════════════════════════════════════
-     CARPET & LAMINATE CATALOG
-══════════════════════════════════════════ -->
-<section aria-label="Carpet &amp; Laminate Collection" class="uc-section" id="carpet-catalog">
-<div class="uc-banner">
-<div class="uc-banner-left">
-<div class="uc-type-icon">≋</div>
-<div>
-<h2>Carpet &amp; Laminate</h2>
-<p id="carpet-subtitle">Loading collection...</p>
-</div>
-</div>
-<div class="uc-banner-right">
-<span class="uc-brand-count">7 Authorized Brands</span>
-</div>
-</div>
-<div class="uc-brand-bar" id="carpet-brands" role="tablist"></div>
-<div class="uc-series-bar hidden" id="carpet-series" role="tablist"></div>
-<div class="uc-grid" id="carpet-grid" role="list"></div>
-<div class="uc-pagination" id="carpet-pagination"></div>
-<p class="uc-pg-info" id="carpet-pg-info"></p>
-<div class="uc-sample-bar">
-<div>
-<strong>Comfort Underfoot, Value That Lasts</strong>
-<p>Feel the difference in-store — our staff will help you find the perfect match.</p>
-</div>
-<button class="uc-sample-btn" onclick="openShowroomModal()">Get a Quote →</button>
-</div>
-</section>
-<!-- ══════════════════════════════════════════
-     NATURAL STONE CATALOG
-══════════════════════════════════════════ -->
-<section aria-label="Natural Stone Collection" class="uc-section" id="stone-catalog">
-<div class="uc-banner">
-<div class="uc-banner-left">
-<div class="uc-type-icon">◈</div>
-<div>
-<h2>Natural Stone</h2>
-<p id="stone-subtitle">Loading collection...</p>
-</div>
-</div>
-<div class="uc-banner-right">
-<span class="uc-brand-count">6 Authorized Brands</span>
-</div>
-</div>
-<div class="uc-brand-bar" id="stone-brands" role="tablist"></div>
-<div class="uc-series-bar hidden" id="stone-series" role="tablist"></div>
-<div class="uc-grid" id="stone-grid" role="list"></div>
-<div class="uc-pagination" id="stone-pagination"></div>
-<p class="uc-pg-info" id="stone-pg-info"></p>
-<div class="uc-sample-bar">
-<div>
-<strong>Timeless. Unique. Yours.</strong>
-<p>Every natural stone piece is one-of-a-kind — visit our showroom for expert selection.</p>
-</div>
-<button class="uc-sample-btn" onclick="openShowroomModal()">Book Consultation →</button>
-</div>
-</section>
-<!-- ─── FEATURED PRODUCTS ─── -->
-<section class="products reveal" id="featured">
-<div class="products-header" style="text-align:center;display:block;">
-<p class="section-label">Editor's Picks</p>
-<h2 class="section-title">Trending <em>Right Now</em></h2>
-<a class="view-all" href="#collections" style="display:inline-block;margin-top:8px;">View All Collections</a>
-</div>
-<div class="product-grid">
-<a class="product-card" href="tile.html">
-<div class="product-img trend-bg-1">
-<div class="product-swatch swatch-marble"></div>
-<span class="product-tag">Best Seller</span>
-<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
-</div>
-<div class="product-info">
-<p class="product-brand">RAK Ceramics</p>
-<p class="product-name">Calacatta Gold Maximus</p>
-<p class="product-size">24" × 48" Polished Porcelain Slab · Marble Effect</p>
-<p class="product-price">$4.89 / sq ft <span>$6.50</span></p>
-</div>
-</a>
-<a class="product-card" href="hardwood.html">
-<div class="product-img trend-bg-2">
-<div class="product-swatch swatch-travertine"></div>
-<span class="product-tag">New Arrival</span>
-<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
-</div>
-<div class="product-info">
-<p class="product-brand">Johnson Hardwood</p>
-<p class="product-name">Tuscan Collection — Hickory</p>
-<p class="product-size">4½" / 6" / 7½" Wide · Hand-Scraped Engineered</p>
-<p class="product-price">$5.20 / sq ft</p>
-</div>
-</a>
-<a class="product-card" href="lvp-lvt.html">
-<div class="product-img trend-bg-3">
-<div class="product-swatch swatch-slate"></div>
-<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
-</div>
-<div class="product-info">
-<p class="product-brand">Republic Floor</p>
-<p class="product-name">Woodland Oak — Valley Oak</p>
-<p class="product-size">9" × 60" SPC Rigid Core · 25-yr Residential Warranty</p>
-<p class="product-price">$3.89 / sq ft</p>
-</div>
-</a>
-<a class="product-card" href="lvp-lvt.html">
-<div class="product-img trend-bg-4">
-<div class="product-swatch swatch-wood"></div>
-<span class="product-tag">Sale</span>
-<div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
-</div>
-<div class="product-info">
-<p class="product-brand">Fuzion Flooring</p>
-<p class="product-name">Dynamix HardCore 3DGE — Beach Sands</p>
-<p class="product-size">7" × 60" LVP · 6mm Waterproof Rigid Core</p>
-<p class="product-price">$3.79 / sq ft <span>$4.99</span></p>
-</div>
-</a>
-</div>
-</section>
-<!-- ─── BRAND COLLECTIONS ─── -->
-<section class="vendor-section reveal" id="collections">
-<div class="vendor-header">
-<p class="section-label">Shop By Brand</p>
-<h2>Premium <em>Vendors</em> &amp; Collections</h2>
-<p>Select a category, then tap a vendor name to browse their official collections.</p>
-</div>
-<div aria-label="Vendor categories" class="vendor-tabbar" role="tablist">
-<button aria-selected="true" class="vendor-tab active" data-active="true" data-tab="lvp" role="tab">LVP / SPC</button>
-<button aria-selected="false" class="vendor-tab" data-tab="hardwood" role="tab">Hardwood</button>
-<button aria-selected="false" class="vendor-tab" data-tab="tile" role="tab">Tile</button>
-<button aria-selected="false" class="vendor-tab" data-tab="carpet" role="tab">Carpet</button>
-<button aria-selected="false" class="vendor-tab" data-tab="naturalStone" role="tab">Natural Stone</button>
-</div>
-<!-- TILE -->
-<div class="vendor-panel" data-panel="tile" id="vendor-panel-tile" role="tabpanel">
-<div class="brand-grid">
-<a aria-label="RAK Ceramics — Browse Collection" class="brand-card" href="https://www.rakceramics.com/usa/en/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/rak-ceramics-logo.webp" type="image/webp"/>
-<img alt="RAK Ceramics" decoding="async" loading="lazy" src="./assets/hero/rak-ceramics-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Tile World — Browse Collection" class="brand-card brand-card--tileworld brand-card--visual-center-fix" href="https://tileworldtx.com/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/tile-world-logo.webp" type="image/webp"/>
-<img alt="Tile World" decoding="async" loading="lazy" src="./assets/hero/tile-world-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-</div>
-</div>
-<!-- HARDWOOD -->
-<div class="vendor-panel" data-panel="hardwood" id="vendor-panel-hardwood" role="tabpanel">
-<div class="brand-grid">
-<a aria-label="Johnson Hardwood — Browse Collection" class="brand-card" href="https://johnsonhardwood.com/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/johnson-hardwood-logo.webp" type="image/webp"/>
-<img alt="Johnson Hardwood" decoding="async" loading="lazy" src="./assets/hero/johnson-hardwood-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="LW Flooring — Browse Collection" class="brand-card brand-card--lw brand-card--visual-center-fix" href="https://www.lwflooring.com/collections/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/lw-flooring-logo.webp" type="image/webp"/>
-<img alt="LW Flooring" decoding="async" loading="lazy" src="./assets/hero/lw-flooring-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card brand-card--fuzion brand-card--visual-center-fix" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp"/>
-<img alt="Fuzion Flooring" decoding="async" loading="lazy" src="./assets/hero/fuzion-flooring-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Knoas Flooring — Browse Collection" class="brand-card" href="https://www.knoasflooring.com/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/knoas-flooring-logo.webp" type="image/webp"/>
-<img alt="Knoas Flooring" decoding="async" loading="lazy" src="./assets/hero/knoas-flooring-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Lawson Floors — Browse Collection" class="brand-card" href="https://lawsonfloors.com/legends-collection/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp"/>
-<img alt="Lawson Floors" decoding="async" loading="lazy" src="./assets/hero/lawson-floors-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Piedmont — Browse Collection" class="brand-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp"/>
-<img alt="Piedmont" decoding="async" loading="lazy" src="./assets/hero/piedmont-floors-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-</div>
-</div>
-<!-- LVP / SPC -->
-<div class="vendor-panel active" data-panel="lvp" id="vendor-panel-lvp" role="tabpanel">
-<div class="brand-grid">
-<a aria-label="National Flooring Products — Browse Collection" class="brand-card" href="https://www.my-nfp.com/category/synthetic---loose-lay-collection" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/national-flooring-logo.webp" type="image/webp"/>
-<img alt="National Flooring Products" decoding="async" loading="lazy" src="./assets/hero/national-flooring-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Elephant Floors — Browse Collection" class="brand-card brand-card--elephant brand-card--visual-center-fix" href="https://elephantfloors.net/flooring-store/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/elephant-floors-logo.webp" type="image/webp"/>
-<img alt="Elephant Floors" decoding="async" loading="lazy" src="./assets/hero/elephant-floors-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card brand-card--fuzion brand-card--visual-center-fix" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp"/>
-<img alt="Fuzion Flooring" decoding="async" loading="lazy" src="./assets/hero/fuzion-flooring-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Lawson Floors — Browse Collection" class="brand-card" href="https://lawsonfloors.com/legends-collection/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/lawson-floors-logo.webp" type="image/webp"/>
-<img alt="Lawson Floors" decoding="async" loading="lazy" src="./assets/hero/lawson-floors-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Piedmont — Browse Collection" class="brand-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp"/>
-<img alt="Piedmont" decoding="async" loading="lazy" src="./assets/hero/piedmont-floors-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-</div>
-</div>
-<!-- CARPET -->
-<div class="vendor-panel" data-panel="carpet" id="vendor-panel-carpet" role="tabpanel">
-<div class="brand-grid">
-<a aria-label="Keystone Carpets &amp; Interiors — Browse Collection" class="brand-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/keystone-carpets-logo.webp" type="image/webp"/>
-<img alt="Keystone Carpets &amp; Interiors" decoding="async" loading="lazy" src="./assets/hero/keystone-carpets-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-<a aria-label="Piedmont — Browse Collection" class="brand-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/piedmont-floors-logo.webp" type="image/webp"/>
-<img alt="Piedmont" decoding="async" loading="lazy" src="./assets/hero/piedmont-floors-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-</div>
-</div>
-<!-- NATURAL STONE -->
-<div class="vendor-panel" data-panel="naturalStone" id="vendor-panel-naturalStone" role="tabpanel">
-<div class="brand-grid">
-<a aria-label="Durastone USA — Browse Collection" class="brand-card brand-card--durastone brand-card--visual-center-fix" href="https://durastoneusa.com/products/" rel="noopener" target="_blank">
-<div class="brand-logo-wrap">
-<picture>
-<source srcset="./assets/hero/duraston-usa-logo.webp" type="image/webp"/>
-<img alt="Durastone USA" decoding="async" loading="lazy" src="./assets/hero/duraston-usa-logo.png"/>
-</picture>
-</div>
-<span class="brand-cta">Browse Collection</span>
-</a>
-</div>
-</div>
-</section>
-<!-- ─── SERVICES ─── -->
-<section class="services reveal" id="services">
-<div class="services-header" style="text-align:center;display:block;max-width:720px;margin:0 auto 72px;">
-<p class="section-label">What We Offer</p>
-<h2 class="section-title">More Than Just<br/><em>Products</em></h2>
-<p style="font-size:.92rem;font-weight:300;line-height:1.65;color:rgba(253,250,246,.52);max-width:520px;margin:0 auto;">From your first visit to your finished floor, we handle every detail — so you can focus on what matters: the result.</p>
-</div>
-<div class="services-grid">
-<!-- 01 Design Consultation -->
-<div class="service-card">
-<span class="service-num">01</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<rect height="28" rx="2" stroke="#8c6f57" stroke-width="1.5" width="36" x="6" y="10"></rect>
-<path d="M6 18h36" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M16 10v8" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M32 10v8" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M14 27h8M14 33h14" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
-<circle cx="36" cy="32" r="5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<path d="M39.5 35.5l3 3" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.5"></path>
-</svg>
-</div>
-<h3 class="service-title">Free Design<br/>Consultation</h3>
-<p class="service-text">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Book a Visit</a>
-</div>
-<!-- 02 Professional Installation -->
-<div class="service-card">
-<span class="service-num">02</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 38L24 8l14 30" stroke="#8c6f57" stroke-linejoin="round" stroke-width="1.5"></path>
-<path d="M15 28h18" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
-<circle cx="24" cy="8" r="2.5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<path d="M18 38h12" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.5"></path>
-<path d="M34 38l4 0" opacity=".4" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.2"></path>
-<path d="M10 38l-4 0" opacity=".4" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.2"></path>
-</svg>
-</div>
-<h3 class="service-title">Professional<br/>Installation</h3>
-<p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Request a Quote</a>
-</div>
-<!-- 03 Fast Local Delivery -->
-<div class="service-card">
-<span class="service-num">03</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<rect height="18" rx="1.5" stroke="#8c6f57" stroke-width="1.5" width="26" x="4" y="16"></rect>
-<path d="M30 22h7l7 8v6h-14V22z" stroke="#8c6f57" stroke-linejoin="round" stroke-width="1.5"></path>
-<circle cx="12" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<circle cx="36" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<path d="M8 16V10h18v6" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M12 22h10" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
-</svg>
-</div>
-<h3 class="service-title">Fast Local<br/>Delivery</h3>
-<p class="service-text">In-stock orders reach Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Rush delivery available for active job sites.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Check Availability</a>
-</div>
-<!-- 04 Flexible Financing -->
-<div class="service-card">
-<span class="service-num">04</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<rect height="24" rx="2" stroke="#8c6f57" stroke-width="1.5" width="36" x="6" y="12"></rect>
-<path d="M6 20h36" stroke="#8c6f57" stroke-width="1.5"></path>
-<rect fill="#c9a96e" height="4" opacity=".6" rx="1" width="8" x="11" y="27"></rect>
-<rect height="4" opacity=".4" rx="1" stroke="#8c6f57" stroke-width="1.2" width="14" x="23" y="27"></rect>
-</svg>
-</div>
-<h3 class="service-title">Flexible<br/>Financing</h3>
-<p class="service-text">0% APR financing available for qualified buyers. Don't let budget stand between you and your vision — we have plans to fit every project and timeline.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Explore Options</a>
-</div>
-</div>
-</section>
-<!-- ─── TESTIMONIALS ─── -->
-<!-- ─── REVIEWS CAROUSEL ─── -->
-<section class="reviews-section reveal" id="reviews">
-<div class="reviews-header">
-<p class="section-label">Customer Stories</p>
-<h2 class="section-title">What Houston<br/><em>Is Saying</em></h2>
-<div class="reviews-meta">
-<div class="reviews-overall">
-<span class="reviews-score">5.0</span>
-<div class="reviews-stars-col">
-<div class="reviews-stars">★★★★★</div>
-<span class="reviews-count">Google Reviews</span>
-</div>
-<div class="reviews-google-badge">
-<svg aria-hidden="true" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path></svg>
-</div>
-</div>
-<div class="reviews-controls">
-<button aria-label="Previous reviews" class="rev-arrow" id="rev-prev">←</button>
-<button aria-label="Next reviews" class="rev-arrow" id="rev-next">→</button>
-</div>
-</div>
-</div>
-<div class="reviews-viewport">
-<div class="reviews-track" id="reviews-track">
-<!-- Review 1 -->
-<div class="rev-card">
-<div class="rev-card-stars">★★★★★</div>
-<p class="rev-card-text">I've used them twice now and both times the crew came out extremely professional, provided tips on maintaining the floors, and they were fast! Highly recommend.</p>
-<div class="rev-card-footer">
-<div class="rev-avatar">L</div>
-<div>
-<p class="rev-name">lalibob3121</p>
-<span class="rev-meta">Houston, TX <span class="rev-dot"></span> 10 years ago</span>
-</div>
-</div>
-</div>
-<!-- Review 2 -->
-<div class="rev-card">
-<div class="rev-card-stars">★★★★★</div>
-<p class="rev-card-text">I had a new house built and the contracted installation company did a poor job. Paul came and looked at my floor right away. Flooring Services stood behind the installation 100%. Paul was amazing.</p>
-<div class="rev-card-footer">
-<div class="rev-avatar">MB</div>
-<div>
-<p class="rev-name">Maria B.</p>
-<span class="rev-meta">Local Guide <span class="rev-dot"></span> 3 years ago</span>
-</div>
-</div>
-</div>
-<!-- Review 3 -->
-<div class="rev-card">
-<div class="rev-card-stars">★★★★★</div>
-<p class="rev-card-text">This place has always been great to us. They offer great prices, great customer service, and genuinely help you make a decision — not just trying to sell you something. Bought from them twice.</p>
-<div class="rev-card-footer">
-<div class="rev-avatar">IP</div>
-<div>
-<p class="rev-name">Ivana Ponce</p>
-<span class="rev-meta">Local Guide <span class="rev-dot"></span> 8 years ago</span>
-</div>
-</div>
-</div>
-<!-- Review 4 -->
-<div class="rev-card">
-<div class="rev-card-stars">★★★★★</div>
-<p class="rev-card-text">Paul is a good guy and will be fair and honest with you. Straightforward, no games — exactly what you want when you're making a big purchase for your home.</p>
-<div class="rev-card-footer">
-<div class="rev-avatar">ML</div>
-<div>
-<p class="rev-name">Michael Livesay</p>
-<span class="rev-meta">Houston, TX <span class="rev-dot"></span> 7 years ago</span>
-</div>
-</div>
-</div>
-<!-- Review 5 -->
-<div class="rev-card">
-<div class="rev-card-stars">★★★★★</div>
-<p class="rev-card-text">Excellent professional service at a reasonable price. Everything was handled smoothly from start to finish. Will definitely be back for our next project.</p>
-<div class="rev-card-footer">
-<div class="rev-avatar">AK</div>
-<div>
-<p class="rev-name">Alex Keselman</p>
-<span class="rev-meta">Local Guide <span class="rev-dot"></span> 1 year ago</span>
-</div>
-</div>
-</div>
-<!-- Review 6 -->
-<div class="rev-card">
-<div class="rev-card-stars">★★★★★</div>
-<p class="rev-card-text">Great customer service. The team was attentive and helpful throughout the entire process. You can tell they actually care about the customer experience.</p>
-<div class="rev-card-footer">
-<div class="rev-avatar">NN</div>
-<div>
-<p class="rev-name">Now Nowsheer</p>
-<span class="rev-meta">Local Guide <span class="rev-dot"></span> 2 years ago</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div aria-label="Review pages" class="reviews-dots" id="reviews-dots" role="tablist"></div>
-<!-- Mobile-only arrow row -->
-<div class="reviews-mobile-nav">
-<button aria-label="Previous reviews" class="rev-arrow-mob" id="rev-prev-mob">←</button>
-<div aria-label="Review pages" class="reviews-dots" id="reviews-dots-mob" role="tablist" style="margin-top:0;"></div>
-<button aria-label="Next reviews" class="rev-arrow-mob" id="rev-next-mob">→</button>
-</div>
-</section>
-<div id="contact"></div>
-<!-- ─── FOOTER ─── -->
+
+
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
@@ -5046,7 +4192,7 @@ footer a.snrg-link:hover{
 <li><a href="#">Contact Us</a></li>
 <li><a href="#">About Us</a></li>
 <li><a href="#">Careers</a></li>
-<li><a href="tel:+13468671155">(346) 867-1155</a></li>
+<li><a href="tel:+12818619800">(281) 861-9800</a></li>
 </ul>
 </div>
 </div>
@@ -5056,6 +4202,7 @@ footer a.snrg-link:hover{
 <span class="footer-spacer"></span>
 </div>
 </footer>
+
 <!-- ═══════════════════════════════════════════════════════════
      PRODUCT DETAIL MODAL — Barley Ale & Copper Ale
 ═══════════════════════════════════════════════════════════ -->
@@ -5107,7 +4254,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Phone</span>
-<span class="sm-info-value"><a href="tel:+13468671155">(346) 867-1155</a></span>
+<span class="sm-info-value"><a href="tel:+12818619800">(281) 861-9800</a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -5116,7 +4263,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdeded284c9c5c7"><span class="__cf_email__" data-cfemail="4920272f26092f2526263b20272e263c3d252c3d3d31672a2624">[email&#160;protected]</span></a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0c6cccfcfd2c9cec7cfd5d4ccc5d4d4d88ec3cfcd"><span class="__cf_email__" data-cfemail="01686f676e41676d6e6e73686f666e74756d647575792f626e6c">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -5181,7 +4328,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-field">
 <label for="sm-phone">Phone Number</label>
-<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(713) 555-0100" type="tel"/>
+<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(281) 861-9800" type="tel"/>
 </div>
 </div>
 <div class="sm-field">
@@ -5222,12 +4369,12 @@ footer a.snrg-link:hover{
 <div class="sm-success" id="sm-success-msg">
 <div class="sm-success-icon">✓</div>
 <h3>Message Received!</h3>
-<p>Thank you — we'll be in touch within one business day.<br/>Feel free to also call us at <a href="tel:+13468671155" style="color:var(--clay)">(346) 867-1155</a>.</p>
+<p>Thank you — we'll be in touch within one business day.<br/>Feel free to also call us at <a href="tel:+12818619800" style="color:var(--clay)">(281) 861-9800</a>.</p>
 </div>
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -6823,7 +5970,12 @@ const STONE_DATA = [
   {id:'s050',brand:'Keystone',series:'Slate',name:'Split Face',color:'Mixed Grey',size:'4×12',finish:'Natural',origin:'India',isNew:false},
   {id:'s051',brand:'Keystone',series:'Limestone',name:'Classic Limestone',color:'Warm Cream',size:'12×24',finish:'Honed',origin:'France',isNew:false},
   {id:'s052',brand:'Keystone',series:'Limestone',name:'Premium Limestone',color:'Buff Cream',size:'18×18',finish:'Honed',origin:'France',isNew:false},
-  {id:'s053',brand:'Keystone',series:'Quartzite',name:'White Quartzite',color:'Bright White',size:'12×24',finish:'Naturable',name:'River Pebble Natural',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
+  {id:'s053',brand:'Keystone',series:'Quartzite',name:'White Quartzite',color:'Bright White',size:'12×24',finish:'Natural',origin:'Brazil',isNew:false},
+  {id:'s054',brand:'Keystone',series:'Marble',name:'Bianco Marble',color:'Classic White',size:'12×12',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s055',brand:'Keystone',series:'Marble',name:'Classic Grey Marble',color:'Classic Grey',size:'12×24',finish:'Polished',origin:'Italy',isNew:false},
+  {id:'s056',brand:'Keystone',series:'Cobblestone',name:'Rustic Cobblestone',color:'Mixed Rustic',size:'12×12',finish:'Tumbled',origin:'Mixed',isNew:false},
+  {id:'s057',brand:'Keystone',series:'Cobblestone',name:'Grey Cobblestone',color:'Cool Grey',size:'4×4',finish:'Tumbled',origin:'Mixed',isNew:false},
+  {id:'s058',brand:'Keystone',series:'Pebble',name:'River Pebble Natural',color:'Natural Mixed',size:'12×12',finish:'Natural',origin:'Mixed',isNew:false},
   {id:'s059',brand:'Keystone',series:'Slate',name:'Garden Slate Charcoal',color:'Deep Charcoal',size:'24×24',finish:'Cleft',origin:'India',isNew:false},
   {id:'s060',brand:'Keystone',series:'Sandstone',name:'Natural Sandstone',color:'Warm Sand',size:'12×24',finish:'Honed',origin:'India',isNew:false},
   // ── Lawson's Premium Stone ─────────────────────────────
@@ -7187,155 +6339,4 @@ if (document.readyState === 'loading') {
     const pages = maxIndex() + 1;
     for (let i = 0; i < pages; i++) {
       const pip = document.createElement('button');
-      pip.className = 'rev-dot-pip' + (i === current ? ' active' : '');
-      pip.setAttribute('aria-label', 'Page ' + (i + 1));
-      pip.addEventListener('click', () => goTo(i));
-      wrap.appendChild(pip);
-    }
-  }
-
-  function buildDots() {
-    buildPips(dotsWrap);
-    buildPips(dotsMob);
-  }
-
-  function syncArrows(max) {
-    [prevBtn, prevMob].forEach(b => b && b.setAttribute('data-disabled', current === 0));
-    [nextBtn, nextMob].forEach(b => b && b.setAttribute('data-disabled', current >= max));
-  }
-
-  function syncPips(wrap) {
-    if (!wrap) return;
-    Array.from(wrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function goTo(idx) {
-    const max = maxIndex();
-    current = Math.max(0, Math.min(idx, max));
-    const { w, gap } = measure();
-    track.style.transform = 'translateX(' + (-current * (w + gap)) + 'px)';
-    syncArrows(max);
-    syncPips(dotsWrap);
-    syncPips(dotsMob);
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-  if (prevMob) prevMob.addEventListener('click', () => goTo(current - 1));
-  if (nextMob) nextMob.addEventListener('click', () => goTo(current + 1));
-
-  /* Swipe */
-  let tx = null;
-  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    if (tx === null) return;
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 30) goTo(current + (d > 0 ? 1 : -1));
-    tx = null;
-  }, { passive: true });
-
-  let rt;
-  window.addEventListener('resize', () => {
-    clearTimeout(rt);
-    rt = setTimeout(() => { buildDots(); goTo(Math.min(current, maxIndex())); }, 80);
-  });
-
-  buildDots();
-  requestAnimationFrame(() => goTo(0));
-})();
-</script>
-
-<style id="mobile-vendor-logo-stage-and-hero-fix-v5">
-/* Mobile-only final polish: more breathing room above hero title */
-@media (max-width: 640px){
-  .hero{
-    padding-top: 22px !important;
-  }
-  .hero-content{
-    margin-top: 18px !important;
-  }
-
-  /* Vendor cards: force perfect 2-up symmetry on phones */
-  .vendor-section .brand-grid,
-  .brand-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 14px !important;
-    align-items: stretch !important;
-  }
-
-  .vendor-section .brand-card,
-  .brand-card{
-    display: grid !important;
-    grid-template-rows: minmax(0, 1fr) auto !important;
-    align-items: center !important;
-    justify-items: center !important;
-    min-height: 164px !important;
-    padding: 14px 14px 16px !important;
-    gap: 12px !important;
-  }
-
-  /* Make the stage itself visually even and remove the weird left-strip look */
-  .vendor-section .brand-logo-wrap,
-  .brand-logo-wrap{
-    width: 100% !important;
-    height: 96px !important;
-    margin: 0 !important;
-    padding: 8px !important;
-    border-radius: 20px !important;
-    background: #f3f3f3 !important;
-    background-image: none !important;
-    box-shadow: inset 0 0 0 1px rgba(58,53,48,.14), 0 1px 0 rgba(255,255,255,.72) !important;
-    overflow: hidden !important;
-    display: grid !important;
-    place-items: center !important;
-  }
-
-  .vendor-section .brand-logo-wrap picture,
-  .brand-logo-wrap picture{
-    display: grid !important;
-    place-items: center !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .vendor-section .brand-logo-wrap img,
-  .brand-logo-wrap img{
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    margin: 0 auto !important;
-    transform: scale(1.10) !important;
-    transform-origin: center center !important;
-  }
-
-  /* Specific white-background logos that were reading too small/off-center */
-  .brand-logo-wrap img[src*="elephant-floors-logo"],
-  .brand-logo-wrap img[src*="fuzion-flooring-logo"],
-  .brand-logo-wrap img[src*="piedmont-floors-logo"]{
-    transform: scale(1.30) !important;
-  }
-
-  .brand-logo-wrap img[src*="national-flooring-logo"]{
-    transform: scale(1.14) !important;
-  }
-
-  .brand-logo-wrap img[src*="lawson-floors-logo"]{
-    transform: scale(1.12) !important;
-  }
-
-  .vendor-section .brand-cta,
-  .brand-cta{
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-    letter-spacing: .12em !important;
-  }
-}
-</style>
-
-</body>
-</html>
+      pip.className = 'rev-dot-pi
