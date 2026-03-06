@@ -3936,8 +3936,8 @@ footer a.snrg-link:hover{
 </style>
 
 <style id="mobile-home-hero-tile-reference-fix">
-/* MOBILE ONLY: simplify homepage hero to match tile hero background treatment */
-@media (max-width: 900px){
+/* MOBILE ONLY: homepage hero uses the carpet-page background treatment */
+@media (max-width: 640px){
   .hero{
     position: relative !important;
     min-height: 56vh !important;
@@ -3947,18 +3947,21 @@ footer a.snrg-link:hover{
     justify-content: flex-start !important;
     padding: 0 20px 56px !important;
     overflow: hidden !important;
-    background: linear-gradient(135deg,#141414,#222222) !important;
+    background: #141210 !important;
   }
 
+  /* Root-cause fix: mobile hero was still fighting earlier slide-based/mobile hero overrides.
+     Force a single background layer on the hero itself and kill the slideshow stack only on phones. */
   .hero::before{
     content: '' !important;
     position: absolute !important;
     inset: 0 !important;
-    background-image: url('./assets/hero/bathroom-hero.png') !important;
+    background-image: url('./assets/hero/carpet-hero.jpg') !important;
     background-size: cover !important;
     background-position: center 40% !important;
     transform: scale(1.06) !important;
     z-index: 0 !important;
+    pointer-events: none !important;
   }
 
   .hero::after{
@@ -3970,9 +3973,13 @@ footer a.snrg-link:hover{
   }
 
   .hero-slides,
+  .hero-slide,
+  .hero-slide img,
   .hero-scroll,
   .hero-dots{
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 
   .hero-content{
@@ -3983,10 +3990,12 @@ footer a.snrg-link:hover{
     padding: 0 !important;
     margin: 0 !important;
     animation: none !important;
+    transform: none !important;
   }
 
   .hero-content::before{
     display: none !important;
+    content: none !important;
   }
 
   .hero h1{
