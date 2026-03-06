@@ -4182,6 +4182,51 @@ footer a.snrg-link:hover{
 }
 </style>
 
+
+<style id="logo-centering-final-20260306">
+/* Root cause fix: these source logos have uneven internal whitespace.
+   Use logo-specific translation after scale so they center visually per breakpoint. */
+.brand-logo-wrap img[src*="lw-flooring-logo"],
+.brand-logo-wrap img[src*="fuzion-flooring-logo"],
+.brand-logo-wrap img[src*="elephant-floors-logo"],
+.brand-logo-wrap img[src*="tile-world-logo"],
+.brand-logo-wrap img[src*="duraston-usa-logo"]{
+  --logo-shift-x: 0px;
+  --logo-shift-y: 0px;
+}
+
+.vendor-section .brand-logo-wrap img[src*="lw-flooring-logo"],
+.vendor-section .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+.vendor-section .brand-logo-wrap img[src*="elephant-floors-logo"],
+.vendor-section .brand-logo-wrap img[src*="tile-world-logo"],
+.vendor-section .brand-logo-wrap img[src*="duraston-usa-logo"],
+.brand-logo-wrap img[src*="lw-flooring-logo"],
+.brand-logo-wrap img[src*="fuzion-flooring-logo"],
+.brand-logo-wrap img[src*="elephant-floors-logo"],
+.brand-logo-wrap img[src*="tile-world-logo"],
+.brand-logo-wrap img[src*="duraston-usa-logo"]{
+  transform: translate(var(--logo-shift-x), var(--logo-shift-y)) scale(var(--logo-scale)) !important;
+}
+
+/* Desktop + laptop: same logos need a slight left correction to become visually centered */
+@media (min-width: 641px){
+  .brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-shift-x: -8px; }
+  .brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-shift-x: -7px; }
+  .brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-shift-x: -8px; }
+  .brand-logo-wrap img[src*="tile-world-logo"]{ --logo-shift-x: -9px; }
+  .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-shift-x: -8px; }
+}
+
+/* Mobile: raise those same logos so they sit dead-center in the stage */
+@media (max-width: 640px){
+  .brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-shift-y: -7px; }
+  .brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-shift-y: -7px; }
+  .brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-shift-y: -8px; }
+  .brand-logo-wrap img[src*="tile-world-logo"]{ --logo-shift-y: -7px; }
+  .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-shift-y: -8px; }
+}
+</style>
+
 </head>
 <body>
 <!-- ─── NAV ─── -->
