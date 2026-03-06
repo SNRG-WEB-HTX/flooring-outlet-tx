@@ -3949,9 +3949,62 @@ footer a.snrg-link:hover{
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Carpet Houston","url":"https://flooringoutlettx.com/carpet.html","provider":{"@id":"https://flooringoutlettx.com/#business"}}
 </script>
+
+<style id="page-hero-laptop-fix-shared">
+/* SHARED FIX: subpage hero sits below fixed topbar + nav on laptop */
+@media (min-width: 900px) and (max-width: 1280px){
+  .page-hero{
+    min-height: 720px !important;
+    padding-top: 170px !important;
+    padding-bottom: 72px !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+  }
+  .page-hero-content{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    max-width: 720px !important;
+  }
+  .page-hero-label{
+    margin-bottom: 16px !important;
+  }
+  .page-hero-title{
+    font-size: clamp(3.1rem, 5vw, 4.3rem) !important;
+    line-height: 1.02 !important;
+    margin-bottom: 22px !important;
+  }
+  .page-hero-sub{
+    max-width: 560px !important;
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 1281px){
+  .page-hero{
+    padding-top: 0 !important;
+    align-items: flex-end !important;
+  }
+}
+</style>
+
+
+<style id="page-hero-laptop-tuning-shared">
+/* SHARED TUNING: reduce bottom space and lift text on laptop only */
+@media (min-width: 900px) and (max-width: 1280px){
+  .page-hero{
+    padding-bottom: 40px !important;
+    min-height: 620px !important;
+  }
+  .page-hero-content{
+    transform: translateY(-22px) !important;
+  }
+  .page-hero-title{
+    margin-top: -8px !important;
+  }
+}
+</style>
+
 </head>
 <body class="subpage page-carpet">
-<body>
 <!-- ─── NAV ─── -->
 <div class="topbar">
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
