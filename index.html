@@ -1989,6 +1989,279 @@ nav.scrolled .nav-cta{
 }
 
 
+/* ═══════════════════════════════════════════════════════════
+   MOBILE SHOWROOM + NAV REFINEMENT
+═══════════════════════════════════════════════════════════ */
+.mobile-refresh-item { display: none; }
+.mobile-refresh-btn {
+  appearance: none;
+  border: none;
+  width: 100%;
+  font: inherit;
+  cursor: pointer;
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  body.menu-open-mobile { overflow: hidden; }
+
+  nav {
+    padding: 10px 14px !important;
+    min-height: 64px !important;
+  }
+
+  .nav-burger {
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(255,255,255,.16) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04)) !important;
+    box-shadow: 0 14px 32px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(18px) saturate(125%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(125%) !important;
+    transition: transform .28s ease, box-shadow .28s ease, background .28s ease !important;
+  }
+
+  .nav-burger:active { transform: scale(.97); }
+
+  .nav-burger .burger-line {
+    width: 22px !important;
+    height: 2px !important;
+    margin: 4px auto !important;
+    background: rgba(255,255,255,.96) !important;
+    border-radius: 999px !important;
+    transition: transform .28s ease, opacity .22s ease, width .22s ease !important;
+    transform-origin: center !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,.18);
+  }
+
+  nav.menu-open .nav-burger {
+    background: linear-gradient(180deg, rgba(198,167,94,.28), rgba(255,255,255,.08)) !important;
+    box-shadow: 0 16px 42px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.16) !important;
+  }
+
+  nav.menu-open .nav-burger .burger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg) !important;
+  }
+  nav.menu-open .nav-burger .burger-line:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(.3) !important;
+  }
+  nav.menu-open .nav-burger .burger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg) !important;
+  }
+
+  nav::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10,8,7,.52);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease;
+  }
+
+  nav.menu-open::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav.menu-open .nav-links {
+    top: 8px !important;
+    right: 8px !important;
+    left: auto !important;
+    width: min(86vw, 380px) !important;
+    height: calc(100dvh - 16px) !important;
+    padding: 84px 14px 118px !important;
+    gap: 12px !important;
+    border-radius: 24px !important;
+    background: linear-gradient(180deg, rgba(24,21,18,.96), rgba(20,18,16,.98)) !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    box-shadow: 0 24px 80px rgba(0,0,0,.46) !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    overflow-y: auto !important;
+  }
+
+  nav.menu-open .nav-links a,
+  .mobile-refresh-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-height: 56px !important;
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)) !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06) !important;
+    color: rgba(255,255,255,.94) !important;
+    font-size: .9rem !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+  }
+
+  nav.menu-open .nav-links a::after,
+  .mobile-refresh-btn::after {
+    content: '↗';
+    font-size: .92rem;
+    opacity: .7;
+  }
+
+  .mobile-refresh-item {
+    display: block !important;
+    list-style: none;
+  }
+
+  nav.menu-open .nav-cta {
+    top: auto !important;
+    bottom: 18px !important;
+    left: auto !important;
+    right: 22px !important;
+    width: min(78vw, 332px) !important;
+    min-height: 54px !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.32) !important;
+  }
+
+  .showroom-modal-overlay {
+    align-items: flex-end !important;
+    background: rgba(17,14,12,.78) !important;
+  }
+
+  .showroom-modal {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: min(92dvh, 920px) !important;
+    max-height: 92dvh !important;
+    margin: 0 !important;
+    border-radius: 28px 28px 0 0 !important;
+    overflow: hidden !important;
+    grid-template-columns: 1fr !important;
+    box-shadow: 0 -16px 60px rgba(0,0,0,.32) !important;
+  }
+
+  .sm-close {
+    top: 16px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.1) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .sm-left {
+    padding: 56px 20px 18px !important;
+    gap: 18px !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  }
+
+  .sm-left::before {
+    width: 260px !important;
+    height: 260px !important;
+    right: -72px !important;
+    bottom: -92px !important;
+  }
+
+  .sm-logo { font-size: 1.45rem !important; }
+  .sm-tagline { font-size: .62rem !important; letter-spacing: .16em !important; }
+
+  .sm-info-group {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .sm-info-item {
+    gap: 12px !important;
+    padding: 14px 14px !important;
+    border-radius: 18px !important;
+    background: rgba(255,255,255,.06) !important;
+    border: 1px solid rgba(255,255,255,.06) !important;
+    align-items: flex-start !important;
+  }
+
+  .sm-info-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    background: rgba(198,167,94,.1) !important;
+  }
+
+  .sm-info-label { font-size: .58rem !important; letter-spacing: .18em !important; }
+  .sm-info-value { font-size: .92rem !important; line-height: 1.55 !important; }
+  .sm-info-value a { word-break: break-word; }
+
+  .sm-map-embed {
+    min-height: 156px !important;
+    border-radius: 18px !important;
+  }
+
+  .sm-social-row {
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    margin-top: 4px !important;
+  }
+
+  .sm-social-btn {
+    flex: 1 1 calc(50% - 10px) !important;
+    justify-content: center !important;
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.05) !important;
+  }
+
+  .sm-right {
+    padding: 24px 20px 28px !important;
+    gap: 20px !important;
+    overflow-y: auto !important;
+  }
+
+  .sm-right-label {
+    font-size: .62rem !important;
+    letter-spacing: .18em !important;
+  }
+
+  .sm-right-title {
+    font-size: 2rem !important;
+    line-height: 1.04 !important;
+  }
+
+  .sm-right-sub {
+    max-width: none !important;
+    font-size: .92rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .sm-form { gap: 14px !important; }
+  .sm-form-row { gap: 12px !important; }
+
+  .sm-field input,
+  .sm-field select,
+  .sm-field textarea {
+    min-height: 52px !important;
+    padding: 14px 15px !important;
+    border-radius: 16px !important;
+    background: #f6f1e9 !important;
+  }
+
+  .sm-field textarea { min-height: 120px !important; }
+
+  .sm-submit {
+    width: 100% !important;
+    min-height: 56px !important;
+    justify-content: center !important;
+    border-radius: 18px !important;
+    align-self: stretch !important;
+    box-shadow: 0 14px 30px rgba(20,18,16,.14) !important;
+  }
+}
+
+
 /* ══════════════════════════════════════════
    JOHNSON HARDWOOD CATALOG SECTION
 ══════════════════════════════════════════ */
@@ -4273,7 +4546,7 @@ footer a.snrg-link:hover{
 <span> <a href="tel:+13468671155">(346) 867-1155</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email protected]</span></a></span>
+<span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
 </div><nav id="nav">
 <a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
 <button aria-expanded="false" aria-label="Menu" class="nav-burger" type="button">
@@ -4288,6 +4561,7 @@ footer a.snrg-link:hover{
 <li><a href="carpet.html">Carpet</a></li>
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
+<li class="mobile-refresh-item"><button class="mobile-refresh-btn" onclick="window.location.reload(); return false;" type="button">Refresh Page</button></li>
 </ul>
 <a class="nav-cta" href="/cdn-cgi/l/email-protection#cea7a0a8a18ea8a2a1a1bca7a0a9a1bbbaa2abbabab6e0ada1a3f1bdbbaca4abadbaf388a2a1a1bca7a0a9ebfcfe9fbba1baabebfcfe9cabbfbbabbdbaebfcfeeb8bfcebf6feebf7faebfcfe88a2a1a1bca7a0a9ebfcfe81bbbaa2abbaebfcfe9a96e8aca1aab7f386a7ee88a2a1a1bca7a0a9ee81bbbaa2abbaee9a96e2ebfe8aebfe8febfe8aebfe8f872c4e57aaeea2a7a5abeeafeebfbba1baabeea8a1bcf4ebfe8aebfe8f2c4e6cee9ebca1aabbadbaeebab7beabeee69aa7a2abeee1ee86afbcaab9a1a1aaeee1ee82989eeee1ee8dafbcbeabbaeee1ee9dbaa1a0abe7f4ebfe8aebfe8f2c4e6cee8fbebebca1b6e0eebdbfbbafbcabeea8a1a1baafa9abf4ebfe8aebfe8f2c4e6cee87a0bdbaafa2a2afbaa7a1a0eea0ababaaabaaf1eee697abbde180a1e7f4ebfe8aebfe8f2c4e6cee8faaaabcabbdbdeee1ee94879ef4ebfe8aebfe8f2c4e6cee9aa7a3aba2a7a0abf4ebfe8aebfe8febfe8aebfe8f83b7eeada1a0baafadbaeea7a0a8a1f4ebfe8aebfe8f80afa3abf4ebfe8aebfe8f9ea6a1a0abf4ebfe8aebfe8febfe8aebfe8f9aa6afa0a5bdef">Get a Quote</a>
 </nav>
@@ -5082,7 +5356,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdeded284c9c5c7"><span class="__cf_email__" data-cfemail="4920272f26092f2526263b20272e263c3d252c3d3d31672a2624">[email&#160;protected]</span></a></span>
+<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -5281,25 +5555,35 @@ footer a.snrg-link:hover{
 
   const setNav = () => nav.classList.toggle('scrolled', window.scrollY > 40);
 
+  const syncMobileState = (open) => {
+    nav.classList.toggle('menu-open', open);
+    document.body.classList.toggle('menu-open-mobile', open);
+    if(burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+
   const closeMenu = () => {
-    nav.classList.remove('menu-open');
-    if(burger) burger.setAttribute('aria-expanded','false');
+    syncMobileState(false);
   };
 
   if(burger){
     burger.addEventListener('click', () => {
-      const open = nav.classList.toggle('menu-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const open = !nav.classList.contains('menu-open');
+      syncMobileState(open);
     });
   }
 
-  // Close menu when a link is clicked
+  // Close menu when a link or refresh action is clicked
   if(links){
     links.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if(a) closeMenu();
+      const action = e.target.closest('a, button');
+      if(action) closeMenu();
     });
   }
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeMenu();
+  });
+
   // Close on outside tap
   document.addEventListener('click', (e) => {
     if(!nav.classList.contains('menu-open')) return;
@@ -7302,6 +7586,67 @@ if (document.readyState === 'loading') {
   }
 }
 </style>
+
+
+<style id="mobile-footer-end-fix-20260306">
+@media (max-width: 640px){
+  html, body{
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  body{
+    display: block !important;
+  }
+
+  #contact{
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  footer{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  footer .footer-top{
+    margin-bottom: 0 !important;
+    padding-bottom: 24px !important;
+  }
+
+  footer .footer-bottom{
+    margin-bottom: 0 !important;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  body > :last-child{
+    margin-bottom: 0 !important;
+  }
+}
+</style>
+<script id="mobile-footer-end-fix-script-20260306">
+(function(){
+  function fixMobilePageEnd(){
+    if (window.innerWidth > 640) return;
+    document.documentElement.style.height = 'auto';
+    document.documentElement.style.minHeight = '0';
+    document.body.style.height = 'auto';
+    document.body.style.minHeight = '0';
+    document.body.style.marginBottom = '0';
+    document.body.style.paddingBottom = '0';
+  }
+
+  window.addEventListener('load', fixMobilePageEnd, { passive: true });
+  window.addEventListener('resize', fixMobilePageEnd, { passive: true });
+  window.addEventListener('orientationchange', fixMobilePageEnd, { passive: true });
+  fixMobilePageEnd();
+})();
+</script>
 
 </body>
 </html>
