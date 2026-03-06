@@ -4539,6 +4539,37 @@ footer a.snrg-link:hover{
 }
 </style>
 
+
+<style id="mobile-menu-cta-final-override-20260306">
+@media (max-width: 640px){
+  /* Keep Get a Quote out of the top mobile header; show it only inside the open menu */
+  nav .nav-cta{
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: fixed !important;
+    top: auto !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 18px !important;
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 140 !important;
+    justify-content: center !important;
+  }
+  nav.menu-open .nav-cta{
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    display: flex !important;
+  }
+  .mobile-refresh-item,
+  .mobile-refresh-btn{
+    display: none !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -4561,7 +4592,6 @@ footer a.snrg-link:hover{
 <li><a href="carpet.html">Carpet</a></li>
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
-<li class="mobile-refresh-item"><button class="mobile-refresh-btn" onclick="window.location.reload(); return false;" type="button">Refresh Page</button></li>
 </ul>
 <a class="nav-cta" href="/cdn-cgi/l/email-protection#cea7a0a8a18ea8a2a1a1bca7a0a9a1bbbaa2abbabab6e0ada1a3f1bdbbaca4abadbaf388a2a1a1bca7a0a9ebfcfe9fbba1baabebfcfe9cabbfbbabbdbaebfcfeeb8bfcebf6feebf7faebfcfe88a2a1a1bca7a0a9ebfcfe81bbbaa2abbaebfcfe9a96e8aca1aab7f386a7ee88a2a1a1bca7a0a9ee81bbbaa2abbaee9a96e2ebfe8aebfe8febfe8aebfe8f872c4e57aaeea2a7a5abeeafeebfbba1baabeea8a1bcf4ebfe8aebfe8f2c4e6cee9ebca1aabbadbaeebab7beabeee69aa7a2abeee1ee86afbcaab9a1a1aaeee1ee82989eeee1ee8dafbcbeabbaeee1ee9dbaa1a0abe7f4ebfe8aebfe8f2c4e6cee8fbebebca1b6e0eebdbfbbafbcabeea8a1a1baafa9abf4ebfe8aebfe8f2c4e6cee87a0bdbaafa2a2afbaa7a1a0eea0ababaaabaaf1eee697abbde180a1e7f4ebfe8aebfe8f2c4e6cee8faaaabcabbdbdeee1ee94879ef4ebfe8aebfe8f2c4e6cee9aa7a3aba2a7a0abf4ebfe8aebfe8febfe8aebfe8f83b7eeada1a0baafadbaeea7a0a8a1f4ebfe8aebfe8f80afa3abf4ebfe8aebfe8f9ea6a1a0abf4ebfe8aebfe8febfe8aebfe8f9aa6afa0a5bdef">Get a Quote</a>
 </nav>
