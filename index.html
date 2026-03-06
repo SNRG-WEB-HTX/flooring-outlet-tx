@@ -4227,6 +4227,45 @@ footer a.snrg-link:hover{
 }
 </style>
 
+
+<style id="brand-logo-system-v7">
+/* Permanent vendor logo centering system
+   Root cause: some vendor logo assets have asymmetric internal whitespace.
+   Fix strategy: assign per-card optical offsets through CSS variables instead of ad hoc image rules. */
+.vendor-section .brand-card--visual-center-fix{
+  --brand-logo-desktop-x: 0px;
+  --brand-logo-mobile-y: 0px;
+}
+
+.vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
+  transform: translate(0, 0) scale(var(--logo-scale, 1)) !important;
+}
+
+@media (min-width: 641px){
+  .vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
+    transform: translate(var(--brand-logo-desktop-x), 0) scale(var(--logo-scale, 1)) !important;
+  }
+
+  .vendor-section .brand-card--lw{ --brand-logo-desktop-x: -12px; }
+  .vendor-section .brand-card--fuzion{ --brand-logo-desktop-x: -11px; }
+  .vendor-section .brand-card--elephant{ --brand-logo-desktop-x: -12px; }
+  .vendor-section .brand-card--tileworld{ --brand-logo-desktop-x: -13px; }
+  .vendor-section .brand-card--durastone{ --brand-logo-desktop-x: -12px; }
+}
+
+@media (max-width: 640px){
+  .vendor-section .brand-card--visual-center-fix .brand-logo-wrap img{
+    transform: translate(0, var(--brand-logo-mobile-y)) scale(var(--logo-scale, 1)) !important;
+  }
+
+  .vendor-section .brand-card--lw{ --brand-logo-mobile-y: -11px; }
+  .vendor-section .brand-card--fuzion{ --brand-logo-mobile-y: -11px; }
+  .vendor-section .brand-card--elephant{ --brand-logo-mobile-y: -12px; }
+  .vendor-section .brand-card--tileworld{ --brand-logo-mobile-y: -11px; }
+  .vendor-section .brand-card--durastone{ --brand-logo-mobile-y: -12px; }
+}
+</style>
+
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -4585,7 +4624,7 @@ footer a.snrg-link:hover{
 </div>
 <span class="brand-cta">Browse Collection</span>
 </a>
-<a aria-label="Tile World — Browse Collection" class="brand-card" href="https://tileworldtx.com/" rel="noopener" target="_blank">
+<a aria-label="Tile World — Browse Collection" class="brand-card brand-card--tileworld brand-card--visual-center-fix" href="https://tileworldtx.com/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <picture>
 <source srcset="./assets/hero/tile-world-logo.webp" type="image/webp"/>
@@ -4608,7 +4647,7 @@ footer a.snrg-link:hover{
 </div>
 <span class="brand-cta">Browse Collection</span>
 </a>
-<a aria-label="LW Flooring — Browse Collection" class="brand-card" href="https://www.lwflooring.com/collections/" rel="noopener" target="_blank">
+<a aria-label="LW Flooring — Browse Collection" class="brand-card brand-card--lw brand-card--visual-center-fix" href="https://www.lwflooring.com/collections/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <picture>
 <source srcset="./assets/hero/lw-flooring-logo.webp" type="image/webp"/>
@@ -4617,7 +4656,7 @@ footer a.snrg-link:hover{
 </div>
 <span class="brand-cta">Browse Collection</span>
 </a>
-<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
+<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card brand-card--fuzion brand-card--visual-center-fix" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <picture>
 <source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp"/>
@@ -4667,7 +4706,7 @@ footer a.snrg-link:hover{
 </div>
 <span class="brand-cta">Browse Collection</span>
 </a>
-<a aria-label="Elephant Floors — Browse Collection" class="brand-card" href="https://elephantfloors.net/flooring-store/" rel="noopener" target="_blank">
+<a aria-label="Elephant Floors — Browse Collection" class="brand-card brand-card--elephant brand-card--visual-center-fix" href="https://elephantfloors.net/flooring-store/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <picture>
 <source srcset="./assets/hero/elephant-floors-logo.webp" type="image/webp"/>
@@ -4676,7 +4715,7 @@ footer a.snrg-link:hover{
 </div>
 <span class="brand-cta">Browse Collection</span>
 </a>
-<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
+<a aria-label="Fuzion Flooring — Browse Collection" class="brand-card brand-card--fuzion brand-card--visual-center-fix" href="https://www.fuzionflooring.com/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <picture>
 <source srcset="./assets/hero/fuzion-flooring-logo.webp" type="image/webp"/>
@@ -4731,7 +4770,7 @@ footer a.snrg-link:hover{
 <!-- NATURAL STONE -->
 <div class="vendor-panel" data-panel="naturalStone" id="vendor-panel-naturalStone" role="tabpanel">
 <div class="brand-grid">
-<a aria-label="Durastone USA — Browse Collection" class="brand-card" href="https://durastoneusa.com/products/" rel="noopener" target="_blank">
+<a aria-label="Durastone USA — Browse Collection" class="brand-card brand-card--durastone brand-card--visual-center-fix" href="https://durastoneusa.com/products/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <picture>
 <source srcset="./assets/hero/duraston-usa-logo.webp" type="image/webp"/>
