@@ -3432,6 +3432,48 @@ footer a.snrg-link:hover{
   justify-content:center !important;
 }
 
+
+/* ─── CARPET PRODUCT CARDS — close-up texture photography ─── */
+.page-product-grid .product-img {
+  position: relative;
+  overflow: hidden;
+}
+.page-product-grid .product-img-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 1;
+  transition: transform .7s cubic-bezier(.25,1,.5,1);
+}
+.page-product-grid .product-card:hover .product-img-photo {
+  transform: scale(1.06);
+}
+.page-product-grid .product-swatch {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.page-product-grid .product-tag {
+  z-index: 3;
+  position: absolute;
+}
+.page-product-grid .product-hover {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 3 !important;
+}
+.page-product-grid .product-hover-btn {
+  position: relative;
+  z-index: 4;
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -4026,7 +4068,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hello%20Flooring%20Outlet%20TX%20Team%2C%0A%0AI%E2%80%99m%20reaching%20out%20to%20request%20a%20flooring%20quote%20for%20my%20project.%0A%0A%E2%94%80%E2%94%80%20PROJECT%20DETAILS%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AFloor%20Type%20%28LVP/SPC%2C%20Hardwood%2C%20Tile%2C%20Carpet%2C%20Natural%20Stone%29%3A%20%0AEstimated%20Square%20Footage%3A%20%0ARoom%28s%29%20/%20Area%3A%20%0AInstallation%20Needed%20%28Yes%20/%20No%29%3A%20%0ADesired%20Timeline%3A%20%0A%0A%E2%94%80%E2%94%80%20CONTACT%20INFORMATION%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AName%3A%20%0APhone%3A%20%0ABest%20Time%20to%20Call%3A%20%0AAddress%20/%20Zip%20Code%3A%20%0A%0A%E2%94%80%E2%94%80%20ADDITIONAL%20NOTES%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A%0A%0AThank%20you%20%E2%80%94%20I%20look%20forward%20to%20hearing%20from%20you%21%0A">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#751c1b131a3513191a1a071c1b121a0001191001010d5b161a184a0600171f1016014833191a1a071c1b1250474524001a011050474527100400100601504745503047504d45504c4150474533191a1a071c1b125047453a0001191001504745212d53171a110c483d1019191a50474533191a1a071c1b125047453a0001191001504745212d504745211014185047365045345045343c503047504d45504c4c18504745071014161d1c1b125047451a0001504745011a504745071004001006015047451450474513191a1a071c1b1250474504001a0110504745131a07504745180c50474505071a1f1016015b504534504534503047504c41504d45503047504c41504d4550474525273a3f303621504745313021343c3926504745503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d4550453433191a1a07504745210c051050474550474d3923255a2625365047365047453d140711021a1a11504736504745211c19105047365047453614070510015047365047453b14010007141950474526011a1b1050474c5046345047455045343006011c1814011011504745260400140710504745331a1a01141210504634504745504534271a1a1850474d0650474c5047455a504745340710145046345047455045343c1b060114191914011c1a1b5047453b101011101150474550474d2c10065047455a5047453b1a50474c5046345047455045343110061c071011504745211c1810191c1b10504634504745504534504534503047504c41504d45503047504c41504d45504745363a3b213436215047453c3b333a273834213c3a3b504745503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d455045343b141810504634504745504534251d1a1b1050463450474550453437100601504745211c1810504745011a50474536141919504634504745504534341111071006065047455a5047452f1c05504745361a1110504634504745504534504534503047504c41504d45503047504c41504d455047453431313c213c3a3b34395047453b3a213026504745503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45503047504c41504d45504534504534504534211d141b1e5047450c1a00504745503047504d45504c415047453c504745191a1a1e504745131a0702140711504745011a5047451d1014071c1b1250474513071a185047450c1a00504744504534">Get a Quote</a>
 </nav>
 <section class="page-hero hero-carpet">
   <div class="page-hero-bg"></div>
@@ -4047,36 +4089,36 @@ footer a.snrg-link:hover{
   </div>
   <div class="product-grid page-product-grid">
   <a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Sanctuary Plush — Ivory Mist</p><p class="product-size">12' Roll · 40oz Face Weight · Stain-Shield</p><p class="product-price">$2.49 / sq ft <span>$3.89</span></p></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/yja96rfq7e/jpeg/e0811_00150_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Sanctuary Plush Ivory Mist Cut Pile 40oz Stain-Shield" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Sanctuary Plush — Ivory Mist</p><p class="product-size">12' Roll · 40oz Face Weight · Stain-Shield</p></div>
   </a>
   <a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Performance Berber — Charcoal Fleck</p><p class="product-size">12' Width · Loop Pile · Commercial-Grade</p><p class="product-price">$1.99 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/jslryc8z5t/jpeg/e0563_00504_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Performance Berber Charcoal Fleck Loop Pile Commercial-Grade" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Performance Berber — Charcoal Fleck</p><p class="product-size">12' Width · Loop Pile · Commercial-Grade</p></div>
   </a>
   <a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Comfort Touch — Warm Bisque</p><p class="product-size">12' Roll · 45oz · Pet-Friendly Treatment</p><p class="product-price">$2.89 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/pntqp4ptjp/jpeg/5e442_00153_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Comfort Touch Warm Bisque Plush 45oz Pet-Friendly" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Comfort Touch — Warm Bisque</p><p class="product-size">12' Roll · 45oz · Pet-Friendly Treatment</p></div>
   </a>
   <a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Luxury Plush — Antique Cream</p><p class="product-size">15' Roll · 48oz · Ultra-Soft Underfoot</p><p class="product-price">$3.49 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/1qkymeb8ht/jpeg/e0811_00102_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Luxury Plush Antique Cream 48oz Ultra-Soft" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Luxury Plush — Antique Cream</p><p class="product-size">15' Roll · 48oz · Ultra-Soft Underfoot</p></div>
   </a>
   <a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Commercial Loop — Espresso Brown</p><p class="product-size">12' Width · Level Loop · 28oz Commercial</p><p class="product-price">$1.79 / sq ft <span>$2.60</span></p></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/4fomvkn3cm/jpeg/e9725_00192_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Commercial Loop Espresso Brown Level Loop 28oz" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Commercial Loop — Espresso Brown</p><p class="product-size">12' Width · Level Loop · 28oz Commercial</p></div>
   </a>
   <a class="product-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Saxony Cut Pile — Coastal Sand</p><p class="product-size">12' Width · 38oz · Moisture Barrier Backing</p><p class="product-price">$2.19 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/up6yiwzgnl/jpeg/e0811_00106_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Saxony Cut Pile Coastal Sand 38oz Moisture Barrier" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Saxony Cut Pile — Coastal Sand</p><p class="product-size">12' Width · 38oz · Moisture Barrier Backing</p></div>
   </a>
   <a class="product-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Frieze Texture — Gunsmoke Grey</p><p class="product-size">12' Width · Twist Pile · Hides Traffic Patterns</p><p class="product-price">$2.69 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/sg9jesusqp/jpeg/5e437_00504_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Frieze Texture Gunsmoke Grey Twist Pile" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Frieze Texture — Gunsmoke Grey</p><p class="product-size">12' Width · Twist Pile · Hides Traffic Patterns</p></div>
   </a>
   <a class="product-card" href="https://www.piedmontfloorshow.com/products" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Pattern Weave — Geometric Taupe</p><p class="product-size">12' Width · Cut/Loop · 18" Pattern Repeat</p><p class="product-price">$3.29 / sq ft</p></div>
+    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://shawfloors.widen.net/content/vadfcaddjy/jpeg/5e437_00104_main?w=840&h=0&fmt=jpeg&quality=85&keep=c&crop=true" alt="Pattern Weave Geometric Taupe Cut Loop 18in Repeat" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Pattern Weave — Geometric Taupe</p><p class="product-size">12' Width · Cut/Loop · 18" Pattern Repeat</p></div>
   </a>
   </div>
 </section>
@@ -4308,7 +4350,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -6273,53 +6315,4 @@ if (document.readyState === 'loading') {
     const pages = maxIndex() + 1;
     for (let i = 0; i < pages; i++) {
       const pip = document.createElement('button');
-      pip.className = 'rev-dot-pip' + (i === current ? ' active' : '');
-      pip.setAttribute('aria-label', 'Page ' + (i + 1));
-      pip.addEventListener('click', () => goTo(i));
-      wrap.appendChild(pip);
-    }
-  }
-
-  function buildDots() {
-    buildPips(dotsWrap);
-    buildPips(dotsMob);
-  }
-
-  function syncArrows(max) {
-    [prevBtn, prevMob].forEach(b => b && b.setAttribute('data-disabled', current === 0));
-    [nextBtn, nextMob].forEach(b => b && b.setAttribute('data-disabled', current >= max));
-  }
-
-  function syncPips(wrap) {
-    if (!wrap) return;
-    Array.from(wrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function goTo(idx) {
-    const max = maxIndex();
-    current = Math.max(0, Math.min(idx, max));
-    const { w, gap } = measure();
-    track.style.transform = 'translateX(' + (-current * (w + gap)) + 'px)';
-    syncArrows(max);
-    syncPips(dotsWrap);
-    syncPips(dotsMob);
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-  if (prevMob) prevMob.addEventListener('click', () => goTo(current - 1));
-  if (nextMob) nextMob.addEventListener('click', () => goTo(current + 1));
-
-  /* Swipe */
-  let tx = null;
-  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    if (tx === null) return;
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 30) goTo(current + (d > 0 ? 1 : -1));
-    tx = null;
-  }, { passive: true });
-
- 
-</body>
-</html>
+      pip.className = 'rev-dot-pi
