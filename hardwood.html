@@ -3432,6 +3432,34 @@ footer a.snrg-link:hover{
   justify-content:center !important;
 }
 
+
+/* ─── PRODUCT IMAGE PLANK UNIFORMITY ─── */
+.page-product-grid .product-img-photo {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: block;
+  transition: transform .7s cubic-bezier(.25,1,.5,1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+/* Force swatch to be behind image, visible as fallback */
+.page-product-grid .product-swatch {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.page-product-grid .product-img-photo {
+  z-index: 1;
+}
+.page-product-grid .product-tag,
+.page-product-grid .product-hover {
+  z-index: 2;
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -4026,7 +4054,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettx.com?subject=Flooring%20Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&body=Hello%20Flooring%20Outlet%20TX%20Team%2C%0A%0AI%E2%80%99m%20reaching%20out%20to%20request%20a%20flooring%20quote%20for%20my%20project.%0A%0A%E2%94%80%E2%94%80%20PROJECT%20DETAILS%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AFloor%20Type%20%28LVP/SPC%2C%20Hardwood%2C%20Tile%2C%20Carpet%2C%20Natural%20Stone%29%3A%20%0AEstimated%20Square%20Footage%3A%20%0ARoom%28s%29%20/%20Area%3A%20%0AInstallation%20Needed%20%28Yes%20/%20No%29%3A%20%0ADesired%20Timeline%3A%20%0A%0A%E2%94%80%E2%94%80%20CONTACT%20INFORMATION%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AName%3A%20%0APhone%3A%20%0ABest%20Time%20to%20Call%3A%20%0AAddress%20/%20Zip%20Code%3A%20%0A%0A%E2%94%80%E2%94%80%20ADDITIONAL%20NOTES%20%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A%0A%0AThank%20you%20%E2%80%94%20I%20look%20forward%20to%20hearing%20from%20you%21%0A">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#2f464149406f494340405d464148405a5b434a5b5b57014c4042105c5a4d454a4c5b12694340405d4641480a1d1f7e5a405b4a0a1d1f7d4a5e5a4a5c5b0a1d1f0a6a1d0a171f0a161b0a1d1f694340405d4641480a1d1f605a5b434a5b0a1d1f7b77094d404b5612674a4343400a1d1f694340405d4641480a1d1f605a5b434a5b0a1d1f7b770a1d1f7b4a4e420a1d6c0a1f6e0a1f6e660a6a1d0a171f0a1616420a1d1f5d4a4e4c474641480a1d1f405a5b0a1d1f5b400a1d1f5d4a5e5a4a5c5b0a1d1f4e0a1d1f494340405d4641480a1d1f5e5a405b4a0a1d1f49405d0a1d1f42560a1d1f5f5d40454a4c5b010a1f6e0a1f6e0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1d1f7f7d60656a6c7b0a1d1f6b6a7b6e66637c0a1d1f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1f6e694340405d0a1d1f7b565f4a0a1d1f0a1d1763797f007c7f6c0a1d6c0a1d1f674e5d4b5840404b0a1d6c0a1d1f7b46434a0a1d6c0a1d1f6c4e5d5f4a5b0a1d6c0a1d1f614e5b5a5d4e430a1d1f7c5b40414a0a1d160a1c6e0a1d1f0a1f6e6a5c5b46424e5b4a4b0a1d1f7c5e5a4e5d4a0a1d1f6940405b4e484a0a1c6e0a1d1f0a1f6e7d4040420a1d175c0a1d160a1d1f000a1d1f6e5d4a4e0a1c6e0a1d1f0a1f6e66415c5b4e43434e5b4640410a1d1f614a4a4b4a4b0a1d1f0a1d17764a5c0a1d1f000a1d1f61400a1d160a1c6e0a1d1f0a1f6e6b4a5c465d4a4b0a1d1f7b46424a4346414a0a1c6e0a1d1f0a1f6e0a1f6e0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1d1f6c60617b6e6c7b0a1d1f666169607d626e7b6660610a1d1f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1f6e614e424a0a1c6e0a1d1f0a1f6e7f4740414a0a1c6e0a1d1f0a1f6e6d4a5c5b0a1d1f7b46424a0a1d1f5b400a1d1f6c4e43430a1c6e0a1d1f0a1f6e6e4b4b5d4a5c5c0a1d1f000a1d1f75465f0a1d1f6c404b4a0a1c6e0a1d1f0a1f6e0a1f6e0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1d1f6e6b6b667b6660616e630a1d1f61607b6a7c0a1d1f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1f6e0a1f6e0a1f6e7b474e41440a1d1f56405a0a1d1f0a6a1d0a171f0a161b0a1d1f660a1d1f434040440a1d1f49405d584e5d4b0a1d1f5b400a1d1f474a4e5d4641480a1d1f495d40420a1d1f56405a0a1d1e0a1f6e">Get a Quote</a>
 </nav>
 <section class="page-hero hero-hardwood">
   <div class="page-hero-bg"></div>
@@ -4047,51 +4075,51 @@ footer a.snrg-link:hover{
   </div>
   <div class="product-grid page-product-grid">
   <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="./assets/hero/johson-hickory.webp" alt="Tuscan Collection — Hickory" loading="lazy" decoding="async"/><span class="product-tag">New Arrival</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/03/1j_Tuscan_AME-E46710_Catania_web.jpg" alt="Tuscan Collection — Hickory Handscraped" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">New Arrival</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Tuscan Collection — Hickory</p><p class="product-size">4½"/6"/7½" Wide · Hand-Scraped Engineered · 9/16"</p><p class="product-price">$5.20 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://johnsonhardwood.com/savanna/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2016/08/3j_Alehouse_AHM19001_Maibock_Full_web.jpg" alt="Savanna — Acacia Sahara Handscraped" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Savanna — Acacia Sahara</p><p class="product-size">4₄/₅" Wide · Handscraped Engineered · 9/16"</p><p class="product-price">$5.49 / sq ft <span>$7.20</span></p></div>
   </a>
   <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19002-Buttermilk_web.jpg" alt="Villa Caprisi — European Oak Wire-Brushed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Villa Caprisi — European Oak</p><p class="product-size">6" Wide Plank · Wire-Brushed · 9/16" Thick</p><p class="product-price">$6.89 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg" alt="American Scrape — Gunstock Oak" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">American Scrape — Gunstock Oak</p><p class="product-size">3¼"/5" Wide Solid · 3/4" · Site-Finish Ready</p><p class="product-price">$7.49 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19004-Pebble_web.jpg" alt="Resolute 7 — Aspen White Wide Plank" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Resolute 7 — Aspen White</p><p class="product-size">7" Wide Plank · 6mm Wear Layer · Engineered</p><p class="product-price">$4.99 / sq ft <span>$6.50</span></p></div>
   </a>
   <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19005-Wheat_web.jpg" alt="Harvest Mill — Autumn Wheat Oak" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Harvest Mill — Autumn Wheat</p><p class="product-size">5" Wide · Smooth · 30-yr Finish Warranty</p><p class="product-price">$4.29 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19003-Driftwood_web.jpg" alt="Riverstone — Driftwood Grey Wide Plank" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Riverstone — Driftwood Grey</p><p class="product-size">7½" Wide Plank · Wire-Brush Texture · 6mm</p><p class="product-price">$5.69 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://www.knoasflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/03/1j_Tuscan_AME-E46701_Sienna_web.jpg" alt="Legends — Antique Cedar Handscraped" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Legends — Antique Cedar</p><p class="product-size">5" Wide · Handscraped · 9/16" Engineered</p><p class="product-price">$5.89 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://www.knoasflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/1j_EnglishPub_EM19001_SmokeBourbon_Full_web.jpg" alt="Trailblazer — Smoke Walnut Wire Brushed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Trailblazer — Smoke Walnut</p><p class="product-size">6" Wide · Wire Brushed · Micro-Bevel Edge</p><p class="product-price">$6.19 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://www.knoasflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2016/08/1j_EnglishPub_EM19005_Stout_Full_web.jpg" alt="Grand Monarch — Dark Espresso Fumed Oak" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Grand Monarch — Dark Espresso</p><p class="product-size">7" Wide Plank · Fumed Oak · Matte Finish</p><p class="product-price">$7.99 / sq ft</p></div>
   </a>
   <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/1j_EnglishPub_EM19002_Whiskey_Full_web.jpg" alt="Costa Brava — Natural Bamboo Strand Carbonized" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Costa Brava — Natural Bamboo Strand</p><p class="product-size">3⅝" Wide · Carbonized · Strand Woven</p><p class="product-price">$3.99 / sq ft <span>$5.49</span></p></div>
   </a>
   <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19007-Almond_web.jpg" alt="Ponderosa — Pine Mountain Distressed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
     <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Ponderosa — Pine Mountain</p><p class="product-size">5" Wide · Distressed Knots · 9/16" Engineered</p><p class="product-price">$4.79 / sq ft</p></div>
   </a>
   </div>
@@ -4324,7 +4352,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -6289,53 +6317,4 @@ if (document.readyState === 'loading') {
     const pages = maxIndex() + 1;
     for (let i = 0; i < pages; i++) {
       const pip = document.createElement('button');
-      pip.className = 'rev-dot-pip' + (i === current ? ' active' : '');
-      pip.setAttribute('aria-label', 'Page ' + (i + 1));
-      pip.addEventListener('click', () => goTo(i));
-      wrap.appendChild(pip);
-    }
-  }
-
-  function buildDots() {
-    buildPips(dotsWrap);
-    buildPips(dotsMob);
-  }
-
-  function syncArrows(max) {
-    [prevBtn, prevMob].forEach(b => b && b.setAttribute('data-disabled', current === 0));
-    [nextBtn, nextMob].forEach(b => b && b.setAttribute('data-disabled', current >= max));
-  }
-
-  function syncPips(wrap) {
-    if (!wrap) return;
-    Array.from(wrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function goTo(idx) {
-    const max = maxIndex();
-    current = Math.max(0, Math.min(idx, max));
-    const { w, gap } = measure();
-    track.style.transform = 'translateX(' + (-current * (w + gap)) + 'px)';
-    syncArrows(max);
-    syncPips(dotsWrap);
-    syncPips(dotsMob);
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-  if (prevMob) prevMob.addEventListener('click', () => goTo(current - 1));
-  if (nextMob) nextMob.addEventListener('click', () => goTo(current + 1));
-
-  /* Swipe */
-  let tx = null;
-  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    if (tx === null) return;
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 30) goTo(current + (d > 0 ? 1 : -1));
-    tx = null;
-  }, { passive: true });
-
- 
-</body>
-</html>
+      pip.className = 'rev-dot-pi
