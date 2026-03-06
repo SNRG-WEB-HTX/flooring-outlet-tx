@@ -4045,93 +4045,123 @@ footer a.snrg-link:hover{
 
 
 <style id="mobile-hero-lower-and-logo-fill-final">
-/* FINAL POLISH: lower homepage mobile hero slightly + make white-bg logos fill card zones uniformly */
+/* FINAL POLISH: mobile hero spacing + fully uniform vendor logo cards */
 @media (max-width: 640px){
   .hero{
-    padding: 0 20px 36px !important;
+    min-height: 59vh !important;
+    padding: 0 20px 40px !important;
   }
   .hero::before{
-    background-position: center 44% !important;
+    background-position: center 43% !important;
   }
 }
 
-/* Vendor card/logo fit refinement across all device sizes */
+/* Stronger symmetry system for all vendor cards */
+.brand-grid{
+  align-items: stretch !important;
+}
+
 .vendor-section .brand-card,
 .brand-card{
-  padding: clamp(14px, 1.25vw, 20px) !important;
-  min-height: clamp(154px, 15.5vw, 192px) !important;
+  display: grid !important;
+  grid-template-rows: minmax(0,1fr) auto !important;
+  align-items: center !important;
+  justify-items: center !important;
+  gap: clamp(10px, .9vw, 14px) !important;
+  padding: clamp(14px, 1.2vw, 18px) !important;
+  min-height: clamp(168px, 16.2vw, 204px) !important;
 }
 
 .vendor-section .brand-logo-wrap,
 .brand-logo-wrap{
-  height: clamp(98px, 10.6vw, 142px) !important;
-  padding: clamp(4px, 0.55vw, 8px) !important;
-  margin-bottom: clamp(8px, .9vw, 12px) !important;
+  --logo-scale: 1.18;
+  width: 100% !important;
+  height: clamp(110px, 10.8vw, 148px) !important;
+  margin: 0 !important;
+  padding: clamp(4px, 0.45vw, 7px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.vendor-section .brand-logo-wrap picture,
+.brand-logo-wrap picture{
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .vendor-section .brand-logo-wrap img,
 .brand-logo-wrap img{
-  max-width: 96% !important;
-  max-height: 96% !important;
-}
-
-/* White-background logos usually have extra baked-in whitespace — scale them uniformly */
-.vendor-section .brand-logo-wrap img[src*="tile-world-logo"],
-.vendor-section .brand-logo-wrap img[src*="lw-flooring-logo"],
-.vendor-section .brand-logo-wrap img[src*="fuzion-flooring-logo"],
-.vendor-section .brand-logo-wrap img[src*="elephant-floors-logo"],
-.vendor-section .brand-logo-wrap img[src*="duraston-usa-logo"],
-.vendor-section .brand-logo-wrap img[src*="national-flooring-logo"],
-.vendor-section .brand-logo-wrap img[src*="keystone-carpets-logo"],
-.vendor-section .brand-logo-wrap img[src*="piedmont-floors-logo"],
-.brand-logo-wrap img[src*="tile-world-logo"],
-.brand-logo-wrap img[src*="lw-flooring-logo"],
-.brand-logo-wrap img[src*="fuzion-flooring-logo"],
-.brand-logo-wrap img[src*="elephant-floors-logo"],
-.brand-logo-wrap img[src*="duraston-usa-logo"],
-.brand-logo-wrap img[src*="national-flooring-logo"],
-.brand-logo-wrap img[src*="keystone-carpets-logo"],
-.brand-logo-wrap img[src*="piedmont-floors-logo"]{
-  transform: scale(1.14) !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: scale(var(--logo-scale)) !important;
   transform-origin: center center !important;
 }
 
+.vendor-section .brand-cta,
+.brand-cta{
+  align-self: end !important;
+  margin-top: 0 !important;
+}
+
+/* Per-logo tuning so white-background assets fill the gray stage evenly */
+.brand-logo-wrap img[src*="tile-world-logo"]{ --logo-scale: 1.28; }
+.brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-scale: 1.26; }
+.brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-scale: 1.24; }
+.brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-scale: 1.24; }
+.brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-scale: 1.26; }
+.brand-logo-wrap img[src*="national-flooring-logo"]{ --logo-scale: 1.22; }
+.brand-logo-wrap img[src*="keystone-carpets-logo"]{ --logo-scale: 1.22; }
+.brand-logo-wrap img[src*="piedmont-floors-logo"]{ --logo-scale: 1.24; }
+.brand-logo-wrap img[src*="johnson-logo"]{ --logo-scale: 1.22; }
+.brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.22; }
+.brand-logo-wrap img[src*="knoa"]{ --logo-scale: 1.23; }
+
 @media (max-width: 900px){
+  .vendor-section .brand-card,
+  .brand-card{
+    min-height: clamp(158px, 24vw, 194px) !important;
+    gap: 10px !important;
+  }
+
   .vendor-section .brand-logo-wrap,
   .brand-logo-wrap{
-    height: clamp(92px, 12.8vw, 124px) !important;
+    height: clamp(98px, 16.8vw, 126px) !important;
   }
 }
 
 @media (max-width: 640px){
   .vendor-section .brand-card,
   .brand-card{
+    min-height: 154px !important;
     padding: 14px !important;
-    min-height: 150px !important;
+    gap: 10px !important;
   }
+
   .vendor-section .brand-logo-wrap,
   .brand-logo-wrap{
-    height: clamp(84px, 25vw, 108px) !important;
+    height: clamp(88px, 24vw, 110px) !important;
     padding: 4px !important;
   }
-  .vendor-section .brand-logo-wrap img[src*="tile-world-logo"],
-  .vendor-section .brand-logo-wrap img[src*="lw-flooring-logo"],
-  .vendor-section .brand-logo-wrap img[src*="fuzion-flooring-logo"],
-  .vendor-section .brand-logo-wrap img[src*="elephant-floors-logo"],
-  .vendor-section .brand-logo-wrap img[src*="duraston-usa-logo"],
-  .vendor-section .brand-logo-wrap img[src*="national-flooring-logo"],
-  .vendor-section .brand-logo-wrap img[src*="keystone-carpets-logo"],
-  .vendor-section .brand-logo-wrap img[src*="piedmont-floors-logo"],
-  .brand-logo-wrap img[src*="tile-world-logo"],
-  .brand-logo-wrap img[src*="lw-flooring-logo"],
-  .brand-logo-wrap img[src*="fuzion-flooring-logo"],
-  .brand-logo-wrap img[src*="elephant-floors-logo"],
-  .brand-logo-wrap img[src*="duraston-usa-logo"],
-  .brand-logo-wrap img[src*="national-flooring-logo"],
-  .brand-logo-wrap img[src*="keystone-carpets-logo"],
-  .brand-logo-wrap img[src*="piedmont-floors-logo"]{
-    transform: scale(1.1) !important;
-  }
+
+  .brand-logo-wrap img[src*="tile-world-logo"]{ --logo-scale: 1.22; }
+  .brand-logo-wrap img[src*="lw-flooring-logo"]{ --logo-scale: 1.2; }
+  .brand-logo-wrap img[src*="fuzion-flooring-logo"]{ --logo-scale: 1.18; }
+  .brand-logo-wrap img[src*="elephant-floors-logo"]{ --logo-scale: 1.18; }
+  .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-scale: 1.2; }
+  .brand-logo-wrap img[src*="national-flooring-logo"]{ --logo-scale: 1.17; }
+  .brand-logo-wrap img[src*="keystone-carpets-logo"]{ --logo-scale: 1.17; }
+  .brand-logo-wrap img[src*="piedmont-floors-logo"]{ --logo-scale: 1.18; }
+  .brand-logo-wrap img[src*="johnson-logo"]{ --logo-scale: 1.17; }
+  .brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.17; }
+  .brand-logo-wrap img[src*="knoa"]{ --logo-scale: 1.18; }
 }
 </style>
 
