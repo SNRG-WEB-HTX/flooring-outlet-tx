@@ -7126,5 +7126,98 @@ if (document.readyState === 'loading') {
   requestAnimationFrame(() => goTo(0));
 })();
 </script>
+
+<style id="mobile-vendor-logo-stage-and-hero-fix-v5">
+/* Mobile-only final polish: more breathing room above hero title */
+@media (max-width: 640px){
+  .hero{
+    padding-top: 22px !important;
+  }
+  .hero-content{
+    margin-top: 18px !important;
+  }
+
+  /* Vendor cards: force perfect 2-up symmetry on phones */
+  .vendor-section .brand-grid,
+  .brand-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    align-items: stretch !important;
+  }
+
+  .vendor-section .brand-card,
+  .brand-card{
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    justify-items: center !important;
+    min-height: 164px !important;
+    padding: 14px 14px 16px !important;
+    gap: 12px !important;
+  }
+
+  /* Make the stage itself visually even and remove the weird left-strip look */
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap{
+    width: 100% !important;
+    height: 96px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    border-radius: 20px !important;
+    background: #f3f3f3 !important;
+    background-image: none !important;
+    box-shadow: inset 0 0 0 1px rgba(58,53,48,.14), 0 1px 0 rgba(255,255,255,.72) !important;
+    overflow: hidden !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .vendor-section .brand-logo-wrap picture,
+  .brand-logo-wrap picture{
+    display: grid !important;
+    place-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .vendor-section .brand-logo-wrap img,
+  .brand-logo-wrap img{
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    margin: 0 auto !important;
+    transform: scale(1.10) !important;
+    transform-origin: center center !important;
+  }
+
+  /* Specific white-background logos that were reading too small/off-center */
+  .brand-logo-wrap img[src*="elephant-floors-logo"],
+  .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+  .brand-logo-wrap img[src*="piedmont-floors-logo"]{
+    transform: scale(1.30) !important;
+  }
+
+  .brand-logo-wrap img[src*="national-flooring-logo"]{
+    transform: scale(1.14) !important;
+  }
+
+  .brand-logo-wrap img[src*="lawson-floors-logo"]{
+    transform: scale(1.12) !important;
+  }
+
+  .vendor-section .brand-cta,
+  .brand-cta{
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    letter-spacing: .12em !important;
+  }
+}
+</style>
+
 </body>
 </html>
