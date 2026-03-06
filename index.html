@@ -4049,10 +4049,13 @@ footer a.snrg-link:hover{
 @media (max-width: 640px){
   .hero{
     min-height: 59vh !important;
-    padding: 0 20px 40px !important;
+    padding: 12px 20px 40px !important;
   }
   .hero::before{
     background-position: center 43% !important;
+  }
+  .hero-content{
+    margin-top: 10px !important;
   }
 }
 
@@ -4124,6 +4127,16 @@ footer a.snrg-link:hover{
 .brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.22; }
 .brand-logo-wrap img[src*="knoa"]{ --logo-scale: 1.23; }
 
+/* Portrait / tall white-background logos need extra fill without hurting landscape logos */
+.brand-logo-wrap img[src*="lawson-floors-logo"],
+.brand-logo-wrap img[src*="piedmont-floors-logo"]{
+  --logo-scale: 1.34;
+}
+.brand-logo-wrap:has(img[src*="lawson-floors-logo"]),
+.brand-logo-wrap:has(img[src*="piedmont-floors-logo"]){
+  padding: 2px !important;
+}
+
 @media (max-width: 900px){
   .vendor-section .brand-card,
   .brand-card{
@@ -4158,10 +4171,14 @@ footer a.snrg-link:hover{
   .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-scale: 1.2; }
   .brand-logo-wrap img[src*="national-flooring-logo"]{ --logo-scale: 1.17; }
   .brand-logo-wrap img[src*="keystone-carpets-logo"]{ --logo-scale: 1.17; }
-  .brand-logo-wrap img[src*="piedmont-floors-logo"]{ --logo-scale: 1.18; }
+  .brand-logo-wrap img[src*="piedmont-floors-logo"]{ --logo-scale: 1.28; }
   .brand-logo-wrap img[src*="johnson-logo"]{ --logo-scale: 1.17; }
-  .brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.17; }
+  .brand-logo-wrap img[src*="lawson-floors-logo"]{ --logo-scale: 1.3; }
   .brand-logo-wrap img[src*="knoa"]{ --logo-scale: 1.18; }
+  .brand-logo-wrap:has(img[src*="lawson-floors-logo"]),
+  .brand-logo-wrap:has(img[src*="piedmont-floors-logo"]){
+    padding: 1px !important;
+  }
 }
 </style>
 
