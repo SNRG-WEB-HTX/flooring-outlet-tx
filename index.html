@@ -4043,6 +4043,98 @@ footer a.snrg-link:hover{
 }
 </style>
 
+
+<style id="mobile-hero-lower-and-logo-fill-final">
+/* FINAL POLISH: lower homepage mobile hero slightly + make white-bg logos fill card zones uniformly */
+@media (max-width: 640px){
+  .hero{
+    padding: 0 20px 36px !important;
+  }
+  .hero::before{
+    background-position: center 44% !important;
+  }
+}
+
+/* Vendor card/logo fit refinement across all device sizes */
+.vendor-section .brand-card,
+.brand-card{
+  padding: clamp(14px, 1.25vw, 20px) !important;
+  min-height: clamp(154px, 15.5vw, 192px) !important;
+}
+
+.vendor-section .brand-logo-wrap,
+.brand-logo-wrap{
+  height: clamp(98px, 10.6vw, 142px) !important;
+  padding: clamp(4px, 0.55vw, 8px) !important;
+  margin-bottom: clamp(8px, .9vw, 12px) !important;
+}
+
+.vendor-section .brand-logo-wrap img,
+.brand-logo-wrap img{
+  max-width: 96% !important;
+  max-height: 96% !important;
+}
+
+/* White-background logos usually have extra baked-in whitespace — scale them uniformly */
+.vendor-section .brand-logo-wrap img[src*="tile-world-logo"],
+.vendor-section .brand-logo-wrap img[src*="lw-flooring-logo"],
+.vendor-section .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+.vendor-section .brand-logo-wrap img[src*="elephant-floors-logo"],
+.vendor-section .brand-logo-wrap img[src*="duraston-usa-logo"],
+.vendor-section .brand-logo-wrap img[src*="national-flooring-logo"],
+.vendor-section .brand-logo-wrap img[src*="keystone-carpets-logo"],
+.vendor-section .brand-logo-wrap img[src*="piedmont-floors-logo"],
+.brand-logo-wrap img[src*="tile-world-logo"],
+.brand-logo-wrap img[src*="lw-flooring-logo"],
+.brand-logo-wrap img[src*="fuzion-flooring-logo"],
+.brand-logo-wrap img[src*="elephant-floors-logo"],
+.brand-logo-wrap img[src*="duraston-usa-logo"],
+.brand-logo-wrap img[src*="national-flooring-logo"],
+.brand-logo-wrap img[src*="keystone-carpets-logo"],
+.brand-logo-wrap img[src*="piedmont-floors-logo"]{
+  transform: scale(1.14) !important;
+  transform-origin: center center !important;
+}
+
+@media (max-width: 900px){
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap{
+    height: clamp(92px, 12.8vw, 124px) !important;
+  }
+}
+
+@media (max-width: 640px){
+  .vendor-section .brand-card,
+  .brand-card{
+    padding: 14px !important;
+    min-height: 150px !important;
+  }
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap{
+    height: clamp(84px, 25vw, 108px) !important;
+    padding: 4px !important;
+  }
+  .vendor-section .brand-logo-wrap img[src*="tile-world-logo"],
+  .vendor-section .brand-logo-wrap img[src*="lw-flooring-logo"],
+  .vendor-section .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+  .vendor-section .brand-logo-wrap img[src*="elephant-floors-logo"],
+  .vendor-section .brand-logo-wrap img[src*="duraston-usa-logo"],
+  .vendor-section .brand-logo-wrap img[src*="national-flooring-logo"],
+  .vendor-section .brand-logo-wrap img[src*="keystone-carpets-logo"],
+  .vendor-section .brand-logo-wrap img[src*="piedmont-floors-logo"],
+  .brand-logo-wrap img[src*="tile-world-logo"],
+  .brand-logo-wrap img[src*="lw-flooring-logo"],
+  .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+  .brand-logo-wrap img[src*="elephant-floors-logo"],
+  .brand-logo-wrap img[src*="duraston-usa-logo"],
+  .brand-logo-wrap img[src*="national-flooring-logo"],
+  .brand-logo-wrap img[src*="keystone-carpets-logo"],
+  .brand-logo-wrap img[src*="piedmont-floors-logo"]{
+    transform: scale(1.1) !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <!-- ─── NAV ─── -->
