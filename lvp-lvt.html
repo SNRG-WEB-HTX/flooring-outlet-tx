@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <!DOCTYPE html>
 
@@ -3862,7 +3863,6 @@ footer a.snrg-link:hover{
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"LVP & SPC Houston","url":"https://flooringoutlettx.com/lvp-lvt.html","provider":{"@id":"https://flooringoutlettx.com/#business"}}
 </script>
-
 <style id="page-hero-laptop-fix-shared">
 /* SHARED FIX: subpage hero sits below fixed topbar + nav on laptop */
 @media (min-width: 900px) and (max-width: 1280px){
@@ -3898,8 +3898,6 @@ footer a.snrg-link:hover{
   }
 }
 </style>
-
-
 <style id="page-hero-laptop-tuning-shared">
 /* SHARED TUNING: reduce bottom space and lift text on laptop only */
 @media (min-width: 900px) and (max-width: 1280px){
@@ -3915,6 +3913,203 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+<style id="mobile-menu-cta-final-override-20260306">
+@media (max-width: 640px){
+  /* Keep Get a Quote out of the top mobile header; show it only inside the open menu */
+  nav .nav-cta{
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: fixed !important;
+    top: auto !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 18px !important;
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 140 !important;
+    justify-content: center !important;
+  }
+  nav.menu-open .nav-cta{
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    display: flex !important;
+  }
+  .mobile-refresh-item,
+  .mobile-refresh-btn{
+    display: none !important;
+  }
+}
+</style>
+
+<style id="snrg-mobile-menu-quote-footer-final-20260306b">
+@media (max-width: 640px){
+  html, body{
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background: var(--charcoal, #141210) !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  body.menu-open-mobile,
+  html.menu-open-mobile{
+    overflow: hidden !important;
+    height: 100% !important;
+  }
+
+  /* Hide top sticky CTA on mobile; quote lives in menu list only */
+  nav .nav-cta,
+  nav.menu-open .nav-cta{
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Polished full-screen mobile menu */
+  nav.menu-open .nav-links{
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    padding: calc(env(safe-area-inset-top, 0px) + 98px) 22px calc(env(safe-area-inset-bottom, 0px) + 18px) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background:
+      radial-gradient(circle at top right, rgba(198,167,94,.20), transparent 26%),
+      linear-gradient(180deg, rgba(15,10,7,.985) 0%, rgba(10,8,7,.995) 100%) !important;
+    backdrop-filter: blur(22px) !important;
+    -webkit-backdrop-filter: blur(22px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+  nav.menu-open .nav-links::before{
+    content: 'Menu';
+    display: block;
+    margin: 0 0 18px 0 !important;
+    font-size: .78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .28em !important;
+    text-transform: uppercase !important;
+    color: rgba(198,167,94,.86) !important;
+  }
+  nav.menu-open .nav-links li{
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  nav.menu-open .nav-links a{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-height: 72px !important;
+    padding: 10px 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255,255,255,.10) !important;
+    color: rgba(255,255,255,.97) !important;
+    text-decoration: none !important;
+    font-size: clamp(1.22rem, 5vw, 1.58rem) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.01em !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+  }
+  nav.menu-open .nav-links a:hover,
+  nav.menu-open .nav-links a:active{
+    color: #fff !important;
+    background: transparent !important;
+    transform: none !important;
+  }
+  nav.menu-open .nav-links a::after{
+    content: '↗';
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    margin-left: 14px !important;
+    border-radius: 999px !important;
+    color: #24170d !important;
+    font-size: 1.02rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(180deg, rgba(214,183,112,1) 0%, rgba(169,126,62,1) 100%) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.34), 0 8px 20px rgba(130,90,38,.28) !important;
+    border: 1px solid rgba(255,255,255,.14) !important;
+  }
+  nav.menu-open .nav-links li:last-child a{
+    color: rgb(243,226,189) !important;
+    font-weight: 700 !important;
+  }
+  nav.menu-open .nav-links li:last-child a::after{
+    background: linear-gradient(180deg, rgba(243,226,189,1) 0%, rgba(198,167,94,1) 100%) !important;
+  }
+
+  /* Kill older ugly menu arrow implementations */
+  nav.menu-open .nav-links a svg,
+  nav.menu-open .nav-links a img,
+  nav.menu-open .nav-links a .menu-arrow,
+  nav.menu-open .nav-links a .nav-arrow,
+  nav.menu-open .nav-links a .arrow,
+  nav.menu-open .nav-links li::after,
+  nav.menu-open .nav-links li > span:not(.keep-visible){
+    display: none !important;
+  }
+
+  /* Hero typography / spacing */
+  .hero h1, .page-hero-title, .hero-title{
+    font-size: clamp(2.85rem, 10vw, 4.35rem) !important;
+    line-height: .96 !important;
+    letter-spacing: -.03em !important;
+  }
+  .hero p, .page-hero-sub, .hero-subtitle{
+    font-size: clamp(1rem, 3.8vw, 1.12rem) !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Footer should end cleanly after Built by SNRG WEB */
+  footer,
+  .footer,
+  .site-footer{
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px)) !important;
+    margin-bottom: 0 !important;
+    min-height: auto !important;
+  }
+  .footer-bottom,
+  footer .footer-bottom,
+  .site-footer .footer-bottom{
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: auto !important;
+  }
+  .footer-bottom > *:last-child,
+  footer .footer-bottom > *:last-child,
+  .footer-builtby,
+  footer .footer-builtby,
+  .site-footer .footer-builtby,
+  footer p:last-child,
+  footer div:last-child{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  body > footer:last-of-type{
+    margin-bottom: 0 !important;
+  }
+}
+</style>
 
 </head>
 <body class="subpage page-lvp">
@@ -3923,7 +4118,7 @@ footer a.snrg-link:hover{
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email protected]</span></a></span>
+<span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
 </div><nav id="nav">
 <a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
 <button aria-expanded="false" aria-label="Menu" class="nav-burger" type="button">
@@ -3938,79 +4133,78 @@ footer a.snrg-link:hover{
 <li><a href="carpet.html">Carpet</a></li>
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
-</ul>
-<a class="nav-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Get a Quote</a>
+<li><a data-quote-link="true" href="mailto:info@flooringoutlettx.com?subject=Quote%20Request%20-%20Flooring%20Outlet%20TX&amp;body=Hello%20Flooring%20Outlet%20TX%2C%0A%0AI%27d%20like%20a%20quote%20for%20my%20flooring%20project.%0A%0AMaterial%20/%20product%3A%0AProject%20location%3A%0AApprox.%20square%20footage%3A%0ATimeline%3A%0APreferred%20contact%20name%3A%0APhone%20number%3A%0A%0APlease%20send%20pricing%2C%20availability%2C%20and%20next%20steps.">Get a Quote</a></li></ul>
+<a class="nav-cta" data-quote-link="true" href="mailto:info@flooringoutlettx.com?subject=Quote%20Request%20-%20Flooring%20Outlet%20TX&amp;body=Hello%20Flooring%20Outlet%20TX%2C%0A%0AI%27d%20like%20a%20quote%20for%20my%20flooring%20project.%0A%0AMaterial%20/%20product%3A%0AProject%20location%3A%0AApprox.%20square%20footage%3A%0ATimeline%3A%0APreferred%20contact%20name%3A%0APhone%20number%3A%0A%0APlease%20send%20pricing%2C%20availability%2C%20and%20next%20steps.">Get a Quote</a>
 </nav>
 <section class="page-hero hero-lvp">
-  <div class="page-hero-bg"></div>
-  <div class="page-hero-content">
-    <span class="page-hero-label">Luxury Vinyl · Rigid Core SPC</span>
-    <h1 class="page-hero-title">Waterproof Floors,<br/><em>Built to Last</em></h1>
-    <p class="page-hero-sub">Stone Polymer Composite and Luxury Vinyl Plank — engineered for Houston. 100% waterproof, scratch-resistant, in stunning wood and stone looks.</p>
-    <div class="page-hero-actions">
-      <a class="btn btn-primary" href="#products">Shop Now</a>
-      <a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
-    </div>
-  </div>
+<div class="page-hero-bg"></div>
+<div class="page-hero-content">
+<span class="page-hero-label">Luxury Vinyl · Rigid Core SPC</span>
+<h1 class="page-hero-title">Waterproof Floors,<br/><em>Built to Last</em></h1>
+<p class="page-hero-sub">Stone Polymer Composite and Luxury Vinyl Plank — engineered for Houston. 100% waterproof, scratch-resistant, in stunning wood and stone looks.</p>
+<div class="page-hero-actions">
+<a class="btn btn-primary" href="#products">Shop Now</a>
+<a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
+</div>
+</div>
 </section>
 <section class="page-products reveal" id="products">
-  <div class="products-header" style="text-align:center;display:block;">
-    <p class="section-label">Luxury Vinyl · Rigid Core SPC</p>
-    <h2 class="section-title">Waterproof Floors, <em>Built to Last</em></h2>
-    <p class="section-sub">Available at our Houston showroom &middot; 15315 FM 529 #110 &middot; (281) 861-9800</p>
-  </div>
-  <div class="product-grid page-product-grid">
-  <a class="product-card" href="https://republicfloor.com/products/westwood" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/RETWY3303_-_Platinum_Triangle_Plank.jpg?v=1741634015" alt="Pure SPC Westwood — Platinum" loading="lazy" decoding="async"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Pure SPC Westwood — Platinum</p><p class="product-size">9₅/₁₆" × 60" · 5mm SPC · 25-yr Res. Warranty</p><p class="product-price">$3.49 / sq ft <span>$4.99</span></p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/westwood" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/RETWY3305_-_Greystone_Plank.jpg?v=1746322863" alt="Pure SPC Westwood — Greystone" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Pure SPC Westwood — Greystone</p><p class="product-size">9₅/₁₆" × 60" · 5mm SPC · EIR Texture</p><p class="product-price">$3.49 / sq ft</p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/pure-spc-mountain-oak" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/REMO2501_-_Denali_Plank.jpg?v=1746322497" alt="Mountain Oak — Denali" loading="lazy" decoding="async"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Mountain Oak — Denali</p><p class="product-size">7⅛" × 60" SPC · 6mm · Embossed-in-Register</p><p class="product-price">$3.29 / sq ft <span>$4.89</span></p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/pure-spc-mountain-oak" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/REMO2506_-_Black_Mountain_Plank.jpg?v=1746314558" alt="Mountain Oak — Black Mountain" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Mountain Oak — Black Mountain</p><p class="product-size">7⅛" × 60" SPC · 6mm · Dark Smoked Finish</p><p class="product-price">$3.29 / sq ft</p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/pure-spc-great-oregon-oak-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/REOR2301_-_Water_Oak_Plank.jpg?v=1746314559" alt="Oregon Oak — Water Oak" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Oregon Oak — Water Oak</p><p class="product-size">9" × 60" SPC · 6.5mm · Warm Natural Grain</p><p class="product-price">$3.59 / sq ft</p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/pure-spc-great-oregon-oak-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/REOR2304_-_Oregon_White_Oak_Plank.jpg?v=1746314559" alt="Oregon Oak — Oregon White Oak" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Oregon Oak — Oregon White Oak</p><p class="product-size">9" × 60" SPC · Cool Bleached Ash Finish</p><p class="product-price">$3.59 / sq ft</p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/pure-spc-countryside-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/RECS2101_-_Eastern_Cottonwood_Plank.jpg?v=1746314557" alt="Countryside — Eastern Cottonwood" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Countryside — Eastern Cottonwood</p><p class="product-size">7⅛" × 47⅝" · EIR+4-Side V-Groove · 5mm</p><p class="product-price">$2.89 / sq ft <span>$4.19</span></p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/pure-spc-countryside-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/RECS2105_-_Aspen_Plank.jpg?v=1746314557" alt="Countryside — Aspen" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Countryside — Aspen</p><p class="product-size">7⅛" × 47⅝" · Soft Grey-White · 100% Waterproof</p><p class="product-price">$2.89 / sq ft</p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/angel-wood-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/REAW8401_-_Amarillo_Pearl_Plank.jpg?v=1746322767" alt="SPC MAX — Angel Woods Amarillo Pearl" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">SPC MAX — Angel Woods Amarillo Pearl</p><p class="product-size">9" × 60" · 6.5mm MAX Core · Bio-Guard EVA</p><p class="product-price">$3.79 / sq ft <span>$5.49</span></p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/summer-lake-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/RESL64001_-_Light_Dune_Plank.jpg?v=1746314559" alt="SPC MAX — Summer Lake Light Dune" loading="lazy" decoding="async"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">SPC MAX — Summer Lake Light Dune</p><p class="product-size">9" × 60" · 40% Denser Core · 25-yr Res.</p><p class="product-price">$3.99 / sq ft <span>$5.99</span></p></div>
-  </a>
-  <a class="product-card" href="https://republicfloor.com/products/misty-tree-collection" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://republicfloor.com/cdn/shop/files/REMT75004_-_Sunset_Ivory_Plank.jpg?v=1746314558" alt="SPC MAX — Misty Tree Sunset Ivory" loading="lazy" decoding="async"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">SPC MAX — Misty Tree Sunset Ivory</p><p class="product-size">9" × 60" · MAX Density · Commercial Grade</p><p class="product-price">$3.99 / sq ft</p></div>
-  </a>
-  <a class="product-card" href="https://www.fuzionflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="./assets/hero/fuzion-beach-sands.webp" alt="Dynamix HardCore 3DGE — Beach Sands" loading="lazy" decoding="async"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Fuzion Flooring</p><p class="product-name">Dynamix HardCore 3DGE — Beach Sands</p><p class="product-size">7" × 60" LVP · 6mm Waterproof Rigid Core</p><p class="product-price">$3.79 / sq ft <span>$4.99</span></p></div>
-  </a>
-  </div>
+<div class="products-header" style="text-align:center;display:block;">
+<p class="section-label">Luxury Vinyl · Rigid Core SPC</p>
+<h2 class="section-title">Waterproof Floors, <em>Built to Last</em></h2>
+<p class="section-sub">Available at our Houston showroom · 15315 FM 529 #110 · (281) 861-9800</p>
+</div>
+<div class="product-grid page-product-grid">
+<a class="product-card" href="https://republicfloor.com/products/westwood" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Pure SPC Westwood — Platinum" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/RETWY3303_-_Platinum_Triangle_Plank.jpg?v=1741634015"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Pure SPC Westwood — Platinum</p><p class="product-size">9₅/₁₆" × 60" · 5mm SPC · 25-yr Res. Warranty</p><p class="product-price">$3.49 / sq ft <span>$4.99</span></p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/westwood" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Pure SPC Westwood — Greystone" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/RETWY3305_-_Greystone_Plank.jpg?v=1746322863"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Pure SPC Westwood — Greystone</p><p class="product-size">9₅/₁₆" × 60" · 5mm SPC · EIR Texture</p><p class="product-price">$3.49 / sq ft</p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/pure-spc-mountain-oak" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Mountain Oak — Denali" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/REMO2501_-_Denali_Plank.jpg?v=1746322497"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Mountain Oak — Denali</p><p class="product-size">7⅛" × 60" SPC · 6mm · Embossed-in-Register</p><p class="product-price">$3.29 / sq ft <span>$4.89</span></p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/pure-spc-mountain-oak" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Mountain Oak — Black Mountain" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/REMO2506_-_Black_Mountain_Plank.jpg?v=1746314558"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Mountain Oak — Black Mountain</p><p class="product-size">7⅛" × 60" SPC · 6mm · Dark Smoked Finish</p><p class="product-price">$3.29 / sq ft</p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/pure-spc-great-oregon-oak-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Oregon Oak — Water Oak" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/REOR2301_-_Water_Oak_Plank.jpg?v=1746314559"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Oregon Oak — Water Oak</p><p class="product-size">9" × 60" SPC · 6.5mm · Warm Natural Grain</p><p class="product-price">$3.59 / sq ft</p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/pure-spc-great-oregon-oak-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Oregon Oak — Oregon White Oak" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/REOR2304_-_Oregon_White_Oak_Plank.jpg?v=1746314559"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Oregon Oak — Oregon White Oak</p><p class="product-size">9" × 60" SPC · Cool Bleached Ash Finish</p><p class="product-price">$3.59 / sq ft</p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/pure-spc-countryside-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Countryside — Eastern Cottonwood" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/RECS2101_-_Eastern_Cottonwood_Plank.jpg?v=1746314557"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Countryside — Eastern Cottonwood</p><p class="product-size">7⅛" × 47⅝" · EIR+4-Side V-Groove · 5mm</p><p class="product-price">$2.89 / sq ft <span>$4.19</span></p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/pure-spc-countryside-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Countryside — Aspen" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/RECS2105_-_Aspen_Plank.jpg?v=1746314557"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">Countryside — Aspen</p><p class="product-size">7⅛" × 47⅝" · Soft Grey-White · 100% Waterproof</p><p class="product-price">$2.89 / sq ft</p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/angel-wood-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="SPC MAX — Angel Woods Amarillo Pearl" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/REAW8401_-_Amarillo_Pearl_Plank.jpg?v=1746322767"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">SPC MAX — Angel Woods Amarillo Pearl</p><p class="product-size">9" × 60" · 6.5mm MAX Core · Bio-Guard EVA</p><p class="product-price">$3.79 / sq ft <span>$5.49</span></p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/summer-lake-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="SPC MAX — Summer Lake Light Dune" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/RESL64001_-_Light_Dune_Plank.jpg?v=1746314559"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">SPC MAX — Summer Lake Light Dune</p><p class="product-size">9" × 60" · 40% Denser Core · 25-yr Res.</p><p class="product-price">$3.99 / sq ft <span>$5.99</span></p></div>
+</a>
+<a class="product-card" href="https://republicfloor.com/products/misty-tree-collection" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="SPC MAX — Misty Tree Sunset Ivory" class="product-img-photo" decoding="async" loading="lazy" src="https://republicfloor.com/cdn/shop/files/REMT75004_-_Sunset_Ivory_Plank.jpg?v=1746314558"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Republic Floor</p><p class="product-name">SPC MAX — Misty Tree Sunset Ivory</p><p class="product-size">9" × 60" · MAX Density · Commercial Grade</p><p class="product-price">$3.99 / sq ft</p></div>
+</a>
+<a class="product-card" href="https://www.fuzionflooring.com" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Dynamix HardCore 3DGE — Beach Sands" class="product-img-photo" decoding="async" loading="lazy" src="./assets/hero/fuzion-beach-sands.webp"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Fuzion Flooring</p><p class="product-name">Dynamix HardCore 3DGE — Beach Sands</p><p class="product-size">7" × 60" LVP · 6mm Waterproof Rigid Core</p><p class="product-price">$3.79 / sq ft <span>$4.99</span></p></div>
+</a>
+</div>
 </section>
-
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
@@ -4065,7 +4259,6 @@ footer a.snrg-link:hover{
 <span class="footer-spacer"></span>
 </div>
 </footer>
-
 <!-- ═══════════════════════════════════════════════════════════
      PRODUCT DETAIL MODAL — Barley Ale & Copper Ale
 ═══════════════════════════════════════════════════════════ -->
@@ -4073,9 +4266,9 @@ footer a.snrg-link:hover{
 <button aria-label="Close" class="pmodal-close" onclick="closeProductModal()">✕</button>
 <div class="product-modal" id="productModal">
 <div class="pmodal-gallery">
-<img alt="" class="pmodal-main-img" id="pmodal-main-img" src="">
+<img alt="" class="pmodal-main-img" id="pmodal-main-img" src=""/>
 <div class="pmodal-thumbs" id="pmodal-thumbs"></div>
-</img></div>
+</div>
 <div class="pmodal-info">
 <p class="pmodal-series" id="pmodal-series"></p>
 <h2 class="pmodal-title" id="pmodal-title"></h2>
@@ -4126,7 +4319,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0c6cccfcfd2c9cec7cfd5d4ccc5d4d4d88ec3cfcd"><span class="__cf_email__" data-cfemail="01686f676e41676d6e6e73686f666e74756d647575792f626e6c">[email&#160;protected]</span></a></span>
+<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -6250,5 +6443,711 @@ if (document.readyState === 'loading') {
   }, { passive: true });
 
  
+
+<style id="snrg-mobile-vakly-final-override">
+/* =========================================================
+   FINAL MOBILE NAV + HERO VIEWPORT OVERRIDE
+   Purpose: beat older conflicting mobile rules with one last layer
+   ========================================================= */
+:root{
+  --snrg-mobile-nav-h: 76px;
+  --snrg-mobile-pad-x: 16px;
+  --snrg-mobile-safe-bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+}
+@media (max-width: 640px){
+  html, body{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip !important;
+    background: var(--white) !important;
+  }
+  body{
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  body.menu-open-mobile,
+  html.menu-open-mobile{
+    overflow: hidden !important;
+    height: 100dvh !important;
+    touch-action: none;
+  }
+  body::after,
+  .page-wrap::after,
+  .site-wrap::after,
+  .site-shell::after,
+  main::after{
+    display: none !important;
+    content: none !important;
+  }
+
+  nav{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-height: var(--snrg-mobile-nav-h) !important;
+    padding: max(12px, env(safe-area-inset-top, 0px)) var(--snrg-mobile-pad-x) 12px !important;
+    background: linear-gradient(180deg, rgba(15,12,10,.92) 0%, rgba(15,12,10,.72) 100%) !important;
+    backdrop-filter: blur(18px) saturate(1.15) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.15) !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+    box-shadow: 0 10px 34px rgba(0,0,0,.22) !important;
+  }
+  nav .nav-logo{
+    font-size: clamp(1.12rem, 4.2vw, 1.32rem) !important;
+    line-height: 1 !important;
+    letter-spacing: .02em !important;
+    position: relative !important;
+    z-index: 1003 !important;
+  }
+
+  .nav-burger{
+    display: grid !important;
+    place-items: center !important;
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(255,255,255,.16) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.05) 100%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.14),
+      0 14px 28px rgba(0,0,0,.24),
+      0 0 0 1px rgba(198,167,94,.10) !important;
+    backdrop-filter: blur(16px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(1.1) !important;
+    transition: transform .28s ease, box-shadow .28s ease, background .28s ease, border-color .28s ease !important;
+    position: relative !important;
+    z-index: 1003 !important;
+  }
+  .nav-burger:hover,
+  .nav-burger:active{
+    transform: translateY(-1px) scale(.985) !important;
+    border-color: rgba(198,167,94,.42) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.18),
+      0 16px 34px rgba(0,0,0,.30),
+      0 0 0 1px rgba(198,167,94,.18) !important;
+  }
+  .nav-burger .burger-line{
+    position: absolute !important;
+    left: 50% !important;
+    width: 22px !important;
+    height: 2px !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(240,217,181,.98)) !important;
+    transform-origin: center !important;
+    transition: transform .32s cubic-bezier(.22,.8,.2,1), opacity .22s ease, top .32s cubic-bezier(.22,.8,.2,1), box-shadow .25s ease !important;
+    box-shadow: 0 0 10px rgba(240,217,181,.18) !important;
+  }
+  .nav-burger .burger-line:nth-child(1){ top: 18px !important; transform: translateX(-50%) !important; }
+  .nav-burger .burger-line:nth-child(2){ top: 26px !important; transform: translateX(-50%) !important; width: 18px !important; }
+  .nav-burger .burger-line:nth-child(3){ top: 34px !important; transform: translateX(-50%) !important; }
+  nav.menu-open .nav-burger{
+    background: linear-gradient(180deg, rgba(198,167,94,.22) 0%, rgba(255,255,255,.08) 100%) !important;
+    border-color: rgba(198,167,94,.46) !important;
+  }
+  nav.menu-open .nav-burger .burger-line:nth-child(1){ top: 26px !important; transform: translateX(-50%) rotate(45deg) !important; }
+  nav.menu-open .nav-burger .burger-line:nth-child(2){ opacity: 0 !important; transform: translateX(-50%) scaleX(.3) !important; }
+  nav.menu-open .nav-burger .burger-line:nth-child(3){ top: 26px !important; transform: translateX(-50%) rotate(-45deg) !important; }
+
+  nav .nav-links,
+  nav .nav-cta{
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  nav.menu-open .nav-links{
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 1001 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: calc(var(--snrg-mobile-nav-h) + 18px) 20px calc(108px + var(--snrg-mobile-safe-bottom)) !important;
+    list-style: none !important;
+    background:
+      radial-gradient(1200px 700px at 100% 0%, rgba(198,167,94,.16) 0%, transparent 46%),
+      linear-gradient(180deg, rgba(18,14,12,.985) 0%, rgba(18,14,12,.975) 100%) !important;
+    backdrop-filter: blur(24px) saturate(1.08) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.08) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+  nav.menu-open .nav-links::before{
+    content: 'Menu';
+    display: block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: rgba(240,217,181,.72);
+    margin: 0 0 12px 2px;
+  }
+  nav.menu-open .nav-links li{
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  nav.menu-open .nav-links a,
+  nav.menu-open .mobile-refresh-btn{
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 60px !important;
+    padding: 18px 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.10) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255,255,255,.95) !important;
+    font-size: clamp(1rem, 4.6vw, 1.14rem) !important;
+    font-weight: 500 !important;
+    letter-spacing: .03em !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+  }
+  nav.menu-open .nav-links a::after,
+  nav.menu-open .mobile-refresh-btn::after{
+    content: '↗';
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    color: rgba(240,217,181,.82) !important;
+    font-size: 1rem !important;
+    border: 0 !important;
+    opacity: 1 !important;
+  }
+  nav.menu-open .nav-links a:hover,
+  nav.menu-open .mobile-refresh-btn:hover{
+    color: #fff !important;
+    border-bottom-color: rgba(198,167,94,.28) !important;
+  }
+  .mobile-refresh-item{ display: block !important; }
+  .mobile-refresh-btn{ cursor: pointer !important; }
+
+  nav.menu-open .nav-cta{
+    position: fixed !important;
+    left: 20px !important;
+    right: 20px !important;
+    bottom: var(--snrg-mobile-safe-bottom) !important;
+    z-index: 1002 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 56px !important;
+    padding: 16px 20px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #d1b172 0%, #b58a4b 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 20px 44px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.24) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .hero,
+  .page-hero{
+    height: auto !important;
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    padding-top: calc(var(--snrg-mobile-nav-h) + 18px) !important;
+    padding-bottom: 28px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+  .hero-content,
+  .page-hero-content{
+    width: min(100%, 580px) !important;
+    max-width: calc(100vw - 32px) !important;
+    margin: 0 auto !important;
+    padding: 22px 18px !important;
+    transform: none !important;
+    text-align: left !important;
+  }
+  .hero-content::before,
+  .page-hero-content::before{
+    inset: 0 !important;
+    border-radius: 18px !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.22) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+  }
+  .hero h1,
+  .page-hero-title{
+    font-size: clamp(2.18rem, 8vw, 3.08rem) !important;
+    line-height: 1.02 !important;
+    margin-bottom: .9rem !important;
+  }
+  .hero p,
+  .page-hero-sub{
+    font-size: clamp(.98rem, 3.8vw, 1.08rem) !important;
+    line-height: 1.62 !important;
+    max-width: 100% !important;
+    margin-bottom: 1.35rem !important;
+  }
+  .hero-actions,
+  .page-hero-actions{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .hero-actions .btn,
+  .page-hero-actions .btn,
+  .hero-actions a,
+  .page-hero-actions a{
+    width: 100% !important;
+    min-height: 52px !important;
+    justify-content: center !important;
+  }
+  .hero-scroll,
+  .hero-dots,
+  .page-hero-scroll,
+  .page-hero-dots{
+    display: none !important;
+  }
+
+  .showroom-modal-overlay{
+    padding: 0 !important;
+    align-items: stretch !important;
+  }
+  .showroom-modal{
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100dvh !important;
+    border-radius: 0 !important;
+    grid-template-columns: 1fr !important;
+    overflow-y: auto !important;
+  }
+
+  footer,
+  .footer,
+  .site-footer{
+    margin-bottom: 0 !important;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  body > footer:last-of-type,
+  body > .footer:last-of-type,
+  body > .site-footer:last-of-type{
+    margin-bottom: 0 !important;
+  }
+  body > *:last-child{
+    margin-bottom: 0 !important;
+  }
+}
+</style>
+
+
+<script id="snrg-mobile-vakly-final-script">
+(function(){
+  const nav = document.getElementById('nav');
+  if(!nav) return;
+  const burger = nav.querySelector('.nav-burger');
+  const links = nav.querySelector('.nav-links');
+  const cta = nav.querySelector('.nav-cta');
+  const root = document.documentElement;
+  const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
+
+  function setOpen(open){
+    if(!isMobile()) open = false;
+    nav.classList.toggle('menu-open', open);
+    document.body.classList.toggle('menu-open-mobile', open);
+    root.classList.toggle('menu-open-mobile', open);
+    if(burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  if(burger){
+    burger.addEventListener('click', function(e){
+      if(!isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!nav.classList.contains('menu-open'));
+    }, { passive: false });
+  }
+
+  if(links){
+    links.addEventListener('click', function(e){
+      const hit = e.target.closest('a,button');
+      if(hit && isMobile()) setOpen(false);
+    });
+  }
+  if(cta){
+    cta.addEventListener('click', function(){ if(isMobile()) setOpen(false); });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') setOpen(false);
+  });
+  document.addEventListener('click', function(e){
+    if(!nav.classList.contains('menu-open')) return;
+    if(e.target.closest('#nav')) return;
+    setOpen(false);
+  });
+  window.addEventListener('resize', function(){ if(!isMobile()) setOpen(false); }, { passive: true });
+  window.addEventListener('orientationchange', function(){ setOpen(false); }, { passive: true });
+})();
+</script>
+<style id="mobile-burger-hero-final-fix-20260306">
+@media (max-width: 640px){
+  nav{ z-index: 1000 !important; }
+  .nav-burger{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    position: relative !important;
+    z-index: 1003 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  .nav-burger *{ pointer-events:none !important; }
+  nav.menu-open .nav-burger{ position: relative !important; z-index: 1004 !important; }
+  nav .nav-cta{ display:none !important; }
+  nav.menu-open .nav-cta{
+    display:flex !important;
+    position: fixed !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    top: auto !important;
+    z-index: 1002 !important;
+    justify-content:center !important;
+    min-height: 56px !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.24) !important;
+  }
+  nav.menu-open .nav-links{ padding-bottom: 92px !important; }
+  .hero h1, .page-hero-title, .hero-title{
+    font-size: clamp(2.7rem, 9vw, 4.1rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.025em !important;
+  }
+  .hero p, .page-hero-sub, .hero-subtitle{
+    font-size: clamp(1rem, 3.8vw, 1.12rem) !important;
+    line-height: 1.55 !important;
+  }
+  .hero-content, .page-hero-content{
+    width: min(100%, 92vw) !important;
+  }
+}
+</style>
+<script id="mobile-burger-final-fix-20260306">
+(function(){
+  function boot(){
+    var nav = document.querySelector('nav');
+    if(!nav) return;
+    var oldBurger = nav.querySelector('.nav-burger');
+    if(!oldBurger) return;
+    var burger = oldBurger.cloneNode(true);
+    oldBurger.parentNode.replaceChild(burger, oldBurger);
+    var links = nav.querySelector('.nav-links');
+    var cta = nav.querySelector('.nav-cta');
+    var root = document.documentElement;
+
+    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
+    function setOpen(open){
+      nav.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-open-mobile', open);
+      root.classList.toggle('menu-open-mobile', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function closeMenu(){ setOpen(false); }
+
+    burger.addEventListener('click', function(e){
+      if(!isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!nav.classList.contains('menu-open'));
+    }, true);
+    burger.addEventListener('touchstart', function(e){
+      if(!isMobile()) return;
+      e.stopPropagation();
+    }, {passive:true, capture:true});
+
+    if(links){
+      links.addEventListener('click', function(e){
+        var a = e.target.closest('a');
+        if(a && isMobile()) closeMenu();
+      }, true);
+    }
+    if(cta){
+      cta.addEventListener('click', function(){ if(isMobile()) closeMenu(); }, true);
+    }
+    document.addEventListener('click', function(e){
+      if(!isMobile() || !nav.classList.contains('menu-open')) return;
+      if(nav.contains(e.target)) return;
+      closeMenu();
+    }, true);
+    window.addEventListener('resize', function(){ if(!isMobile()) closeMenu(); });
+    closeMenu();
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+</script>
+<style id="oai-mobile-menu-fullscreen-fix-v2">
+@media (max-width: 640px){
+  html.menu-open-mobile, body.menu-open-mobile{ overflow:hidden !important; height:100% !important; }
+  nav{ isolation:isolate !important; }
+  nav .nav-cta{ display:none !important; }
+  nav.menu-open .nav-burger{
+    position: fixed !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 10006 !important;
+  }
+  nav.menu-open .nav-links{
+    position: fixed !important;
+    inset: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: calc(env(safe-area-inset-top, 0px) + 112px) 22px calc(env(safe-area-inset-bottom, 0px) + 28px) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background:
+      radial-gradient(circle at 18% 10%, rgba(201,169,110,.18), transparent 28%),
+      linear-gradient(180deg, rgba(24,18,14,.985) 0%, rgba(10,8,7,.992) 100%) !important;
+    backdrop-filter: blur(18px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(120%) !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    z-index: 10002 !important;
+  }
+  nav.menu-open .nav-links::before{
+    content: 'Menu' !important;
+    display:block !important;
+    margin: 0 0 18px 0 !important;
+    color: rgba(212,184,130,.88) !important;
+    font-size: .82rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .28em !important;
+    text-transform: uppercase !important;
+  }
+  nav.menu-open .nav-links li{
+    width:100% !important;
+    list-style:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.10) !important;
+  }
+  nav.menu-open .nav-links a{
+    width:100% !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    min-height: 72px !important;
+    padding: 18px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: rgba(255,255,255,.97) !important;
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: -.015em !important;
+    line-height: 1.08 !important;
+    text-transform: none !important;
+  }
+  nav.menu-open .nav-links a::after{
+    content: '↗' !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-left: 14px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(214,183,121,.32) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)) !important;
+    color: rgba(245,225,183,.98) !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 24px rgba(0,0,0,.22) !important;
+    flex: 0 0 auto !important;
+  }
+  nav.menu-open .nav-links a:hover,
+  nav.menu-open .nav-links a:active{
+    transform:none !important;
+    color:#fff !important;
+    background: transparent !important;
+  }
+  nav.menu-open .nav-links li.mobile-cta-item{
+    border-bottom: none !important;
+    margin-top: 16px !important;
+  }
+  nav.menu-open .nav-links li.mobile-cta-item a{
+    min-height: 56px !important;
+    justify-content: center !important;
+    padding: 16px 22px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #d3b06d 0%, #bf9655 100%) !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+    letter-spacing: .10em !important;
+    font-size: .9rem !important;
+    font-weight: 800 !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18) !important;
+  }
+  nav.menu-open .nav-links li.mobile-cta-item a::after{ content:none !important; }
+
+  /* mobile hero title slightly larger */
+  .hero h1,
+  .page-hero-title,
+  .page-hero h1{
+    font-size: clamp(2.95rem, 10.4vw, 4.25rem) !important;
+    line-height: .98 !important;
+  }
+}
+</style>
+<script id="oai-mobile-menu-fullscreen-fix-script-v2">
+(function(){
+  function init(){
+    var nav = document.querySelector('nav');
+    if(!nav) return;
+    var links = nav.querySelector('.nav-links');
+    var cta = nav.querySelector('.nav-cta');
+    var burger = nav.querySelector('.nav-burger');
+    var root = document.documentElement;
+    if(!links || !cta || !burger) return;
+
+    // remove any previous injected CTA item then add one at the end of menu
+    var existing = links.querySelector('.mobile-cta-item');
+    if(existing) existing.remove();
+    var li = document.createElement('li');
+    li.className = 'mobile-cta-item';
+    var cloned = cta.cloneNode(true);
+    cloned.removeAttribute('style');
+    cloned.classList.remove('nav-cta');
+    cloned.classList.add('mobile-menu-cta');
+    cloned.textContent = 'Get a Quote';
+    li.appendChild(cloned);
+    links.appendChild(li);
+
+    // normalize menu labels and strip odd injected arrows/icons
+    Array.prototype.forEach.call(links.querySelectorAll('li:not(.mobile-cta-item) > a'), function(a){
+      var txt = (a.textContent || '').replace(/[\u2197\u2b08\u27a1\u279c\u27f6\u27f9\u27a4\u2934\u2935]/g,'').replace(/\s+/g,' ').trim();
+      a.textContent = txt;
+    });
+
+    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
+    function setOpen(open){
+      if(!isMobile()) open = false;
+      nav.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-open-mobile', open);
+      root.classList.toggle('menu-open-mobile', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    var newBurger = burger.cloneNode(true);
+    burger.parentNode.replaceChild(newBurger, burger);
+    burger = newBurger;
+    burger.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!nav.classList.contains('menu-open'));
+    }, {passive:false});
+
+    Array.prototype.forEach.call(links.querySelectorAll('a'), function(a){
+      a.addEventListener('click', function(){ setOpen(false); });
+    });
+
+    document.addEventListener('click', function(e){
+      if(!isMobile() || !nav.classList.contains('menu-open')) return;
+      if(nav.contains(e.target)) return;
+      setOpen(false);
+    }, true);
+
+    window.addEventListener('resize', function(){ if(!isMobile()) setOpen(false); });
+    setOpen(false);
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<script id="snrg-mobile-menu-quote-footer-script-20260306b">
+(function(){
+  const email = 'info@flooringoutlettx.com';
+  const page = (document.title || location.pathname.split('/').pop() || 'Flooring Outlet TX')
+    .replace(/\|.*$/, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\.html?$/i, '')
+    .trim();
+  const subject = `Quote Request - ${page || 'Flooring Outlet TX'}`;
+  const body = [
+    'Hello Flooring Outlet TX,',
+    '',
+    "I'd like a quote for my flooring project.",
+    '',
+    `Page of interest: ${page || 'Flooring Outlet TX'}`,
+    'Material / product:',
+    'Project location:',
+    'Approx. square footage:',
+    'Timeline:',
+    'Preferred contact name:',
+    'Phone number:',
+    '',
+    'Please send pricing, availability, and next steps.',
+  ].join('\n');
+  const quoteHref = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  document.querySelectorAll('a').forEach((a) => {
+    const txt = (a.textContent || '').trim().toLowerCase();
+    if (txt === 'get a quote' || /get\s+a\s+quote/.test(txt)) {
+      a.setAttribute('href', quoteHref);
+      a.removeAttribute('onclick');
+      a.setAttribute('data-quote-link', 'true');
+    }
+    if (a.getAttribute('href') && a.getAttribute('href').includes('/cdn-cgi/l/email-protection')) {
+      a.setAttribute('href', `mailto:${email}`);
+      const t = (a.textContent || '').trim().toLowerCase();
+      if (!t || t.includes('email protected') || t.includes('[email')) {
+        a.textContent = email;
+      }
+    }
+    const shown = (a.textContent || '').trim().toLowerCase();
+    if (shown === 'email protected' || shown === '[email protected]') {
+      a.textContent = email;
+      a.setAttribute('href', `mailto:${email}`);
+    }
+  });
+})();
+</script>
+
 </body>
+</html>
 </html>
