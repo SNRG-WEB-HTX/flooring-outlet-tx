@@ -3933,6 +3933,138 @@ footer a.snrg-link:hover{
     height: clamp(108px, 10.5vw, 144px) !important;
   }
 }
+
+/* =========================================================
+   BRAND CARD — FULL CARD LOGO FILL
+   Logo expands to fill entire card. CTA sits at bottom overlay.
+   ========================================================= */
+
+/* Card becomes a positioned container with no padding constraints */
+.brand-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-end !important;
+  padding: 0 !important;
+  min-height: clamp(170px, 17vw, 220px) !important;
+  overflow: hidden !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+}
+
+/* Logo wrap fills the ENTIRE card — no inset box, no margin */
+.brand-logo-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  transition: transform .32s cubic-bezier(.25,1,.5,1) !important;
+}
+
+.brand-card:hover .brand-logo-wrap {
+  transform: scale(1.04) !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* picture + img fill card completely, logo object-fit:contain with padding */
+.brand-logo-wrap picture {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(20px, 4vw, 36px) clamp(20px, 5vw, 44px) clamp(44px, 6vw, 60px) !important;
+  box-sizing: border-box !important;
+}
+
+.brand-logo-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* CTA bar pinned to bottom of card with subtle gradient backdrop */
+.brand-cta {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  padding: 11px 18px 13px !important;
+  background: rgba(253,250,246,0.92) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-top: 1px solid rgba(58,53,48,.10) !important;
+  font-size: .70rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  color: rgba(58,53,48,.80) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  transform: none !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  transition: background .25s ease, color .25s ease !important;
+}
+
+.brand-card:hover .brand-cta {
+  background: rgba(198,167,94,0.12) !important;
+  color: rgba(58,53,48,.95) !important;
+  transform: none !important;
+}
+
+/* Gold shimmer hover overlay on card */
+.brand-card::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 10px !important;
+  background: linear-gradient(145deg, rgba(198,167,94,.08) 0%, transparent 60%) !important;
+  opacity: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  transition: opacity .3s ease !important;
+}
+
+.brand-card:hover::after { opacity: 1 !important; }
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .brand-card { min-height: clamp(148px, 28vw, 185px) !important; }
+  .brand-logo-wrap picture { padding: 16px 18px 40px !important; }
+}
+@media (max-width: 640px) {
+  .brand-card { min-height: clamp(130px, 40vw, 170px) !important; }
+  .brand-logo-wrap picture { padding: 14px 16px 38px !important; }
+  .brand-cta { font-size: .65rem !important; padding: 9px 14px 11px !important; }
+}
+@media (min-width: 1281px) {
+  .brand-card { min-height: 230px !important; }
+  .brand-logo-wrap picture { padding: 40px 52px 66px !important; }
+}
+
 </style>
 </head>
 <body>
