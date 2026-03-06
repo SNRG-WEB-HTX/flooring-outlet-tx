@@ -4207,6 +4207,7 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+
 <style id="mobile-home-hero-tile-reference-fix">
 /* MOBILE ONLY: homepage hero uses the carpet-page background treatment */
 @media (max-width: 640px){
@@ -4314,6 +4315,8 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+
+
 <style id="mobile-hero-lower-and-logo-fill-final">
 /* FINAL POLISH: mobile hero spacing + fully uniform vendor logo cards */
 @media (max-width: 640px){
@@ -4451,6 +4454,8 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+
+
 <style id="logo-centering-final-20260306">
 /* Root cause fix: these source logos have uneven internal whitespace.
    Use logo-specific translation after scale so they center visually per breakpoint. */
@@ -4494,6 +4499,8 @@ footer a.snrg-link:hover{
   .brand-logo-wrap img[src*="duraston-usa-logo"]{ --logo-shift-y: -8px; }
 }
 </style>
+
+
 <style id="brand-logo-system-v7">
 /* Permanent vendor logo centering system
    Root cause: some vendor logo assets have asymmetric internal whitespace.
@@ -4531,6 +4538,8 @@ footer a.snrg-link:hover{
   .vendor-section .brand-card--durastone{ --brand-logo-mobile-y: -12px; }
 }
 </style>
+
+
 <style id="mobile-menu-cta-final-override-20260306">
 @media (max-width: 640px){
   /* Keep Get a Quote out of the top mobile header; show it only inside the open menu */
@@ -4561,174 +4570,6 @@ footer a.snrg-link:hover{
 }
 </style>
 
-<style id="snrg-mobile-menu-quote-footer-final-20260306b">
-@media (max-width: 640px){
-  html, body{
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    background: var(--charcoal, #141210) !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  body.menu-open-mobile,
-  html.menu-open-mobile{
-    overflow: hidden !important;
-    height: 100% !important;
-  }
-
-  /* Hide top sticky CTA on mobile; quote lives in menu list only */
-  nav .nav-cta,
-  nav.menu-open .nav-cta{
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-  }
-
-  /* Polished full-screen mobile menu */
-  nav.menu-open .nav-links{
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    margin: 0 !important;
-    padding: calc(env(safe-area-inset-top, 0px) + 98px) 22px calc(env(safe-area-inset-bottom, 0px) + 18px) !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background:
-      radial-gradient(circle at top right, rgba(198,167,94,.20), transparent 26%),
-      linear-gradient(180deg, rgba(15,10,7,.985) 0%, rgba(10,8,7,.995) 100%) !important;
-    backdrop-filter: blur(22px) !important;
-    -webkit-backdrop-filter: blur(22px) !important;
-    overflow-y: auto !important;
-    overscroll-behavior: contain !important;
-    gap: 0 !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-  }
-  nav.menu-open .nav-links::before{
-    content: 'Menu';
-    display: block;
-    margin: 0 0 18px 0 !important;
-    font-size: .78rem !important;
-    font-weight: 600 !important;
-    letter-spacing: .28em !important;
-    text-transform: uppercase !important;
-    color: rgba(198,167,94,.86) !important;
-  }
-  nav.menu-open .nav-links li{
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  nav.menu-open .nav-links a{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    min-height: 72px !important;
-    padding: 10px 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    border-bottom: 1px solid rgba(255,255,255,.10) !important;
-    color: rgba(255,255,255,.97) !important;
-    text-decoration: none !important;
-    font-size: clamp(1.22rem, 5vw, 1.58rem) !important;
-    line-height: 1.1 !important;
-    letter-spacing: -.01em !important;
-    font-weight: 600 !important;
-    box-shadow: none !important;
-  }
-  nav.menu-open .nav-links a:hover,
-  nav.menu-open .nav-links a:active{
-    color: #fff !important;
-    background: transparent !important;
-    transform: none !important;
-  }
-  nav.menu-open .nav-links a::after{
-    content: '↗';
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    min-width: 38px !important;
-    margin-left: 14px !important;
-    border-radius: 999px !important;
-    color: #24170d !important;
-    font-size: 1.02rem !important;
-    font-weight: 700 !important;
-    background: linear-gradient(180deg, rgba(214,183,112,1) 0%, rgba(169,126,62,1) 100%) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.34), 0 8px 20px rgba(130,90,38,.28) !important;
-    border: 1px solid rgba(255,255,255,.14) !important;
-  }
-  nav.menu-open .nav-links li:last-child a{
-    color: rgb(243,226,189) !important;
-    font-weight: 700 !important;
-  }
-  nav.menu-open .nav-links li:last-child a::after{
-    background: linear-gradient(180deg, rgba(243,226,189,1) 0%, rgba(198,167,94,1) 100%) !important;
-  }
-
-  /* Kill older ugly menu arrow implementations */
-  nav.menu-open .nav-links a svg,
-  nav.menu-open .nav-links a img,
-  nav.menu-open .nav-links a .menu-arrow,
-  nav.menu-open .nav-links a .nav-arrow,
-  nav.menu-open .nav-links a .arrow,
-  nav.menu-open .nav-links li::after,
-  nav.menu-open .nav-links li > span:not(.keep-visible){
-    display: none !important;
-  }
-
-  /* Hero typography / spacing */
-  .hero h1, .page-hero-title, .hero-title{
-    font-size: clamp(2.85rem, 10vw, 4.35rem) !important;
-    line-height: .96 !important;
-    letter-spacing: -.03em !important;
-  }
-  .hero p, .page-hero-sub, .hero-subtitle{
-    font-size: clamp(1rem, 3.8vw, 1.12rem) !important;
-    line-height: 1.55 !important;
-  }
-
-  /* Footer should end cleanly after Built by SNRG WEB */
-  footer,
-  .footer,
-  .site-footer{
-    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px)) !important;
-    margin-bottom: 0 !important;
-    min-height: auto !important;
-  }
-  .footer-bottom,
-  footer .footer-bottom,
-  .site-footer .footer-bottom{
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-    min-height: auto !important;
-  }
-  .footer-bottom > *:last-child,
-  footer .footer-bottom > *:last-child,
-  .footer-builtby,
-  footer .footer-builtby,
-  .site-footer .footer-builtby,
-  footer p:last-child,
-  footer div:last-child{
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  body > footer:last-of-type{
-    margin-bottom: 0 !important;
-  }
-}
-</style>
-
 </head>
 <body>
 <!-- ─── NAV ─── -->
@@ -4751,8 +4592,8 @@ footer a.snrg-link:hover{
 <li><a href="carpet.html">Carpet</a></li>
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
-<li><a data-quote-link="true" href="mailto:info@flooringoutlettx.com?subject=Quote%20Request%20-%20Flooring%20Outlet%20TX&amp;body=Hello%20Flooring%20Outlet%20TX%2C%0A%0AI%27d%20like%20a%20quote%20for%20my%20flooring%20project.%0A%0AMaterial%20/%20product%3A%0AProject%20location%3A%0AApprox.%20square%20footage%3A%0ATimeline%3A%0APreferred%20contact%20name%3A%0APhone%20number%3A%0A%0APlease%20send%20pricing%2C%20availability%2C%20and%20next%20steps.">Get a Quote</a></li></ul>
-<a class="nav-cta" data-quote-link="true" href="mailto:info@flooringoutlettx.com">Get a Quote</a>
+</ul>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#cea7a0a8a18ea8a2a1a1bca7a0a9a1bbbaa2abbabab6e0ada1a3f1bdbbaca4abadbaf388a2a1a1bca7a0a9ebfcfe9fbba1baabebfcfe9cabbfbbabbdbaebfcfeeb8bfcebf6feebf7faebfcfe88a2a1a1bca7a0a9ebfcfe81bbbaa2abbaebfcfe9a96e8aca1aab7f386a7ee88a2a1a1bca7a0a9ee81bbbaa2abbaee9a96e2ebfe8aebfe8febfe8aebfe8f872c4e57aaeea2a7a5abeeafeebfbba1baabeea8a1bcf4ebfe8aebfe8f2c4e6cee9ebca1aabbadbaeebab7beabeee69aa7a2abeee1ee86afbcaab9a1a1aaeee1ee82989eeee1ee8dafbcbeabbaeee1ee9dbaa1a0abe7f4ebfe8aebfe8f2c4e6cee8fbebebca1b6e0eebdbfbbafbcabeea8a1a1baafa9abf4ebfe8aebfe8f2c4e6cee87a0bdbaafa2a2afbaa7a1a0eea0ababaaabaaf1eee697abbde180a1e7f4ebfe8aebfe8f2c4e6cee8faaaabcabbdbdeee1ee94879ef4ebfe8aebfe8f2c4e6cee9aa7a3aba2a7a0abf4ebfe8aebfe8febfe8aebfe8f83b7eeada1a0baafadbaeea7a0a8a1f4ebfe8aebfe8f80afa3abf4ebfe8aebfe8f9ea6a1a0abf4ebfe8aebfe8febfe8aebfe8f9aa6afa0a5bdef">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -5492,9 +5333,9 @@ footer a.snrg-link:hover{
 <button aria-label="Close" class="pmodal-close" onclick="closeProductModal()">✕</button>
 <div class="product-modal" id="productModal">
 <div class="pmodal-gallery">
-<img alt="" class="pmodal-main-img" id="pmodal-main-img" src=""/>
+<img alt="" class="pmodal-main-img" id="pmodal-main-img" src="">
 <div class="pmodal-thumbs" id="pmodal-thumbs"></div>
-</div>
+</img></div>
 <div class="pmodal-info">
 <p class="pmodal-series" id="pmodal-series"></p>
 <h2 class="pmodal-title" id="pmodal-title"></h2>
@@ -7683,6 +7524,7 @@ if (document.readyState === 'loading') {
   requestAnimationFrame(() => goTo(0));
 })();
 </script>
+
 <style id="mobile-vendor-logo-stage-and-hero-fix-v5">
 /* Mobile-only final polish: more breathing room above hero title */
 @media (max-width: 640px){
@@ -7774,6 +7616,8 @@ if (document.readyState === 'loading') {
   }
 }
 </style>
+
+
 <style id="mobile-footer-end-fix-20260306">
 @media (max-width: 640px){
   html, body{
@@ -7833,6 +7677,8 @@ if (document.readyState === 'loading') {
   fixMobilePageEnd();
 })();
 </script>
+
+
 <style id="snrg-mobile-vakly-final-override">
 /* =========================================================
    FINAL MOBILE NAV + HERO VIEWPORT OVERRIDE
@@ -8148,6 +7994,8 @@ if (document.readyState === 'loading') {
   }
 }
 </style>
+
+
 <script id="snrg-mobile-vakly-final-script">
 (function(){
   const nav = document.getElementById('nav');
@@ -8197,6 +8045,8 @@ if (document.readyState === 'loading') {
   window.addEventListener('orientationchange', function(){ setOpen(false); }, { passive: true });
 })();
 </script>
+
+
 <style id="mobile-burger-hero-final-fix-20260306">
 @media (max-width: 640px){
   nav{ z-index: 1000 !important; }
@@ -8241,6 +8091,7 @@ if (document.readyState === 'loading') {
   }
 }
 </style>
+
 <script id="mobile-burger-final-fix-20260306">
 (function(){
   function boot(){
@@ -8294,6 +8145,8 @@ if (document.readyState === 'loading') {
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 </script>
+
+
 <style id="oai-mobile-menu-fullscreen-fix-v2">
 @media (max-width: 640px){
   html.menu-open-mobile, body.menu-open-mobile{ overflow:hidden !important; height:100% !important; }
@@ -8420,6 +8273,7 @@ if (document.readyState === 'loading') {
   }
 }
 </style>
+
 <script id="oai-mobile-menu-fullscreen-fix-script-v2">
 (function(){
   function init(){
@@ -8483,55 +8337,6 @@ if (document.readyState === 'loading') {
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
-})();
-</script>
-
-<script id="snrg-mobile-menu-quote-footer-script-20260306b">
-(function(){
-  const email = 'info@flooringoutlettx.com';
-  const page = (document.title || location.pathname.split('/').pop() || 'Flooring Outlet TX')
-    .replace(/\|.*$/, '')
-    .replace(/[-_]+/g, ' ')
-    .replace(/\.html?$/i, '')
-    .trim();
-  const subject = `Quote Request - ${page || 'Flooring Outlet TX'}`;
-  const body = [
-    'Hello Flooring Outlet TX,',
-    '',
-    "I'd like a quote for my flooring project.",
-    '',
-    `Page of interest: ${page || 'Flooring Outlet TX'}`,
-    'Material / product:',
-    'Project location:',
-    'Approx. square footage:',
-    'Timeline:',
-    'Preferred contact name:',
-    'Phone number:',
-    '',
-    'Please send pricing, availability, and next steps.',
-  ].join('\n');
-  const quoteHref = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  document.querySelectorAll('a').forEach((a) => {
-    const txt = (a.textContent || '').trim().toLowerCase();
-    if (txt === 'get a quote' || /get\s+a\s+quote/.test(txt)) {
-      a.setAttribute('href', quoteHref);
-      a.removeAttribute('onclick');
-      a.setAttribute('data-quote-link', 'true');
-    }
-    if (a.getAttribute('href') && a.getAttribute('href').includes('/cdn-cgi/l/email-protection')) {
-      a.setAttribute('href', `mailto:${email}`);
-      const t = (a.textContent || '').trim().toLowerCase();
-      if (!t || t.includes('email protected') || t.includes('[email')) {
-        a.textContent = email;
-      }
-    }
-    const shown = (a.textContent || '').trim().toLowerCase();
-    if (shown === 'email protected' || shown === '[email protected]') {
-      a.textContent = email;
-      a.setAttribute('href', `mailto:${email}`);
-    }
-  });
 })();
 </script>
 
