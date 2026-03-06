@@ -8046,5 +8046,105 @@ if (document.readyState === 'loading') {
 })();
 </script>
 
+
+<style id="mobile-burger-hero-final-fix-20260306">
+@media (max-width: 640px){
+  nav{ z-index: 1000 !important; }
+  .nav-burger{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    position: relative !important;
+    z-index: 1003 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  .nav-burger *{ pointer-events:none !important; }
+  nav.menu-open .nav-burger{ position: relative !important; z-index: 1004 !important; }
+  nav .nav-cta{ display:none !important; }
+  nav.menu-open .nav-cta{
+    display:flex !important;
+    position: fixed !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    top: auto !important;
+    z-index: 1002 !important;
+    justify-content:center !important;
+    min-height: 56px !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.24) !important;
+  }
+  nav.menu-open .nav-links{ padding-bottom: 92px !important; }
+  .hero h1, .page-hero-title, .hero-title{
+    font-size: clamp(2.7rem, 9vw, 4.1rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.025em !important;
+  }
+  .hero p, .page-hero-sub, .hero-subtitle{
+    font-size: clamp(1rem, 3.8vw, 1.12rem) !important;
+    line-height: 1.55 !important;
+  }
+  .hero-content, .page-hero-content{
+    width: min(100%, 92vw) !important;
+  }
+}
+</style>
+
+<script id="mobile-burger-final-fix-20260306">
+(function(){
+  function boot(){
+    var nav = document.querySelector('nav');
+    if(!nav) return;
+    var oldBurger = nav.querySelector('.nav-burger');
+    if(!oldBurger) return;
+    var burger = oldBurger.cloneNode(true);
+    oldBurger.parentNode.replaceChild(burger, oldBurger);
+    var links = nav.querySelector('.nav-links');
+    var cta = nav.querySelector('.nav-cta');
+    var root = document.documentElement;
+
+    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
+    function setOpen(open){
+      nav.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-open-mobile', open);
+      root.classList.toggle('menu-open-mobile', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function closeMenu(){ setOpen(false); }
+
+    burger.addEventListener('click', function(e){
+      if(!isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!nav.classList.contains('menu-open'));
+    }, true);
+    burger.addEventListener('touchstart', function(e){
+      if(!isMobile()) return;
+      e.stopPropagation();
+    }, {passive:true, capture:true});
+
+    if(links){
+      links.addEventListener('click', function(e){
+        var a = e.target.closest('a');
+        if(a && isMobile()) closeMenu();
+      }, true);
+    }
+    if(cta){
+      cta.addEventListener('click', function(){ if(isMobile()) closeMenu(); }, true);
+    }
+    document.addEventListener('click', function(e){
+      if(!isMobile() || !nav.classList.contains('menu-open')) return;
+      if(nav.contains(e.target)) return;
+      closeMenu();
+    }, true);
+    window.addEventListener('resize', function(){ if(!isMobile()) closeMenu(); });
+    closeMenu();
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+</script>
+
 </body>
 </html>
