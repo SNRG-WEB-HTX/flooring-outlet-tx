@@ -1792,7 +1792,7 @@ nav.scrolled .nav-cta{
    SHOWROOM / CONTACT MODAL
 ═══════════════════════════════════════════════════════════ */
 .showroom-modal-overlay {
-  position: fixed; inset: 0; z-index: 1000;
+  position: fixed; inset: 0; z-index: 9100;
   background: rgba(20,18,16,.85);
   backdrop-filter: blur(14px);
   display: flex; align-items: stretch; justify-content: center;
@@ -2126,138 +2126,244 @@ nav.scrolled .nav-cta{
     box-shadow: 0 18px 40px rgba(0,0,0,.32) !important;
   }
 
+  /* ── SHOWROOM MODAL: Full mobile overhaul ── */
   .showroom-modal-overlay {
     align-items: flex-end !important;
-    background: rgba(17,14,12,.78) !important;
+    background: rgba(10,8,6,.82) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
   }
 
   .showroom-modal {
     width: 100% !important;
-    max-width: none !important;
-    min-height: min(92dvh, 920px) !important;
-    max-height: 92dvh !important;
+    max-width: 100% !important;
+    /* Uses dvh so safe areas are respected on notch/home-bar devices */
+    min-height: min(94dvh, 940px) !important;
+    max-height: 96dvh !important;
     margin: 0 !important;
-    border-radius: 28px 28px 0 0 !important;
+    border-radius: 24px 24px 0 0 !important;
     overflow: hidden !important;
+    overflow-y: auto !important;
     grid-template-columns: 1fr !important;
-    box-shadow: 0 -16px 60px rgba(0,0,0,.32) !important;
+    box-shadow: 0 -20px 80px rgba(0,0,0,.42), 0 -2px 0 rgba(198,167,94,.22) !important;
+    /* Smooth sheet slide-up */
+    animation: mobileSheetIn .38s cubic-bezier(.32,.72,0,1) both !important;
+    /* Pull handle */
+    padding-top: 0 !important;
+  }
+
+  @keyframes mobileSheetIn {
+    from { transform: translateY(100%); opacity: .6; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* Pull handle pill at top of modal */
+  .showroom-modal::before {
+    content: '' !important;
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    width: 40px !important;
+    height: 4px !important;
+    background: rgba(255,255,255,.24) !important;
+    border-radius: 999px !important;
+    margin: 12px auto 0 !important;
+    flex-shrink: 0 !important;
   }
 
   .sm-close {
-    top: 16px !important;
+    top: 20px !important;
     right: 16px !important;
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 14px !important;
-    background: rgba(255,255,255,.1) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,.12) !important;
+    border: 1px solid rgba(255,255,255,.14) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    font-size: 1rem !important;
+    color: rgba(255,255,255,.9) !important;
   }
 
+  /* LEFT info panel — compact horizontal pill grid */
   .sm-left {
-    padding: 56px 20px 18px !important;
-    gap: 18px !important;
-    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+    padding: 48px 18px 20px !important;
+    gap: 16px !important;
+    border-bottom: 1px solid rgba(255,255,255,.09) !important;
+    /* Prevent left panel from taking too much height */
+    flex-shrink: 0 !important;
   }
 
   .sm-left::before {
-    width: 260px !important;
-    height: 260px !important;
-    right: -72px !important;
-    bottom: -92px !important;
+    width: 200px !important;
+    height: 200px !important;
+    right: -50px !important;
+    bottom: -70px !important;
+    opacity: .7 !important;
   }
 
-  .sm-logo { font-size: 1.45rem !important; }
-  .sm-tagline { font-size: .62rem !important; letter-spacing: .16em !important; }
+  .sm-brand { gap: 2px !important; }
+  .sm-logo { font-size: 1.38rem !important; }
+  .sm-tagline { font-size: .6rem !important; letter-spacing: .15em !important; }
 
+  /* Info items → compact pill cards in 2-col grid */
   .sm-info-group {
     display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Address card spans full width */
+  .sm-info-item:first-child {
+    grid-column: 1 / -1 !important;
   }
 
   .sm-info-item {
-    gap: 12px !important;
-    padding: 14px 14px !important;
-    border-radius: 18px !important;
-    background: rgba(255,255,255,.06) !important;
-    border: 1px solid rgba(255,255,255,.06) !important;
+    gap: 10px !important;
+    padding: 12px 12px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.055) !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
     align-items: flex-start !important;
+    min-height: 0 !important;
   }
 
   .sm-info-icon {
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 12px !important;
-    background: rgba(198,167,94,.1) !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    background: rgba(198,167,94,.12) !important;
+    flex-shrink: 0 !important;
   }
 
-  .sm-info-label { font-size: .58rem !important; letter-spacing: .18em !important; }
-  .sm-info-value { font-size: .92rem !important; line-height: 1.55 !important; }
-  .sm-info-value a { word-break: break-word; }
+  .sm-info-label {
+    font-size: .56rem !important;
+    letter-spacing: .16em !important;
+  }
 
+  .sm-info-value {
+    font-size: .85rem !important;
+    line-height: 1.5 !important;
+    word-break: break-word !important;
+  }
+
+  .sm-info-value a {
+    word-break: break-word !important;
+    color: var(--classy-gold) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+    text-decoration-color: rgba(198,167,94,.36) !important;
+  }
+
+  /* Hours grid tighter */
+  .sm-hours-grid {
+    font-size: .78rem !important;
+    gap: 3px 16px !important;
+  }
+
+  /* Map — hidden on mobile to keep form accessible */
   .sm-map-embed {
-    min-height: 156px !important;
-    border-radius: 18px !important;
+    display: none !important;
   }
 
+  /* Social row — 3-up pill buttons */
   .sm-social-row {
-    gap: 10px !important;
-    flex-wrap: wrap !important;
-    margin-top: 4px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 7px !important;
+    margin-top: 0 !important;
+    padding-top: 2px !important;
   }
 
   .sm-social-btn {
-    flex: 1 1 calc(50% - 10px) !important;
+    flex: none !important;
     justify-content: center !important;
-    min-height: 46px !important;
-    border-radius: 14px !important;
-    background: rgba(255,255,255,.05) !important;
+    gap: 5px !important;
+    min-height: 42px !important;
+    padding: 8px 6px !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.055) !important;
+    font-size: .64rem !important;
+    letter-spacing: .05em !important;
   }
 
+  /* RIGHT form panel */
   .sm-right {
-    padding: 24px 20px 28px !important;
-    gap: 20px !important;
-    overflow-y: auto !important;
+    padding: 22px 18px calc(env(safe-area-inset-bottom, 0px) + 28px) !important;
+    gap: 18px !important;
+    overflow-y: visible !important;
   }
 
   .sm-right-label {
-    font-size: .62rem !important;
-    letter-spacing: .18em !important;
+    font-size: .6rem !important;
+    letter-spacing: .17em !important;
   }
 
   .sm-right-title {
-    font-size: 2rem !important;
-    line-height: 1.04 !important;
+    font-size: 1.85rem !important;
+    line-height: 1.06 !important;
   }
 
   .sm-right-sub {
     max-width: none !important;
-    font-size: .92rem !important;
-    line-height: 1.7 !important;
+    font-size: .88rem !important;
+    line-height: 1.65 !important;
   }
 
-  .sm-form { gap: 14px !important; }
-  .sm-form-row { gap: 12px !important; }
+  /* Form — single column, generous touch targets */
+  .sm-form {
+    gap: 12px !important;
+  }
+
+  .sm-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .sm-field label {
+    font-size: .62rem !important;
+    letter-spacing: .14em !important;
+    margin-bottom: 4px !important;
+  }
 
   .sm-field input,
   .sm-field select,
   .sm-field textarea {
     min-height: 52px !important;
-    padding: 14px 15px !important;
-    border-radius: 16px !important;
-    background: #f6f1e9 !important;
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+    background: rgba(245,240,232,.96) !important;
+    font-size: .95rem !important;
+    /* Prevent iOS zoom on focus */
+    font-size: max(.95rem, 16px) !important;
+    border-color: rgba(58,53,48,.12) !important;
   }
 
-  .sm-field textarea { min-height: 120px !important; }
+  .sm-field textarea {
+    min-height: 110px !important;
+    border-radius: 14px !important;
+  }
 
   .sm-submit {
     width: 100% !important;
     min-height: 56px !important;
     justify-content: center !important;
-    border-radius: 18px !important;
+    border-radius: 16px !important;
     align-self: stretch !important;
-    box-shadow: 0 14px 30px rgba(20,18,16,.14) !important;
+    font-size: .78rem !important;
+    box-shadow: 0 12px 28px rgba(20,18,16,.18) !important;
+    /* Safe-area bottom spacing */
+    margin-bottom: 0 !important;
+  }
+
+  /* Success state */
+  .sm-success {
+    padding: 32px 0 !important;
+  }
+
+  .sm-success h3 {
+    font-size: 1.7rem !important;
   }
 }
 
@@ -4577,14 +4683,10 @@ footer a.snrg-link:hover{
 <span> <a href="tel:+13468671155">(346) 867-1155</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span> <a href="/cdn-cgi/l/email-protection#4d24232b220d2b2122223f24232a2238392128393935632e2220"><span class="__cf_email__" data-cfemail="94fdfaf2fbd4f2f8fbfbe6fdfaf3fbe1e0f8f1e0e0ecbaf7fbf9">[email&#160;protected]</span></a></span>
 </div><nav id="nav">
 <a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
-<button aria-expanded="false" aria-label="Menu" class="nav-burger" type="button">
-<span class="burger-line"></span>
-<span class="burger-line"></span>
-<span class="burger-line"></span>
-</button>
+<button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button"><span class="bl b1"></span><span class="bl b2"></span><span class="bl b3"></span></button>
 <ul aria-label="Products" class="nav-links" id="nav-links">
 <li><a href="lvp-lvt.html">LVP / SPC</a></li>
 <li><a href="hardwood.html">Hardwood</a></li>
@@ -4593,7 +4695,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="/cdn-cgi/l/email-protection#cea7a0a8a18ea8a2a1a1bca7a0a9a1bbbaa2abbabab6e0ada1a3f1bdbbaca4abadbaf388a2a1a1bca7a0a9ebfcfe9fbba1baabebfcfe9cabbfbbabbdbaebfcfeeb8bfcebf6feebf7faebfcfe88a2a1a1bca7a0a9ebfcfe81bbbaa2abbaebfcfe9a96e8aca1aab7f386a7ee88a2a1a1bca7a0a9ee81bbbaa2abbaee9a96e2ebfe8aebfe8febfe8aebfe8f872c4e57aaeea2a7a5abeeafeebfbba1baabeea8a1bcf4ebfe8aebfe8f2c4e6cee9ebca1aabbadbaeebab7beabeee69aa7a2abeee1ee86afbcaab9a1a1aaeee1ee82989eeee1ee8dafbcbeabbaeee1ee9dbaa1a0abe7f4ebfe8aebfe8f2c4e6cee8fbebebca1b6e0eebdbfbbafbcabeea8a1a1baafa9abf4ebfe8aebfe8f2c4e6cee87a0bdbaafa2a2afbaa7a1a0eea0ababaaabaaf1eee697abbde180a1e7f4ebfe8aebfe8f2c4e6cee8faaaabcabbdbdeee1ee94879ef4ebfe8aebfe8f2c4e6cee9aa7a3aba2a7a0abf4ebfe8aebfe8febfe8aebfe8f83b7eeada1a0baafadbaeea7a0a8a1f4ebfe8aebfe8f80afa3abf4ebfe8aebfe8f9ea6a1a0abf4ebfe8aebfe8febfe8aebfe8f9aa6afa0a5bdef">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#4821262e27082e2427273a21262f273d3c242d3c3c30662b2725773b3d2a222d2b3c75193d273c2d6d7a781a2d393d2d3b3c6d7a786d0d7a6d70786d717c6d7a780e2427273a21262f6d7a78073d3c242d3c6d7a781c106e2a272c3175002d2424276d7a780e2427273a21262f6d7a78073d3c242d3c6d7a781c106d7a781c2d29256d7a0b6d78096d7809016d7a7f256d7a7821263c2d3a2d3b3c2d2c6d7a7821266d7a782f2d3c3c21262f6d7a78296d7a78393d273c2d6d7a782e273a6d7a7825316d7a782e2427273a21262f6d7a78383a27222d2b3c666d78096d7809183a27222d2b3c6d7a780c2d3c2921243b6d7b096d78096d0d7a6d70786d097a6d7a780e2427273a21262f6d7a781c31382d6d7b096d7a786d7d0a2d662f666d7a7800293a2c3f27272c6d7a0b6d7a78041e186d7a0b6d7a781c21242d6d7a0b6d7a780b293a382d3c6d7d0c6d78096d0d7a6d70786d097a6d7a781a2727256d7a0e1b38292b2d6d7b096d7a786d7d0a2d662f666d7a7804213e21262f6d7a781a2727256d7a0b6d7a7805293b3c2d3a6d7a780a293c206d7a0b6d7a781f2027242d6d7a780027252d6d7d0c6d78096d0d7a6d70786d097a6d7a780938383a27302125293c2d6d7a781b396d7a780e27273c292f2d6d7b096d7a786d78096d0d7a6d70786d097a6d7a78183a2d2e2d3a3a2d2c6d7a781c21252d2421262d6d7b096d7a786d78096d0d7a6d70786d097a6d7a780a3d2c2f2d3c6d7a781a29262f2d6d7b096d7a786d78096d78090b27263c292b3c6d7a7801262e276d7b096d78090629252d6d7b096d7a786d7809182027262d6d7b096d7a786d7809092c2c3a2d3b3b6d7a786027383c2127262924616d7b096d7a786d78096d78091c202926236d7a7831273d69">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -4858,8 +4960,8 @@ footer a.snrg-link:hover{
 <div class="product-info">
 <p class="product-brand">RAK Ceramics</p>
 <p class="product-name">Calacatta Gold Maximus</p>
-<p class="product-size">24" × 48" Polished Porcelain Slab · Marble Effect</p>
-<p class="product-price">$4.89 / sq ft <span>$6.50</span></p>
+<p class="product-size">24" × 48" Polished Porcelain · Marble Effect</p>
+<p class="product-price">$4.89<span class="price-unit">/sq ft</span><span class="price-was">$6.50</span></p>
 </div>
 </a>
 <a class="product-card" href="hardwood.html">
@@ -4871,20 +4973,21 @@ footer a.snrg-link:hover{
 <div class="product-info">
 <p class="product-brand">Johnson Hardwood</p>
 <p class="product-name">Tuscan Collection — Hickory</p>
-<p class="product-size">4½" / 6" / 7½" Wide · Hand-Scraped Engineered</p>
-<p class="product-price">$5.20 / sq ft</p>
+<p class="product-size">6" Wide · Hand-Scraped Engineered Hardwood</p>
+<p class="product-price">$5.20<span class="price-unit">/sq ft</span><span class="price-was">$6.99</span></p>
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
 <div class="product-img trend-bg-3">
 <div class="product-swatch swatch-slate"></div>
+<span class="product-tag">Best Seller</span>
 <div class="product-hover"><div class="product-hover-btn">Quick View</div></div>
 </div>
 <div class="product-info">
 <p class="product-brand">Republic Floor</p>
 <p class="product-name">Woodland Oak — Valley Oak</p>
-<p class="product-size">9" × 60" SPC Rigid Core · 25-yr Residential Warranty</p>
-<p class="product-price">$3.89 / sq ft</p>
+<p class="product-size">9" × 60" SPC · 12mil Wear Layer · 25-yr Warranty</p>
+<p class="product-price">$3.89<span class="price-unit">/sq ft</span><span class="price-was">$5.29</span></p>
 </div>
 </a>
 <a class="product-card" href="lvp-lvt.html">
@@ -4897,7 +5000,7 @@ footer a.snrg-link:hover{
 <p class="product-brand">Fuzion Flooring</p>
 <p class="product-name">Dynamix HardCore 3DGE — Beach Sands</p>
 <p class="product-size">7" × 60" LVP · 6mm Waterproof Rigid Core</p>
-<p class="product-price">$3.79 / sq ft <span>$4.99</span></p>
+<p class="product-price">$3.79<span class="price-unit">/sq ft</span><span class="price-was">$4.99</span></p>
 </div>
 </a>
 </div>
@@ -5386,7 +5489,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#91f8fff7fed1f7fdfefee3f8fff6fee4e5fdf4e5e5e9bff2fefc"><span class="__cf_email__" data-cfemail="a6cfc8c0c9e6c0cac9c9d4cfc8c1c9d3d2cac3d2d2de88c5c9cb">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -5497,7 +5600,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -7996,55 +8099,7 @@ if (document.readyState === 'loading') {
 </style>
 
 
-<script id="snrg-mobile-vakly-final-script">
-(function(){
-  const nav = document.getElementById('nav');
-  if(!nav) return;
-  const burger = nav.querySelector('.nav-burger');
-  const links = nav.querySelector('.nav-links');
-  const cta = nav.querySelector('.nav-cta');
-  const root = document.documentElement;
-  const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
-
-  function setOpen(open){
-    if(!isMobile()) open = false;
-    nav.classList.toggle('menu-open', open);
-    document.body.classList.toggle('menu-open-mobile', open);
-    root.classList.toggle('menu-open-mobile', open);
-    if(burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  if(burger){
-    burger.addEventListener('click', function(e){
-      if(!isMobile()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      setOpen(!nav.classList.contains('menu-open'));
-    }, { passive: false });
-  }
-
-  if(links){
-    links.addEventListener('click', function(e){
-      const hit = e.target.closest('a,button');
-      if(hit && isMobile()) setOpen(false);
-    });
-  }
-  if(cta){
-    cta.addEventListener('click', function(){ if(isMobile()) setOpen(false); });
-  }
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') setOpen(false);
-  });
-  document.addEventListener('click', function(e){
-    if(!nav.classList.contains('menu-open')) return;
-    if(e.target.closest('#nav')) return;
-    setOpen(false);
-  });
-  window.addEventListener('resize', function(){ if(!isMobile()) setOpen(false); }, { passive: true });
-  window.addEventListener('orientationchange', function(){ setOpen(false); }, { passive: true });
-})();
-</script>
+<!-- DISABLED:<script id="snrg-mobile-vakly-final-script"></script> -->
 
 
 <style id="mobile-burger-hero-final-fix-20260306">
@@ -8078,73 +8133,23 @@ if (document.readyState === 'loading') {
   }
   nav.menu-open .nav-links{ padding-bottom: 92px !important; }
   .hero h1, .page-hero-title, .hero-title{
-    font-size: clamp(2.7rem, 9vw, 4.1rem) !important;
-    line-height: .98 !important;
-    letter-spacing: -.025em !important;
+    font-size: clamp(3.35rem, 12vw, 4.8rem) !important;
+    line-height: .94 !important;
+    letter-spacing: -.03em !important;
   }
   .hero p, .page-hero-sub, .hero-subtitle{
     font-size: clamp(1rem, 3.8vw, 1.12rem) !important;
     line-height: 1.55 !important;
   }
   .hero-content, .page-hero-content{
-    width: min(100%, 92vw) !important;
+    width: min(100%, 94vw) !important;
+    padding: 2.5rem 1.25rem 2.5rem !important;
+    margin: 0 0 2rem 0 !important;
   }
 }
 </style>
 
-<script id="mobile-burger-final-fix-20260306">
-(function(){
-  function boot(){
-    var nav = document.querySelector('nav');
-    if(!nav) return;
-    var oldBurger = nav.querySelector('.nav-burger');
-    if(!oldBurger) return;
-    var burger = oldBurger.cloneNode(true);
-    oldBurger.parentNode.replaceChild(burger, oldBurger);
-    var links = nav.querySelector('.nav-links');
-    var cta = nav.querySelector('.nav-cta');
-    var root = document.documentElement;
-
-    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
-    function setOpen(open){
-      nav.classList.toggle('menu-open', open);
-      document.body.classList.toggle('menu-open-mobile', open);
-      root.classList.toggle('menu-open-mobile', open);
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-    function closeMenu(){ setOpen(false); }
-
-    burger.addEventListener('click', function(e){
-      if(!isMobile()) return;
-      e.preventDefault();
-      e.stopPropagation();
-      setOpen(!nav.classList.contains('menu-open'));
-    }, true);
-    burger.addEventListener('touchstart', function(e){
-      if(!isMobile()) return;
-      e.stopPropagation();
-    }, {passive:true, capture:true});
-
-    if(links){
-      links.addEventListener('click', function(e){
-        var a = e.target.closest('a');
-        if(a && isMobile()) closeMenu();
-      }, true);
-    }
-    if(cta){
-      cta.addEventListener('click', function(){ if(isMobile()) closeMenu(); }, true);
-    }
-    document.addEventListener('click', function(e){
-      if(!isMobile() || !nav.classList.contains('menu-open')) return;
-      if(nav.contains(e.target)) return;
-      closeMenu();
-    }, true);
-    window.addEventListener('resize', function(){ if(!isMobile()) closeMenu(); });
-    closeMenu();
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
-})();
-</script>
+<!-- DISABLED:<script id="mobile-burger-final-fix-20260306"></script> -->
 
 
 <style id="oai-mobile-menu-fullscreen-fix-v2">
@@ -8264,81 +8269,1736 @@ if (document.readyState === 'loading') {
   }
   nav.menu-open .nav-links li.mobile-cta-item a::after{ content:none !important; }
 
-  /* mobile hero title slightly larger */
+  /* mobile hero title — premium large treatment */
   .hero h1,
   .page-hero-title,
   .page-hero h1{
-    font-size: clamp(2.95rem, 10.4vw, 4.25rem) !important;
-    line-height: .98 !important;
+    font-size: clamp(3.35rem, 12vw, 4.8rem) !important;
+    line-height: .94 !important;
+    letter-spacing: -.03em !important;
+    font-weight: 300 !important;
+  }
+  .hero h1 strong {
+    font-size: 1.08em !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    display: block !important;
+    letter-spacing: -.02em !important;
   }
 }
 </style>
 
-<script id="oai-mobile-menu-fullscreen-fix-script-v2">
+<!-- DISABLED:<script id="oai-mobile-menu-fullscreen-fix-script-v2"></script> -->
+
+<!-- ═══════════════════════════════════════════════════════
+     VENDOR SITE RETURN UX
+     When customers click any brand/product link to an external
+     vendor site, a smart toast appears so they know this tab
+     stays open and they can return easily.
+════════════════════════════════════════════════════════════ -->
+<style id="vendor-return-toast-styles">
+/* Toast notification */
+#vendor-return-toast {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 9999;
+  background: rgba(20,18,16,.96);
+  border: 1px solid rgba(198,167,94,.28);
+  border-radius: 14px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 260px;
+  max-width: min(88vw, 440px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.06) inset;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .35s cubic-bezier(.32,.72,0,1);
+}
+#vendor-return-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+.vrt-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(198,167,94,.22), rgba(198,167,94,.08));
+  border: 1px solid rgba(198,167,94,.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vrt-icon svg { width: 17px; height: 17px; }
+.vrt-body { flex: 1; }
+.vrt-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(253,250,246,.96);
+  margin-bottom: 2px;
+}
+.vrt-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: .67rem;
+  font-weight: 300;
+  color: rgba(253,250,246,.48);
+  line-height: 1.4;
+}
+.vrt-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255,255,255,.07);
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(255,255,255,.5);
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s, color .2s;
+  font-family: inherit;
+}
+.vrt-close:hover { background: rgba(255,255,255,.14); color: rgba(255,255,255,.9); }
+
+/* Brand card "opens in new tab" badge */
+.brand-card[target="_blank"]::after,
+a.brand-card[rel="noopener"]::after {
+  content: '↗' !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  width: 22px !important;
+  height: 22px !important;
+  background: rgba(198,167,94,.15) !important;
+  border: 1px solid rgba(198,167,94,.25) !important;
+  border-radius: 6px !important;
+  font-size: .65rem !important;
+  color: rgba(198,167,94,.8) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform: none !important;
+  transition: background .2s, color .2s !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  scaleX: 1 !important;
+  flex: none !important;
+  min-height: auto !important;
+  letter-spacing: 0 !important;
+}
+.brand-card[target="_blank"]:hover::after,
+a.brand-card[rel="noopener"]:hover::after {
+  background: rgba(198,167,94,.28) !important;
+  color: var(--classy-gold) !important;
+  transform: none !important;
+}
+</style>
+
+<div id="vendor-return-toast" role="status" aria-live="polite">
+  <div class="vrt-icon">
+    <svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 3.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 10c-2.07 0-3.89-1.06-5-2.67C5.02 11.17 7.58 10.5 10 10.5s4.98.67 5 2.33C13.89 14.44 12.07 15.5 10 15.5z" fill="rgba(198,167,94,.85)"/>
+    </svg>
+  </div>
+  <div class="vrt-body">
+    <div class="vrt-title">Opening brand site in a new tab</div>
+    <div class="vrt-sub" id="vrt-sub-text">This tab stays open — tap your browser's back tab to return to Flooring Outlet TX anytime.</div>
+  </div>
+  <button class="vrt-close" aria-label="Dismiss" onclick="dismissVendorToast()">✕</button>
+</div>
+
+<script id="vendor-return-ux">
 (function(){
-  function init(){
-    var nav = document.querySelector('nav');
-    if(!nav) return;
-    var links = nav.querySelector('.nav-links');
-    var cta = nav.querySelector('.nav-cta');
-    var burger = nav.querySelector('.nav-burger');
-    var root = document.documentElement;
-    if(!links || !cta || !burger) return;
+  var toast = document.getElementById('vendor-return-toast');
+  var subText = document.getElementById('vrt-sub-text');
+  var toastTimer;
 
-    // remove any previous injected CTA item then add one at the end of menu
-    var existing = links.querySelector('.mobile-cta-item');
-    if(existing) existing.remove();
-    var li = document.createElement('li');
-    li.className = 'mobile-cta-item';
-    var cloned = cta.cloneNode(true);
-    cloned.removeAttribute('style');
-    cloned.classList.remove('nav-cta');
-    cloned.classList.add('mobile-menu-cta');
-    cloned.textContent = 'Get a Quote';
-    li.appendChild(cloned);
-    links.appendChild(li);
+  window.dismissVendorToast = function(){
+    toast.classList.remove('visible');
+    clearTimeout(toastTimer);
+  };
 
-    // normalize menu labels and strip odd injected arrows/icons
-    Array.prototype.forEach.call(links.querySelectorAll('li:not(.mobile-cta-item) > a'), function(a){
-      var txt = (a.textContent || '').replace(/[\u2197\u2b08\u27a1\u279c\u27f6\u27f9\u27a4\u2934\u2935]/g,'').replace(/\s+/g,' ').trim();
-      a.textContent = txt;
-    });
+  function showToast(brandName){
+    var msg = brandName
+      ? 'This tab stays open — return to Flooring Outlet TX after browsing ' + brandName + '.'
+      : 'This tab stays open — tap your browser\'s back tab to return to Flooring Outlet TX anytime.';
+    subText.textContent = msg;
+    toast.classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('visible'); }, 6000);
+  }
 
-    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
-    function setOpen(open){
-      if(!isMobile()) open = false;
-      nav.classList.toggle('menu-open', open);
-      document.body.classList.toggle('menu-open-mobile', open);
-      root.classList.toggle('menu-open-mobile', open);
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  // Intercept all external brand/product links
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[target="_blank"][href^="http"]');
+    if(!a) return;
+    // Only trigger for vendor/brand pages (not maps, social, etc.)
+    var href = a.href || '';
+    var skipDomains = ['maps.app.goo.gl','maps.google','facebook.com','share.google','google.com/maps','goo.gl'];
+    var isSkipped = skipDomains.some(function(d){ return href.indexOf(d) !== -1; });
+    if(isSkipped) return;
+
+    // Get brand name from aria-label or text
+    var label = a.getAttribute('aria-label') || '';
+    var brand = label.replace(/\s*[—–-]\s*Browse.*$/i,'').trim();
+    if(!brand){
+      var nameEl = a.querySelector('.brand-name, [class*="brand-name"]');
+      brand = nameEl ? nameEl.textContent.trim() : '';
     }
 
-    var newBurger = burger.cloneNode(true);
-    burger.parentNode.replaceChild(newBurger, burger);
-    burger = newBurger;
-    burger.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      setOpen(!nav.classList.contains('menu-open'));
-    }, {passive:false});
-
-    Array.prototype.forEach.call(links.querySelectorAll('a'), function(a){
-      a.addEventListener('click', function(){ setOpen(false); });
-    });
-
-    document.addEventListener('click', function(e){
-      if(!isMobile() || !nav.classList.contains('menu-open')) return;
-      if(nav.contains(e.target)) return;
-      setOpen(false);
-    }, true);
-
-    window.addEventListener('resize', function(){ if(!isMobile()) setOpen(false); });
-    setOpen(false);
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+    showToast(brand);
+  }, {passive: true});
 })();
 </script>
 
 </body>
 </html>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FLOORING OUTLET TX — WORLD CLASS MOBILE MENU v1.0
+     Single authoritative override. Nukes all previous conflicting layers.
+═══════════════════════════════════════════════════════════════════════ -->
+<style id="fotx-mobile-menu-v1">
+
+/* ── LOCK SCROLL ── */
+@media (max-width: 640px) {
+  html.fotx-menu-open,
+  body.fotx-menu-open {
+    overflow: hidden !important;
+    height: 100dvh !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+}
+
+/* ══ NAV BAR BASE ══ */
+@media (max-width: 640px) {
+  nav#nav {
+    position: fixed !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 5000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: max(14px, env(safe-area-inset-top, 14px)) 16px 14px !important;
+    min-height: 66px !important;
+    background: linear-gradient(180deg,
+      rgba(12,10,8,.97) 0%,
+      rgba(12,10,8,.88) 100%) !important;
+    backdrop-filter: blur(22px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(1.2) !important;
+    border-bottom: 1px solid rgba(198,167,94,.14) !important;
+    box-shadow: 0 2px 24px rgba(0,0,0,.28) !important;
+    transition: background .4s ease !important;
+  }
+
+  /* Brand mark — identical to desktop but scaled for mobile bar */
+  nav#nav .nav-logo {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.18rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .025em !important;
+    color: #fdfaf6 !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+    z-index: 5003 !important;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    flex: 1 !important;
+  }
+  nav#nav .nav-logo span {
+    color: #C6A75E !important;
+  }
+
+  /* Desktop nav links + CTA — hidden on mobile */
+  nav#nav .nav-links,
+  nav#nav .nav-cta {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* ══ BURGER BUTTON ══ */
+  .fotx-burger {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    width: 48px !important;
+    height: 48px !important;
+    flex-shrink: 0 !important;
+    border: 1.5px solid rgba(198,167,94,.3) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(145deg,
+      rgba(198,167,94,.18) 0%,
+      rgba(198,167,94,.06) 100%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.10),
+      0 4px 16px rgba(0,0,0,.28),
+      0 0 0 1px rgba(198,167,94,.08) !important;
+    cursor: pointer !important;
+    z-index: 5003 !important;
+    position: relative !important;
+    transition:
+      background .3s ease,
+      border-color .3s ease,
+      box-shadow .3s ease,
+      transform .2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+
+  .fotx-burger:active {
+    transform: scale(.93) !important;
+  }
+
+  .fotx-burger-line {
+    display: block !important;
+    width: 20px !important;
+    height: 1.5px !important;
+    background: linear-gradient(90deg, #C6A75E, #e8c87a) !important;
+    border-radius: 999px !important;
+    transition:
+      transform .35s cubic-bezier(.4,0,.2,1),
+      opacity .25s ease,
+      width .3s ease !important;
+    transform-origin: center !important;
+  }
+  .fotx-burger-line:nth-child(3) {
+    width: 13px !important;
+    align-self: flex-end !important;
+    margin-right: 4px !important;
+  }
+
+  /* Burger open → X state */
+  .fotx-burger.open {
+    background: linear-gradient(145deg,
+      rgba(198,167,94,.28) 0%,
+      rgba(198,167,94,.12) 100%) !important;
+    border-color: rgba(198,167,94,.55) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.14),
+      0 6px 20px rgba(0,0,0,.36),
+      0 0 0 1px rgba(198,167,94,.2),
+      0 0 18px rgba(198,167,94,.12) !important;
+  }
+  .fotx-burger.open .fotx-burger-line:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg) !important;
+  }
+  .fotx-burger.open .fotx-burger-line:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  .fotx-burger.open .fotx-burger-line:nth-child(3) {
+    width: 20px !important;
+    align-self: center !important;
+    margin-right: 0 !important;
+    transform: translateY(-6.5px) rotate(-45deg) !important;
+  }
+
+  /* ══ FULL-SCREEN MENU OVERLAY ══ */
+  .fotx-menu-panel {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 4999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    /* Layered background: subtle grain warmth + deep charcoal */
+    background:
+      radial-gradient(ellipse 90% 50% at 98% 4%, rgba(198,167,94,.18) 0%, transparent 48%),
+      radial-gradient(ellipse 60% 40% at 2% 96%, rgba(90,58,39,.22) 0%, transparent 52%),
+      linear-gradient(170deg,
+        rgba(16,12,9,.98) 0%,
+        rgba(20,16,13,.99) 100%) !important;
+    backdrop-filter: blur(26px) !important;
+    -webkit-backdrop-filter: blur(26px) !important;
+    /* Hidden state */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-12px) !important;
+    transition:
+      opacity .38s cubic-bezier(.4,0,.2,1),
+      transform .38s cubic-bezier(.4,0,.2,1),
+      visibility .38s !important;
+  }
+
+  .fotx-menu-panel.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  /* ── Panel inner scroll container ── */
+  .fotx-menu-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100% !important;
+    padding:
+      calc(env(safe-area-inset-top, 0px) + 82px)
+      24px
+      calc(env(safe-area-inset-bottom, 0px) + 28px) !important;
+    gap: 0 !important;
+  }
+
+  /* ── Brand header inside panel ── */
+  .fotx-menu-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    margin-bottom: 36px !important;
+    padding-bottom: 24px !important;
+    border-bottom: 1px solid rgba(198,167,94,.15) !important;
+    position: relative !important;
+  }
+
+  .fotx-menu-brand-logo {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.75rem, 7.5vw, 2.2rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: .02em !important;
+    line-height: 1 !important;
+    color: #fdfaf6 !important;
+    text-decoration: none !important;
+  }
+
+  .fotx-menu-brand-logo .gold {
+    color: #C6A75E !important;
+  }
+
+  .fotx-menu-brand-sub {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .62rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .22em !important;
+    text-transform: uppercase !important;
+    color: rgba(198,167,94,.55) !important;
+    margin-top: 5px !important;
+  }
+
+  /* Gold accent bar left of brand */
+  .fotx-menu-brand::before {
+    content: '' !important;
+    position: absolute !important;
+    left: -24px !important;
+    top: 0 !important;
+    bottom: 24px !important;
+    width: 2px !important;
+    background: linear-gradient(180deg, #C6A75E 0%, rgba(198,167,94,.0) 100%) !important;
+    border-radius: 999px !important;
+  }
+
+  /* ── Section label ── */
+  .fotx-menu-eyebrow {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .6rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .28em !important;
+    text-transform: uppercase !important;
+    color: rgba(198,167,94,.5) !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+  }
+
+  /* ── Nav links list ── */
+  .fotx-menu-list {
+    list-style: none !important;
+    margin: 0 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .fotx-menu-item {
+    border-bottom: 1px solid rgba(255,255,255,.065) !important;
+    overflow: hidden !important;
+  }
+
+  .fotx-menu-item:first-child {
+    border-top: 1px solid rgba(255,255,255,.065) !important;
+  }
+
+  .fotx-menu-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 18px 4px !important;
+    text-decoration: none !important;
+    color: rgba(255,255,255,.92) !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.75rem, 7.8vw, 2.1rem) !important;
+    font-weight: 300 !important;
+    letter-spacing: -.01em !important;
+    line-height: 1 !important;
+    transition: color .22s ease, padding-left .22s ease !important;
+    cursor: pointer !important;
+    background: none !important;
+    border: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .fotx-menu-link:hover,
+  .fotx-menu-link:active {
+    color: #C6A75E !important;
+    padding-left: 8px !important;
+  }
+
+  .fotx-menu-link-arrow {
+    width: 36px !important;
+    height: 36px !important;
+    border: 1px solid rgba(198,167,94,.22) !important;
+    border-radius: 10px !important;
+    background: rgba(198,167,94,.07) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: rgba(198,167,94,.7) !important;
+    font-size: .9rem !important;
+    flex-shrink: 0 !important;
+    transition: background .22s, border-color .22s, color .22s !important;
+  }
+
+  .fotx-menu-link:hover .fotx-menu-link-arrow,
+  .fotx-menu-link:active .fotx-menu-link-arrow {
+    background: rgba(198,167,94,.16) !important;
+    border-color: rgba(198,167,94,.45) !important;
+    color: #C6A75E !important;
+  }
+
+  /* ── Bottom action zone ── */
+  .fotx-menu-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 32px !important;
+    padding-top: 28px !important;
+    border-top: 1px solid rgba(198,167,94,.15) !important;
+  }
+
+  /* Primary CTA — gold pill */
+  .fotx-menu-cta-primary {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    min-height: 58px !important;
+    padding: 16px 24px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #d4b668 0%, #b8924a 100%) !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+    box-shadow:
+      0 16px 40px rgba(0,0,0,.36),
+      inset 0 1px 0 rgba(255,255,255,.22),
+      0 0 24px rgba(198,167,94,.18) !important;
+    color: #fdfaf6 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .14em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: transform .2s ease, box-shadow .2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .fotx-menu-cta-primary:active {
+    transform: scale(.97) !important;
+  }
+
+  /* Secondary CTA — ghost visit showroom */
+  .fotx-menu-cta-secondary {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    min-height: 52px !important;
+    padding: 14px 24px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.06) !important;
+    border: 1px solid rgba(255,255,255,.14) !important;
+    color: rgba(255,255,255,.82) !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: background .22s, border-color .22s, color .22s !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .fotx-menu-cta-secondary:active {
+    background: rgba(255,255,255,.10) !important;
+    color: #fff !important;
+  }
+
+  /* ── Contact micro-row ── */
+  .fotx-menu-contact {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-top: 4px !important;
+  }
+
+  .fotx-menu-contact a {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .68rem !important;
+    font-weight: 400 !important;
+    color: rgba(198,167,94,.6) !important;
+    text-decoration: none !important;
+    letter-spacing: .06em !important;
+    transition: color .2s !important;
+  }
+
+  .fotx-menu-contact a:hover {
+    color: #C6A75E !important;
+  }
+
+  .fotx-menu-contact-dot {
+    width: 3px !important;
+    height: 3px !important;
+    border-radius: 50% !important;
+    background: rgba(198,167,94,.3) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ── Stagger-in animation for items ── */
+  .fotx-menu-panel.open .fotx-menu-brand {
+    animation: fotxItemIn .42s cubic-bezier(.22,.8,.2,1) .05s both !important;
+  }
+  .fotx-menu-panel.open .fotx-menu-eyebrow {
+    animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .10s both !important;
+  }
+  .fotx-menu-panel.open .fotx-menu-item:nth-child(1) { animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .13s both !important; }
+  .fotx-menu-panel.open .fotx-menu-item:nth-child(2) { animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .17s both !important; }
+  .fotx-menu-panel.open .fotx-menu-item:nth-child(3) { animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .21s both !important; }
+  .fotx-menu-panel.open .fotx-menu-item:nth-child(4) { animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .25s both !important; }
+  .fotx-menu-panel.open .fotx-menu-item:nth-child(5) { animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .29s both !important; }
+  .fotx-menu-panel.open .fotx-menu-item:nth-child(6) { animation: fotxItemIn .38s cubic-bezier(.22,.8,.2,1) .33s both !important; }
+  .fotx-menu-panel.open .fotx-menu-actions {
+    animation: fotxItemIn .4s cubic-bezier(.22,.8,.2,1) .38s both !important;
+  }
+
+  @keyframes fotxItemIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+
+<!-- DISABLED:<script id="fotx-mobile-menu-script-v1"></script> -->
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FOTX MASTERFILE — FINAL MOBILE MENU + PRODUCT CARDS
+     All previous mobile nav layers are disabled above. This is the ONE.
+═══════════════════════════════════════════════════════════════════════ -->
+<style id="fotx-final-master-v2">
+
+/* ══════════════════════════════════════════════
+   PRODUCT CARDS — Trending Section Perfection
+══════════════════════════════════════════════ */
+
+/* Section reframe */
+#featured {
+  background: #0e0c0a;
+  padding: 100px 48px;
+}
+#featured .products-header .section-label {
+  color: rgba(198,167,94,.7);
+}
+#featured .products-header .section-title {
+  color: #fdfaf6;
+}
+#featured .products-header .section-title em {
+  color: #C6A75E;
+  font-style: italic;
+}
+#featured .view-all {
+  color: rgba(198,167,94,.75);
+}
+#featured .view-all:hover {
+  color: #C6A75E;
+}
+
+/* Grid — subtle gap */
+#featured .product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.07);
+}
+
+/* Card base */
+#featured .product-card {
+  background: #1a1713;
+  display: flex;
+  flex-direction: column;
+  transition: background .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+#featured .product-card:hover {
+  background: #211e1a;
+}
+
+/* Image — taller ratio */
+#featured .product-img {
+  aspect-ratio: 4/5;
+  position: relative;
+  overflow: hidden;
+}
+#featured .product-img[class*="trend-bg-"] {
+  background-size: cover;
+  background-position: center;
+  transition: transform .65s cubic-bezier(.25,.46,.45,.94);
+}
+#featured .product-card:hover .product-img[class*="trend-bg-"] {
+  transform: scale(1.04);
+}
+
+/* Gradient overlay on images */
+#featured .product-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0) 45%,
+    rgba(0,0,0,.55) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tag badge — uniform, precise */
+#featured .product-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  padding: 5px 11px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  /* Warm gold pill — matches brand */
+  background: linear-gradient(135deg, #C6A75E 0%, #a8893d 100%);
+  color: #0e0c0a;
+  box-shadow: 0 3px 12px rgba(0,0,0,.4);
+}
+
+/* Product info panel */
+#featured .product-info {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+/* Brand */
+#featured .product-brand {
+  font-family: 'Outfit', sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(198,167,94,.62);
+}
+
+/* Name */
+#featured .product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(253,250,246,.94);
+  margin: 0;
+  /* Uniform: clamp 2 lines max */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Spec line */
+#featured .product-size {
+  font-family: 'Outfit', sans-serif;
+  font-size: .66rem;
+  font-weight: 300;
+  color: rgba(253,250,246,.38);
+  letter-spacing: .04em;
+  line-height: 1.4;
+  margin: 0;
+  /* Exactly 1 line on all cards */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Price — prominent, uniform */
+#featured .product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #e8c87a;
+  letter-spacing: -.01em;
+}
+
+/* "/sq ft" unit */
+#featured .product-price .price-unit {
+  font-size: .68rem;
+  font-weight: 400;
+  color: rgba(198,167,94,.55);
+  letter-spacing: .04em;
+  text-decoration: none !important;
+}
+
+/* Was-price — struck through, clearly subordinate */
+#featured .product-price .price-was,
+#featured .product-price span:not(.price-unit) {
+  font-size: .8rem;
+  font-weight: 400;
+  color: rgba(253,250,246,.28);
+  text-decoration: line-through;
+  text-decoration-color: rgba(253,250,246,.22);
+  letter-spacing: 0;
+  margin-left: 3px;
+}
+
+/* Hover overlay */
+#featured .product-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(10,8,6,.68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .28s ease;
+  pointer-events: none;
+}
+#featured .product-card:hover .product-hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+#featured .product-hover-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #0e0c0a;
+  background: #C6A75E;
+  padding: 12px 26px;
+  border-radius: 3px;
+  transform: translateY(8px);
+  transition: transform .28s ease;
+}
+#featured .product-card:hover .product-hover-btn {
+  transform: translateY(0);
+}
+
+/* Mobile product grid */
+@media (max-width: 640px) {
+  #featured {
+    padding: 64px 16px !important;
+  }
+  #featured .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  #featured .product-name {
+    font-size: 1rem !important;
+  }
+  #featured .product-price {
+    font-size: 1.1rem !important;
+  }
+  #featured .product-size {
+    display: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   HAMBURGER BUTTON  (matches reference image)
+══════════════════════════════════════════════ */
+
+/* Only visible on mobile */
+.hbg {
+  display: none;
+}
+
+@media (max-width: 640px) {
+
+  /* ─ LOCK BODY when menu open ─ */
+  html.fotx-open,
+  body.fotx-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100dvh !important;
+  }
+
+  /* ─ NAV bar on mobile ─ */
+  nav#nav {
+    position: fixed !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 9000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: max(14px, env(safe-area-inset-top,14px)) 16px 14px !important;
+    min-height: 64px !important;
+    background: rgba(14,12,10,.96) !important;
+    backdrop-filter: blur(24px) saturate(1.15) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.15) !important;
+    border-bottom: 1px solid rgba(198,167,94,.13) !important;
+    box-shadow: 0 2px 20px rgba(0,0,0,.3) !important;
+    transition: none !important;
+  }
+
+  /* Nav logo — visible at all times in bar */
+  nav#nav .nav-logo {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .025em !important;
+    color: #fdfaf6 !important;
+    text-decoration: none !important;
+    flex: 1 !important;
+    z-index: 9003 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    white-space: nowrap !important;
+  }
+  nav#nav .nav-logo span {
+    color: #C6A75E !important;
+  }
+
+  /* HIDE nav logo WHEN MENU IS OPEN so it doesn't double-show */
+  nav#nav.fotx-open .nav-logo {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Old desktop links + CTA — gone on mobile */
+  nav#nav .nav-links,
+  nav#nav .nav-cta,
+  nav#nav .nav-burger {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* ─ BURGER BUTTON ─ */
+  .hbg {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    gap: 5.5px !important;
+    width: 46px !important;
+    height: 46px !important;
+    padding: 12px 11px !important;
+    flex-shrink: 0 !important;
+    /* Dark warm-square look matching reference image */
+    background: linear-gradient(145deg, rgba(50,42,32,.95) 0%, rgba(30,26,20,.98) 100%) !important;
+    border: 1px solid rgba(198,167,94,.2) !important;
+    border-radius: 13px !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.08),
+      0 4px 18px rgba(0,0,0,.45),
+      0 0 0 1px rgba(0,0,0,.3) !important;
+    cursor: pointer !important;
+    z-index: 9003 !important;
+    position: relative !important;
+    transition: box-shadow .25s ease, background .25s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+
+  .hbg:active {
+    transform: scale(.92) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.06),
+      0 2px 8px rgba(0,0,0,.5) !important;
+  }
+
+  /* Lines — gold, matching reference */
+  .hbg-l {
+    display: block !important;
+    height: 1.5px !important;
+    background: linear-gradient(90deg, #d4b668, #C6A75E) !important;
+    border-radius: 999px !important;
+    width: 20px !important;
+    transition:
+      transform .32s cubic-bezier(.4,0,.2,1),
+      opacity .22s ease,
+      width .28s ease !important;
+    transform-origin: center !important;
+  }
+
+  /* Third line shorter — exactly like reference */
+  .hbg-l--short {
+    width: 13px !important;
+  }
+
+  /* X state when open */
+  .hbg.open {
+    background: linear-gradient(145deg, rgba(60,50,30,.98) 0%, rgba(40,34,22,.99) 100%) !important;
+    border-color: rgba(198,167,94,.4) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.1),
+      0 4px 20px rgba(0,0,0,.5),
+      0 0 14px rgba(198,167,94,.12) !important;
+  }
+  .hbg.open .hbg-l:nth-child(1) {
+    transform: translateY(7px) rotate(45deg) !important;
+    width: 20px !important;
+  }
+  .hbg.open .hbg-l:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  .hbg.open .hbg-l:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+    width: 20px !important;
+  }
+
+  /* ─ FULL-SCREEN MENU PANEL ─ */
+  #fotx-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 8999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    /* Deep charcoal + brand radial glows */
+    background:
+      radial-gradient(ellipse 80% 44% at 95% 5%, rgba(198,167,94,.16) 0%, transparent 52%),
+      radial-gradient(ellipse 55% 38% at 4% 95%, rgba(90,58,39,.2) 0%, transparent 50%),
+      linear-gradient(160deg, rgba(16,12,9,.99) 0%, rgba(20,16,13,1) 100%) !important;
+    backdrop-filter: blur(26px) !important;
+    -webkit-backdrop-filter: blur(26px) !important;
+    /* Hidden */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-10px) scale(.99) !important;
+    transition:
+      opacity .34s cubic-bezier(.4,0,.2,1),
+      transform .34s cubic-bezier(.4,0,.2,1),
+      visibility .34s !important;
+  }
+
+  #fotx-overlay.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  .fotx-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100dvh !important;
+    padding:
+      calc(env(safe-area-inset-top,0px) + 80px)
+      26px
+      calc(env(safe-area-inset-bottom,0px) + 30px) !important;
+  }
+
+  /* Brand block inside panel */
+  .fotx-brand-block {
+    margin-bottom: 32px !important;
+    padding-bottom: 24px !important;
+    border-bottom: 1px solid rgba(198,167,94,.14) !important;
+    position: relative !important;
+  }
+  .fotx-brand-block::before {
+    content: '' !important;
+    position: absolute !important;
+    left: -26px !important;
+    top: 0 !important;
+    height: 60% !important;
+    width: 2px !important;
+    background: linear-gradient(180deg, #C6A75E 0%, transparent 100%) !important;
+    border-radius: 999px !important;
+  }
+  .fotx-brand-name {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.8rem, 7.5vw, 2.3rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: .02em !important;
+    color: #fdfaf6 !important;
+    line-height: 1 !important;
+    display: block !important;
+    text-decoration: none !important;
+  }
+  .fotx-brand-name .gold { color: #C6A75E !important; }
+  .fotx-brand-tag {
+    display: block !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .59rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .22em !important;
+    text-transform: uppercase !important;
+    color: rgba(198,167,94,.5) !important;
+    margin-top: 7px !important;
+  }
+
+  /* Eyebrow */
+  .fotx-eyebrow {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .58rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .28em !important;
+    text-transform: uppercase !important;
+    color: rgba(198,167,94,.44) !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+  }
+
+  /* Nav list */
+  .fotx-nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 auto !important;
+  }
+  .fotx-nav-item {
+    border-bottom: 1px solid rgba(255,255,255,.06) !important;
+  }
+  .fotx-nav-item:first-child {
+    border-top: 1px solid rgba(255,255,255,.06) !important;
+  }
+  .fotx-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 17px 2px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+    font-weight: 300 !important;
+    letter-spacing: -.01em !important;
+    color: rgba(253,250,246,.9) !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+    transition: color .2s ease, padding-left .2s ease !important;
+    cursor: pointer !important;
+    background: none !important;
+    border: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  .fotx-nav-link:hover, .fotx-nav-link:active {
+    color: #C6A75E !important;
+    padding-left: 8px !important;
+  }
+  .fotx-arrow {
+    width: 34px !important;
+    height: 34px !important;
+    border: 1px solid rgba(198,167,94,.2) !important;
+    border-radius: 9px !important;
+    background: rgba(198,167,94,.06) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: rgba(198,167,94,.6) !important;
+    font-size: .85rem !important;
+    flex-shrink: 0 !important;
+    transition: all .2s ease !important;
+  }
+  .fotx-nav-link:hover .fotx-arrow {
+    background: rgba(198,167,94,.15) !important;
+    border-color: rgba(198,167,94,.42) !important;
+    color: #C6A75E !important;
+  }
+
+  /* Bottom CTA zone */
+  .fotx-cta-zone {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 11px !important;
+    margin-top: 30px !important;
+    padding-top: 26px !important;
+    border-top: 1px solid rgba(198,167,94,.14) !important;
+  }
+  .fotx-cta-gold {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 56px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #d4b668 0%, #b8924a 100%) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    box-shadow: 0 14px 36px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.2) !important;
+    color: #0e0c0a !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .15em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    transition: transform .18s ease !important;
+  }
+  .fotx-cta-gold:active { transform: scale(.97) !important; }
+
+  .fotx-cta-ghost {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 50px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.05) !important;
+    border: 1px solid rgba(255,255,255,.13) !important;
+    color: rgba(255,255,255,.78) !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .78rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  .fotx-cta-ghost:active {
+    background: rgba(255,255,255,.09) !important;
+    color: #fff !important;
+  }
+
+  /* Contact row */
+  .fotx-contact-row {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-top: 6px !important;
+  }
+  .fotx-contact-row a {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: .66rem !important;
+    color: rgba(198,167,94,.55) !important;
+    text-decoration: none !important;
+    letter-spacing: .05em !important;
+    transition: color .2s !important;
+  }
+  .fotx-contact-row a:hover { color: #C6A75E !important; }
+  .fotx-sep {
+    width: 3px !important;
+    height: 3px !important;
+    border-radius: 50% !important;
+    background: rgba(198,167,94,.28) !important;
+  }
+
+  /* Stagger animation */
+  #fotx-overlay.open .fotx-brand-block {
+    animation: fotxIn .4s cubic-bezier(.22,.8,.2,1) .04s both !important;
+  }
+  #fotx-overlay.open .fotx-eyebrow {
+    animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .09s both !important;
+  }
+  #fotx-overlay.open .fotx-nav-item:nth-child(1) { animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .12s both !important; }
+  #fotx-overlay.open .fotx-nav-item:nth-child(2) { animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .16s both !important; }
+  #fotx-overlay.open .fotx-nav-item:nth-child(3) { animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .20s both !important; }
+  #fotx-overlay.open .fotx-nav-item:nth-child(4) { animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .24s both !important; }
+  #fotx-overlay.open .fotx-nav-item:nth-child(5) { animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .28s both !important; }
+  #fotx-overlay.open .fotx-nav-item:nth-child(6) { animation: fotxIn .36s cubic-bezier(.22,.8,.2,1) .32s both !important; }
+  #fotx-overlay.open .fotx-cta-zone {
+    animation: fotxIn .38s cubic-bezier(.22,.8,.2,1) .37s both !important;
+  }
+
+  @keyframes fotxIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+} /* end @media 640 */
+</style>
+
+<script id="fotx-master-script-v2">
+(function () {
+  'use strict';
+
+  var QUOTE_HREF = (function () {
+    var el = document.querySelector('a.nav-cta');
+    return el ? el.getAttribute('href') : 'mailto:info@flooringoutlettx.com?subject=Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX';
+  })();
+
+  var NAV_ITEMS = [
+    { label: 'LVP / SPC',     href: 'lvp-lvt.html' },
+    { label: 'Hardwood',      href: 'hardwood.html' },
+    { label: 'Tile',          href: 'tile.html' },
+    { label: 'Carpet',        href: 'carpet.html' },
+    { label: 'Natural Stone', href: 'natural-stone.html' },
+    { label: 'Showroom',      href: '#showroom', isShowroom: true }
+  ];
+
+  function isMobile () { return window.innerWidth <= 640; }
+
+  function build () {
+    if (document.getElementById('fotx-overlay')) return;
+
+    /* ── Burger button ── */
+    var burger = document.getElementById('hbg');
+    if (!burger) return;
+
+    /* ── Overlay panel ── */
+    var overlay = document.createElement('div');
+    overlay.id = 'fotx-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Site navigation');
+
+    var linksHTML = NAV_ITEMS.map(function (item) {
+      return '<li class="fotx-nav-item">' +
+        '<a class="fotx-nav-link" href="' + item.href + '"' +
+        (item.isShowroom ? ' data-sr="1"' : '') + '>' +
+        '<span>' + item.label + '</span>' +
+        '<span class="fotx-arrow">↗</span>' +
+        '</a></li>';
+    }).join('');
+
+    overlay.innerHTML =
+      '<div class="fotx-inner">' +
+        '<div class="fotx-brand-block">' +
+          '<a class="fotx-brand-name" href="index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a>' +
+          '<span class="fotx-brand-tag">Houston\'s Premium Flooring Destination</span>' +
+        '</div>' +
+        '<span class="fotx-eyebrow">Browse</span>' +
+        '<ul class="fotx-nav-list">' + linksHTML + '</ul>' +
+        '<div class="fotx-cta-zone">' +
+          '<a class="fotx-cta-gold" href="' + QUOTE_HREF + '">Get a Quote</a>' +
+          '<button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button>' +
+          '<div class="fotx-contact-row">' +
+            '<a href="tel:+13468671155">(346) 867-1155</a>' +
+            '<div class="fotx-sep"></div>' +
+            '<a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+
+    /* ── State ── */
+    var nav = document.getElementById('nav');
+    var isOpen = false;
+
+    function open () {
+      isOpen = true;
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      overlay.classList.add('open');
+      if (nav) nav.classList.add('fotx-open');
+      document.documentElement.classList.add('fotx-open');
+      document.body.classList.add('fotx-open');
+    }
+
+    function close () {
+      isOpen = false;
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      overlay.classList.remove('open');
+      if (nav) nav.classList.remove('fotx-open');
+      document.documentElement.classList.remove('fotx-open');
+      document.body.classList.remove('fotx-open');
+    }
+
+    /* ── Events ── */
+    burger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!isMobile()) return;
+      isOpen ? close() : open();
+    });
+
+    /* Showroom links */
+    overlay.querySelectorAll('[data-sr]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        close();
+        setTimeout(function () {
+          if (typeof openShowroomModal === 'function') openShowroomModal();
+        }, 220);
+      });
+    });
+
+    var srBtn = document.getElementById('fotx-sr-btn');
+    if (srBtn) {
+      srBtn.addEventListener('click', function () {
+        close();
+        setTimeout(function () {
+          if (typeof openShowroomModal === 'function') openShowroomModal();
+        }, 220);
+      });
+    }
+
+    /* All nav links close menu */
+    overlay.querySelectorAll('.fotx-nav-link:not([data-sr])').forEach(function (a) {
+      a.addEventListener('click', close);
+    });
+    var hl = document.getElementById('fotx-hl');
+    if (hl) hl.addEventListener('click', close);
+
+    /* Escape key */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) close();
+    });
+
+    /* Desktop resize */
+    window.addEventListener('resize', function () {
+      if (!isMobile() && isOpen) close();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', build);
+  } else {
+    build();
+  }
+}());
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     FOTX FIXES v3 — Burger SVG, Double Logo, Phone Sizes
+════════════════════════════════════════════════════════ -->
+<style id="fotx-fixes-v3">
+
+/* ─────────────────────────────────────────────
+   BURGER ICON — SVG approach, zero ambiguity
+───────────────────────────────────────────── */
+
+/* Hidden on desktop */
+.hbg {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+
+  /* ── Button shell ── */
+  .hbg {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 46px !important;
+    height: 46px !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    background: linear-gradient(150deg, #2c2418 0%, #1a1510 100%) !important;
+    border: 1px solid rgba(198,167,94,.25) !important;
+    border-radius: 12px !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.07),
+      0 3px 14px rgba(0,0,0,.5),
+      0 0 0 1px rgba(0,0,0,.35) !important;
+    cursor: pointer !important;
+    z-index: 9003 !important;
+    position: relative !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    transition: background .22s ease, border-color .22s ease, box-shadow .22s ease !important;
+    overflow: visible !important;
+  }
+
+  .hbg:active {
+    transform: scale(.91) !important;
+  }
+
+  /* ── SVG inside ── */
+  .hbg-svg {
+    display: block !important;
+    overflow: visible !important;
+    /* SVG lines animate via CSS */
+  }
+
+  /* All three lines share transition */
+  .hbg-svg .hbg-l1,
+  .hbg-svg .hbg-l2,
+  .hbg-svg .hbg-l3 {
+    transform-origin: center !important;
+    transition:
+      transform .3s cubic-bezier(.4,0,.2,1),
+      opacity .2s ease !important;
+  }
+
+  /* ── OPEN state → X ── */
+  .hbg.open {
+    background: linear-gradient(150deg, #3a2e18 0%, #26200e 100%) !important;
+    border-color: rgba(198,167,94,.45) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.09),
+      0 4px 18px rgba(0,0,0,.55),
+      0 0 12px rgba(198,167,94,.1) !important;
+  }
+
+  /* Rotate top line down-right to form \ */
+  .hbg.open .hbg-svg .hbg-l1 {
+    transform: translateY(9px) rotate(45deg) !important;
+  }
+  /* Fade middle line */
+  .hbg.open .hbg-svg .hbg-l2 {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  /* Rotate bottom line up-right to form / — compensate for its offset start */
+  .hbg.open .hbg-svg .hbg-l3 {
+    transform: translateX(-6px) translateY(-9px) rotate(-45deg) !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     NAV BAR — hide logo when showroom modal open
+     The modal has z-index 9100, nav has 9000.
+     When .showroom-open is added to nav, hide logo.
+  ───────────────────────────────────────────── */
+
+  /* Additional nav visibility control when showroom overlay is open */
+  .showroom-modal-overlay.open ~ * nav#nav .nav-logo,
+  body.showroom-open nav#nav .nav-logo {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     HERO CALL BUTTON — bigger phone number text
+  ───────────────────────────────────────────── */
+  .hero-actions .btn.btn-primary,
+  .hero-actions a.btn-primary {
+    font-size: 1rem !important;
+    letter-spacing: .04em !important;
+    font-weight: 600 !important;
+    padding: 14px 24px !important;
+    min-height: 50px !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     SHOWROOM MODAL — phone number size
+  ───────────────────────────────────────────── */
+  .sm-info-value {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .sm-info-value a {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+  }
+
+  /* Phone number specifically — even bigger, tappable */
+  .sm-info-item:nth-child(2) .sm-info-value a {
+    font-size: 1.12rem !important;
+    font-weight: 500 !important;
+    color: #C6A75E !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     SHOWROOM MODAL on mobile — ensure it fully 
+     covers the nav bar (z-index fix)
+  ───────────────────────────────────────────── */
+  .showroom-modal-overlay {
+    z-index: 9100 !important;
+  }
+
+  /* When showroom modal is open, push it fully over nav */
+  .showroom-modal-overlay.open {
+    align-items: flex-end !important;
+  }
+
+  /* Ensure the modal sheet starts at top of screen if needed */
+  .showroom-modal-overlay.open .showroom-modal {
+    position: relative !important;
+    /* The modal's top rounded corner should start below the browser chrome */
+  }
+
+  /* ─────────────────────────────────────────────
+     VISIT SHOWROOM section in modal — sm-left brand
+     Double logo fix: sm-left padding-top covers nav area
+  ───────────────────────────────────────────── */
+  .showroom-modal-overlay.open {
+    /* Overlay is position:fixed inset:0 — covers full screen including nav */
+    background: rgba(10,8,6,.88) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+  }
+
+  /* The sm-left brand block inside modal */
+  .sm-logo {
+    font-size: 1.38rem !important;
+    letter-spacing: .025em !important;
+  }
+  .sm-logo span {
+    color: #C6A75E !important;
+  }
+  .sm-tagline {
+    font-size: .62rem !important;
+  }
+
+} /* end @media 640px */
+<!-- ═══════════════════════════════════════════════════════
+     FOTX FINAL FIX v4 — Burger root-cause fix + hero −7%
+════════════════════════════════════════════════════════════ -->
+<style id="fotx-v4-final">
+@media (max-width: 640px) {
+
+  /* ─────────────────────────────────────────────
+     HERO — reduce height 7% on mobile only
+  ───────────────────────────────────────────── */
+  .hero,
+  .page-hero {
+    min-height: 93svh !important;
+    min-height: 93dvh !important;
+    height: 93dvh !important;
+    max-height: 93dvh !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     BURGER BUTTON — pure CSS, position:absolute
+     spans. No SVG, no flex, no gap. Bulletproof.
+  ───────────────────────────────────────────── */
+
+  /* Nuke every previous hbg rule */
+  .hbg,
+  .hbg.open,
+  .hbg:active,
+  .hbg-svg,
+  .hbg-l,
+  .hbg-l--short,
+  .hbg-l1, .hbg-l2, .hbg-l3 {
+    all: unset !important;
+  }
+
+  .hbg {
+    /* Outer shell */
+    display: block !important;
+    position: relative !important;
+    width: 46px !important;
+    height: 46px !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(150deg, #2c2418 0%, #1a1510 100%) !important;
+    border: 1px solid rgba(200,170,96,.26) !important;
+    border-radius: 12px !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.07),
+      0 3px 14px rgba(0,0,0,.55) !important;
+    cursor: pointer !important;
+    z-index: 9003 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    transition:
+      background .22s ease,
+      border-color .22s ease,
+      transform .16s ease !important;
+    overflow: hidden !important;
+  }
+
+  .hbg:active {
+    transform: scale(.91) !important;
+  }
+
+  /* ── All three lines: shared base ── */
+  .hbg .bl {
+    display: block !important;
+    position: absolute !important;
+    left: 11px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: linear-gradient(90deg, #C8AA60 0%, #e2c97a 100%) !important;
+    transform-origin: center center !important;
+    transition:
+      top .28s cubic-bezier(.4,0,.2,1),
+      width .22s cubic-bezier(.4,0,.2,1),
+      opacity .18s ease,
+      transform .28s cubic-bezier(.4,0,.2,1),
+      left .22s cubic-bezier(.4,0,.2,1) !important;
+  }
+
+  /* Line 1 — top */
+  .hbg .b1 {
+    top: 13px !important;
+    width: 22px !important;
+  }
+  /* Line 2 — middle */
+  .hbg .b2 {
+    top: 22px !important;
+    width: 22px !important;
+  }
+  /* Line 3 — shorter, right-aligned (matching reference) */
+  .hbg .b3 {
+    top: 31px !important;
+    left: 17px !important; /* right-aligned within button */
+    width: 15px !important;
+  }
+
+  /* ── OPEN → X state ── */
+  .hbg.open {
+    background: linear-gradient(150deg, #3a2e18 0%, #26200e 100%) !important;
+    border-color: rgba(200,170,96,.46) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.09),
+      0 4px 18px rgba(0,0,0,.55),
+      0 0 14px rgba(198,167,94,.12) !important;
+  }
+
+  /* Line 1: slide to center-y (22px), extend to full, rotate +45 */
+  .hbg.open .b1 {
+    top: 22px !important;
+    width: 22px !important;
+    left: 11px !important;
+    transform: rotate(45deg) !important;
+  }
+
+  /* Line 2: fade out */
+  .hbg.open .b2 {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+
+  /* Line 3: slide to center-y (22px), extend to full, rotate −45 */
+  .hbg.open .b3 {
+    top: 22px !important;
+    width: 22px !important;
+    left: 11px !important;
+    transform: rotate(-45deg) !important;
+  }
+
+} /* end @media 640px */
+</style>
