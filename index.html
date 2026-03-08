@@ -845,6 +845,198 @@
     transform: translateX(4px);
   }
 
+  /* ─── SERVICES v2 — ELITE OVERHAUL ─── */
+
+  /* Reset old service classes so they don't conflict */
+  .services-header, .services-grid, .service-card,
+  .service-num, .service-icon, .service-title,
+  .service-text, .service-link { all: unset; }
+
+  .services {
+    background: var(--charcoal);
+    padding: 100px 48px 108px;
+    position: relative;
+    overflow: hidden;
+  }
+  .services::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 8% 15%, rgba(198,167,94,.06) 0%, transparent 58%),
+      radial-gradient(ellipse 55% 70% at 92% 85%, rgba(198,167,94,.05) 0%, transparent 58%);
+    pointer-events: none;
+  }
+  .services > * { position: relative; z-index: 1; }
+
+  /* Section header */
+  .svc-hd {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 72px;
+  }
+  .svc-label {
+    color: var(--terracotta) !important;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .svc-hd-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4.2vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    color: var(--white);
+    margin: 0 0 20px;
+  }
+  .svc-hd-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--classy-gold);
+  }
+  .svc-hd-sub {
+    font-size: .92rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(253,250,246,.44);
+    margin: 0;
+  }
+
+  /* Bento grid */
+  .svc-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    max-width: 1160px;
+    margin: 0 auto;
+    background: rgba(198,167,94,.1);
+    border: 1px solid rgba(198,167,94,.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* Individual card */
+  .svc-card {
+    position: relative;
+    background: rgba(20,18,12,.8);
+    padding: 52px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background .35s ease;
+  }
+  .svc-card:hover {
+    background: rgba(28,24,16,.92);
+  }
+
+  /* Left-edge accent line */
+  .svc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--classy-gold) 0%, rgba(198,167,94,.2) 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+  }
+  .svc-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Card top row: icon + number */
+  .svc-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .svc-ico {
+    width: 48px;
+    height: 48px;
+    color: rgba(198,167,94,.6);
+    flex-shrink: 0;
+  }
+  .svc-ico svg {
+    width: 100%;
+    height: 100%;
+  }
+  .svc-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -.04em;
+    color: rgba(198,167,94,.07);
+    user-select: none;
+    pointer-events: none;
+    transition: color .35s ease;
+    margin-top: -8px;
+  }
+  .svc-card:hover .svc-n {
+    color: rgba(198,167,94,.13);
+  }
+
+  /* Title */
+  .svc-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.95rem;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -.01em;
+    color: var(--white);
+    margin: 0 0 14px;
+  }
+
+  /* Body */
+  .svc-card-body {
+    font-family: 'Outfit', sans-serif;
+    font-size: .875rem;
+    font-weight: 300;
+    line-height: 1.78;
+    color: rgba(253,250,246,.48);
+    flex: 1;
+    margin: 0;
+  }
+
+  /* CTA link */
+  .svc-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    font-family: 'Outfit', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--classy-gold);
+    text-decoration: none;
+    transition: color .22s ease, gap .22s ease;
+    width: fit-content;
+  }
+  .svc-card-cta:hover {
+    color: var(--white);
+    gap: 10px;
+  }
+  .svc-arr {
+    font-size: .85rem;
+    transition: transform .22s ease;
+  }
+  .svc-card-cta:hover .svc-arr {
+    transform: translate(3px, -2px);
+  }
+
+  /* Tablet: collapse to 1 col earlier */
+  @media (max-width: 860px) {
+    .svc-bento {
+      grid-template-columns: 1fr;
+    }
+    .svc-card {
+      padding: 44px 40px 42px;
+    }
+  }
+
   /* ─── REVIEWS CAROUSEL ─── */
   .reviews-section {
     background: var(--parchment);
@@ -4393,7 +4585,7 @@ footer a.snrg-link:hover{
     margin: 0 0 16px !important;
     color: var(--white) !important;
     text-shadow: none !important;
-    max-width: 10.5ch !important;
+    max-width: none !important;
   }
 
   .hero h1 strong{
@@ -4401,7 +4593,7 @@ footer a.snrg-link:hover{
     font-style: italic !important;
     font-weight: 600 !important;
     color: var(--classy-gold) !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
   }
 
   .hero p{
@@ -5198,80 +5390,96 @@ footer a.snrg-link:hover{
 </section>
 <!-- ─── SERVICES ─── -->
 <section class="services reveal" id="services">
-<div class="services-header" style="text-align:center;display:block;max-width:720px;margin:0 auto 72px;">
-<p class="section-label">What We Offer</p>
-<h2 class="section-title">More Than Just<br/><em>Products</em></h2>
-<p style="font-size:.92rem;font-weight:300;line-height:1.65;color:rgba(253,250,246,.52);max-width:520px;margin:0 auto;">From your first visit to your finished floor, we handle every detail — so you can focus on what matters: the result.</p>
-</div>
-<div class="services-grid">
-<!-- 01 Design Consultation -->
-<div class="service-card">
-<span class="service-num">01</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<rect height="28" rx="2" stroke="#8c6f57" stroke-width="1.5" width="36" x="6" y="10"></rect>
-<path d="M6 18h36" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M16 10v8" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M32 10v8" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M14 27h8M14 33h14" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
-<circle cx="36" cy="32" r="5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<path d="M39.5 35.5l3 3" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.5"></path>
-</svg>
-</div>
-<h3 class="service-title">Free Design<br/>Consultation</h3>
-<p class="service-text">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Book a Visit</a>
-</div>
-<!-- 02 Professional Installation -->
-<div class="service-card">
-<span class="service-num">02</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 38L24 8l14 30" stroke="#8c6f57" stroke-linejoin="round" stroke-width="1.5"></path>
-<path d="M15 28h18" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
-<circle cx="24" cy="8" r="2.5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<path d="M18 38h12" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.5"></path>
-<path d="M34 38l4 0" opacity=".4" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.2"></path>
-<path d="M10 38l-4 0" opacity=".4" stroke="#8c6f57" stroke-linecap="round" stroke-width="1.2"></path>
-</svg>
-</div>
-<h3 class="service-title">Professional<br/>Installation</h3>
-<p class="service-text">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Request a Quote</a>
-</div>
-<!-- 03 Fast Local Delivery -->
-<div class="service-card">
-<span class="service-num">03</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<rect height="18" rx="1.5" stroke="#8c6f57" stroke-width="1.5" width="26" x="4" y="16"></rect>
-<path d="M30 22h7l7 8v6h-14V22z" stroke="#8c6f57" stroke-linejoin="round" stroke-width="1.5"></path>
-<circle cx="12" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<circle cx="36" cy="36" r="3.5" stroke="#8c6f57" stroke-width="1.5"></circle>
-<path d="M8 16V10h18v6" stroke="#8c6f57" stroke-width="1.5"></path>
-<path d="M12 22h10" stroke="#c9a96e" stroke-linecap="round" stroke-width="1.5"></path>
-</svg>
-</div>
-<h3 class="service-title">Fast Local<br/>Delivery</h3>
-<p class="service-text">In-stock orders reach Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Rush delivery available for active job sites.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Check Availability</a>
-</div>
-<!-- 04 Flexible Financing -->
-<div class="service-card">
-<span class="service-num">04</span>
-<div class="service-icon">
-<svg aria-hidden="true" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<rect height="24" rx="2" stroke="#8c6f57" stroke-width="1.5" width="36" x="6" y="12"></rect>
-<path d="M6 20h36" stroke="#8c6f57" stroke-width="1.5"></path>
-<rect fill="#c9a96e" height="4" opacity=".6" rx="1" width="8" x="11" y="27"></rect>
-<rect height="4" opacity=".4" rx="1" stroke="#8c6f57" stroke-width="1.2" width="14" x="23" y="27"></rect>
-</svg>
-</div>
-<h3 class="service-title">Flexible<br/>Financing</h3>
-<p class="service-text">0% APR financing available for qualified buyers. Don't let budget stand between you and your vision — we have plans to fit every project and timeline.</p>
-<a class="service-link" href="#" onclick="event.preventDefault();openShowroomModal();">Explore Options</a>
-</div>
-</div>
+
+  <!-- Top header -->
+  <div class="svc-hd">
+    <p class="section-label svc-label">What We Offer</p>
+    <h2 class="svc-hd-title">More Than<br/><em>Just Products</em></h2>
+    <p class="svc-hd-sub">From your first visit to your finished floor, we handle every detail — so you can focus on what matters: the result.</p>
+  </div>
+
+  <!-- 4-card bento grid -->
+  <div class="svc-bento">
+
+    <!-- 01 — Design Consultation -->
+    <div class="svc-card">
+      <div class="svc-card-top">
+        <span class="svc-n">01</span>
+        <div class="svc-ico">
+          <svg fill="none" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="7" y="11" width="38" height="30" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M7 20h38" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M17 11v9M35 11v9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M15 30h9" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15 36h16" stroke="#C6A75E" stroke-width="1.4" stroke-linecap="round" opacity=".6"/>
+            <circle cx="39" cy="34" r="5.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M43 38l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="svc-card-title">Free Design<br/>Consultation</h3>
+      <p class="svc-card-body">Our in-house design team helps you find the perfect combination of materials, finishes, and layouts — no appointment necessary at our Houston showroom.</p>
+      <a class="svc-card-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Book a Visit <span class="svc-arr">↗</span></a>
+    </div>
+
+    <!-- 02 — Professional Installation -->
+    <div class="svc-card">
+      <div class="svc-card-top">
+        <span class="svc-n">02</span>
+        <div class="svc-ico">
+          <svg fill="none" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 42L26 10l12 32" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M18.5 30h19" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="26" cy="10" r="3" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M20 42h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M38 42h4.5M9.5 42H14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="svc-card-title">Professional<br/>Installation</h3>
+      <p class="svc-card-body">Our certified installers cover all of Greater Houston. Request an in-home measurement and quote, completely free — with no pressure to commit.</p>
+      <a class="svc-card-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Request a Quote <span class="svc-arr">↗</span></a>
+    </div>
+
+    <!-- 03 — Fast Local Delivery -->
+    <div class="svc-card">
+      <div class="svc-card-top">
+        <span class="svc-n">03</span>
+        <div class="svc-ico">
+          <svg fill="none" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="18" width="28" height="18" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M32 24h7.5l7.5 8v6H32V24z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="13" cy="38" r="4" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="39" cy="38" r="4" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M9 18v-7h19v7" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 26h12" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="svc-card-title">Fast Local<br/>Delivery</h3>
+      <p class="svc-card-body">In-stock orders reach Houston, Katy, Sugar Land, Cypress, Spring, The Woodlands, and Pearland within 3–5 business days. Rush delivery available for active job sites.</p>
+      <a class="svc-card-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Check Availability <span class="svc-arr">↗</span></a>
+    </div>
+
+    <!-- 04 — Flexible Financing -->
+    <div class="svc-card">
+      <div class="svc-card-top">
+        <span class="svc-n">04</span>
+        <div class="svc-ico">
+          <svg fill="none" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="13" width="40" height="26" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M6 22h40" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="12" y="29" width="9" height="4.5" rx="1.2" fill="#C6A75E" opacity=".7"/>
+            <rect x="25" y="29" width="15" height="4.5" rx="1.2" stroke="currentColor" stroke-width="1.2" opacity=".4"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="svc-card-title">Flexible<br/>Financing</h3>
+      <p class="svc-card-body">0% APR financing available for qualified buyers. Don't let budget stand between you and your vision — we have plans to fit every project and timeline.</p>
+      <a class="svc-card-cta" href="#" onclick="event.preventDefault();openShowroomModal();">Explore Options <span class="svc-arr">↗</span></a>
+    </div>
+
+  </div><!-- /svc-bento -->
 </section>
 <!-- ─── TESTIMONIALS ─── -->
 <!-- ─── REVIEWS CAROUSEL ─── -->
@@ -8289,7 +8497,8 @@ if (document.readyState === 'loading') {
     font-size: 1.08em !important;
     font-weight: 700 !important;
     font-style: italic !important;
-    display: block !important;
+    display: inline !important;
+    white-space: nowrap !important;
     letter-spacing: -.02em !important;
   }
 }
@@ -9563,13 +9772,149 @@ a.brand-card[rel="noopener"]:hover::after {
 } /* end @media 640 */
 </style>
 
-<script id="fotx-master-script-v2">
+<!-- ═══ FOTX UNIFIED FINAL — Script + Brand Scroll + Misc Mobile ═══ -->
+
+<!-- Desktop safety: hide overlay + burger. No !important on #fotx-overlay
+     so the mobile media query's display:flex wins cleanly -->
+<style id="fotx-desktop-guard">
+.hbg { display: none; }
+#fotx-overlay { display: none; }
+</style>
+
+<!-- ── Brand section: pill tabs + horizontal scroll cards on mobile ── -->
+<style id="fotx-brand-mobile">
+
+@media (max-width: 860px) {
+  .vendor-tabbar {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    justify-content: flex-start !important;
+    padding: 0 20px !important;
+    gap: 0 !important;
+  }
+  .vendor-tabbar::-webkit-scrollbar { display: none !important; }
+  .brand-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px !important; }
+  .vendor-panel { padding: 0 20px !important; }
+  .vendor-header { padding: 0 20px !important; margin-bottom: 40px !important; }
+}
+
+@media (max-width: 640px) {
+  .vendor-section { padding: 56px 0 64px !important; overflow: hidden !important; }
+  .vendor-section::before, .vendor-section::after { left: 20px !important; right: 20px !important; }
+  .vendor-header { padding: 0 20px !important; margin-bottom: 28px !important; text-align: left !important; max-width: none !important; }
+  .vendor-header .section-label { margin-bottom: 10px !important; }
+  .vendor-header h2 { font-size: clamp(1.9rem, 8vw, 2.4rem) !important; margin-bottom: 10px !important; }
+  .vendor-header p { font-size: .84rem !important; margin: 0 !important; text-align: left !important; max-width: none !important; }
+
+  /* Pill tabs */
+  .vendor-tabbar {
+    display: flex !important;
+    gap: 8px !important;
+    padding: 0 20px !important;
+    margin-bottom: 24px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    border-bottom: none !important;
+    justify-content: flex-start !important;
+  }
+  .vendor-tab {
+    flex-shrink: 0 !important;
+    padding: 8px 16px !important;
+    font-size: .6rem !important;
+    letter-spacing: .13em !important;
+    border-radius: 100px !important;
+    border: 1px solid rgba(58,53,48,.18) !important;
+    background: transparent !important;
+    color: rgba(58,53,48,.56) !important;
+    white-space: nowrap !important;
+    transition: background .22s ease, color .22s ease, border-color .22s ease !important;
+  }
+  .vendor-tab::after { display: none !important; }
+  .vendor-tab.active {
+    background: #141210 !important;
+    color: #fdfaf6 !important;
+    border-color: #141210 !important;
+  }
+
+  /* Horizontal scroll track */
+  .vendor-panel { padding: 0 !important; overflow: hidden !important; }
+  .vendor-panel.active { display: block !important; animation: none !important; }
+
+  .brand-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    padding: 4px 20px 20px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    scroll-snap-type: x mandatory !important;
+    grid-template-columns: unset !important;
+  }
+  .brand-grid::-webkit-scrollbar { display: none !important; }
+
+  .brand-card {
+    flex: 0 0 145px !important;
+    width: 145px !important;
+    min-width: 145px !important;
+    min-height: 0 !important;
+    padding: 14px 12px 13px !important;
+    border-radius: 12px !important;
+    scroll-snap-align: start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+  }
+  .brand-card:active { transform: scale(.96) !important; border-color: rgba(198,167,94,.4) !important; }
+  .brand-logo-wrap { width: 100% !important; height: 82px !important; min-height: 82px !important; margin-bottom: 9px !important; padding: 8px !important; border-radius: 9px !important; flex-shrink: 0 !important; }
+  .brand-cta { font-size: .56rem !important; letter-spacing: .1em !important; opacity: 1 !important; transform: none !important; text-align: center !important; line-height: 1.3 !important; white-space: nowrap !important; }
+  .brand-cta::after { display: none !important; }
+}
+</style>
+
+<!-- ── Hero, Footer, Services mobile ── -->
+<style id="fotx-misc-mobile">
+@media (max-width: 640px) {
+  /* Hero headline */
+  .hero h1 { max-width: none !important; }
+  .hero h1 strong { display: inline !important; white-space: nowrap !important; }
+  /* Footer dead space */
+  footer { padding: 0 !important; margin: 0 !important; }
+  footer .footer-bottom { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important; padding: 10px 16px calc(10px + env(safe-area-inset-bottom,0px)) !important; margin: 0 !important; min-height: 0 !important; height: auto !important; gap: 0 !important; }
+  footer .footer-copyright, footer .footer-spacer { display: none !important; height: 0 !important; width: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; }
+  footer .footer-builtby { margin: 0 !important; padding: 0 !important; line-height: 1.4 !important; font-size: .7rem !important; text-align: center !important; }
+  /* Services */
+  .services { padding: 64px 0 72px !important; overflow: hidden !important; }
+  .svc-hd { text-align: left !important; max-width: none !important; margin: 0 0 40px !important; padding: 0 20px !important; }
+  .svc-hd-title { font-size: clamp(2.2rem, 9.5vw, 2.8rem) !important; }
+  .svc-hd-sub { font-size: .875rem !important; color: rgba(253,250,246,.38) !important; }
+  .svc-bento { grid-template-columns: 1fr !important; border-left: none !important; border-right: none !important; border-radius: 0 !important; }
+  .svc-card { padding: 34px 20px 30px !important; border-radius: 0 !important; }
+  .svc-card::before { transform: scaleY(1) !important; opacity: .45 !important; }
+  .svc-n { font-size: 3.6rem !important; }
+  .svc-card-title { font-size: 1.7rem !important; }
+  .svc-card-body { font-size: .86rem !important; color: rgba(253,250,246,.42) !important; }
+}
+@media (min-width: 641px) and (max-width: 860px) {
+  .svc-bento { grid-template-columns: 1fr !important; }
+  .svc-card { padding: 44px 36px 40px !important; }
+}
+</style>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOTX MENU SCRIPT — builds #fotx-overlay, uses .open class
+     Matches the proven CSS already in fotx-mobile-menu-v1
+════════════════════════════════════════════════════════════ -->
+<script id="fotx-menu-script-final">
 (function () {
   'use strict';
 
   var QUOTE_HREF = (function () {
     var el = document.querySelector('a.nav-cta');
-    return el ? el.getAttribute('href') : 'mailto:info@flooringoutlettx.com?subject=Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX';
+    return (el && el.getAttribute('href')) || 'mailto:info@flooringoutlettx.com?subject=Quote%20Request';
   })();
 
   var NAV_ITEMS = [
@@ -9578,19 +9923,16 @@ a.brand-card[rel="noopener"]:hover::after {
     { label: 'Tile',          href: 'tile.html' },
     { label: 'Carpet',        href: 'carpet.html' },
     { label: 'Natural Stone', href: 'natural-stone.html' },
-    { label: 'Showroom',      href: '#showroom', isShowroom: true }
+    { label: 'Showroom',      href: '#', isShowroom: true }
   ];
 
-  function isMobile () { return window.innerWidth <= 640; }
+  function isMobile() { return window.matchMedia('(max-width:640px)').matches; }
 
-  function build () {
+  function build() {
     if (document.getElementById('fotx-overlay')) return;
-
-    /* ── Burger button ── */
     var burger = document.getElementById('hbg');
     if (!burger) return;
 
-    /* ── Overlay panel ── */
     var overlay = document.createElement('div');
     overlay.id = 'fotx-overlay';
     overlay.setAttribute('role', 'dialog');
@@ -9627,11 +9969,10 @@ a.brand-card[rel="noopener"]:hover::after {
 
     document.body.appendChild(overlay);
 
-    /* ── State ── */
     var nav = document.getElementById('nav');
     var isOpen = false;
 
-    function open () {
+    function open() {
       isOpen = true;
       burger.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
@@ -9641,7 +9982,7 @@ a.brand-card[rel="noopener"]:hover::after {
       document.body.classList.add('fotx-open');
     }
 
-    function close () {
+    function close() {
       isOpen = false;
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
@@ -9651,7 +9992,6 @@ a.brand-card[rel="noopener"]:hover::after {
       document.body.classList.remove('fotx-open');
     }
 
-    /* ── Events ── */
     burger.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -9659,43 +9999,37 @@ a.brand-card[rel="noopener"]:hover::after {
       isOpen ? close() : open();
     });
 
-    /* Showroom links */
     overlay.querySelectorAll('[data-sr]').forEach(function (a) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
         close();
         setTimeout(function () {
           if (typeof openShowroomModal === 'function') openShowroomModal();
-        }, 220);
+        }, 240);
       });
     });
 
     var srBtn = document.getElementById('fotx-sr-btn');
-    if (srBtn) {
-      srBtn.addEventListener('click', function () {
-        close();
-        setTimeout(function () {
-          if (typeof openShowroomModal === 'function') openShowroomModal();
-        }, 220);
-      });
-    }
+    if (srBtn) srBtn.addEventListener('click', function () {
+      close();
+      setTimeout(function () {
+        if (typeof openShowroomModal === 'function') openShowroomModal();
+      }, 240);
+    });
 
-    /* All nav links close menu */
     overlay.querySelectorAll('.fotx-nav-link:not([data-sr])').forEach(function (a) {
       a.addEventListener('click', close);
     });
     var hl = document.getElementById('fotx-hl');
     if (hl) hl.addEventListener('click', close);
 
-    /* Escape key */
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && isOpen) close();
     });
 
-    /* Desktop resize */
     window.addEventListener('resize', function () {
       if (!isMobile() && isOpen) close();
-    });
+    }, { passive: true });
   }
 
   if (document.readyState === 'loading') {
@@ -9705,300 +10039,3 @@ a.brand-card[rel="noopener"]:hover::after {
   }
 }());
 </script>
-
-<!-- ═══════════════════════════════════════════════════
-     FOTX FIXES v3 — Burger SVG, Double Logo, Phone Sizes
-════════════════════════════════════════════════════════ -->
-<style id="fotx-fixes-v3">
-
-/* ─────────────────────────────────────────────
-   BURGER ICON — SVG approach, zero ambiguity
-───────────────────────────────────────────── */
-
-/* Hidden on desktop */
-.hbg {
-  display: none !important;
-}
-
-/* Mobile nav overlay — hidden globally; media query enables flex on mobile */
-#fotx-overlay {
-  display: none !important;
-}
-
-@media (max-width: 640px) {
-
-  /* ── Button shell ── */
-  .hbg {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 46px !important;
-    height: 46px !important;
-    flex-shrink: 0 !important;
-    padding: 0 !important;
-    background: linear-gradient(150deg, #2c2418 0%, #1a1510 100%) !important;
-    border: 1px solid rgba(198,167,94,.25) !important;
-    border-radius: 12px !important;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.07),
-      0 3px 14px rgba(0,0,0,.5),
-      0 0 0 1px rgba(0,0,0,.35) !important;
-    cursor: pointer !important;
-    z-index: 9003 !important;
-    position: relative !important;
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-    transition: background .22s ease, border-color .22s ease, box-shadow .22s ease !important;
-    overflow: visible !important;
-  }
-
-  .hbg:active {
-    transform: scale(.91) !important;
-  }
-
-  /* ── SVG inside ── */
-  .hbg-svg {
-    display: block !important;
-    overflow: visible !important;
-    /* SVG lines animate via CSS */
-  }
-
-  /* All three lines share transition */
-  .hbg-svg .hbg-l1,
-  .hbg-svg .hbg-l2,
-  .hbg-svg .hbg-l3 {
-    transform-origin: center !important;
-    transition:
-      transform .3s cubic-bezier(.4,0,.2,1),
-      opacity .2s ease !important;
-  }
-
-  /* ── OPEN state → X ── */
-  .hbg.open {
-    background: linear-gradient(150deg, #3a2e18 0%, #26200e 100%) !important;
-    border-color: rgba(198,167,94,.45) !important;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.09),
-      0 4px 18px rgba(0,0,0,.55),
-      0 0 12px rgba(198,167,94,.1) !important;
-  }
-
-  /* Rotate top line down-right to form \ */
-  .hbg.open .hbg-svg .hbg-l1 {
-    transform: translateY(9px) rotate(45deg) !important;
-  }
-  /* Fade middle line */
-  .hbg.open .hbg-svg .hbg-l2 {
-    opacity: 0 !important;
-    transform: scaleX(0) !important;
-  }
-  /* Rotate bottom line up-right to form / — compensate for its offset start */
-  .hbg.open .hbg-svg .hbg-l3 {
-    transform: translateX(-6px) translateY(-9px) rotate(-45deg) !important;
-  }
-
-  /* ─────────────────────────────────────────────
-     NAV BAR — hide logo when showroom modal open
-     The modal has z-index 9100, nav has 9000.
-     When .showroom-open is added to nav, hide logo.
-  ───────────────────────────────────────────── */
-
-  /* Additional nav visibility control when showroom overlay is open */
-  .showroom-modal-overlay.open ~ * nav#nav .nav-logo,
-  body.showroom-open nav#nav .nav-logo {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-
-  /* ─────────────────────────────────────────────
-     HERO CALL BUTTON — bigger phone number text
-  ───────────────────────────────────────────── */
-  .hero-actions .btn.btn-primary,
-  .hero-actions a.btn-primary {
-    font-size: 1rem !important;
-    letter-spacing: .04em !important;
-    font-weight: 600 !important;
-    padding: 14px 24px !important;
-    min-height: 50px !important;
-  }
-
-  /* ─────────────────────────────────────────────
-     SHOWROOM MODAL — phone number size
-  ───────────────────────────────────────────── */
-  .sm-info-value {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
-  }
-
-  .sm-info-value a {
-    font-size: 1rem !important;
-    font-weight: 400 !important;
-  }
-
-  /* Phone number specifically — even bigger, tappable */
-  .sm-info-item:nth-child(2) .sm-info-value a {
-    font-size: 1.12rem !important;
-    font-weight: 500 !important;
-    color: #C6A75E !important;
-  }
-
-  /* ─────────────────────────────────────────────
-     SHOWROOM MODAL on mobile — ensure it fully 
-     covers the nav bar (z-index fix)
-  ───────────────────────────────────────────── */
-  .showroom-modal-overlay {
-    z-index: 9100 !important;
-  }
-
-  /* When showroom modal is open, push it fully over nav */
-  .showroom-modal-overlay.open {
-    align-items: flex-end !important;
-  }
-
-  /* Ensure the modal sheet starts at top of screen if needed */
-  .showroom-modal-overlay.open .showroom-modal {
-    position: relative !important;
-    /* The modal's top rounded corner should start below the browser chrome */
-  }
-
-  /* ─────────────────────────────────────────────
-     VISIT SHOWROOM section in modal — sm-left brand
-     Double logo fix: sm-left padding-top covers nav area
-  ───────────────────────────────────────────── */
-  .showroom-modal-overlay.open {
-    /* Overlay is position:fixed inset:0 — covers full screen including nav */
-    background: rgba(10,8,6,.88) !important;
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
-  }
-
-  /* The sm-left brand block inside modal */
-  .sm-logo {
-    font-size: 1.38rem !important;
-    letter-spacing: .025em !important;
-  }
-  .sm-logo span {
-    color: #C6A75E !important;
-  }
-  .sm-tagline {
-    font-size: .62rem !important;
-  }
-
-} /* end @media 640px */
-<!-- fotx-v4-final: superseded — burger now uses .hbg-l system matching fotx-mobile-menu-v1 -->
-<style id="fotx-v4-final">
-/* intentionally empty — .hbg-l burger CSS lives in #oai-mobile-menu-fullscreen-fix-v2 and #fotx-mobile-menu-v1 */
-</style>
-
-<!-- ═══ SNRG FINAL OVERRIDE — footer space + burger flawless ═══ -->
-<style id="snrg-final-override">
-@media (max-width: 640px) {
-
-  /* ── FOOTER: zero extra space after Built By SNRG WEB ── */
-  footer {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  footer .footer-top {
-    padding: 32px 16px 20px !important;
-    margin: 0 !important;
-  }
-  footer .footer-bottom {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
-    margin: 0 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    gap: 0 !important;
-    border-top: 1px solid rgba(253,250,246,.07) !important;
-  }
-  footer .footer-copyright,
-  footer .footer-spacer {
-    display: none !important;
-    height: 0 !important;
-    width: 0 !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  footer .footer-builtby {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1.4 !important;
-    font-size: .72rem !important;
-    color: rgba(253,250,246,.3) !important;
-    text-align: center !important;
-  }
-  footer .footer-builtby a.snrg-link {
-    color: var(--classy-gold, #C8AA60) !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid rgba(198,167,94,.4) !important;
-  }
-
-  /* ── BURGER: flawless gold lines, correct animation, reliable click ── */
-  .hbg {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    justify-content: center !important;
-    gap: 5px !important;
-    width: 46px !important;
-    height: 46px !important;
-    padding: 13px 12px !important;
-    background: linear-gradient(145deg, rgba(44,36,24,.96) 0%, rgba(26,21,16,.99) 100%) !important;
-    border: 1px solid rgba(198,167,94,.22) !important;
-    border-radius: 12px !important;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.07),
-      0 3px 14px rgba(0,0,0,.5) !important;
-    cursor: pointer !important;
-    z-index: 9003 !important;
-    position: relative !important;
-    flex-shrink: 0 !important;
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-    overflow: visible !important;
-    transition: background .22s ease, border-color .22s ease !important;
-  }
-  .hbg:active {
-    transform: scale(.92) !important;
-  }
-  .hbg .hbg-l {
-    display: block !important;
-    height: 2px !important;
-    background: linear-gradient(90deg, #d4b668, #C6A75E) !important;
-    border-radius: 2px !important;
-    width: 20px !important;
-    transform-origin: center !important;
-    transition:
-      transform .3s cubic-bezier(.4,0,.2,1),
-      opacity .22s ease,
-      width .25s ease !important;
-    flex-shrink: 0 !important;
-  }
-  .hbg .hbg-l.hbg-l--short {
-    width: 13px !important;
-  }
-  /* X open state */
-  .hbg.open {
-    background: linear-gradient(145deg, rgba(58,46,24,.98) 0%, rgba(38,32,14,.99) 100%) !important;
-    border-color: rgba(198,167,94,.42) !important;
-  }
-  .hbg.open .hbg-l:nth-child(1) {
-    transform: translateY(7px) rotate(45deg) !important;
-    width: 20px !important;
-  }
-  .hbg.open .hbg-l:nth-child(2) {
-    opacity: 0 !important;
-    transform: scaleX(0) !important;
-  }
-  .hbg.open .hbg-l:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg) !important;
-    width: 20px !important;
-  }
-}
-</style>
