@@ -5267,9 +5267,9 @@ footer a.snrg-link:hover{
 <!-- ─── BRAND COLLECTIONS ─── -->
 <section class="vendor-section reveal" id="collections">
 <div class="vendor-header">
-<p class="section-label">Shop By Brand</p>
-<h2>Premium <em>Vendors</em> &amp; Collections</h2>
-<p>Select a category, then tap a vendor name to browse their official collections.</p>
+<p class="section-label">Houston's Top Flooring Brands</p>
+<h2>The Names Behind<br/><em>Every Great Floor</em></h2>
+<p>We stock and sell the world's most respected flooring brands — hand-selected for quality, durability, and design. Choose a category to explore.</p>
 </div>
 <div aria-label="Vendor categories" class="vendor-tabbar" role="tablist">
 <button aria-selected="true" class="vendor-tab active" data-active="true" data-tab="lvp" role="tab">LVP / SPC</button>
@@ -9758,7 +9758,11 @@ a.brand-card[rel="noopener"]:hover::after {
 <!-- Desktop safety: hide overlay + burger. No !important on #fotx-overlay
      so the mobile media query's display:flex wins cleanly -->
 <style id="fotx-desktop-guard">
-/* Managed by fotx-v5 — no duplication needed here */
+/* Desktop: overlay hidden by default. Mobile @media block owns display:flex on .open */
+#fotx-overlay { display: none; visibility: hidden; pointer-events: none; }
+@media (max-width: 640px) {
+  #fotx-overlay { display: flex; }
+}
 </style>
 
 <!-- ── Brand section: pill tabs + horizontal scroll cards on mobile ── -->
@@ -9782,10 +9786,10 @@ a.brand-card[rel="noopener"]:hover::after {
 @media (max-width: 640px) {
   .vendor-section { padding: 56px 0 64px !important; overflow: hidden !important; }
   .vendor-section::before, .vendor-section::after { left: 20px !important; right: 20px !important; }
-  .vendor-header { padding: 0 20px !important; margin-bottom: 28px !important; text-align: left !important; max-width: none !important; }
-  .vendor-header .section-label { margin-bottom: 10px !important; }
-  .vendor-header h2 { font-size: clamp(1.9rem, 8vw, 2.4rem) !important; margin-bottom: 10px !important; }
-  .vendor-header p { font-size: .84rem !important; margin: 0 !important; text-align: left !important; max-width: none !important; }
+  .vendor-header { padding: 0 20px !important; margin-bottom: 28px !important; text-align: center !important; max-width: none !important; }
+  .vendor-header .section-label { margin-bottom: 10px !important; text-align: center !important; display: block !important; }
+  .vendor-header h2 { font-size: clamp(1.9rem, 8vw, 2.4rem) !important; margin-bottom: 10px !important; text-align: center !important; }
+  .vendor-header p { font-size: .84rem !important; margin: 0 auto !important; text-align: center !important; max-width: 88% !important; }
 
   /* Pill tabs */
   .vendor-tabbar {
@@ -9924,7 +9928,7 @@ a.brand-card[rel="noopener"]:hover::after {
         '<a class="fotx-nav-link" href="' + item.href + '"' +
         (item.isShowroom ? ' data-sr="1"' : '') + '>' +
         '<span>' + item.label + '</span>' +
-        '<span class="fotx-arrow">↗</span>' +
+        '<span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
         '</a></li>';
     }).join('');
 
@@ -10279,9 +10283,9 @@ a.brand-card[rel="noopener"]:hover::after {
   .vendor-section { padding: 56px 0 64px !important; }
   .vendor-section::before,
   .vendor-section::after { left: 20px !important; right: 20px !important; }
-  .vendor-header { padding: 0 20px !important; margin-bottom: 28px !important; text-align: left !important; max-width: none !important; }
-  .vendor-header h2 { font-size: clamp(1.9rem, 8vw, 2.4rem) !important; }
-  .vendor-header p { font-size: .84rem !important; text-align: left !important; max-width: none !important; }
+  .vendor-header { padding: 0 20px !important; margin-bottom: 28px !important; text-align: center !important; max-width: none !important; }
+  .vendor-header h2 { font-size: clamp(1.9rem, 8vw, 2.4rem) !important; text-align: center !important; }
+  .vendor-header p { font-size: .84rem !important; text-align: center !important; max-width: 88% !important; margin: 0 auto !important; }
 
   /* Pill tabs */
   .vendor-tabbar {
@@ -10749,16 +10753,7 @@ a.brand-card[rel="noopener"]:hover::after {
 }
 
 /* ── fotx-overlay arrows — gold ── */
-.fotx-arrow {
-  color: rgba(198,167,94,.5) !important;
-  transition: color .2s ease, transform .2s ease !important;
-  display: inline-block !important;
-}
-.fotx-nav-link:hover .fotx-arrow,
-.fotx-nav-link:active .fotx-arrow {
-  color: #C6A75E !important;
-  transform: translate(3px, -2px) !important;
-}
+/* fotx-arrow: governed by fotx-mobile-menu-v1 block — no override needed here */
 
 </style>
 
@@ -10827,4 +10822,416 @@ a.brand-card[rel="noopener"]:hover::after {
    This bare rule has lower specificity and is overridden by the !important below ── */
 .hbg { display: none; }
 
+</style>
+
+<style id="vendor-elite-v1">
+/* ══════════════════════════════════════════════════════════════════
+   VENDOR SECTION — ELITE REDESIGN
+   Dark editorial backdrop · Pill tabs · Uniform logo cards
+   Single authoritative block. Wins cascade via scoped !important.
+══════════════════════════════════════════════════════════════════ */
+
+/* ── SECTION: parchment background, elite treatment ── */
+.vendor-section {
+  background: var(--parchment, #ece5d8) !important;
+  padding: 120px 0 108px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Atmospheric warm vignette */
+.vendor-section::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse 60% 45% at 5% 0%, rgba(198,167,94,.12) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 35% at 95% 100%, rgba(140,100,50,.1) 0%, transparent 55%) !important;
+  pointer-events: none !important;
+  left: auto !important; right: auto !important; height: auto !important;
+}
+.vendor-section::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important; right: 0 !important;
+  bottom: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(58,53,48,.15) 30%, rgba(58,53,48,.15) 70%, transparent) !important;
+  top: auto !important;
+}
+
+/* ── HEADER ── */
+.vendor-section .vendor-header {
+  max-width: 860px !important;
+  margin: 0 auto 72px !important;
+  padding: 0 48px !important;
+  text-align: center !important;
+}
+
+.vendor-section .vendor-header .section-label {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: .62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .32em !important;
+  text-transform: uppercase !important;
+  color: var(--clay, #9b7b4e) !important;
+  margin-bottom: 20px !important;
+  display: block !important;
+}
+
+.vendor-section .vendor-header h2 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(3rem, 6vw, 5.2rem) !important;
+  font-weight: 300 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.025em !important;
+  color: var(--charcoal, #141210) !important;
+  margin: 0 0 24px !important;
+}
+
+.vendor-section .vendor-header h2 em {
+  font-style: italic !important;
+  font-weight: 500 !important;
+  color: var(--clay, #9b7b4e) !important;
+}
+
+.vendor-section .vendor-header p {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+  color: rgba(58,53,48,.55) !important;
+  max-width: 560px !important;
+  margin: 0 auto !important;
+  letter-spacing: .01em !important;
+}
+
+/* ── PILL TABS ── */
+.vendor-section .vendor-tabbar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  max-width: 1200px !important;
+  margin: 0 auto 72px !important;
+  padding: 0 48px !important;
+  border-bottom: none !important;
+  flex-wrap: wrap !important;
+}
+
+.vendor-section .vendor-tab {
+  position: relative !important;
+  background: rgba(20,18,16,.06) !important;
+  border: 1px solid rgba(20,18,16,.14) !important;
+  border-radius: 999px !important;
+  padding: 13px 28px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  color: rgba(20,18,16,.5) !important;
+  cursor: pointer !important;
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    transform .15s ease,
+    box-shadow .22s ease !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.vendor-section .vendor-tab::after {
+  display: none !important;
+}
+
+.vendor-section .vendor-tab:hover {
+  background: rgba(20,18,16,.1) !important;
+  border-color: rgba(20,18,16,.22) !important;
+  color: rgba(20,18,16,.8) !important;
+  transform: translateY(-1px) !important;
+}
+
+.vendor-section .vendor-tab.active {
+  background: var(--charcoal, #141210) !important;
+  border-color: var(--charcoal, #141210) !important;
+  color: #fdfaf6 !important;
+  box-shadow:
+    0 4px 20px rgba(20,18,16,.25),
+    0 1px 4px rgba(0,0,0,.2) !important;
+  transform: none !important;
+}
+
+/* ── PANEL ── */
+.vendor-section .vendor-panel {
+  display: none !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 48px !important;
+}
+.vendor-section .vendor-panel.active {
+  display: block !important;
+  animation: vendorIn .36s cubic-bezier(.4,0,.2,1) !important;
+}
+@keyframes vendorIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── BRAND GRID ── */
+.vendor-section .brand-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  gap: 16px !important;
+}
+
+/* ── BRAND CARD ── */
+.vendor-section .brand-card,
+.brand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  background: #fdfaf6 !important;
+  border: 1px solid rgba(58,53,48,.1) !important;
+  border-radius: 16px !important;
+  padding: 28px 24px 22px !important;
+  text-decoration: none !important;
+  overflow: hidden !important;
+  min-height: 0 !important;
+  height: 180px !important;
+  cursor: pointer !important;
+  transition:
+    transform .28s cubic-bezier(.4,0,.2,1),
+    box-shadow .28s ease,
+    border-color .28s ease,
+    background .28s ease !important;
+}
+
+/* Gold shimmer overlay on hover */
+.vendor-section .brand-card::after,
+.brand-card::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, rgba(198,167,94,.07) 0%, transparent 55%) !important;
+  opacity: 0 !important;
+  transition: opacity .28s ease !important;
+  pointer-events: none !important;
+}
+
+.vendor-section .brand-card:hover,
+.brand-card:hover {
+  transform: translateY(-5px) !important;
+  background: #fff !important;
+  border-color: rgba(198,167,94,.5) !important;
+  box-shadow:
+    0 20px 52px rgba(20,18,16,.13),
+    0 4px 14px rgba(20,18,16,.07),
+    0 0 0 1px rgba(198,167,94,.15) !important;
+}
+.vendor-section .brand-card:hover::after,
+.brand-card:hover::after {
+  opacity: 1 !important;
+}
+
+/* ── LOGO WRAP — fixed zone, centered ── */
+.vendor-section .brand-logo-wrap,
+.brand-logo-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  flex: 1 !important;
+  /* Fixed uniform zone — every logo gets the same canvas */
+  height: 80px !important;
+  min-height: 80px !important;
+  max-height: 80px !important;
+  padding: 8px 12px !important;
+  margin: 0 0 16px !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 1 !important;
+  transition: none !important;
+}
+
+.vendor-section .brand-card:hover .brand-logo-wrap,
+.brand-card:hover .brand-logo-wrap {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* picture: layout transparent */
+.vendor-section .brand-logo-wrap picture,
+.brand-logo-wrap picture {
+  display: contents !important;
+  width: unset !important;
+  height: unset !important;
+}
+
+/* Logo img: uniform fill within zone */
+.vendor-section .brand-logo-wrap img,
+.brand-logo-wrap img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 68px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: auto !important;
+  filter: contrast(1.1) saturate(1.05) drop-shadow(0 1px 4px rgba(0,0,0,.12)) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+/* If logo was white/light, invert for dark bg isn't needed — 
+   logos should already be white or transparent */
+
+/* ── BROWSE CTA ── */
+.vendor-section .brand-cta,
+.brand-cta {
+  position: relative !important;
+  z-index: 1 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: .6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+  color: rgba(58,53,48,.5) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding-top: 12px !important;
+  border-top: 1px solid rgba(58,53,48,.1) !important;
+  transition: color .22s ease, gap .2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.vendor-section .brand-card:hover .brand-cta,
+.brand-card:hover .brand-cta {
+  color: var(--charcoal, #141210) !important;
+  gap: 10px !important;
+}
+
+/* Kill all the old ::after arrow overrides — replace with inline span arrow */
+.vendor-section .brand-cta::after,
+.brand-cta::after {
+  content: '→' !important;
+  font-size: .7rem !important;
+  display: inline-block !important;
+  transition: transform .2s ease !important;
+  color: inherit !important;
+  margin: 0 !important;
+}
+
+.vendor-section .brand-card:hover .brand-cta::after,
+.brand-card:hover .brand-cta::after {
+  transform: translateX(4px) !important;
+}
+
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .vendor-section .vendor-header {
+    padding: 0 32px !important;
+    margin-bottom: 56px !important;
+  }
+  .vendor-section .vendor-tabbar {
+    padding: 0 24px !important;
+    margin-bottom: 56px !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    justify-content: flex-start !important;
+  }
+  .vendor-section .vendor-tabbar::-webkit-scrollbar { display: none !important; }
+  .vendor-section .vendor-panel { padding: 0 24px !important; }
+  .vendor-section .brand-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+  }
+  .vendor-section .brand-card,
+  .brand-card { height: 168px !important; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .vendor-section {
+    padding: 80px 0 72px !important;
+  }
+  .vendor-section .vendor-header {
+    padding: 0 20px !important;
+    margin-bottom: 44px !important;
+  }
+  .vendor-section .vendor-header h2 {
+    font-size: clamp(2.6rem, 10.5vw, 3.4rem) !important;
+  }
+  .vendor-section .vendor-header p {
+    font-size: .88rem !important;
+  }
+  .vendor-section .vendor-tabbar {
+    padding: 4px 16px 4px !important;
+    margin-bottom: 36px !important;
+    gap: 7px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    scrollbar-width: none !important;
+  }
+  .vendor-section .vendor-tabbar::-webkit-scrollbar { display: none !important; }
+
+  .vendor-section .vendor-tab {
+    padding: 11px 22px !important;
+    font-size: .65rem !important;
+    letter-spacing: .14em !important;
+  }
+  .vendor-section .vendor-panel {
+    padding: 0 16px !important;
+  }
+  .vendor-section .brand-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .vendor-section .brand-card,
+  .brand-card {
+    height: 152px !important;
+    padding: 20px 16px 16px !important;
+    border-radius: 12px !important;
+  }
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap {
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    margin-bottom: 12px !important;
+  }
+  .vendor-section .brand-logo-wrap img,
+  .brand-logo-wrap img {
+    max-height: 54px !important;
+  }
+  .vendor-section .brand-cta,
+  .brand-cta {
+    font-size: .56rem !important;
+    letter-spacing: .16em !important;
+    padding-top: 10px !important;
+  }
+}
 </style>
