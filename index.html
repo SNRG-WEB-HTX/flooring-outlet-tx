@@ -4882,7 +4882,7 @@ footer a.snrg-link:hover{
 <span> <a href="tel:+13468671155">(346) 867-1155</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span> <a href="/cdn-cgi/l/email-protection#a9c0c7cfc6e9cfc5c6c6dbc0c7cec6dcddc5ccddddd187cac6c4"><span class="__cf_email__" data-cfemail="f29b9c949db2949e9d9d809b9c959d87869e9786868adc919d9f">[email&#160;protected]</span></a></span>
 </div><nav id="nav">
 <a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
 <button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button">
@@ -4910,7 +4910,7 @@ footer a.snrg-link:hover{
 <li><a href="natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettx.com?subject=Quote Request — Flooring Outlet TX&body=Hello,%0A%0AI would like to request a quote. Please contact me to discuss flooring options.%0A%0AThank you.">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#335a5d555c73555f5c5c415a5d545c46475f5647474b1d505c5e0c404651595650470e62465c4756136156424656404713d1b3a713755f5c5c415a5d54137c46475f564713676b15515c574a0e7b565f5f5c1f1603721603727a13445c465f57135f5a585613475c134156424656404713521342465c47561d13635f5652405613505c5d47525047135e5613475c13575a405046404013555f5c5c415a5d54135c43475a5c5d401d160372160372675b525d58134a5c461d">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -5760,7 +5760,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#50393e363f10363c3f3f22393e373f25243c352424287e333f3d"><span class="__cf_email__" data-cfemail="cda4a3aba28daba1a2a2bfa4a3aaa2b8b9a1a8b9b9b5e3aea2a0">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -5871,7 +5871,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -11998,24 +11998,294 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 
-/* ══ KILL arrows — belt+suspenders ══ */
-.brand-card[target="_blank"]::after,
-a.brand-card[rel="noopener"]::after,
-.vendor-section .brand-card::after,
-.brand-card::after {
-  content: '' !important;
-  width: auto !important; height: auto !important;
-  font-size: 0 !important;
-  color: transparent !important;
+/* ══ K
+<!-- ═══════════════════════════════════════════════════════
+  FOTX BRAND MASTER — single authoritative system
+  Overrides ALL previous brand card rules via html body prefix
+══════════════════════════════════════════════════════════ -->
+<style id="fotx-brand-master">
+
+/* 
+  STRATEGY: html body prefix = specificity (0,2,0) beats class-only (0,1,0)
+  Combined with !important this wins over every previous block.
+  ALL per-logo scale/shift/transform hacks are neutralised below.
+*/
+
+/* ══ RESET — kill all per-logo adjustments ══ */
+html body .brand-logo-wrap img[src*="tile-world-logo"],
+html body .brand-logo-wrap img[src*="lw-flooring-logo"],
+html body .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+html body .brand-logo-wrap img[src*="elephant-floors-logo"],
+html body .brand-logo-wrap img[src*="duraston-usa-logo"],
+html body .brand-logo-wrap img[src*="national-flooring-logo"],
+html body .brand-logo-wrap img[src*="keystone-carpets-logo"],
+html body .brand-logo-wrap img[src*="piedmont-floors-logo"],
+html body .brand-logo-wrap img[src*="johnson-logo"],
+html body .brand-logo-wrap img[src*="lawson-floors-logo"],
+html body .brand-logo-wrap img[src*="knoa"] {
+  --logo-scale: 1 !important;
+  --logo-shift-x: 0px !important;
+  --logo-shift-y: 0px !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+html body .vendor-section .brand-card--visual-center-fix,
+html body .vendor-section .brand-card--lw,
+html body .vendor-section .brand-card--fuzion,
+html body .vendor-section .brand-card--elephant,
+html body .vendor-section .brand-card--tileworld,
+html body .vendor-section .brand-card--durastone {
+  --brand-logo-desktop-x: 0px !important;
+  --brand-logo-mobile-y: 0px !important;
+}
+
+html body .vendor-section .brand-card--visual-center-fix .brand-logo-wrap img,
+html body .vendor-section .brand-card--lw .brand-logo-wrap img,
+html body .vendor-section .brand-card--fuzion .brand-logo-wrap img {
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* ══ CARD — zero padding, flex column, fixed height ══ */
+html body .vendor-section .brand-card,
+html body .brand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  position: relative !important;
+  background: #fdfaf6 !important;
+  border: 1px solid rgba(58,53,48,.1) !important;
+  border-radius: 16px !important;
+  padding: 0 !important;               /* NO card-level padding */
+  text-decoration: none !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  height: 180px !important;
+  min-height: 180px !important;
+  max-height: 180px !important;
+  transition: transform .26s cubic-bezier(.4,0,.2,1),
+              box-shadow .26s ease,
+              border-color .26s ease !important;
+}
+html body .vendor-section .brand-card:hover,
+html body .brand-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(20,18,16,.1), 0 2px 8px rgba(20,18,16,.05) !important;
+  border-color: rgba(198,167,94,.45) !important;
+  background: #fdfaf6 !important;
+}
+
+/* ══ LOGO WRAP — takes all space above CTA line ══ */
+html body .vendor-section .brand-logo-wrap,
+html body .brand-logo-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 18px 22px !important;       /* breathing room inside logo zone */
+  margin: 0 !important;
+  background: transparent !important;
   border: none !important;
-  background: none !important;
   box-shadow: none !important;
-  top: auto !important; right: auto !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* picture: transparent pass-through */
+html body .vendor-section .brand-logo-wrap picture,
+html body .brand-logo-wrap picture {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+/* ══ IMG — fills logo zone, contained, centered ══ 
+   object-fit:contain means the browser handles aspect ratio.
+   No per-logo hacks needed — every image gets identical treatment. */
+html body .vendor-section .brand-logo-wrap img,
+html body .brand-logo-wrap img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+  filter: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  flex-shrink: 1 !important;
+}
+
+/* ══ BRAND CTA — pinned footer, separator line ══ */
+html body .vendor-section .brand-cta,
+html body .brand-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  padding: 9px 16px !important;
+  margin: 0 !important;
+  border-top: 1px solid rgba(58,53,48,.1) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: .56rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  color: rgba(58,53,48,.4) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  transition: color .2s ease, border-color .2s ease !important;
+}
+html body .vendor-section .brand-card:hover .brand-cta,
+html body .brand-card:hover .brand-cta {
+  color: rgba(198,167,94,.85) !important;
+  border-top-color: rgba(198,167,94,.2) !important;
+}
+
+/* ── CTA arrow: inline SVG via background, no emoji ── */
+html body .brand-cta::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 9px !important;
+  height: 9px !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8L8 1M8 1H3M8 1V6' stroke='%23C6A75E' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: 0 !important;
+  transition: opacity .2s ease !important;
+  margin-left: 3px !important;
+}
+html body .vendor-section .brand-card:hover .brand-cta::after,
+html body .brand-card:hover .brand-cta::after {
+  opacity: 1 !important;
+}
+
+/* ══ BRAND NAME FALLBACK (when image 404s) ══ */
+html body .brand-name-fb {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(1rem, 3vw, 1.35rem) !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+  color: #141210 !important;
+  letter-spacing: .01em !important;
+  line-height: 1.2 !important;
+  padding: 12px 16px !important;
+}
+
+/* ══ KILL the ↗ arrow injected by vendor-return-toast-styles ══ */
+html body .brand-card[target="_blank"]::after,
+html body a.brand-card[rel="noopener"]::after,
+html body .vendor-section .brand-card::after,
+html body .brand-card::after {
+  content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  width: auto !important;
+  height: auto !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  bottom: auto !important;
   border-radius: 16px !important;
+  border: none !important;
+  background: linear-gradient(135deg,rgba(198,167,94,.06) 0%,transparent 55%) !important;
+  opacity: 0 !important;
+  transition: opacity .26s ease !important;
+  pointer-events: none !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  display: block !important;
+  z-index: 0 !important;
+  box-shadow: none !important;
+}
+html body .vendor-section .brand-card:hover::after,
+html body .brand-card:hover::after {
+  opacity: 1 !important;
+  color: transparent !important;
+  transform: none !important;
+}
+
+/* ══ GRID ══ */
+@media (min-width: 1025px) {
+  html body .vendor-section .brand-grid,
+  html body .brand-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 16px !important;
+    padding: 0 !important;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  html body .vendor-section .brand-grid,
+  html body .brand-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+    padding: 0 !important;
+  }
+  html body .vendor-section .brand-card,
+  html body .brand-card {
+    height: 156px !important;
+    min-height: 156px !important;
+    max-height: 156px !important;
+  }
+  html body .vendor-section .brand-logo-wrap,
+  html body .brand-logo-wrap {
+    padding: 14px 18px !important;
+  }
+}
+@media (max-width: 640px) {
+  html body .vendor-section .brand-grid,
+  html body .brand-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 0 16px !important;
+  }
+  html body .vendor-section .brand-card,
+  html body .brand-card {
+    height: 122px !important;
+    min-height: 122px !important;
+    max-height: 122px !important;
+    border-radius: 13px !important;
+  }
+  html body .vendor-section .brand-logo-wrap,
+  html body .brand-logo-wrap {
+    padding: 12px 14px !important;
+  }
+  html body .vendor-section .brand-cta,
+  html body .brand-cta {
+    padding: 7px 12px !important;
+    font-size: .5rem !important;
+    letter-spacing: .14em !important;
+  }
+  html body .brand-name-fb {
+    font-size: clamp(.85rem, 4vw, 1rem) !important;
+    padding: 8px 10px !important;
+  }
 }
 
 </style>
