@@ -4874,6 +4874,66 @@ footer a.snrg-link:hover{
 }
 </style>
 
+
+<style id="snrg-ptr-offline-style-20260309-v3">
+/* definitive offline + pull-to-refresh styling */
+#fotx-offline-bar{
+  display:none !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+#fotx-ptr-indicator{
+  position:fixed !important;
+  top:0 !important;
+  left:50% !important;
+  transform:translate(-50%,-130%) !important;
+  z-index:99999 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  min-width:180px !important;
+  max-width:calc(100vw - 24px) !important;
+  padding:12px 16px calc(12px + env(safe-area-inset-top,0px)) !important;
+  border-radius:0 0 16px 16px !important;
+  background:rgba(20,18,16,.96) !important;
+  color:#fdfaf6 !important;
+  border:1px solid rgba(198,167,94,.30) !important;
+  border-top:none !important;
+  box-shadow:0 16px 34px rgba(0,0,0,.28) !important;
+  font:600 13px/1.2 'Outfit', sans-serif !important;
+  letter-spacing:.04em !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:transform .22s ease, opacity .22s ease, visibility .22s ease !important;
+}
+#fotx-ptr-indicator.visible,
+#fotx-ptr-indicator.releasing,
+#fotx-ptr-indicator.refreshing{
+  transform:translate(-50%,0) !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+#fotx-ptr-spinner{
+  width:14px !important;
+  height:14px !important;
+  border-radius:999px !important;
+  border:2px solid rgba(253,250,246,.30) !important;
+  border-top-color:#C6A75E !important;
+  display:inline-block !important;
+  flex:0 0 14px !important;
+}
+#fotx-ptr-indicator.refreshing #fotx-ptr-spinner{
+  animation:snrg-ptr-spin .85s linear infinite !important;
+}
+@keyframes snrg-ptr-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media (min-width: 641px){
+  #fotx-ptr-indicator{display:none !important;}
+}
+</style>
+
 </head>
 <body style="height: auto; min-height: 0px; margin-bottom: 0px; padding-bottom: 0px;">
 <!-- ─── NAV ─── -->
@@ -11651,4 +11711,298 @@ html body .brand-grid {
   }
 }
 </style>
-<div id="fotx-overlay" role="dialog" aria-modal="true" aria-label="Site navigation"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="file:///C:/Users/snrgw/Downloads/index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/tile.html"><span>Tile</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/index%20-%202026-03-09T162955.075.html#" data-sr="1"><span>Showroom</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="mailto:info@flooringoutlettx.com?subject=Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20flooring%20quote.%20Please%20contact%20me%20at%20your%20earliest%20convenience.%0A%0AThank%20you.">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+13468671155">(346) 867-1155</a><div class="fotx-sep"></div><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></div></div></div></div></body></html>
+<div id="fotx-overlay" role="dialog" aria-modal="true" aria-label="Site navigation"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="file:///C:/Users/snrgw/Downloads/index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/tile.html"><span>Tile</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="file:///C:/Users/snrgw/Downloads/index%20-%202026-03-09T162955.075.html#" data-sr="1"><span>Showroom</span><span class="fotx-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="mailto:info@flooringoutlettx.com?subject=Quote%20Request%20%E2%80%94%20Flooring%20Outlet%20TX&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20flooring%20quote.%20Please%20contact%20me%20at%20your%20earliest%20convenience.%0A%0AThank%20you.">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+13468671155">(346) 867-1155</a><div class="fotx-sep"></div><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></div></div></div></div>
+<style id="snrg-root-cause-mobile-fix-20260309">
+/* Root-cause cleanup: kill offline footer bar everywhere */
+#fotx-offline-bar,
+#fotx-offline-bar.visible{
+  display:none !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+/* Mobile only: authoritative brand logo centering */
+@media (max-width: 640px){
+  .vendor-section .brand-grid,
+  .vendor-section .vendor-grid{
+    align-items: stretch !important;
+  }
+
+  .vendor-section .brand-card,
+  .brand-card{
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center !important;
+    overflow:hidden !important;
+  }
+
+  .vendor-section .brand-logo-wrap,
+  .brand-logo-wrap{
+    width:100% !important;
+    max-width:100% !important;
+    min-height:92px !important;
+    height:clamp(92px, 24vw, 118px) !important;
+    margin:0 auto 10px !important;
+    padding:8px 10px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+  }
+
+  .vendor-section .brand-logo-wrap picture,
+  .vendor-section .brand-logo-wrap a,
+  .vendor-section .brand-logo-wrap source,
+  .vendor-section .brand-logo-wrap img,
+  .brand-logo-wrap picture,
+  .brand-logo-wrap img{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .vendor-section .brand-logo-wrap img,
+  .brand-logo-wrap img{
+    width:auto !important;
+    max-width:100% !important;
+    height:auto !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    margin:0 auto !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    transform:translate3d(var(--snrg-logo-x, 0), var(--snrg-logo-y, 0), 0) scale(var(--logo-scale, 1)) !important;
+    transform-origin:center center !important;
+  }
+
+  .vendor-section .brand-card--visual-center-fix .brand-logo-wrap img,
+  .brand-card--visual-center-fix .brand-logo-wrap img,
+  .brand-logo-wrap img[src*="lw-flooring-logo"],
+  .brand-logo-wrap img[src*="fuzion-flooring-logo"],
+  .brand-logo-wrap img[src*="elephant-floors-logo"],
+  .brand-logo-wrap img[src*="tile-world-logo"],
+  .brand-logo-wrap img[src*="durastone"]{
+    --snrg-logo-x: 0px;
+    --snrg-logo-y: 0px;
+  }
+
+  nav{
+    isolation:isolate !important;
+  }
+
+  nav .hbg{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    position:relative !important;
+    z-index:1002 !important;
+    pointer-events:auto !important;
+  }
+
+  nav .nav-links{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:1000 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-items:stretch !important;
+    gap:12px !important;
+    padding:92px 20px 28px !important;
+    background:rgba(20,18,16,.985) !important;
+    backdrop-filter:blur(18px) !important;
+    -webkit-backdrop-filter:blur(18px) !important;
+    overflow-y:auto !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(-10px) !important;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s ease !important;
+  }
+
+  nav.menu-open .nav-links{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:translateY(0) !important;
+  }
+
+  nav .nav-links li{
+    list-style:none !important;
+    width:100% !important;
+    margin:0 !important;
+  }
+
+  nav .nav-links a,
+  nav .mobile-refresh-btn{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    width:100% !important;
+    min-height:58px !important;
+    padding:16px 18px !important;
+    border-radius:16px !important;
+    background:rgba(255,255,255,.04) !important;
+    border:1px solid rgba(255,255,255,.10) !important;
+    color:#fdfaf6 !important;
+    text-decoration:none !important;
+    letter-spacing:.12em !important;
+    text-transform:uppercase !important;
+    font-size:.82rem !important;
+  }
+
+  nav .mobile-refresh-item{ display:block !important; list-style:none !important; }
+
+  nav .mobile-refresh-btn::after,
+  nav .nav-links a::after{
+    content:'›' !important;
+    position:static !important;
+    transform:none !important;
+    height:auto !important;
+    background:none !important;
+    color:#C6A75E !important;
+    font-size:1.15rem !important;
+    line-height:1 !important;
+    margin-left:14px !important;
+  }
+
+  nav .nav-cta{
+    display:none !important;
+  }
+
+  body.menu-open,
+  html.menu-open{
+    overflow:hidden !important;
+    touch-action:none !important;
+  }
+}
+</style>
+<script id="snrg-root-cause-mobile-fix-script-20260309">
+(function(){
+  'use strict';
+  function ready(fn){
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn, { once:true });
+    else fn();
+  }
+  ready(function(){
+    var nav = document.getElementById('nav') || document.querySelector('nav');
+    var burger = document.getElementById('hbg') || document.querySelector('.hbg');
+    var links = document.getElementById('nav-links') || document.querySelector('.nav-links');
+    var ptr = document.getElementById('fotx-ptr-indicator');
+    var ptrLabel = document.getElementById('fotx-ptr-label');
+    var offlineBar = document.getElementById('fotx-offline-bar');
+    if (offlineBar) offlineBar.remove();
+
+    if(nav && burger && links){
+      if(!links.querySelector('.mobile-refresh-item')){
+        var li = document.createElement('li');
+        li.className = 'mobile-refresh-item';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mobile-refresh-btn';
+        btn.textContent = 'Refresh / Reload';
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          window.location.reload(true);
+        });
+        li.appendChild(btn);
+        links.appendChild(li);
+      }
+
+      function setOpen(open){
+        nav.classList.toggle('menu-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('menu-open', open);
+        document.documentElement.classList.toggle('menu-open', open);
+      }
+
+      burger.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        setOpen(!nav.classList.contains('menu-open'));
+      }, true);
+
+      links.addEventListener('click', function(e){
+        var action = e.target.closest('a, button');
+        if(!action) return;
+        if(action.classList.contains('mobile-refresh-btn')) return;
+        setOpen(false);
+      }, true);
+
+      document.addEventListener('click', function(e){
+        if(!nav.classList.contains('menu-open')) return;
+        if(e.target.closest('#hbg') || e.target.closest('.hbg') || e.target.closest('.nav-links')) return;
+        setOpen(false);
+      }, true);
+
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') setOpen(false);
+      });
+    }
+
+    if(ptr){
+      var startY = 0, currentY = 0, pulling = false;
+      var threshold = 78;
+      function mobile(){ return window.matchMedia('(max-width: 640px)').matches; }
+      function topReady(){ return window.scrollY <= 2 && !document.body.classList.contains('menu-open'); }
+      function resetPTR(){
+        ptr.classList.remove('visible','releasing','refreshing');
+        if(ptrLabel) ptrLabel.textContent = '↓ Pull to refresh';
+      }
+      function hardReload(){
+        try {
+          if (window.location && typeof window.location.reload === 'function') window.location.reload();
+          else window.location.href = window.location.href.split('#')[0];
+        } catch(e){
+          window.location.href = window.location.href.split('#')[0];
+        }
+      }
+      resetPTR();
+
+      document.addEventListener('touchstart', function(e){
+        if(!mobile() || !topReady()) return;
+        if(e.touches && e.touches.length === 1){
+          startY = e.touches[0].clientY;
+          currentY = startY;
+          pulling = true;
+        }
+      }, { passive:true, capture:true });
+
+      document.addEventListener('touchmove', function(e){
+        if(!mobile() || !pulling) return;
+        currentY = e.touches[0].clientY;
+        var dist = Math.max(0, Math.min(currentY - startY, 140));
+        if(dist <= 0){ pulling = false; resetPTR(); return; }
+        ptr.classList.add('visible');
+        if(ptrLabel) ptrLabel.textContent = dist >= threshold ? '↑ Release to refresh' : '↓ Pull to refresh';
+        ptr.classList.toggle('releasing', dist >= threshold);
+      }, { passive:true, capture:true });
+
+      document.addEventListener('touchend', function(){
+        if(!mobile() || !pulling) return;
+        var dist = currentY - startY;
+        pulling = false;
+        if(dist >= threshold){
+          ptr.classList.add('visible','refreshing');
+          ptr.classList.remove('releasing');
+          if(ptrLabel) ptrLabel.textContent = 'Refreshing…';
+          setTimeout(hardReload, 180);
+        } else {
+          resetPTR();
+        }
+      }, { passive:true, capture:true });
+
+      window.addEventListener('pageshow', resetPTR, { passive:true });
+    }
+  });
+})();
+</script>
+
+</body></html>
