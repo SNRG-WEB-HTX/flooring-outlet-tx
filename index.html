@@ -12289,3 +12289,365 @@ html body .brand-card:hover::after {
 }
 
 </style>
+
+<!-- ═══════════════════════════════════════════════════════
+  FOTX BRAND FINAL — absolute positioned logo, always centered
+  ROOT CAUSE FIX: replaces all flex-chain height resolution failures
+══════════════════════════════════════════════════════════ -->
+<style id="fotx-brand-final">
+
+/* ══ CARD — strict fixed height, flex column, zero padding ══ */
+html body .vendor-section .brand-card,
+html body .brand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  position: relative !important;
+  padding: 0 !important;
+  background: #fdfaf6 !important;
+  border: 1px solid rgba(58,53,48,.1) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  height: 180px !important;
+  min-height: 180px !important;
+  max-height: 180px !important;
+  transition: transform .26s cubic-bezier(.4,0,.2,1),
+              box-shadow .26s ease,
+              border-color .26s ease !important;
+}
+html body .vendor-section .brand-card:hover,
+html body .brand-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(20,18,16,.1), 0 2px 8px rgba(20,18,16,.05) !important;
+  border-color: rgba(198,167,94,.45) !important;
+}
+
+/* ══ LOGO WRAP — fills card minus CTA footer
+   position:relative + explicit height = reliable sizing context ══ */
+html body .vendor-section .brand-logo-wrap,
+html body .brand-logo-wrap {
+  position: relative !important;
+  width: 100% !important;
+  /* 180px card - 27px CTA footer */
+  height: 153px !important;
+  min-height: 153px !important;
+  max-height: 153px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+
+/* picture: fills logo wrap absolutely */
+html body .vendor-section .brand-logo-wrap picture,
+html body .brand-logo-wrap picture {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ══ IMG — natural size, constrained, ALWAYS centered ══
+   width:auto; height:auto; max-width/height = browser uses natural 
+   aspect ratio and centers it. NO object-fit needed. NO hacks needed.
+   Works on every logo regardless of original dimensions.            */
+html body .vendor-section .brand-logo-wrap img,
+html body .brand-logo-wrap img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 78% !important;
+  max-height: 72% !important;
+  object-fit: unset !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  transform: none !important;
+  position: relative !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  filter: none !important;
+}
+
+/* ══ BRAND CTA — pinned footer ══ */
+html body .vendor-section .brand-cta,
+html body .brand-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  width: 100% !important;
+  height: 27px !important;
+  min-height: 27px !important;
+  padding: 0 16px !important;
+  margin: 0 !important;
+  border-top: 1px solid rgba(58,53,48,.1) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: .55rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  color: rgba(58,53,48,.4) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  transition: color .2s ease, border-color .2s ease !important;
+}
+html body .vendor-section .brand-card:hover .brand-cta,
+html body .brand-card:hover .brand-cta {
+  color: rgba(198,167,94,.85) !important;
+  border-top-color: rgba(198,167,94,.2) !important;
+}
+html body .brand-cta::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 7L7 1M7 1H3M7 1V5' stroke='%23C6A75E' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  opacity: 0 !important;
+  transition: opacity .2s ease !important;
+}
+html body .vendor-section .brand-card:hover .brand-cta::after,
+html body .brand-card:hover .brand-cta::after {
+  opacity: 1 !important;
+}
+
+/* ══ BRAND NAME FALLBACK — image failed ══ */
+html body .brand-name-fb {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 12px 16px !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(.9rem, 2.8vw, 1.25rem) !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+  color: #141210 !important;
+  letter-spacing: .01em !important;
+  line-height: 1.2 !important;
+}
+
+/* ══ KILL THE ↗ ARROW — belt+suspenders ══ */
+html body .brand-card[target="_blank"]::after,
+html body a.brand-card[rel="noopener"]::after,
+html body .vendor-section .brand-card::after,
+html body .brand-card::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  top: auto !important; right: auto !important;
+  left: auto !important; bottom: auto !important;
+  border-radius: 16px !important;
+  border: none !important;
+  background: linear-gradient(135deg,rgba(198,167,94,.05) 0%,transparent 55%) !important;
+  opacity: 0 !important;
+  transition: opacity .26s ease !important;
+  pointer-events: none !important;
+  font-size: 0 !important;
+  color: transparent !important;
+  box-shadow: none !important;
+  z-index: 0 !important;
+}
+html body .vendor-section .brand-card:hover::after,
+html body .brand-card:hover::after {
+  opacity: 1 !important;
+}
+
+/* ══ GRID ══ */
+@media (min-width: 1025px) {
+  html body .vendor-section .brand-grid,
+  html body .brand-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 16px !important;
+  }
+}
+
+/* ── Tablet ── */
+@media (min-width: 641px) and (max-width: 1024px) {
+  html body .vendor-section .brand-grid,
+  html body .brand-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+  }
+  html body .vendor-section .brand-card,
+  html body .brand-card {
+    height: 156px !important;
+    min-height: 156px !important;
+    max-height: 156px !important;
+  }
+  html body .vendor-section .brand-logo-wrap,
+  html body .brand-logo-wrap {
+    height: 129px !important;
+    min-height: 129px !important;
+    max-height: 129px !important;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  html body .vendor-section .brand-grid,
+  html body .brand-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 0 16px !important;
+  }
+  html body .vendor-section .brand-card,
+  html body .brand-card {
+    height: 120px !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+    border-radius: 13px !important;
+  }
+  html body .vendor-section .brand-logo-wrap,
+  html body .brand-logo-wrap {
+    height: 96px !important;
+    min-height: 96px !important;
+    max-height: 96px !important;
+  }
+  html body .brand-logo-wrap img,
+  html body .vendor-section .brand-logo-wrap img {
+    max-width: 75% !important;
+    max-height: 68% !important;
+  }
+  html body .vendor-section .brand-cta,
+  html body .brand-cta {
+    height: 24px !important;
+    min-height: 24px !important;
+    font-size: .5rem !important;
+    letter-spacing: .14em !important;
+  }
+}
+
+</style>
+<style id="fotx-cta-fix">
+html body .vendor-section .brand-cta,
+html body .brand-cta {
+  font-size: .48rem !important;
+  letter-spacing: .12em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 0 8px !important;
+  justify-content: center !important;
+}
+@media (max-width: 640px) {
+  html body .vendor-section .brand-cta,
+  html body .brand-cta {
+    font-size: .44rem !important;
+    letter-spacing: .08em !important;
+  }
+}
+</style>
+
+<style id="fotx-cta-show">
+/* FORCE brand-cta visible — flex pushes it to bottom of card */
+html body .vendor-section .brand-card,
+html body .brand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  height: 180px !important;
+}
+
+/* Logo wrap: flex:1 fills space — no fixed px height that could overflow */
+html body .vendor-section .brand-logo-wrap,
+html body .brand-logo-wrap {
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+/* CTA: never shrink, always visible at bottom */
+html body .vendor-section .brand-cta,
+html body .brand-cta {
+  display: flex !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 28px !important;
+  height: 28px !important;
+  max-height: 28px !important;
+  width: 100% !important;
+  padding: 0 10px !important;
+  font-size: .52rem !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  font-family: 'Outfit', sans-serif !important;
+  color: rgba(58,53,48,.4) !important;
+  border-top: 1px solid rgba(58,53,48,.1) !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+/* picture inside logo-wrap: absolute fill */
+html body .vendor-section .brand-logo-wrap picture,
+html body .brand-logo-wrap picture {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* img: constrained, centered */
+html body .vendor-section .brand-logo-wrap img,
+html body .brand-logo-wrap img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 80% !important;
+  max-height: 75% !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  transform: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+@media (max-width: 640px) {
+  html body .vendor-section .brand-card,
+  html body .brand-card { height: 118px !important; }
+  html body .vendor-section .brand-cta,
+  html body .brand-cta {
+    min-height: 24px !important;
+    height: 24px !important;
+    max-height: 24px !important;
+    font-size: .46rem !important;
+    letter-spacing: .08em !important;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  html body .vendor-section .brand-card,
+  html body .brand-card { height: 154px !important; }
+}
+</style>
