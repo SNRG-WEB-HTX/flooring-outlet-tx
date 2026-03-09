@@ -2295,9 +2295,11 @@ nav.scrolled .nav-cta{
 
   nav.menu-open .nav-links a::after,
   .mobile-refresh-btn::after {
-    content: '↗';
-    font-size: .92rem;
-    opacity: .7;
+    content: '→' !important;
+    color: #C6A75E !important;
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
   }
 
   .mobile-refresh-item {
@@ -8263,6 +8265,20 @@ if (document.readyState === 'loading') {
     pointer-events: auto !important;
     transform: none !important;
   }
+  
+  /* Logo in mobile menu overlay */
+  nav.menu-open .nav-logo {
+    position: fixed !important;
+    top: 24px !important;
+    left: 20px !important;
+    z-index: 1003 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    font-size: 1.3rem !important;
+  }
+  
   nav.menu-open .nav-links::before{
     content: 'Menu';
     display: block;
@@ -8299,24 +8315,29 @@ if (document.readyState === 'loading') {
   }
   nav.menu-open .nav-links a::after,
   nav.menu-open .mobile-refresh-btn::after{
-    content: '↗';
+    content: '→' !important;
     position: static !important;
     transform: none !important;
     width: auto !important;
     height: auto !important;
     background: none !important;
-    color: rgba(240,217,181,.82) !important;
-    font-size: 1rem !important;
+    color: #C6A75E !important;
+    font-size: 1.1rem !important;
     border: 0 !important;
     opacity: 1 !important;
+    font-weight: 400 !important;
   }
   nav.menu-open .nav-links a:hover,
   nav.menu-open .mobile-refresh-btn:hover{
     color: #fff !important;
     border-bottom-color: rgba(198,167,94,.28) !important;
   }
-  .mobile-refresh-item{ display: block !important; }
-  .mobile-refresh-btn{ cursor: pointer !important; }
+  nav.menu-open .nav-links a:hover::after,
+  nav.menu-open .mobile-refresh-btn:hover::after{
+    color: #C6A75E !important;
+  }
+  .mobile-refresh-item{ display: none !important; }
+  .mobile-refresh-btn{ display: none !important; }
 
   nav.menu-open .nav-cta{
     position: fixed !important;
@@ -8564,21 +8585,22 @@ if (document.readyState === 'loading') {
     text-transform: none !important;
   }
   nav.menu-open .nav-links a::after{
-    content: '↗' !important;
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin-left: 14px !important;
-    border-radius: 999px !important;
-    border: 1px solid rgba(214,183,121,.32) !important;
-    background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)) !important;
-    color: rgba(245,225,183,.98) !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 24px rgba(0,0,0,.22) !important;
+    content: '→' !important;
+    display: inline-block !important;
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    color: #C6A75E !important;
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
+    box-shadow: none !important;
     flex: 0 0 auto !important;
+    opacity: 1 !important;
   }
   nav.menu-open .nav-links a:hover,
   nav.menu-open .nav-links a:active{
@@ -11906,21 +11928,6 @@ html body .brand-grid {
     if (offlineBar) offlineBar.remove();
 
     if(nav && burger && links){
-      if(!links.querySelector('.mobile-refresh-item')){
-        var li = document.createElement('li');
-        li.className = 'mobile-refresh-item';
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'mobile-refresh-btn';
-        btn.textContent = 'Refresh / Reload';
-        btn.addEventListener('click', function(e){
-          e.preventDefault();
-          window.location.reload(true);
-        });
-        li.appendChild(btn);
-        links.appendChild(li);
-      }
-
       function setOpen(open){
         nav.classList.toggle('menu-open', open);
         burger.setAttribute('aria-expanded', open ? 'true' : 'false');
