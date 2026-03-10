@@ -4999,6 +4999,74 @@ footer a.snrg-link:hover{
 })();
 </script>
 
+
+<style id="mobile-showroom-fullscreen-and-trending-fix-20260310b">
+@media (max-width: 640px){
+  /* Full-screen showroom experience on mobile only */
+  .showroom-modal-overlay{
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    padding: 0 !important;
+  }
+  .showroom-modal{
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .sm-left,
+  .sm-right{
+    width: 100% !important;
+  }
+
+  /* Keep email on one line in showroom/contact areas */
+  .topbar span:last-child,
+  .topbar span:last-child a,
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-value,
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-value a,
+  .fotx-contact-row a[href^="mailto:"],
+  .sm-info-value a[href^="mailto:"]{
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-value,
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-value a{
+    font-size: clamp(.72rem, 2.85vw, .84rem) !important;
+    letter-spacing: -.01em !important;
+  }
+
+  /* Trending cards: lock text rhythm/alignment */
+  #featured .product-info{
+    gap: 6px !important;
+  }
+  #featured .product-brand{
+    min-height: 1.05rem !important;
+  }
+  #featured .product-name{
+    min-height: 2.4em !important;
+  }
+}
+
+@media (max-width: 380px){
+  .showroom-modal .sm-info-item:nth-child(3){
+    gap: 10px !important;
+  }
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-icon{
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+  }
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-value,
+  .showroom-modal .sm-info-item:nth-child(3) .sm-info-value a{
+    font-size: .69rem !important;
+  }
+}
+</style>
 </head>
 <body style="height: auto; min-height: 0px; margin-bottom: 0px; padding-bottom: 0px;">
 <!-- ─── NAV ─── -->
@@ -5355,7 +5423,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="product-info">
 <p class="product-brand">Johnson Hardwood</p>
-<p class="product-name">Tuscan Collection — Hickory</p>
+<p class="product-name">Tuscan Collection Hickory</p>
 <p class="product-size">6" Wide · Hand-Scraped Engineered Hardwood</p>
 <p class="product-price">$5.20<span class="price-unit">/sq ft</span><span class="price-was">$6.99</span></p>
 </div>
