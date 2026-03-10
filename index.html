@@ -5067,6 +5067,81 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+
+<style id="mobile-showroom-root-cause-fix-20260310c">
+@media (max-width: 640px){
+  #showroomModalOverlay{
+    z-index: 99999 !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    overflow: hidden !important;
+  }
+  #showroomModalOverlay .showroom-modal{
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    padding-top: 0 !important;
+  }
+  #showroomModalOverlay .showroom-modal::before{
+    display: none !important;
+  }
+  #showroomModalOverlay .sm-left{
+    position: relative !important;
+    z-index: 1 !important;
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    padding: calc(env(safe-area-inset-top, 0px) + 68px) 18px 18px !important;
+    gap: 16px !important;
+    overflow: visible !important;
+  }
+  #showroomModalOverlay .sm-brand{
+    padding-right: 56px !important;
+  }
+  #showroomModalOverlay .sm-info-group{
+    gap: 16px !important;
+  }
+  #showroomModalOverlay .sm-map-embed{
+    min-height: 170px !important;
+    height: 170px !important;
+    flex: 0 0 170px !important;
+  }
+  #showroomModalOverlay .sm-social-row{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    flex-wrap: wrap !important;
+  }
+  #showroomModalOverlay .sm-right{
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 24px 18px calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  #showroomModalOverlay .sm-close{
+    position: absolute !important;
+    top: calc(env(safe-area-inset-top, 0px) + 14px) !important;
+    right: 14px !important;
+    z-index: 100001 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 8px 22px rgba(0,0,0,.28) !important;
+  }
+}
+</style>
+
 </head>
 <body style="height: auto; min-height: 0px; margin-bottom: 0px; padding-bottom: 0px;">
 <!-- ─── NAV ─── -->
