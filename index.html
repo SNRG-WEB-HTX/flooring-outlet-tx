@@ -12711,3 +12711,113 @@ html body .brand-grid {
   });
 })();
 </script>
+
+<style id="brand-logo-optical-centering-final-20260310">
+/* Final root-cause fix for the five logos that were drifting high/right.
+   Force a stable centering box, neutralize older positional overrides,
+   and apply a small optical drop so they sit visually centered like the other cards. */
+.vendor-section .brand-card--tileworld .brand-logo-wrap,
+.vendor-section .brand-card--lw .brand-logo-wrap,
+.vendor-section .brand-card--fuzion .brand-logo-wrap,
+.vendor-section .brand-card--elephant .brand-logo-wrap,
+.vendor-section .brand-card--durastone .brand-logo-wrap,
+.brand-card--tileworld .brand-logo-wrap,
+.brand-card--lw .brand-logo-wrap,
+.brand-card--fuzion .brand-logo-wrap,
+.brand-card--elephant .brand-logo-wrap,
+.brand-card--durastone .brand-logo-wrap{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  overflow:hidden !important;
+}
+
+.vendor-section .brand-card--tileworld .brand-logo-wrap picture,
+.vendor-section .brand-card--lw .brand-logo-wrap picture,
+.vendor-section .brand-card--fuzion .brand-logo-wrap picture,
+.vendor-section .brand-card--elephant .brand-logo-wrap picture,
+.vendor-section .brand-card--durastone .brand-logo-wrap picture,
+.brand-card--tileworld .brand-logo-wrap picture,
+.brand-card--lw .brand-logo-wrap picture,
+.brand-card--fuzion .brand-logo-wrap picture,
+.brand-card--elephant .brand-logo-wrap picture,
+.brand-card--durastone .brand-logo-wrap picture{
+  width:100% !important;
+  height:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.vendor-section .brand-card--tileworld .brand-logo-wrap img,
+.vendor-section .brand-card--lw .brand-logo-wrap img,
+.vendor-section .brand-card--fuzion .brand-logo-wrap img,
+.vendor-section .brand-card--elephant .brand-logo-wrap img,
+.vendor-section .brand-card--durastone .brand-logo-wrap img,
+.brand-card--tileworld .brand-logo-wrap img,
+.brand-card--lw .brand-logo-wrap img,
+.brand-card--fuzion .brand-logo-wrap img,
+.brand-card--elephant .brand-logo-wrap img,
+.brand-card--durastone .brand-logo-wrap img{
+  position:static !important;
+  inset:auto !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:auto !important;
+  display:block !important;
+  margin:auto !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  --brand-logo-desktop-x: 0px !important;
+  --brand-logo-mobile-y: 0px !important;
+  --snrg-logo-x: 0px !important;
+  transform: translate3d(0, var(--brand-logo-drop, 8px), 0) scale(var(--final-logo-scale, var(--logo-scale, 1.2))) !important;
+  transform-origin:center center !important;
+}
+
+@media (min-width: 641px){
+  .vendor-section .brand-card--tileworld,
+  .vendor-section .brand-card--lw,
+  .vendor-section .brand-card--fuzion,
+  .vendor-section .brand-card--elephant,
+  .vendor-section .brand-card--durastone,
+  .brand-card--tileworld,
+  .brand-card--lw,
+  .brand-card--fuzion,
+  .brand-card--elephant,
+  .brand-card--durastone{
+    --brand-logo-drop: 8px;
+  }
+  .brand-card--tileworld .brand-logo-wrap img{ --final-logo-scale: 1.24; }
+  .brand-card--lw .brand-logo-wrap img{ --final-logo-scale: 1.22; }
+  .brand-card--fuzion .brand-logo-wrap img{ --final-logo-scale: 1.2; }
+  .brand-card--elephant .brand-logo-wrap img{ --final-logo-scale: 1.2; }
+  .brand-card--durastone .brand-logo-wrap img{ --final-logo-scale: 1.22; }
+}
+
+@media (max-width: 640px){
+  .vendor-section .brand-card--tileworld,
+  .vendor-section .brand-card--lw,
+  .vendor-section .brand-card--fuzion,
+  .vendor-section .brand-card--elephant,
+  .vendor-section .brand-card--durastone,
+  .brand-card--tileworld,
+  .brand-card--lw,
+  .brand-card--fuzion,
+  .brand-card--elephant,
+  .brand-card--durastone{
+    --brand-logo-drop: 10px;
+  }
+  .brand-card--tileworld .brand-logo-wrap img{ --final-logo-scale: 1.18; }
+  .brand-card--lw .brand-logo-wrap img{ --final-logo-scale: 1.16; }
+  .brand-card--fuzion .brand-logo-wrap img{ --final-logo-scale: 1.14; }
+  .brand-card--elephant .brand-logo-wrap img{ --final-logo-scale: 1.14; }
+  .brand-card--durastone .brand-logo-wrap img{ --final-logo-scale: 1.16; }
+}
+</style>
