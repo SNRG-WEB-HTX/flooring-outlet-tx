@@ -9525,11 +9525,11 @@ a.brand-card[rel="noopener"]:hover::after {
   line-height: 1.2;
   color: rgba(253,250,246,.94);
   margin: 0;
-  /* Uniform: clamp 2 lines max */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: calc(1.2em * 2);
 }
 
 /* Spec line */
@@ -9541,10 +9541,11 @@ a.brand-card[rel="noopener"]:hover::after {
   letter-spacing: .04em;
   line-height: 1.4;
   margin: 0;
-  /* Exactly 1 line on all cards */
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  min-height: calc(1.4em * 2);
 }
 
 /* Price — prominent, uniform */
@@ -9625,6 +9626,7 @@ a.brand-card[rel="noopener"]:hover::after {
   }
   #featured .product-name {
     font-size: 1rem !important;
+    min-height: calc(1.2em * 2) !important;
   }
   #featured .product-price {
     font-size: 1.1rem !important;
@@ -10725,12 +10727,31 @@ a.brand-card[rel="noopener"]:hover::after {
 #featured .product-price .price-was,
 #featured .product-price span:not(.price-unit) {
   font-size: 1rem !important;
-  font-weight: 400 !important;
-  color: rgba(253,250,246,.35) !important;
+  font-weight: 500 !important;
+  color: rgba(253,250,246,.88) !important;
   text-decoration: line-through !important;
-  text-decoration-color: rgba(220,80,60,.6) !important;
-  text-decoration-thickness: 1.5px !important;
+  text-decoration-color: #c6a75e !important;
+  text-decoration-thickness: 2px !important;
   letter-spacing: 0 !important;
+}
+
+#featured .product-info {
+  display: grid !important;
+  grid-template-rows: auto minmax(calc(1.2em * 2), auto) minmax(calc(1.4em * 2), auto) auto !important;
+  align-content: start !important;
+}
+
+#featured .product-name {
+  min-height: calc(1.2em * 2) !important;
+}
+
+#featured .product-size {
+  white-space: normal !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  min-height: calc(1.4em * 2) !important;
 }
 
 /* ──────────────────────────────────────────────────────
