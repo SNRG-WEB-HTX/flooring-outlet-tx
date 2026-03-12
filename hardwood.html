@@ -4029,63 +4029,379 @@ footer a.snrg-link:hover{
     margin-top: -8px !important;
   }
 }
-</style>
 
+/* ═══════════════════════════════════════════════════════════
+   MOBILE NAV OVERLAY SYSTEM
+   ========================================================= */
+:root{
+  --snrg-mobile-nav-h: 76px;
+  --snrg-mobile-pad-x: 16px;
+  --snrg-mobile-safe-bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+}
 
-<style id="mobile-menu-cta-final-override-20260306">
 @media (max-width: 640px){
-  /* Keep Get a Quote out of the top mobile header; show it only inside the open menu */
+  html.menu-open,
+  body.menu-open{
+    overflow: hidden !important;
+    height: 100dvh !important;
+    touch-action: none;
+  }
+  
+  /* Default state: hide nav-links and nav-cta */
+  nav .nav-links{
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: -1 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-20px) !important;
+    transition: opacity .3s ease, visibility .3s ease, transform .3s ease !important;
+  }
+  
   nav .nav-cta{
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    position: fixed !important;
-    top: auto !important;
-    left: 16px !important;
-    right: 16px !important;
-    bottom: 18px !important;
-    width: auto !important;
-    margin: 0 !important;
-    z-index: 140 !important;
-    justify-content: center !important;
   }
-  nav.menu-open .nav-cta{
+  
+  /* Open state: full-screen overlay */
+  nav.menu-open .nav-links{
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 1001 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: calc(var(--snrg-mobile-nav-h) + 18px) 20px calc(108px + var(--snrg-mobile-safe-bottom)) !important;
+    list-style: none !important;
+    background:
+      radial-gradient(1200px 700px at 100% 0%, rgba(198,167,94,.16) 0%, transparent 46%),
+      linear-gradient(180deg, rgba(18,14,12,.985) 0%, rgba(18,14,12,.975) 100%) !important;
+    backdrop-filter: blur(24px) saturate(1.08) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.08) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    display: flex !important;
+    transform: none !important;
   }
-  .mobile-refresh-item,
-  .mobile-refresh-btn{
-    display: none !important;
+  
+  /* Logo in mobile menu overlay */
+  nav.menu-open .nav-logo {
+    position: fixed !important;
+    top: 24px !important;
+    left: 20px !important;
+    z-index: 1003 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    font-size: 1.3rem !important;
+  }
+  
+  nav.menu-open .nav-links::before{
+    content: 'Menu';
+    display: block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: rgba(240,217,181,.72);
+    margin: 0 0 12px 2px;
+  }
+  nav.menu-open .nav-links li{
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  nav.menu-open .nav-links a{
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 60px !important;
+    padding: 18px 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.10) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255,255,255,.95) !important;
+    font-size: clamp(1rem, 4.6vw, 1.14rem) !important;
+    font-weight: 500 !important;
+    letter-spacing: .03em !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+  }
+  nav.menu-open .nav-links a::after{
+    content: '→' !important;
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    color: #C6A75E !important;
+    font-size: 1.1rem !important;
+    border: 0 !important;
+    opacity: 1 !important;
+    font-weight: 400 !important;
+  }
+  nav.menu-open .nav-links a:hover{
+    color: #fff !important;
+    border-bottom-color: rgba(198,167,94,.28) !important;
+  }
+  nav.menu-open .nav-links a:hover::after{
+    color: #C6A75E !important;
+  }
+
+  nav.menu-open .nav-cta{
+    position: fixed !important;
+    left: 20px !important;
+    right: 20px !important;
+    bottom: var(--snrg-mobile-safe-bottom) !important;
+    z-index: 1002 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 56px !important;
+    padding: 16px 20px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #d1b172 0%, #b58a4b 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 20px 44px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.24) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 }
-</style>
 
+/* ──────────────────────────────────────────────────────
+   HAMBURGER MENU — SVG button with proper show/hide
+   .hbg.open swaps them. Zero span conflicts.
+──────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Kill ALL old span rules dead */
+  .hbg-l, .hbg-l--short { display: none !important; }
+
+  .hbg {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: row !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    width: 46px !important;
+    height: 46px !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(145deg, rgba(48,40,28,.97) 0%, rgba(26,20,12,.99) 100%) !important;
+    border: 1px solid rgba(198,167,94,.24) !important;
+    border-radius: 13px !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.09),
+      0 4px 18px rgba(0,0,0,.52),
+      0 0 0 1px rgba(0,0,0,.25) !important;
+    cursor: pointer !important;
+    z-index: 9010 !important;
+    position: relative !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    overflow: hidden !important;
+    transition: background .22s ease, border-color .22s ease, transform .12s ease !important;
+  }
+  .hbg:active { transform: scale(.91) !important; }
+  .hbg.open {
+    background: linear-gradient(145deg, rgba(60,48,24,.99) 0%, rgba(36,28,10,.99) 100%) !important;
+    border-color: rgba(198,167,94,.44) !important;
+  }
+
+  /* SVG icons — explicitly centered in button */
+  .hbg-svg {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    transition: opacity .22s ease, transform .22s cubic-bezier(.4,0,.2,1) !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+  }
+  /* Hamburger lines — visible by default */
+  .hbg-svg--open {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1) !important;
+  }
+  /* X close — hidden by default */
+  .hbg-svg--close {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(.7) !important;
+  }
+  /* Open state: swap */
+  .hbg.open .hbg-svg--open {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) rotate(45deg) scale(.7) !important;
+  }
+  .hbg.open .hbg-svg--close {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1) !important;
+  }
+  
+  /* MOBILE ONLY: Add more space above hero title */
+  .page-hero {
+    padding-top: 100px !important;
+  }
+  
+  /* Mobile menu overlay backdrop */
+  nav::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10,8,7,.52);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease;
+    z-index: 99;
+  }
+
+  nav.menu-open::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Keep desktop links/cta hidden on mobile unless menu open */
+  nav .nav-links,
+  nav .nav-cta {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  nav.menu-open .nav-links {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    
+    position: fixed !important;
+    top: 8px !important;
+    right: 8px !important;
+    left: auto !important;
+    width: min(86vw, 380px) !important;
+    height: calc(100dvh - 16px) !important;
+    padding: 84px 14px 118px !important;
+    gap: 12px !important;
+    border-radius: 24px !important;
+    background: linear-gradient(180deg, rgba(24,21,18,.96), rgba(20,18,16,.98)) !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    box-shadow: 0 24px 80px rgba(0,0,0,.46) !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    overflow-y: auto !important;
+    z-index: 120 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  nav.menu-open .nav-links a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-height: 56px !important;
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)) !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06) !important;
+    color: rgba(255,255,255,.94) !important;
+    font-size: .9rem !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+  }
+
+  nav.menu-open .nav-links a::after {
+    content: '→' !important;
+    color: #C6A75E !important;
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    position: static !important;
+    height: auto !important;
+    background: none !important;
+  }
+
+  nav.menu-open .nav-cta {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    
+    position: fixed !important;
+    top: auto !important;
+    bottom: 18px !important;
+    left: auto !important;
+    right: 22px !important;
+    width: min(78vw, 332px) !important;
+    min-height: 54px !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.32) !important;
+    z-index: 121 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  body.menu-open-mobile,
+  html.menu-open-mobile {
+    overflow: hidden !important;
+    height: 100% !important;
+  }
+}
+
+/* ── Hamburger — single source of truth: display none at desktop ── */
+.hbg { display: none; }
+
+/* Kill old nav-burger on all devices */
+.nav-burger { display: none !important; }
+
+</style>
 </head>
 <body class="subpage page-hardwood">
-<!-- ─── NAV ─── -->
 <div class="topbar">
-<span> <a href="tel:+12818619800">(281) 861-9800</a></span>
+<span> <a href="tel:+13468671155">(346) 867-1155</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="/cdn-cgi/l/email-protection#761f18101936101a1919041f18111903021a1302020e5815191b"><span class="__cf_email__" data-cfemail="fb92959d94bb9d9794948992959c948e8f979e8f8f83d5989496">[email protected]</span></a></span>
-</div><nav id="nav">
-<a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
-<button aria-expanded="false" aria-label="Menu" class="nav-burger" type="button">
-<span class="burger-line"></span>
-<span class="burger-line"></span>
-<span class="burger-line"></span>
+<span> <a href="/cdn-cgi/l/email-protection#274e49414867414b4848554e49404852534b4253535f0944484a"><span class="__cf_email__" data-cfemail="aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdeded284c9c5c7">[email&#160;protected]</span></a></span>
+</div><nav id="nav" class="scrolled">
+<a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
+<button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button">
+  <svg class="hbg-svg hbg-svg--open" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="0" y1="1.5" x2="20" y2="1.5" stroke="url(#hbg-grad)" stroke-width="1.5" stroke-linecap="round"></line>
+    <line x1="0" y1="8" x2="20" y2="8" stroke="url(#hbg-grad)" stroke-width="1.5" stroke-linecap="round"></line>
+    <line x1="0" y1="14.5" x2="20" y2="14.5" stroke="url(#hbg-grad)" stroke-width="1.5" stroke-linecap="round"></line>
+    <defs>
+      <lineargradient id="hbg-grad" x1="0" y1="0" x2="20" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#d4b668"></stop>
+        <stop offset="100%" stop-color="#C6A75E"></stop>
+      </lineargradient>
+    </defs>
+  </svg>
+  <svg class="hbg-svg hbg-svg--close" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="1" y1="1" x2="17" y2="17" stroke="#C6A75E" stroke-width="1.5" stroke-linecap="round"></line>
+    <line x1="17" y1="1" x2="1" y2="17" stroke="#C6A75E" stroke-width="1.5" stroke-linecap="round"></line>
+  </svg>
 </button>
 <ul aria-label="Products" class="nav-links" id="nav-links">
-<li><a href="lvp-lvt.html">LVP / SPC</a></li>
-<li><a href="hardwood.html">Hardwood</a></li>
-<li><a href="tile.html">Tile</a></li>
-<li><a href="carpet.html">Carpet</a></li>
-<li><a href="natural-stone.html">Natural Stone</a></li>
+<li><a href="./lvp-lvt.html">LVP / SPC</a></li>
+<li><a href="./index.html">Home</a></li>
+<li><a href="./tile.html">Tile</a></li>
+<li><a href="./carpet.html">Carpet</a></li>
+<li><a href="./natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
 </ul>
-<a class="nav-cta" href="/cdn-cgi/l/email-protection#2f464149406f494340405d464148405a5b434a5b5b57014c4042105c5a4d454a4c5b12694340405d4641480a1d1f7e5a405b4a0a1d1f7d4a5e5a4a5c5b0a1d1f0a6a1d0a171f0a161b0a1d1f694340405d4641480a1d1f605a5b434a5b0a1d1f7b77094d404b5612674a4343400a1d1f694340405d4641480a1d1f605a5b434a5b0a1d1f7b770a1d1f7b4a4e420a1d6c0a1f6e0a1f6e660a6a1d0a171f0a1616420a1d1f5d4a4e4c474641480a1d1f405a5b0a1d1f5b400a1d1f5d4a5e5a4a5c5b0a1d1f4e0a1d1f494340405d4641480a1d1f5e5a405b4a0a1d1f49405d0a1d1f42560a1d1f5f5d40454a4c5b010a1f6e0a1f6e0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1d1f7f7d60656a6c7b0a1d1f6b6a7b6e66637c0a1d1f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1f6e694340405d0a1d1f7b565f4a0a1d1f0a1d1763797f007c7f6c0a1d6c0a1d1f674e5d4b5840404b0a1d6c0a1d1f7b46434a0a1d6c0a1d1f6c4e5d5f4a5b0a1d6c0a1d1f614e5b5a5d4e430a1d1f7c5b40414a0a1d160a1c6e0a1d1f0a1f6e6a5c5b46424e5b4a4b0a1d1f7c5e5a4e5d4a0a1d1f6940405b4e484a0a1c6e0a1d1f0a1f6e7d4040420a1d175c0a1d160a1d1f000a1d1f6e5d4a4e0a1c6e0a1d1f0a1f6e66415c5b4e43434e5b4640410a1d1f614a4a4b4a4b0a1d1f0a1d17764a5c0a1d1f000a1d1f61400a1d160a1c6e0a1d1f0a1f6e6b4a5c465d4a4b0a1d1f7b46424a4346414a0a1c6e0a1d1f0a1f6e0a1f6e0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1d1f6c60617b6e6c7b0a1d1f666169607d626e7b6660610a1d1f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1f6e614e424a0a1c6e0a1d1f0a1f6e7f4740414a0a1c6e0a1d1f0a1f6e6d4a5c5b0a1d1f7b46424a0a1d1f5b400a1d1f6c4e43430a1c6e0a1d1f0a1f6e6e4b4b5d4a5c5c0a1d1f000a1d1f75465f0a1d1f6c404b4a0a1c6e0a1d1f0a1f6e0a1f6e0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1d1f6e6b6b667b6660616e630a1d1f61607b6a7c0a1d1f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a6a1d0a161b0a171f0a1f6e0a1f6e0a1f6e7b474e41440a1d1f56405a0a1d1f0a6a1d0a171f0a161b0a1d1f660a1d1f434040440a1d1f49405d584e5d4b0a1d1f5b400a1d1f474a4e5d4641480a1d1f495d40420a1d1f56405a0a1d1e0a1f6e">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#0c65626a634c6a6063637e65626b6379786069787874226f6361337f796e66696f78315d79637869293e3c5e697d79697f78293e3c29493e29343c293538293e3c4a6063637e65626b293e3c437978606978293e3c58542a6d617c376e636875314469606063293e4f293c4d293c4d45293e3c7b63796068293e3c60656769293e3c7863293e3c7e697d79697f78293e3c6d293e3c6a6063637e65626b293e3c7d7963786922293e3c5c60696d7f69293e3c6f6362786d6f78293e3c6169293e3c6d78293e3c7563797e293e3c696d7e6065697f78293e3c6f63627a69626569626f6922293c4d293c4d58646d6267293e3c75637922">Get a Quote</a>
 </nav>
 <section class="page-hero hero-hardwood">
   <div class="page-hero-bg"></div>
@@ -4160,7 +4476,7 @@ footer a.snrg-link:hover{
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
-<a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
+<a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <p>Houston's premier flooring destination for tile, hardwood, LVP, carpet, and natural stone. Serving the Greater Houston area since 1998.</p>
 <div class="footer-social">
 <a class="social-btn" href="#">f</a>
@@ -4172,14 +4488,14 @@ footer a.snrg-link:hover{
 <div class="footer-col">
 <h4>Products</h4>
 <ul>
-<li><a href="tile.html">RAK Ceramics Tile</a></li>
-<li><a href="hardwood.html">Johnson Hardwood</a></li>
-<li><a href="hardwood.html">LW Flooring Engineered</a></li>
-<li><a href="lvp-lvt.html">Republic Floor SPC</a></li>
-<li><a href="lvp-lvt.html">Lions Floor LVP</a></li>
-<li><a href="lvp-lvt.html">Fuzion Vinyl &amp; Laminate</a></li>
-<li><a href="hardwood.html">Knoas Flooring</a></li>
-<li><a data-tab="other" href="carpet.html">Carpet &amp; Laminate</a></li>
+<li><a href="./tile.html">RAK Ceramics Tile</a></li>
+<li><a href="./hardwood.html">Johnson Hardwood</a></li>
+<li><a href="./hardwood.html">LW Flooring Engineered</a></li>
+<li><a href="./lvp-lvt.html">Republic Floor SPC</a></li>
+<li><a href="./lvp-lvt.html">Lions Floor LVP</a></li>
+<li><a href="./lvp-lvt.html">Fuzion Vinyl &amp; Laminate</a></li>
+<li><a href="./hardwood.html">Knoas Flooring</a></li>
+<li><a data-tab="other" href="./carpet.html">Carpet &amp; Laminate</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -4201,13 +4517,13 @@ footer a.snrg-link:hover{
 <li><a href="#">Contact Us</a></li>
 <li><a href="#">About Us</a></li>
 <li><a href="#">Careers</a></li>
-<li><a href="tel:+12818619800">(281) 861-9800</a></li>
+<li><a href="tel:+13468671155">(346) 867-1155</a></li>
 </ul>
 </div>
 </div>
 <div class="footer-bottom">
 <span class="footer-copyright">© 2026 Flooring Outlet TX</span>
-<span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com" rel="noopener" target="_blank">SNRG WEB</a></span>
+<span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com/" rel="noopener" target="_blank">SNRG WEB</a></span>
 <span class="footer-spacer"></span>
 </div>
 </footer>
@@ -6761,56 +7077,105 @@ if (document.readyState === 'loading') {
 }
 </style>
 
-<script id="mobile-burger-final-fix-20260306">
-(function(){
-  function boot(){
-    var nav = document.querySelector('nav');
-    if(!nav) return;
-    var oldBurger = nav.querySelector('.nav-burger');
-    if(!oldBurger) return;
-    var burger = oldBurger.cloneNode(true);
-    oldBurger.parentNode.replaceChild(burger, oldBurger);
-    var links = nav.querySelector('.nav-links');
-    var cta = nav.querySelector('.nav-cta');
-    var root = document.documentElement;
 
-    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
-    function setOpen(open){
-      nav.classList.toggle('menu-open', open);
-      document.body.classList.toggle('menu-open-mobile', open);
-      root.classList.toggle('menu-open-mobile', open);
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+<script id="snrg-mobile-hamburger-clean-script">
+(function() {
+  'use strict';
+  
+  function init() {
+    const nav = document.getElementById('nav');
+    const burger = document.getElementById('hbg');
+    const links = document.getElementById('nav-links');
+    
+    if (!nav || !burger || !links) {
+      console.log('Hamburger: missing elements');
+      return;
     }
-    function closeMenu(){ setOpen(false); }
-
-    burger.addEventListener('click', function(e){
-      if(!isMobile()) return;
+    
+    function isMobile() {
+      return window.matchMedia('(max-width: 640px)').matches;
+    }
+    
+    function toggleMenu() {
+      if (!isMobile()) return;
+      
+      const isOpen = nav.classList.contains('menu-open');
+      
+      if (isOpen) {
+        // Close menu
+        nav.classList.remove('menu-open');
+        burger.classList.remove('open');
+        document.documentElement.classList.remove('menu-open');
+        document.documentElement.classList.remove('menu-open-mobile');
+        document.body.classList.remove('menu-open');
+        document.body.classList.remove('menu-open-mobile');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+      } else {
+        // Open menu
+        nav.classList.add('menu-open');
+        burger.classList.add('open');
+        document.documentElement.classList.add('menu-open');
+        document.documentElement.classList.add('menu-open-mobile');
+        document.body.classList.add('menu-open');
+        document.body.classList.add('menu-open-mobile');
+        burger.setAttribute('aria-expanded', 'true');
+        burger.setAttribute('aria-label', 'Close menu');
+      }
+    }
+    
+    function closeMenu() {
+      if (!isMobile()) return;
+      nav.classList.remove('menu-open');
+      burger.classList.remove('open');
+      document.documentElement.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open-mobile');
+      document.body.classList.remove('menu-open');
+      document.body.classList.remove('menu-open-mobile');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    }
+    
+    // Hamburger click
+    burger.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      setOpen(!nav.classList.contains('menu-open'));
-    }, true);
-    burger.addEventListener('touchstart', function(e){
-      if(!isMobile()) return;
+      toggleMenu();
+    });
+    
+    // Hamburger touch (mobile-specific)
+    burger.addEventListener('touchend', function(e) {
+      if (!isMobile()) return;
+      e.preventDefault();
       e.stopPropagation();
-    }, {passive:true, capture:true});
-
-    if(links){
-      links.addEventListener('click', function(e){
-        var a = e.target.closest('a');
-        if(a && isMobile()) closeMenu();
-      }, true);
-    }
-    if(cta){
-      cta.addEventListener('click', function(){ if(isMobile()) closeMenu(); }, true);
-    }
-    document.addEventListener('click', function(e){
-      if(!isMobile() || !nav.classList.contains('menu-open')) return;
-      if(nav.contains(e.target)) return;
-      closeMenu();
-    }, true);
-    window.addEventListener('resize', function(){ if(!isMobile()) closeMenu(); });
-    closeMenu();
+      toggleMenu();
+    }, { passive: false });
+    
+    // Close menu when clicking a link
+    links.addEventListener('click', function(e) {
+      if (!isMobile()) return;
+      const link = e.target.closest('a');
+      if (link) {
+        closeMenu();
+      }
+    });
+    
+    // Close menu on resize to desktop
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        if (!isMobile()) {
+          closeMenu();
+        }
+      }, 100);
+    });
   }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
