@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <!DOCTYPE html>
 
@@ -3460,6 +3461,33 @@ footer a.snrg-link:hover{
   z-index: 2;
 }
 
+
+/* --- Hardwood card image matching / crop tuning --- */
+.page-product-grid .product-card.hardwood-match .product-img {
+  background: #d8cfbf;
+}
+.page-product-grid .product-card.hardwood-match .product-img-photo {
+  object-fit: cover !important;
+  object-position: center center;
+  filter: saturate(1.02) contrast(1.01);
+}
+.page-product-grid .product-card.hardwood-match .product-swatch {
+  opacity: .22;
+}
+.page-product-grid .product-card.crop-top .product-img-photo { object-position: center top; }
+.page-product-grid .product-card.crop-upper .product-img-photo { object-position: center 34%; }
+.page-product-grid .product-card.crop-lower .product-img-photo { object-position: center 62%; }
+.page-product-grid .product-card.crop-left .product-img-photo { object-position: 38% center; }
+.page-product-grid .product-card.crop-right .product-img-photo { object-position: 62% center; }
+@media (max-width: 768px) {
+  .page-product-grid .product-card.hardwood-match .product-img-photo {
+    object-position: center 44%;
+  }
+  .page-product-grid .product-card.crop-top .product-img-photo { object-position: center 22%; }
+  .page-product-grid .product-card.crop-upper .product-img-photo { object-position: center 30%; }
+  .page-product-grid .product-card.crop-lower .product-img-photo { object-position: center 58%; }
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -3977,7 +4005,6 @@ footer a.snrg-link:hover{
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Hardwood Flooring Houston","url":"https://flooringoutlettx.com/hardwood.html","provider":{"@id":"https://flooringoutlettx.com/#business"}}
 </script>
-
 <style id="page-hero-laptop-fix-shared">
 /* SHARED FIX: subpage hero sits below fixed topbar + nav on laptop */
 @media (min-width: 900px) and (max-width: 1280px){
@@ -4013,8 +4040,6 @@ footer a.snrg-link:hover{
   }
 }
 </style>
-
-
 <style id="page-hero-laptop-tuning-shared">
 /* SHARED TUNING: reduce bottom space and lift text on laptop only */
 @media (min-width: 900px) and (max-width: 1280px){
@@ -4364,24 +4389,24 @@ footer a.snrg-link:hover{
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
 <span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
-</div><nav id="nav" class="scrolled">
+</div><nav class="scrolled" id="nav">
 <a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button">
-  <svg class="hbg-svg hbg-svg--open" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="0" y1="1.5" x2="20" y2="1.5" stroke="url(#hbg-grad)" stroke-width="1.5" stroke-linecap="round"></line>
-    <line x1="0" y1="8" x2="20" y2="8" stroke="url(#hbg-grad)" stroke-width="1.5" stroke-linecap="round"></line>
-    <line x1="0" y1="14.5" x2="20" y2="14.5" stroke="url(#hbg-grad)" stroke-width="1.5" stroke-linecap="round"></line>
-    <defs>
-      <lineargradient id="hbg-grad" x1="0" y1="0" x2="20" y2="0" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#d4b668"></stop>
-        <stop offset="100%" stop-color="#C6A75E"></stop>
-      </lineargradient>
-    </defs>
-  </svg>
-  <svg class="hbg-svg hbg-svg--close" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="1" y1="1" x2="17" y2="17" stroke="#C6A75E" stroke-width="1.5" stroke-linecap="round"></line>
-    <line x1="17" y1="1" x2="1" y2="17" stroke="#C6A75E" stroke-width="1.5" stroke-linecap="round"></line>
-  </svg>
+<svg aria-hidden="true" class="hbg-svg hbg-svg--open" fill="none" height="16" viewbox="0 0 20 16" width="20" xmlns="http://www.w3.org/2000/svg">
+<line stroke="url(#hbg-grad)" stroke-linecap="round" stroke-width="1.5" x1="0" x2="20" y1="1.5" y2="1.5"></line>
+<line stroke="url(#hbg-grad)" stroke-linecap="round" stroke-width="1.5" x1="0" x2="20" y1="8" y2="8"></line>
+<line stroke="url(#hbg-grad)" stroke-linecap="round" stroke-width="1.5" x1="0" x2="20" y1="14.5" y2="14.5"></line>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="hbg-grad" x1="0" x2="20" y1="0" y2="0">
+<stop offset="0%" stop-color="#d4b668"></stop>
+<stop offset="100%" stop-color="#C6A75E"></stop>
+</lineargradient>
+</defs>
+</svg>
+<svg aria-hidden="true" class="hbg-svg hbg-svg--close" fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#C6A75E" stroke-linecap="round" stroke-width="1.5" x1="1" x2="17" y1="1" y2="17"></line>
+<line stroke="#C6A75E" stroke-linecap="round" stroke-width="1.5" x1="17" x2="1" y1="1" y2="17"></line>
+</svg>
 </button>
 <ul aria-label="Products" class="nav-links" id="nav-links">
 <li><a href="./lvp-lvt.html">LVP / SPC</a></li>
@@ -4394,89 +4419,93 @@ footer a.snrg-link:hover{
 <a class="nav-cta" href="/cdn-cgi/l/email-protection#0c65626a634c6a6063637e65626b6379786069787874226f6361337f796e66696f78315d79637869293e3c5e697d79697f78293e3c29493e29343c293538293e3c4a6063637e65626b293e3c437978606978293e3c58542a6d617c376e636875314469606063293e4f293c4d293c4d45293e3c7b63796068293e3c60656769293e3c7863293e3c7e697d79697f78293e3c6d293e3c6a6063637e65626b293e3c7d7963786922293e3c5c60696d7f69293e3c6f6362786d6f78293e3c6169293e3c6d78293e3c7563797e293e3c696d7e6065697f78293e3c6f63627a69626569626f6922293c4d293c4d58646d6267293e3c75637922">Get a Quote</a>
 </nav>
 <section class="page-hero hero-hardwood">
-  <div class="page-hero-bg"></div>
-  <div class="page-hero-content">
-    <span class="page-hero-label">Solid &amp; Engineered Wood</span>
-    <h1 class="page-hero-title">Houston's Finest<br/><em>Hardwood Floors</em></h1>
-    <p class="page-hero-sub">From hand-scraped hickory to wire-brushed European oak — genuine solid and engineered hardwood at outlet prices. Full Johnson Hardwood catalog in-store.</p>
-    <div class="page-hero-actions">
-      <a class="btn btn-primary" href="tel:+12818619800">(281) 861-9800</a>
-      <a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
-    </div>
-  </div>
+<div class="page-hero-bg"></div>
+<div class="page-hero-content">
+<span class="page-hero-label">Solid &amp; Engineered Wood</span>
+<h1 class="page-hero-title">Houston's Finest<br/><em>Hardwood Floors</em></h1>
+<p class="page-hero-sub">From hand-scraped hickory to wire-brushed European oak — genuine solid and engineered hardwood at outlet prices. Full Johnson Hardwood catalog in-store.</p>
+<div class="page-hero-actions">
+<a class="btn btn-primary" href="tel:+12818619800">(281) 861-9800</a>
+<a class="btn btn-ghost" href="#" onclick="event.preventDefault();openShowroomModal();">Visit Showroom</a>
+</div>
+</div>
 </section>
 <section class="page-products reveal" id="products">
-  <div class="products-header" style="text-align:center;display:block;">
-    <p class="section-label">Solid &amp; Engineered Wood</p>
-    <h2 class="section-title">Houston's Finest <em>Hardwood Floors</em></h2>
-  </div>
-  <div class="product-grid page-product-grid">
-  <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://www.carpet-wholesale.com/itemimages/JOHNSON%20HARDWOOD%20FLOORING/TUSCAN%20HICKORY/johnson-hardwood-flooring-tuscan-hickory-johame-e46710-catania-jphw-johame-e46710-hu.jpg" alt="Tuscan Collection — Hickory Handscraped" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">New Arrival</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Tuscan Collection — Hickory</p><p class="product-size">4½"/6"/7½" Wide · Hand-Scraped Engineered · 9/16"</p></div>
-  </a>
-  <a class="product-card" href="https://johnsonhardwood.com/savanna/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2016/08/3j_Alehouse_AHM19001_Maibock_Full_web.jpg" alt="Savanna — Acacia Sahara Handscraped" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Savanna — Acacia Sahara</p><p class="product-size">4₄/₅" Wide · Handscraped Engineered · 9/16"</p></div>
-  </a>
-  <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19002-Buttermilk_web.jpg" alt="Villa Caprisi — European Oak Wire-Brushed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Villa Caprisi — European Oak</p><p class="product-size">6" Wide Plank · Wire-Brushed · 9/16" Thick</p></div>
-  </a>
-  <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19003_CopperAle_Full_web.jpg" alt="American Scrape — Gunstock Oak" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">American Scrape — Gunstock Oak</p><p class="product-size">3¼"/5" Wide Solid · 3/4" · Site-Finish Ready</p></div>
-  </a>
-  <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19004-Pebble_web.jpg" alt="Resolute 7 — Aspen White Wide Plank" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Resolute 7 — Aspen White</p><p class="product-size">7" Wide Plank · 6mm Wear Layer · Engineered</p></div>
-  </a>
-  <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19005-Wheat_web.jpg" alt="Harvest Mill — Autumn Wheat Oak" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Harvest Mill — Autumn Wheat</p><p class="product-size">5" Wide · Smooth · 30-yr Finish Warranty</p></div>
-  </a>
-  <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19003-Driftwood_web.jpg" alt="Riverstone — Driftwood Grey Wide Plank" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Riverstone — Driftwood Grey</p><p class="product-size">7½" Wide Plank · Wire-Brush Texture · 6mm</p></div>
-  </a>
-  <a class="product-card" href="https://www.knoasflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/03/1j_Tuscan_AME-E46701_Sienna_web.jpg" alt="Legends — Antique Cedar Handscraped" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Legends — Antique Cedar</p><p class="product-size">5" Wide · Handscraped · 9/16" Engineered</p></div>
-  </a>
-  <a class="product-card" href="https://www.knoasflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-slate"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/1j_EnglishPub_EM19001_SmokeBourbon_Full_web.jpg" alt="Trailblazer — Smoke Walnut Wire Brushed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Trailblazer — Smoke Walnut</p><p class="product-size">6" Wide · Wire Brushed · Micro-Bevel Edge</p></div>
-  </a>
-  <a class="product-card" href="https://www.knoasflooring.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-marble"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2016/08/1j_EnglishPub_EM19005_Stout_Full_web.jpg" alt="Grand Monarch — Dark Espresso Fumed Oak" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Grand Monarch — Dark Espresso</p><p class="product-size">7" Wide Plank · Fumed Oak · Matte Finish</p></div>
-  </a>
-  <a class="product-card" href="https://www.lwflooring.com/collections/" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-wood"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2017/02/1j_EnglishPub_EM19002_Whiskey_Full_web.jpg" alt="Costa Brava — Natural Bamboo Strand Carbonized" loading="lazy" decoding="async" onerror="this.style.display='none'"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Costa Brava — Natural Bamboo Strand</p><p class="product-size">3⅝" Wide · Carbonized · Strand Woven</p></div>
-  </a>
-  <a class="product-card" href="https://johnsonhardwood.com" target="_blank" rel="noopener">
-    <div class="product-img"><div class="product-swatch swatch-travertine"></div><img class="product-img-photo" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19007-Almond_web.jpg" alt="Ponderosa — Pine Mountain Distressed" loading="lazy" decoding="async" onerror="this.style.display='none'"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-    <div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Ponderosa — Pine Mountain</p><p class="product-size">5" Wide · Distressed Knots · 9/16" Engineered</p></div>
-  </a>
-  </div>
+<div class="products-header" style="text-align:center;display:block;">
+<p class="section-label">Solid &amp; Engineered Wood</p>
+<h2 class="section-title">Houston's Finest <em>Hardwood Floors</em></h2>
+</div>
+<div class="product-grid page-product-grid">
+<a class="product-card hardwood-match crop-upper" href="https://johnsonhardwood.com" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Tuscan Collection Hickory Handscraped" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.carpet-wholesale.com/itemimages/JOHNSON%20HARDWOOD%20FLOORING/TUSCAN%20HICKORY/johnson-hardwood-flooring-tuscan-hickory-johame-e46710-catania-jphw-johame-e46710-hu.jpg"/><span class="product-tag">New Arrival</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Tuscan Collection — Hickory</p><p class="product-size">4½"/6"/7½" Wide · Handscraped Engineered · 9/16"</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://johnsonhardwood.com/savanna/" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Savanna Acacia Sahara" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AHE-SPC19002-Sahara_web.jpg"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Savanna — Acacia Sahara</p><p class="product-size">4⅘" Wide · Handscraped Engineered · 9/16"</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://johnsonhardwood.com" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Villa Caprisi European Oak" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://johnsonhardwood.com/wp-content/uploads/2024/05/1j_AME-CSO19002-Buttermilk_web.jpg"/><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Johnson Hardwood</p><p class="product-name">Villa Caprisi — European Oak</p><p class="product-size">6" Wide Plank · Wire-Brushed · 9/16"</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://www.lwflooring.com/collections/" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Resolute 7 — Aspen White" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.lwflooring.com/wp-content/uploads/2022/12/Java-2-Web-jpg.webp"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Resolute 7 — Aspen White</p><p class="product-size">7" Wide Plank · Engineered Hardwood Look · Wide-Plank Style</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://www.lwflooring.com/collections/" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Harvest Mill — Autumn Wheat" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.knoasflooring.com/images/floors/barton-hill-rustic-hickory.jpg"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">LW Flooring</p><p class="product-name">Harvest Mill — Autumn Wheat</p><p class="product-size">5" Wide · Oak Tone Visual · Residential Collection</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://www.knoasflooring.com" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Legends — Antique Cedar" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.knoasflooring.com/images/floors/barton-hill-rustic-hickory.jpg"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Legends — Antique Cedar</p><p class="product-size">5" Wide · Handscraped · Engineered Hardwood Styling</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://www.knoasflooring.com" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Grand Monarch — Dark Espresso" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.lwflooring.com/wp-content/uploads/2022/12/Java-2-Web-jpg.webp"/><span class="product-tag">Showroom Favorite</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Knoas Flooring</p><p class="product-name">Grand Monarch — Dark Espresso</p><p class="product-size">7" Wide Plank · Matte Finish · Rich Wood Tone</p></div>
+</a>
+
+
+<a class="product-card hardwood-match crop-upper" href="https://www.emser.com/product/orchard-f23orchda0847p5" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Orchard — Dawn" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://d3bauow4e98jr8.cloudfront.net/userfiles/product/images/or/ch/ar/orchard_dawn_f23orchda0847p5_layout_01_small.jpg"/><span class="product-tag">Wood Look</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Emser</p><p class="product-name">Orchard — Dawn</p><p class="product-size">8" × 47" · Glazed Porcelain · Hardwood-Look Plank</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://www.emser.com/catalog/All-Collections/victus?page=1" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Victus — Latte" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://d3bauow4e98jr8.cloudfront.net/userfiles/product/images/vi/ct/us/victus_latte_f07victla0848_layout_01_small.jpg"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">Emser</p><p class="product-name">Victus — Latte</p><p class="product-size">8" × 47" · Matte Finish · Natural Wood Visual</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://argomosaicllc.jimdofree.com/products/porcelain-wood-tiles/lounge-brown-6-x-36/" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Lounge Brown" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://image.jimcdn.com/app/cms/image/transf/dimension%3D640x10000%3Aformat%3Djpg/path/se18694ffe8f62880/image/ieab022df3519fe38/version/1491255228/image.jpg"/><span class="product-tag">Porcelain Wood</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">ARGO Mosaic</p><p class="product-name">Lounge Brown</p><p class="product-size">6" × 36" · Porcelain Wood Tile · Warm Brown Tone</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://argomosaicllc.jimdofree.com/products/porcelain-wood-tiles/?mobile=0" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Royal Oak Brown" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://image.jimcdn.com/app/cms/image/transf/dimension%3D640x10000%3Aformat%3Djpg/path/se18694ffe8f62880/image/i39436167839beb36/version/1491257473/image.jpg"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
+<div class="product-info"><p class="product-brand">ARGO Mosaic</p><p class="product-name">Royal Oak Brown</p><p class="product-size">6" × 36" · Porcelain Wood Series · Oak Tone Visual</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="http://www.abcfloorings.com/" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Hardwood Flooring Options" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.lwflooring.com/wp-content/uploads/2022/12/Java-2-Web-jpg.webp"/><span class="product-tag">Hardwood</span><div class="product-hover"><div class="product-hover-btn">Visit Vendor</div></div></div>
+<div class="product-info"><p class="product-brand">ABC Floorings</p><p class="product-name">Hardwood Flooring Options</p><p class="product-size">Classic Wood Tones · Residential Hardwood Solutions · Vendor Catalog</p></div>
+</a>
+<a class="product-card hardwood-match crop-upper" href="https://123floorings.com" rel="noopener" target="_blank">
+<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Hardwood &amp; Laminate Solutions" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://www.knoasflooring.com/images/floors/barton-hill-rustic-hickory.jpg"/><span class="product-tag">Local Favorite</span><div class="product-hover"><div class="product-hover-btn">Visit Vendor</div></div></div>
+<div class="product-info"><p class="product-brand">123Floorings</p><p class="product-name">Hardwood &amp; Laminate Solutions</p><p class="product-size">Hardwood + Laminate Install Focus · Broad Style Match · Budget Friendly</p></div>
+</a>
+</div>
 </section>
-
-
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
 <a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <p>Houston's premier flooring destination for tile, hardwood, LVP, carpet, and natural stone. Serving the Greater Houston area since 1998.</p>
 <div class="footer-social">
-<a class="social-btn" href="https://www.facebook.com/flooringoutlettexas/" target="_blank" rel="noopener" aria-label="Facebook">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+<a aria-label="Facebook" class="social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
 </a>
-<a class="social-btn" href="tel:+12818619800" aria-label="Phone">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<a aria-label="Phone" class="social-btn" href="tel:+12818619800">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
 </a>
-<a class="social-btn" href="mailto:info@flooringoutlettx.com" aria-label="Email">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+<a aria-label="Email" class="social-btn" href="mailto:info@flooringoutlettx.com">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
 </a>
 </div>
 </div>
@@ -4522,7 +4551,6 @@ footer a.snrg-link:hover{
 <span class="footer-spacer"></span>
 </div>
 </footer>
-
 <!-- ═══════════════════════════════════════════════════════════
      PRODUCT DETAIL MODAL — Barley Ale & Copper Ale
 ═══════════════════════════════════════════════════════════ -->
@@ -4530,9 +4558,9 @@ footer a.snrg-link:hover{
 <button aria-label="Close" class="pmodal-close" onclick="closeProductModal()">✕</button>
 <div class="product-modal" id="productModal">
 <div class="pmodal-gallery">
-<img alt="" class="pmodal-main-img" id="pmodal-main-img" src="">
+<img alt="" class="pmodal-main-img" id="pmodal-main-img" src=""/>
 <div class="pmodal-thumbs" id="pmodal-thumbs"></div>
-</img></div>
+</div>
 <div class="pmodal-info">
 <p class="pmodal-series" id="pmodal-series"></p>
 <h2 class="pmodal-title" id="pmodal-title"></h2>
@@ -7026,7 +7054,6 @@ if (document.readyState === 'loading') {
   window.addEventListener('orientationchange', function(){ setOpen(false); }, { passive: true });
 })();
 </script>
-
 <style id="mobile-burger-hero-final-fix-20260306">
 @media (max-width: 640px){
   nav{ z-index: 1000 !important; }
@@ -7071,8 +7098,6 @@ if (document.readyState === 'loading') {
   }
 }
 </style>
-
-
 <script id="snrg-mobile-hamburger-clean-script">
 (function() {
   'use strict';
@@ -7174,3 +7199,4 @@ if (document.readyState === 'loading') {
   }
 })();
 </script>
+</body></html></html>
