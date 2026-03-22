@@ -3475,6 +3475,16 @@ footer a.snrg-link:hover{
   z-index: 4;
 }
 
+
+/* HEADER FIX — desktop hide hamburger so it does not overlap Carpet nav */
+.hbg{display:none !important;}
+@media (max-width: 980px){
+  .hbg{display:inline-flex !important; align-items:center !important; justify-content:center !important; background:transparent !important; border:0 !important; padding:10px !important; cursor:pointer !important; position:relative !important; z-index:120 !important;}
+  .hbg-svg--close{display:none;}
+  nav.menu-open .hbg-svg--open{display:none !important;}
+  nav.menu-open .hbg-svg--close{display:block !important;}
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -4071,7 +4081,6 @@ footer a.snrg-link:hover{
   }
 }
 </style>
-
 <style id="snrg-mobile-menu-quote-footer-final-20260306b">
 @media (max-width: 640px){
   html, body{
@@ -4239,7 +4248,6 @@ footer a.snrg-link:hover{
   }
 }
 </style>
-
 </head>
 <body class="subpage page-carpet">
 <!-- ─── NAV ─── -->
@@ -4248,22 +4256,34 @@ footer a.snrg-link:hover{
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
 <span> <a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></span>
-</div><nav id="nav">
-<a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
-<button aria-expanded="false" aria-label="Menu" class="nav-burger" type="button">
-<span class="burger-line"></span>
-<span class="burger-line"></span>
-<span class="burger-line"></span>
+</div><nav class="scrolled" id="nav">
+<a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
+<button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button">
+<svg aria-hidden="true" class="hbg-svg hbg-svg--open" fill="none" height="16" viewbox="0 0 20 16" width="20" xmlns="http://www.w3.org/2000/svg">
+<line stroke="url(#hbg-grad)" stroke-linecap="round" stroke-width="1.5" x1="0" x2="20" y1="1.5" y2="1.5"></line>
+<line stroke="url(#hbg-grad)" stroke-linecap="round" stroke-width="1.5" x1="0" x2="20" y1="8" y2="8"></line>
+<line stroke="url(#hbg-grad)" stroke-linecap="round" stroke-width="1.5" x1="0" x2="20" y1="14.5" y2="14.5"></line>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="hbg-grad" x1="0" x2="20" y1="0" y2="0">
+<stop offset="0%" stop-color="#d4b668"></stop>
+<stop offset="100%" stop-color="#C6A75E"></stop>
+</lineargradient>
+</defs>
+</svg>
+<svg aria-hidden="true" class="hbg-svg hbg-svg--close" fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#C6A75E" stroke-linecap="round" stroke-width="1.5" x1="1" x2="17" y1="1" y2="17"></line>
+<line stroke="#C6A75E" stroke-linecap="round" stroke-width="1.5" x1="17" x2="1" y1="1" y2="17"></line>
+</svg>
 </button>
 <ul aria-label="Products" class="nav-links" id="nav-links">
-<li><a href="lvp-lvt.html">LVP / SPC</a></li>
-<li><a href="hardwood.html">Hardwood</a></li>
-<li><a href="tile.html">Tile</a></li>
-<li><a href="carpet.html">Carpet</a></li>
-<li><a href="natural-stone.html">Natural Stone</a></li>
+<li><a href="./index.html">Home</a></li>
+<li><a href="./hardwood.html">Hardwood</a></li>
+<li><a href="./tile.html">Tile</a></li>
+<li><a href="./carpet.html">Carpet</a></li>
+<li><a href="./natural-stone.html">Natural Stone</a></li>
 <li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
-<li><a data-quote-link="true" href="mailto:info@flooringoutlettx.com?subject=Quote%20Request%20-%20Flooring%20Outlet%20TX&amp;body=Hello%20Flooring%20Outlet%20TX%2C%0A%0AI%27d%20like%20a%20quote%20for%20my%20flooring%20project.%0A%0AMaterial%20/%20product%3A%0AProject%20location%3A%0AApprox.%20square%20footage%3A%0ATimeline%3A%0APreferred%20contact%20name%3A%0APhone%20number%3A%0A%0APlease%20send%20pricing%2C%20availability%2C%20and%20next%20steps.">Get a Quote</a></li></ul>
-<a class="nav-cta" data-quote-link="true" href="mailto:info@flooringoutlettx.com">Get a Quote</a>
+</ul>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#0c65626a634c6a6063637e65626b6379786069787874226f6361337f796e66696f78315d79637869293e3c5e697d79697f78293e3c29493e29343c293538293e3c4a6063637e65626b293e3c437978606978293e3c58542a6d617c376e636875314469606063293e4f293c4d293c4d45293e3c7b63796068293e3c60656769293e3c7863293e3c7e697d79697f78293e3c6d293e3c6a6063637e65626b293e3c7d7963786922293e3c5c60696d7f69293e3c6f6362786d6f78293e3c6169293e3c6d78293e3c7563797e293e3c696d7e6065697f78293e3c6f63627a69626569626f6922293c4d293c4d58646d6267293e3c75637922">Get a Quote</a>
 </nav>
 <section class="page-hero hero-carpet">
 <div class="page-hero-bg"></div>
@@ -4279,43 +4299,10 @@ footer a.snrg-link:hover{
 </section>
 <section class="page-products reveal" id="products">
 <div class="products-header" style="text-align:center;display:block;">
-<p class="section-label">Carpet &amp; Soft Surface</p>
-<h2 class="section-title">Comfort for Every <em>Houston Home</em></h2>
+<p class="section-label">Soft Surface Edit</p>
+<h2 class="section-title">Signature <em>Carpet</em> Picks</h2>
 </div>
-<div class="product-grid page-product-grid">
-<a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Sanctuary Plush Ivory Mist Cut Pile 40oz Stain-Shield" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/yja96rfq7e/jpeg/e0811_00150_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Sanctuary Plush — Ivory Mist</p><p class="product-size">12' Roll · 40oz Face Weight · Stain-Shield</p></div>
-</a>
-<a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Performance Berber Charcoal Fleck Loop Pile Commercial-Grade" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/jslryc8z5t/jpeg/e0563_00504_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Performance Berber — Charcoal Fleck</p><p class="product-size">12' Width · Loop Pile · Commercial-Grade</p></div>
-</a>
-<a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Comfort Touch Warm Bisque Plush 45oz Pet-Friendly" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/pntqp4ptjp/jpeg/5e442_00153_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Comfort Touch — Warm Bisque</p><p class="product-size">12' Roll · 45oz · Pet-Friendly Treatment</p></div>
-</a>
-<a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Luxury Plush Antique Cream 48oz Ultra-Soft" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/1qkymeb8ht/jpeg/e0811_00102_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Luxury Plush — Antique Cream</p><p class="product-size">15' Roll · 48oz · Ultra-Soft Underfoot</p></div>
-</a>
-<a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-marble"></div><img alt="Commercial Loop Espresso Brown Level Loop 28oz" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/4fomvkn3cm/jpeg/e9725_00192_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Sale</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Commercial Loop — Espresso Brown</p><p class="product-size">12' Width · Level Loop · 28oz Commercial</p></div>
-</a>
-<a class="product-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Saxony Cut Pile Coastal Sand 38oz Moisture Barrier" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/up6yiwzgnl/jpeg/e0811_00106_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Saxony Cut Pile — Coastal Sand</p><p class="product-size">12' Width · 38oz · Moisture Barrier Backing</p></div>
-</a>
-<a class="product-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-slate"></div><img alt="Frieze Texture Gunsmoke Grey Twist Pile" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/sg9jesusqp/jpeg/5e437_00504_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Frieze Texture — Gunsmoke Grey</p><p class="product-size">12' Width · Twist Pile · Hides Traffic Patterns</p></div>
-</a>
-<a class="product-card" href="https://www.piedmontfloorshow.com/products" rel="noopener" target="_blank">
-<div class="product-img"><div class="product-swatch swatch-wood"></div><img alt="Pattern Weave Geometric Taupe Cut Loop 18in Repeat" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/vadfcaddjy/jpeg/5e437_00104_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div>
-<div class="product-info"><p class="product-brand">Piedmont</p><p class="product-name">Pattern Weave — Geometric Taupe</p><p class="product-size">12' Width · Cut/Loop · 18" Pattern Repeat</p></div>
-</a>
-</div>
+<div class="product-grid page-product-grid"><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-awaken-spirit-i-gentle-rain-00510_5e690/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Awaken Spirit I Gentle Rain carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/yja96rfq7e/jpeg/e0811_00150_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Best Seller</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Awaken Spirit I — Gentle Rain</p><p class="product-size">12' Width · Texture · 0.5 in Thickness</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-simply-the-best-valid-iced-mocha-00505_5e323/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Simply The Best Valid Iced Mocha carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/jslryc8z5t/jpeg/e0563_00504_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Top Rated</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Simply The Best Valid — Iced Mocha</p><p class="product-size">12' Width · Pattern · PET Polyester</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-foundations-always-ready-i-arrowhead-00792_e9717/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Foundations Always Ready I Arrowhead carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/pntqp4ptjp/jpeg/5e442_00153_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">New</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Foundations Always Ready I — Arrowhead</p><p class="product-size">12' Width · Texture · Residential</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-san-antonio-biscuit-00114_5e829/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors San Antonio Biscuit carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/1qkymeb8ht/jpeg/e0811_00102_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Premium</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">San Antonio — Biscuit</p><p class="product-size">12' Width · Loop · Beige/Cream</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-prescott-valley-nutshell-00764_5e831/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Prescott Valley Nutshell carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/4fomvkn3cm/jpeg/e9725_00192_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Luxury</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Prescott Valley — Nutshell</p><p class="product-size">12' Width · Texture · 0.53 in Thickness</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-sierra-vista-rock-crystal-00574_5e824/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Sierra Vista Rock Crystal carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/up6yiwzgnl/jpeg/e0811_00106_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Soft Touch</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Sierra Vista — Rock Crystal</p><p class="product-size">12' Width · Pattern · Beige/Cream</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-sfn-tweed-comfort-blue-pop-star-00773_5e663/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Sfn Tweed Comfort Blue Pop Star carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/sg9jesusqp/jpeg/5e437_00504_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Designer</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Sfn Tweed Comfort Blue — Pop Star</p><p class="product-size">12' Width · Texture · 0.67 in Thickness</p></div></a><a class="product-card" href="https://www.keystonecarpetsandinteriors.com/flooring/carpet/products/shaw-floors-foundations-alluring-canvas-sentimental-00538_5e445/" rel="noopener" target="_blank"><div class="product-img"><div class="product-swatch swatch-travertine"></div><img alt="Shaw Floors Foundations Alluring Canvas Sentimental carpet" class="product-img-photo" decoding="async" loading="lazy" onerror="this.style.display='none'" src="https://shawfloors.widen.net/content/vadfcaddjy/jpeg/5e437_00104_main?w=840&amp;h=0&amp;fmt=jpeg&amp;quality=85&amp;keep=c&amp;crop=true"/><span class="product-tag">Elegant</span><div class="product-hover"><div class="product-hover-btn">View Collection</div></div></div><div class="product-info"><p class="product-brand">Keystone Carpets</p><p class="product-name">Foundations Alluring Canvas — Sentimental</p><p class="product-size">12' Width · Soft Surface · Warm Neutral</p></div></a></div>
 </section>
 <footer>
 <div class="footer-top">
@@ -6971,7 +6958,6 @@ if (document.readyState === 'loading') {
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 </script>
-
 <script id="snrg-mobile-menu-quote-footer-script-20260306b">
 (function(){
   const email = 'info@flooringoutlettx.com';
@@ -7020,5 +7006,4 @@ if (document.readyState === 'loading') {
   });
 })();
 </script>
-
 </body></html></html>
