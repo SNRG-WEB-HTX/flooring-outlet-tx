@@ -4275,6 +4275,104 @@ section {
 }
 </style>
 
+<style id="snrg-sync-header-footer-showroom-20260324">
+@media (max-width: 640px){
+  nav#nav .nav-burger{ display:none !important; }
+  nav#nav .hbg{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:46px !important;
+    height:46px !important;
+    padding:0 !important;
+    margin-left:auto !important;
+    border:1px solid rgba(255,255,255,.14) !important;
+    border-radius:14px !important;
+    background:rgba(20,18,16,.82) !important;
+    backdrop-filter:blur(16px) !important;
+    -webkit-backdrop-filter:blur(16px) !important;
+    position:relative !important;
+    z-index:1004 !important;
+  }
+  nav#nav .hbg .hbg-svg{ pointer-events:none !important; }
+  nav#nav{ isolation:isolate !important; }
+  nav#nav.menu-open .nav-links{
+    display:flex !important;
+    flex-direction:column !important;
+    flex-wrap:nowrap !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    width:auto !important;
+    max-width:none !important;
+    column-count:1 !important;
+    grid-template-columns:1fr !important;
+    top:calc(env(safe-area-inset-top, 0px) + 74px) !important;
+    left:12px !important;
+    right:12px !important;
+    bottom:86px !important;
+    max-height:calc(100dvh - env(safe-area-inset-top, 0px) - 170px) !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    padding:14px !important;
+    border-radius:20px !important;
+    background:rgba(20,18,16,.96) !important;
+    box-shadow:0 18px 46px rgba(0,0,0,.35) !important;
+  }
+  nav#nav.menu-open .nav-links li{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    float:none !important;
+    clear:both !important;
+  }
+  nav#nav.menu-open .nav-links a{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    width:100% !important;
+    min-width:0 !important;
+    padding:14px 16px !important;
+    white-space:normal !important;
+    text-align:left !important;
+    line-height:1.2 !important;
+  }
+  nav#nav.menu-open .nav-cta{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    position:fixed !important;
+    left:12px !important;
+    right:12px !important;
+    bottom:calc(env(safe-area-inset-bottom, 0px) + 14px) !important;
+    top:auto !important;
+    z-index:1003 !important;
+    width:auto !important;
+    margin:0 !important;
+  }
+  footer .footer-top{ gap:26px !important; }
+  footer .footer-social{ justify-content:flex-start !important; }
+  #showroomModalOverlay,
+  #showroomModalOverlay.open{
+    z-index:99999 !important;
+  }
+}
+@media (min-width: 641px){
+  nav#nav .hbg{ display:none !important; }
+}
+@media (min-width: 900px) and (max-width: 1280px){
+  .topbar{ display:none !important; }
+  body{ padding-top:0 !important; }
+  nav#nav,
+  nav#nav.scrolled{
+    background:rgba(20,18,16,.92) !important;
+    backdrop-filter:blur(20px) !important;
+    -webkit-backdrop-filter:blur(20px) !important;
+  }
+}
+</style>
 </head>
 <body class="subpage page-tile">
 <!-- ─── NAV ─── -->
@@ -4327,7 +4425,7 @@ section {
 <footer>
 <div class="footer-top">
 <div class="footer-brand">
-<a class="nav-logo" href="index.html">Flooring <span>Outlet</span> TX</a>
+<a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <p>Houston's premier flooring destination for tile, hardwood, LVP, carpet, and natural stone. Serving the Greater Houston area since 1998.</p>
 <div class="footer-social">
 <a aria-label="Facebook" class="social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
@@ -4338,14 +4436,14 @@ section {
 <div class="footer-col">
 <h4>Products</h4>
 <ul>
-<li><a href="tile.html">RAK Ceramics Tile</a></li>
-<li><a href="hardwood.html">Johnson Hardwood</a></li>
-<li><a href="hardwood.html">LW Flooring Engineered</a></li>
-<li><a href="lvp-lvt.html">Republic Floor SPC</a></li>
-<li><a href="lvp-lvt.html">Lions Floor LVP</a></li>
-<li><a href="lvp-lvt.html">Fuzion Vinyl &amp; Laminate</a></li>
-<li><a href="hardwood.html">Knoas Flooring</a></li>
-<li><a data-tab="other" href="carpet.html">Carpet &amp; Laminate</a></li>
+<li><a href="./tile.html">RAK Ceramics Tile</a></li>
+<li><a href="./hardwood.html">Johnson Hardwood</a></li>
+<li><a href="./hardwood.html">LW Flooring Engineered</a></li>
+<li><a href="./lvp-lvt.html">Republic Floor SPC</a></li>
+<li><a href="./lvp-lvt.html">Lions Floor LVP</a></li>
+<li><a href="./lvp-lvt.html">Fuzion Vinyl &amp; Laminate</a></li>
+<li><a href="./hardwood.html">Knoas Flooring</a></li>
+<li><a data-tab="other" href="./carpet.html">Carpet &amp; Laminate</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -4373,7 +4471,7 @@ section {
 </div>
 <div class="footer-bottom">
 <span class="footer-copyright">© 2026 Flooring Outlet TX</span>
-<span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com" rel="noopener" target="_blank">SNRG WEB</a></span>
+<span class="footer-builtby">Built by <a class="snrg-link" href="https://snrgweb.com/" rel="noopener" target="_blank">SNRG WEB</a></span>
 <span class="footer-spacer"></span>
 </div>
 </footer>
@@ -4419,7 +4517,7 @@ section {
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Showroom Address</span>
-<span class="sm-info-value"><a href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" rel="noopener" target="_blank">15315 FM 529 #110<br/>Houston, TX 77095</a></span>
+<span class="sm-info-value"><a href="https://maps.app.goo.gl/srx4F1v8uH7SNvpN8" rel="noopener" target="_blank">15315 FM 529 #110<br/>Houston, TX 77095</a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -4455,19 +4553,18 @@ section {
 </div>
 </div>
 <div class="sm-map-embed">
-<a class="sm-map-open" href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" rel="noopener" target="_blank">
+<a class="sm-map-open" href="https://maps.app.goo.gl/srx4F1v8uH7SNvpN8" rel="noopener" target="_blank">
 <svg fill="none" height="11" viewbox="0 0 12 12" width="11"><path d="M2 2h8M10 2v8M10 2L2 10" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg>
     Open in Maps
   </a>
-<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.31!2d-95.65872!3d29.84521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e0b4b87eccf3%3A0x7b53c69b78a35b37!2s15315%20FM%20529%20%23110%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1710000000000" title="Flooring Outlet TX — 15315 FM 529 #110 Houston TX 77095">
-</iframe>
+<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=15315%20FM%20529%20%23110%2C%20Houston%2C%20TX%2077095&amp;z=15&amp;output=embed" title="Flooring Outlet TX — 15315 FM 529 #110 Houston TX 77095"></iframe>
 </div>
 <div class="sm-social-row">
 <a aria-label="Facebook" class="sm-social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank">
 <svg fill="currentColor" height="15" viewbox="0 0 20 20" width="15"><path d="M17 2H3a1 1 0 00-1 1v14a1 1 0 001 1h7.5v-6H8V9.5h2.5V7.75C10.5 5.57 11.83 4.5 13.79 4.5c.94 0 1.71.07 1.71.07v1.88h-.96c-.95 0-1.24.59-1.24 1.2V9.5H15.5l-.38 2.5H13.3V18H17a1 1 0 001-1V3a1 1 0 00-1-1z"></path></svg>
     Facebook
   </a>
-<a aria-label="Google Maps" class="sm-social-btn" href="https://maps.app.goo.gl/EBj2rvEfMXfq3bJg7" rel="noopener" target="_blank">
+<a aria-label="Google Maps" class="sm-social-btn" href="https://maps.app.goo.gl/srx4F1v8uH7SNvpN8" rel="noopener" target="_blank">
 <svg fill="none" height="15" viewbox="0 0 20 20" width="15"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.75A1.75 1.75 0 1110 5.25a1.75 1.75 0 010 3.5z" fill="currentColor"></path></svg>
     Directions
   </a>
@@ -4502,7 +4599,7 @@ section {
 </div>
 <div class="sm-field">
 <label for="sm-phone">Phone Number</label>
-<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(281) 861-9800" type="tel"/>
+<input autocomplete="tel" id="sm-phone" name="phone" placeholder="(713) 555-0100" type="tel"/>
 </div>
 </div>
 <div class="sm-field">
@@ -7062,6 +7159,73 @@ nav {
   });
   links.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ nav.classList.remove('menu-open'); btn.setAttribute('aria-expanded','false'); });
+  });
+})();
+</script>
+<script id="snrg-sync-header-footer-showroom-script-20260324">
+(function(){
+  function onReady(fn){
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn, {once:true});
+    else fn();
+  }
+  onReady(function(){
+    var nav = document.getElementById('nav');
+    if(!nav) return;
+    var burger = document.getElementById('hbg') || nav.querySelector('.hbg') || nav.querySelector('.nav-burger');
+    var links = document.getElementById('nav-links') || nav.querySelector('.nav-links');
+    function closeMenu(){
+      nav.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open','fotx-menu-open');
+      document.body.classList.remove('menu-open','menu-open-mobile','fotx-menu-open');
+      if(burger) burger.setAttribute('aria-expanded','false');
+    }
+    function openMenu(){
+      nav.classList.add('menu-open');
+      document.documentElement.classList.add('menu-open','fotx-menu-open');
+      document.body.classList.add('menu-open','menu-open-mobile','fotx-menu-open');
+      if(burger) burger.setAttribute('aria-expanded','true');
+    }
+    if(burger){
+      burger.addEventListener('click', function(e){
+        e.preventDefault();
+        if(nav.classList.contains('menu-open')) closeMenu(); else openMenu();
+      });
+    }
+    if(links){
+      links.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){ closeMenu(); });
+      });
+    }
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 640) closeMenu();
+    }, {passive:true});
+
+    window.openShowroomModal = function(){
+      var overlay = document.getElementById('showroomModalOverlay');
+      if(!overlay) return;
+      overlay.classList.add('open');
+      document.body.classList.add('showroom-open');
+      closeMenu();
+    };
+    window.closeShowroomModal = function(){
+      var overlay = document.getElementById('showroomModalOverlay');
+      if(!overlay) return;
+      overlay.classList.remove('open');
+      document.body.classList.remove('showroom-open');
+    };
+    var overlay = document.getElementById('showroomModalOverlay');
+    if(overlay && !overlay.dataset.syncBound){
+      overlay.dataset.syncBound = '1';
+      overlay.addEventListener('click', function(e){
+        if(e.target === overlay) window.closeShowroomModal();
+      });
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        closeMenu();
+        window.closeShowroomModal();
+      }
+    });
   });
 })();
 </script>
