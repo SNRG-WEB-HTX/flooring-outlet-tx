@@ -5318,6 +5318,171 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+
+<style id="footer-social-text-hide-and-nav-order-fix-20260324">
+  footer .footer-social{
+    align-items:center !important;
+    flex-wrap:wrap !important;
+  }
+  footer .footer-social .social-btn{
+    position:relative !important;
+    overflow:hidden !important;
+    font-size:0 !important;
+    line-height:0 !important;
+    text-indent:-9999px !important;
+    white-space:nowrap !important;
+  }
+  footer .footer-social .social-btn svg{
+    position:relative !important;
+    z-index:1 !important;
+    flex:0 0 auto !important;
+    text-indent:0 !important;
+  }
+  nav .nav-links{
+    flex-wrap:wrap !important;
+  }
+</style>
+
+<style id="laptop-header-lock-v3">
+/* === LAPTOP HEADER LOCK: keep one clean row and do NOT change on scroll === */
+@media (min-width: 900px) and (max-width: 1280px){
+  .topbar{
+    display:none !important;
+  }
+
+  body{
+    padding-top: 96px !important;
+  }
+
+  .hero{
+    padding-top: 0 !important;
+  }
+
+  nav,
+  nav.scrolled{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 96px !important;
+    min-height: 96px !important;
+    padding: 0 20px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    column-gap: 18px !important;
+    justify-content: unset !important;
+    background: rgba(20,18,16,.96) !important;
+    backdrop-filter: blur(14px) !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  }
+
+  nav .nav-logo,
+  nav.scrolled .nav-logo{
+    position: relative !important;
+    left: auto !important;
+    font-size: 1.08rem !important;
+    line-height: 1 !important;
+    z-index: 2 !important;
+    white-space: nowrap !important;
+  }
+
+  nav .nav-links,
+  nav.scrolled .nav-links{
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  nav .nav-links li,
+  nav.scrolled .nav-links li{
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  nav.scrolled .nav-links li:last-child{
+    margin-left: 0 !important;
+  }
+
+  nav .nav-links a,
+  nav.scrolled .nav-links a{
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    font-size: .74rem !important;
+    letter-spacing: .075em !important;
+    padding: 8px 7px !important;
+    line-height: 1 !important;
+    background: transparent !important;
+  }
+
+  nav .nav-links a:hover,
+  nav.scrolled .nav-links a:hover{
+    background: rgba(255,255,255,.08) !important;
+  }
+
+  nav .nav-cta,
+  nav.scrolled .nav-cta{
+    position: relative !important;
+    justify-self: end !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    min-height: 0 !important;
+    font-size: .78rem !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px){
+  nav,
+  nav.scrolled{
+    padding: 0 24px !important;
+    column-gap: 22px !important;
+  }
+
+  nav .nav-logo,
+  nav.scrolled .nav-logo{
+    font-size: 1.18rem !important;
+  }
+
+  nav .nav-links,
+  nav.scrolled .nav-links{
+    gap: 12px !important;
+  }
+
+  nav .nav-links a,
+  nav.scrolled .nav-links a{
+    font-size: .82rem !important;
+    padding: 8px 9px !important;
+  }
+
+  nav .nav-cta,
+  nav.scrolled .nav-cta{
+    font-size: .86rem !important;
+    padding: 12px 16px !important;
+  }
+}
+</style>
+
 </head>
 <body style="height: auto; min-height: 0px; margin-bottom: 0px; padding-bottom: 0px;">
 <!-- ─── NAV ─── -->
@@ -5345,15 +5510,8 @@ footer a.snrg-link:hover{
 <line stroke="#C6A75E" stroke-linecap="round" stroke-width="1.5" x1="17" x2="1" y1="1" y2="17"></line>
 </svg>
 </button>
-<ul aria-label="Products" class="nav-links" id="nav-links">
-<li><a href="./index.html">Home</a></li>
-<li><a href="./hardwood.html">Hardwood</a></li>
-<li><a href="./tile.html">Tile</a></li>
-<li><a href="./carpet.html">Carpet</a></li>
-<li><a href="./natural-stone.html">Natural Stone</a></li>
-<li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li>
-</ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettx.com0c65626a634c6a6063637e65626b6379786069787874226f6361337f796e66696f78315d79637869293e3c5e697d79697f78293e3c29493e29343c293538293e3c4a6063637e65626b293e3c437978606978293e3c58542a6d617c376e636875314469606063293e4f293c4d293c4d45293e3c7b63796068293e3c60656769293e3c7863293e3c7e697d79697f78293e3c6d293e3c6a6063637e65626b293e3c7d7963786922293e3c5c60696d7f69293e3c6f6362786d6f78293e3c6169293e3c6d78293e3c7563797e293e3c696d7e6065697f78293e3c6f63627a69626569626f6922293c4d293c4d58646d6267293e3c75637922">Get a Quote</a>
+<ul aria-label="Products" class="nav-links" id="nav-links"><li><a aria-current="page" class="nav-active" href="./index.html">Home</a></li><li><a href="./hardwood.html">Hardwood</a></li><li><a href="./tile.html">Tile</a></li><li><a href="./lvp-lvt.html">LVP / SPC</a></li><li><a href="./carpet.html">Carpet</a></li><li><a href="./natural-stone.html">Natural Stone</a></li><li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li><li><a href="./specials.html">Specials</a></li></ul>
+<a class="nav-cta" href="mailto:info@flooringoutlettx.com">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -5723,7 +5881,6 @@ footer a.snrg-link:hover{
 <!-- TILE -->
 <div class="vendor-panel" data-panel="tile" id="vendor-panel-tile" role="tabpanel">
 <div class="brand-grid" data-nav-added="1">
-
 <a aria-label="Emser Tile — Browse Collection" class="brand-card brand-card--vendor-text" href="https://www.emser.com/catalog/All-Collections" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <div class="brand-wordmark">
@@ -5774,7 +5931,6 @@ footer a.snrg-link:hover{
 <!-- HARDWOOD -->
 <div class="vendor-panel" data-panel="hardwood" id="vendor-panel-hardwood" role="tabpanel">
 <div class="brand-grid" data-nav-added="1">
-
 <a aria-label="Johnson Hardwood — Browse Collection" class="brand-card brand-card--vendor-text" href="https://johnsonhardwood.com/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <div class="brand-wordmark">
@@ -5825,7 +5981,6 @@ footer a.snrg-link:hover{
 <!-- LVP / SPC -->
 <div class="vendor-panel active" data-panel="lvp" id="vendor-panel-lvp" role="tabpanel">
 <div class="brand-grid" data-nav-added="1">
-
 <a aria-label="National Flooring Products — Browse Collection" class="brand-card brand-card--vendor-text" href="https://www.my-nfp.com/category/synthetic---loose-lay-collection" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <div class="brand-wordmark">
@@ -5876,7 +6031,6 @@ footer a.snrg-link:hover{
 <!-- CARPET -->
 <div class="vendor-panel" data-panel="carpet" id="vendor-panel-carpet" role="tabpanel">
 <div class="brand-grid" data-nav-added="1">
-
 <a aria-label="Keystone Carpets — Browse Collection" class="brand-card brand-card--vendor-text" href="https://www.keystonecarpetsandinteriors.com/flooring/" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <div class="brand-wordmark">
@@ -5909,7 +6063,6 @@ footer a.snrg-link:hover{
 <!-- NATURAL STONE -->
 <div class="vendor-panel" data-panel="naturalStone" id="vendor-panel-naturalStone" role="tabpanel">
 <div class="brand-grid" data-nav-added="1">
-
 <a aria-label="Emser Tile — Browse Collection" class="brand-card brand-card--vendor-text" href="https://www.emser.com/catalog/All-Collections" rel="noopener" target="_blank">
 <div class="brand-logo-wrap">
 <div class="brand-wordmark">
@@ -6146,15 +6299,9 @@ footer a.snrg-link:hover{
 <a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <p>Houston's premier flooring destination for tile, hardwood, LVP, carpet, and natural stone. Serving the Greater Houston area since 1998.</p>
 <div class="footer-social">
-<a aria-label="Facebook" class="social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank">
-<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-</a>
-<a aria-label="Phone" class="social-btn" href="tel:+12818619800">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-</a>
-<a aria-label="Email" class="social-btn" href="mailto:info@flooringoutlettx.com">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-</a>
+<a aria-label="Facebook" class="social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+<a aria-label="Phone" class="social-btn" href="tel:+12818619800"><svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+<a aria-label="Email" class="social-btn" href="mailto:info@flooringoutlettx.com"><svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
 </div>
 </div>
 <div class="footer-col">
@@ -8292,7 +8439,7 @@ if (document.readyState === 'loading') {
     /* On a sub-page: inject Home as first link, mark current page active */
     const homeLi = document.createElement('li');
     homeLi.innerHTML = '<a href="index.html" class="nav-home-back">Home</a>';
-    navList.prepend(homeLi);
+    
     navList.querySelectorAll('a').forEach(a => {
       if (a.getAttribute('href') === page) {
         a.classList.add('nav-active');
@@ -12145,7 +12292,7 @@ html body .brand-grid {
   }
 }
 </style>
-<div aria-label="Site navigation" aria-modal="true" id="fotx-overlay" role="dialog"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="./index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="./lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./tile.html"><span>Tile</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" data-sr="1" href="#"><span>Showroom</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="mailto:info@flooringoutlettx.com036a6d656c43656f6c6c716a6d646c76776f6677777b2d606c6e3c707661696660773e52766c776626313351667276667077263133264631263b33263a37263133456f6c6c716a6d642631334c76776f6677263133575b25626e7338616c677a3e4b666f6f6c2631402633422633424a263133746c766f672631336f6a6866263133776c2631337166727666707726313362263133656f6c6c716a6d6426313372766c77662d263133536f66627066263133606c6d776260772631336e6626313362772631337a6c76712631336662716f6a667077263133606c6d75666d6a666d60662d263342263342576b626d682631337a6c762d">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+12818619800">(281) 861-9800</a><div class="fotx-sep"></div><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></div></div></div></div>
+<div aria-label="Site navigation" aria-modal="true" id="fotx-overlay" role="dialog"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="./index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="./lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./tile.html"><span>Tile</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" data-sr="1" href="#"><span>Showroom</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="mailto:info@flooringoutlettx.com">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+12818619800">(281) 861-9800</a><div class="fotx-sep"></div><a href="mailto:info@flooringoutlettx.com">info@flooringoutlettx.com</a></div></div></div></div>
 <style id="snrg-root-cause-mobile-fix-20260309">
 /* Root-cause cleanup: kill offline footer bar everywhere */
 #fotx-offline-bar,
@@ -12755,6 +12902,79 @@ html body .brand-grid {
 @media (min-width: 641px){
   #fotx-ptr-indicator{ display:none !important; }
 }
+
+
+/* === LAPTOP HEADER PERFECTION FIX === */
+nav {
+  gap: 20px;
+}
+.nav-logo,
+.nav-links,
+.nav-cta {
+  flex-shrink: 0;
+}
+.nav-links {
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.nav-links li,
+.nav-links a {
+  white-space: nowrap;
+}
+
+@media (max-width: 1440px) and (min-width: 901px) {
+  nav {
+    padding: 22px 28px !important;
+    gap: 16px !important;
+  }
+  nav.scrolled {
+    padding: 16px 28px !important;
+  }
+  .nav-logo {
+    font-size: 1.1rem !important;
+  }
+  .nav-links {
+    gap: 18px !important;
+  }
+  .nav-links a {
+    font-size: 0.64rem !important;
+    letter-spacing: 0.11em !important;
+  }
+  .nav-cta {
+    padding: 10px 18px !important;
+    font-size: 0.68rem !important;
+    min-height: 40px !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  nav {
+    padding: 18px 18px !important;
+    gap: 12px !important;
+  }
+  nav.scrolled {
+    padding: 13px 18px !important;
+  }
+  .nav-logo {
+    font-size: 0.98rem !important;
+  }
+  .nav-links {
+    gap: 12px !important;
+  }
+  .nav-links a {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  .nav-cta {
+    padding: 9px 14px !important;
+    font-size: 0.62rem !important;
+    min-height: 38px !important;
+  }
+}
+
 </style>
 <script id="snrg-final-mobile-ptr-script-20260310">
 (function(){
