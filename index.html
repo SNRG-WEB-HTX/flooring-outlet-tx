@@ -5547,17 +5547,12 @@ footer a.snrg-link:hover{
     text-align:left !important;
     line-height:1.2 !important;
   }
+  /* Get a Quote button completely hidden when menu is open - clean mobile UX */
   nav#nav.menu-open .nav-cta{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    position:fixed !important;
-    left:12px !important;
-    right:12px !important;
-    bottom:calc(env(safe-area-inset-bottom, 0px) + 14px) !important;
-    top:auto !important;
-    z-index:1003 !important;
-    width:auto !important;
+    display:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
     margin:0 !important;
   }
   footer .footer-top{ gap:26px !important; }
@@ -5581,23 +5576,6 @@ footer a.snrg-link:hover{
   }
 }
 </style>
-
-<!-- Mobile menu fix: hide sticky Get a Quote while hamburger menu is open -->
-<style id="snrg-mobile-menu-hide-header-cta-20260325">
-@media (max-width: 640px){
-  nav#nav.menu-open .nav-cta,
-  html.menu-open nav#nav .nav-cta,
-  body.menu-open nav#nav .nav-cta,
-  body.menu-open-mobile nav#nav .nav-cta{
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transform: translateY(-12px) !important;
-    display: none !important;
-  }
-}
-</style>
-
 </head>
 <body style="height: auto; min-height: 0px; margin-bottom: 0px; padding-bottom: 0px;">
 <!-- ─── NAV ─── -->
@@ -5605,7 +5583,7 @@ footer a.snrg-link:hover{
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="mailto:info@flooringoutlettexas.com">info@flooringoutlettexas.com</a></span>
+<span> <a href="/cdn-cgi/l/email-protection#e28b8c848da2848e8d8d908b8c858d97968e879696879a8391cc818d8f"><span class="__cf_email__" data-cfemail="d1b8bfb7be91b7bdbebea3b8bfb6bea4a5bdb4a5a5b4a9b0a2ffb2bebc">[email&#160;protected]</span></a></span>
 </div><nav class="scrolled" id="nav">
 <a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button">
@@ -5626,7 +5604,7 @@ footer a.snrg-link:hover{
 </svg>
 </button>
 <ul aria-label="Products" class="nav-links" id="nav-links"><li><a aria-current="page" class="nav-active" href="./index.html">Home</a></li><li><a href="./hardwood.html">Hardwood</a></li><li><a href="./tile.html">Tile</a></li><li><a href="./lvp-lvt.html">LVP / SPC</a></li><li><a href="./carpet.html">Carpet</a></li><li><a href="./natural-stone.html">Natural Stone</a></li><li><a href="#" onclick="event.preventDefault();openShowroomModal();">Showroom</a></li><li><a href="./specials.html">Specials</a></li></ul>
-<a class="nav-cta" href="mailto:info@flooringoutlettexas.com">Get a Quote</a>
+<a class="nav-cta" href="/cdn-cgi/l/email-protection#620b0c040d22040e0d0d100b0c050d17160e071616071a03114c010d0f">Get a Quote</a>
 </nav>
 <!-- ─── HERO ─── -->
 <section class="hero">
@@ -6416,7 +6394,7 @@ footer a.snrg-link:hover{
 <div class="footer-social">
 <a aria-label="Facebook" class="social-btn" href="https://www.facebook.com/flooringoutlettexas/" rel="noopener" target="_blank"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
 <a aria-label="Phone" class="social-btn" href="tel:+12818619800"><svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
-<a aria-label="Email" class="social-btn" href="mailto:info@flooringoutlettexas.com"><svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+<a aria-label="Email" class="social-btn" href="/cdn-cgi/l/email-protection#365f58505976505a5959445f58515943425a534242534e57451855595b"><svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
 </div>
 </div>
 <div class="footer-col">
@@ -6521,7 +6499,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="mailto:info@flooringoutlettexas.com">info@flooringoutlettexas.com</a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#e0898e868fa0868c8f8f92898e878f95948c85949485988193ce838f8d"><span class="__cf_email__" data-cfemail="aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdedecfd2cbd984c9c5c7">[email&#160;protected]</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -6631,7 +6609,7 @@ footer a.snrg-link:hover{
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /*  NAV SCROLL  */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -12407,7 +12385,7 @@ html body .brand-grid {
   }
 }
 </style>
-<div aria-label="Site navigation" aria-modal="true" id="fotx-overlay" role="dialog"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="./index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="./lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./tile.html"><span>Tile</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" data-sr="1" href="#"><span>Showroom</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="mailto:info@flooringoutlettexas.com">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+12818619800">(281) 861-9800</a><div class="fotx-sep"></div><a href="mailto:info@flooringoutlettexas.com">info@flooringoutlettexas.com</a></div></div></div></div>
+<div aria-label="Site navigation" aria-modal="true" id="fotx-overlay" role="dialog"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="./index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="./lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./tile.html"><span>Tile</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" data-sr="1" href="#"><span>Showroom</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="/cdn-cgi/l/email-protection#8fe6e1e9e0cfe9e3e0e0fde6e1e8e0fafbe3eafbfbeaf7eefca1ece0e2">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+12818619800">(281) 861-9800</a><div class="fotx-sep"></div><a href="/cdn-cgi/l/email-protection#adc4c3cbc2edcbc1c2c2dfc4c3cac2d8d9c1c8d9d9c8d5ccde83cec2c0"><span class="__cf_email__" data-cfemail="630a0d050c23050f0c0c110a0d040c16170f061717061b02104d000c0e">[email&#160;protected]</span></a></div></div></div></div>
 <style id="snrg-root-cause-mobile-fix-20260309">
 /* Root-cause cleanup: kill offline footer bar everywhere */
 #fotx-offline-bar,
@@ -12579,7 +12557,7 @@ html body .brand-grid {
   }
 }
 </style>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script id="snrg-root-cause-mobile-fix-script-20260309">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script id="snrg-root-cause-mobile-fix-script-20260309">
 (function(){
   'use strict';
   function ready(fn){
@@ -13228,4 +13206,342 @@ nav {
   });
 })();
 </script>
-</body></html>
+
+<style id="snrg-mobile-menu-perfection-20260325">
+@media (max-width: 640px){
+  html.menu-open-mobile,
+  body.menu-open-mobile,
+  html.fotx-menu-open,
+  body.fotx-menu-open{
+    overflow:hidden !important;
+    height:100% !important;
+    overscroll-behavior:none !important;
+  }
+
+  nav#nav{
+    isolation:isolate !important;
+    z-index:10040 !important;
+  }
+
+  nav#nav .hbg{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    min-height:48px !important;
+    margin-left:auto !important;
+    padding:0 !important;
+    border-radius:16px !important;
+    border:1px solid rgba(198,167,94,.34) !important;
+    background:linear-gradient(180deg, rgba(24,21,18,.92) 0%, rgba(20,18,16,.98) 100%) !important;
+    box-shadow:0 12px 26px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.05) !important;
+    backdrop-filter:blur(16px) !important;
+    -webkit-backdrop-filter:blur(16px) !important;
+    position:relative !important;
+    z-index:10043 !important;
+    -webkit-tap-highlight-color:transparent !important;
+    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease !important;
+  }
+  nav#nav .hbg:hover,
+  nav#nav .hbg:focus-visible{
+    transform:translateY(-1px) !important;
+    border-color:rgba(198,167,94,.55) !important;
+    box-shadow:0 16px 34px rgba(0,0,0,.32), 0 0 0 1px rgba(198,167,94,.12), inset 0 1px 0 rgba(255,255,255,.06) !important;
+    outline:none !important;
+  }
+  nav#nav.menu-open .hbg{
+    background:linear-gradient(180deg, rgba(33,28,22,.96) 0%, rgba(20,18,16,1) 100%) !important;
+    border-color:rgba(198,167,94,.58) !important;
+    box-shadow:0 16px 36px rgba(0,0,0,.38), 0 0 0 1px rgba(198,167,94,.16), inset 0 1px 0 rgba(255,255,255,.06) !important;
+  }
+  nav#nav .hbg .hbg-svg{ pointer-events:none !important; }
+
+  nav#nav::before{
+    content:'';
+    position:fixed !important;
+    inset:0 !important;
+    background:linear-gradient(180deg, rgba(10,9,8,.42) 0%, rgba(10,9,8,.74) 100%) !important;
+    backdrop-filter:blur(10px) !important;
+    -webkit-backdrop-filter:blur(10px) !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+    transition:opacity .26s ease !important;
+    z-index:10039 !important;
+  }
+  nav#nav.menu-open::before{
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+
+  nav#nav .nav-links,
+  nav#nav .nav-cta{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+
+  nav#nav.menu-open .nav-links{
+    display:flex !important;
+    flex-direction:column !important;
+    flex-wrap:nowrap !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    position:fixed !important;
+    top:calc(env(safe-area-inset-top, 0px) + 74px) !important;
+    left:12px !important;
+    right:12px !important;
+    bottom:calc(env(safe-area-inset-bottom, 0px) + 92px) !important;
+    width:auto !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:16px !important;
+    list-style:none !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain !important;
+    border-radius:24px !important;
+    border:1px solid rgba(198,167,94,.16) !important;
+    background:
+      linear-gradient(180deg, rgba(26,23,20,.98) 0%, rgba(17,15,13,.98) 100%) !important;
+    box-shadow:0 24px 60px rgba(0,0,0,.44), inset 0 1px 0 rgba(255,255,255,.04) !important;
+    transform:translateY(8px) scale(.985) !important;
+    transform-origin:top center !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    z-index:10041 !important;
+    animation:snrgMobileMenuIn .24s cubic-bezier(.22,1,.36,1) forwards !important;
+  }
+  nav#nav.menu-open .nav-links::-webkit-scrollbar{ width:8px !important; }
+  nav#nav.menu-open .nav-links::-webkit-scrollbar-thumb{
+    background:rgba(198,167,94,.28) !important;
+    border-radius:999px !important;
+  }
+
+  nav#nav.menu-open .nav-links li{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  nav#nav.menu-open .nav-links a{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    width:100% !important;
+    min-height:54px !important;
+    padding:16px 18px !important;
+    border-radius:18px !important;
+    border:1px solid rgba(255,255,255,.06) !important;
+    background:linear-gradient(180deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,.03) 100%) !important;
+    color:#fdfaf6 !important;
+    white-space:normal !important;
+    text-align:left !important;
+    line-height:1.2 !important;
+    font-size:.9rem !important;
+    font-weight:600 !important;
+    letter-spacing:.13em !important;
+    text-transform:uppercase !important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03) !important;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease !important;
+  }
+  nav#nav.menu-open .nav-links a:hover,
+  nav#nav.menu-open .nav-links a:focus-visible,
+  nav#nav.menu-open .nav-links a:active{
+    transform:translateY(-1px) !important;
+    background:linear-gradient(180deg, rgba(198,167,94,.16) 0%, rgba(198,167,94,.10) 100%) !important;
+    border-color:rgba(198,167,94,.34) !important;
+    color:#f5e1b5 !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.04) !important;
+    outline:none !important;
+  }
+  nav#nav.menu-open .nav-links a::after{ display:none !important; }
+  nav#nav.menu-open .nav-links a[aria-current="page"],
+  nav#nav.menu-open .nav-links a.nav-active{
+    color:#f5e1b5 !important;
+    border-color:rgba(198,167,94,.36) !important;
+    background:linear-gradient(180deg, rgba(198,167,94,.19) 0%, rgba(198,167,94,.11) 100%) !important;
+    box-shadow:0 12px 28px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.05) !important;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     ELITE MOBILE MENU ENHANCEMENTS - World Class UX
+     ═══════════════════════════════════════════════════════ */
+  
+  /* Staggered animation for menu items - premium feel */
+  nav#nav.menu-open .nav-links li{
+    animation:snrgMenuItemFadeIn .28s cubic-bezier(.22,1,.36,1) backwards !important;
+  }
+  nav#nav.menu-open .nav-links li:nth-child(1){ animation-delay:.04s !important; }
+  nav#nav.menu-open .nav-links li:nth-child(2){ animation-delay:.08s !important; }
+  nav#nav.menu-open .nav-links li:nth-child(3){ animation-delay:.12s !important; }
+  nav#nav.menu-open .nav-links li:nth-child(4){ animation-delay:.16s !important; }
+  nav#nav.menu-open .nav-links li:nth-child(5){ animation-delay:.20s !important; }
+  nav#nav.menu-open .nav-links li:nth-child(6){ animation-delay:.24s !important; }
+  
+  @keyframes snrgMenuItemFadeIn{
+    from{ 
+      opacity:0; 
+      transform:translateY(8px); 
+    }
+    to{ 
+      opacity:1; 
+      transform:translateY(0); 
+    }
+  }
+  
+  /* Enhanced scroll behavior - butter smooth */
+  nav#nav.menu-open .nav-links{
+    scroll-behavior:smooth !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+  
+  /* Improved safe-area handling for all device types */
+  @supports(padding:max(0px)){
+    nav#nav.menu-open .nav-links{
+      top:max(74px, calc(env(safe-area-inset-top, 0px) + 74px)) !important;
+      bottom:max(20px, calc(env(safe-area-inset-bottom, 0px) + 20px)) !important;
+      left:max(12px, env(safe-area-inset-left, 12px)) !important;
+      right:max(12px, env(safe-area-inset-right, 12px)) !important;
+    }
+  }
+  
+  /* Active link glow effect - subtle premium touch */
+  nav#nav.menu-open .nav-links a[aria-current="page"]::before,
+  nav#nav.menu-open .nav-links a.nav-active::before{
+    content:'' !important;
+    position:absolute !important;
+    left:0 !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    width:3px !important;
+    height:60% !important;
+    border-radius:999px !important;
+    background:var(--classy-gold) !important;
+    box-shadow:0 0 12px rgba(198,167,94,.6) !important;
+  }
+  
+  /* Haptic-style press feedback */
+  nav#nav.menu-open .nav-links a:active{
+    transform:translateY(0) scale(.985) !important;
+    transition:transform .08s cubic-bezier(.4,0,.2,1) !important;
+  }
+  
+  /* Better scrollbar for menu overflow */
+  nav#nav.menu-open .nav-links::-webkit-scrollbar{
+    width:6px !important;
+  }
+  nav#nav.menu-open .nav-links::-webkit-scrollbar-track{
+    background:rgba(0,0,0,.12) !important;
+    border-radius:999px !important;
+    margin:8px 0 !important;
+  }
+  nav#nav.menu-open .nav-links::-webkit-scrollbar-thumb{
+    background:rgba(198,167,94,.38) !important;
+    border-radius:999px !important;
+    transition:background .2s ease !important;
+  }
+  nav#nav.menu-open .nav-links::-webkit-scrollbar-thumb:hover{
+    background:rgba(198,167,94,.55) !important;
+  }
+  
+  /* Enhanced backdrop blur for modern devices */
+  @supports(backdrop-filter:blur(20px)) or (-webkit-backdrop-filter:blur(20px)){
+    nav#nav.menu-open .nav-links{
+      backdrop-filter:blur(24px) saturate(180%) !important;
+      -webkit-backdrop-filter:blur(24px) saturate(180%) !important;
+    }
+  }
+  
+  /* Prevent text selection during menu animation */
+  nav#nav.menu-open .nav-links a{
+    -webkit-user-select:none !important;
+    user-select:none !important;
+    -webkit-touch-callout:none !important;
+  }
+  
+  /* Ensure proper z-index stacking - elite layering */
+  nav#nav .hbg{ z-index:10044 !important; } /* Hamburger always on top */
+  nav#nav::before{ z-index:10039 !important; } /* Backdrop behind everything */
+  nav#nav.menu-open .nav-links{ z-index:10041 !important; } /* Menu panel */
+  
+  /* Get a Quote completely hidden - no visual artifacts */
+  nav#nav.menu-open .nav-cta{
+    display:none !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    position:absolute !important;
+    left:-9999px !important;
+  }
+}
+
+@media (max-width: 420px){
+  nav#nav.menu-open .nav-links{
+    left:10px !important;
+    right:10px !important;
+    top:calc(env(safe-area-inset-top, 0px) + 70px) !important;
+    bottom:calc(env(safe-area-inset-bottom, 0px) + 88px) !important;
+    padding:14px !important;
+    border-radius:22px !important;
+  }
+  nav#nav.menu-open .nav-links a{
+    min-height:52px !important;
+    padding:15px 16px !important;
+    font-size:.84rem !important;
+    letter-spacing:.11em !important;
+    border-radius:16px !important;
+  }
+}
+</style>
+<script id="snrg-mobile-menu-perfection-script-20260325">
+(function(){
+  function boot(){
+    var nav = document.getElementById('nav');
+    if(!nav) return;
+    var oldBurger = document.getElementById('hbg') || nav.querySelector('.hbg') || nav.querySelector('.nav-burger');
+    var links = document.getElementById('nav-links') || nav.querySelector('.nav-links');
+    var cta = nav.querySelector('.nav-cta');
+    if(!oldBurger || !links) return;
+
+    var burger = oldBurger.cloneNode(true);
+    oldBurger.parentNode.replaceChild(burger, oldBurger);
+
+    function isMobile(){ return window.matchMedia('(max-width: 640px)').matches; }
+    function setOpen(open){
+      if(!isMobile()) open = false;
+      nav.classList.toggle('menu-open', open);
+      document.documentElement.classList.toggle('menu-open', open);
+      document.documentElement.classList.toggle('menu-open-mobile', open);
+      document.documentElement.classList.toggle('fotx-menu-open', open);
+      document.body.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-open-mobile', open);
+      document.body.classList.toggle('fotx-menu-open', open);
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    function closeMenu(){ setOpen(false); }
+    function openMenu(){ setOpen(true); }
+
+    burger.addEventListener('click', function(e){
+      if(!isMobile()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if(nav.classList.contains('menu-open')) closeMenu(); else openMenu();
+    }, { passive:false });
+
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ if(isMobile()) closeMenu(); });
+    });
+    if(cta){
+      cta.addEventListener('click', function(){ if(isMobile()) closeMenu(); });
+    }
+
+    document.addEventListener('click', function(e){
+      if(!nav.classList.contains('menu-open
