@@ -7511,8 +7511,9 @@ nav {
     }
     if (a.getAttribute('href') && a.getAttribute('href').includes('mailto:info@flooringoutlettexas.com')) {
       a.setAttribute('href', `mailto:${email}`);
+      const isIconOnlyLink = a.classList.contains('social-btn') || a.classList.contains('sm-social-btn') || !!a.querySelector('svg');
       const t = (a.textContent || '').trim().toLowerCase();
-      if (!t || t.includes('email protected') || t.includes('[email')) {
+      if (!isIconOnlyLink && (!t || t.includes('email protected') || t.includes('[email'))) {
         a.textContent = email;
       }
     }
