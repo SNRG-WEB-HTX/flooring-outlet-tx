@@ -32,7 +32,7 @@
   body {
     font-family: 'Outfit', sans-serif;
     background: var(--white);
-    color: var(--white);
+    color: var(--charcoal);
     overflow-x: hidden;
     overscroll-behavior-y: none;
   }
@@ -345,7 +345,7 @@
     font-size: clamp(2.2rem, 4vw, 3.4rem);
     font-weight: 300;
     line-height: 1.1;
-    color: var(--white);
+    color: var(--charcoal);
     margin-bottom: 16px;
   }
   .section-title em {
@@ -382,7 +382,7 @@
     padding: 0 24px;
   }
   .cat-header .section-label { color: var(--clay); }
-  .cat-header .section-title { color: var(--white); }
+  .cat-header .section-title { color: var(--charcoal); }
   .cat-header .section-title em { color: var(--clay); }
   .cat-header .view-all { margin-top: 8px; }
   .cat-header {
@@ -587,7 +587,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--charcoal);
     margin-bottom: 4px;
   }
   .product-size {
@@ -599,7 +599,7 @@
   .product-price {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--charcoal);
     letter-spacing: -.01em;
     margin-top: 6px;
   }
@@ -621,7 +621,7 @@
   .product-card:hover .product-hover { opacity: 1; }
   .product-hover-btn {
     background: var(--white);
-    color: var(--white);
+    color: var(--charcoal);
     font-size: .72rem;
     font-weight: 500;
     letter-spacing: .14em;
@@ -1945,7 +1945,7 @@ nav.scrolled .nav-cta{
 .pmodal-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.4rem; font-weight: 300; line-height: 1.1;
-  color: var(--white);
+  color: var(--charcoal);
 }
 .pmodal-sku {
   font-size: .72rem; color: var(--text-muted); letter-spacing: .1em;
@@ -1967,7 +1967,7 @@ nav.scrolled .nav-cta{
   text-transform: uppercase; color: var(--text-muted);
 }
 .pspec-value {
-  font-size: .88rem; font-weight: 400; color: var(--white);
+  font-size: .88rem; font-weight: 400; color: var(--charcoal);
 }
 .pmodal-actions {
   display: flex; gap: 12px; flex-wrap: wrap;
@@ -4212,6 +4212,66 @@ footer a.snrg-link:hover{
     width: 100%;
   }
 }
+
+/* === Reviews section final readability fix === */
+.reviews-section{
+  background: var(--parchment) !important;
+}
+.reviews-section .section-label{
+  color: var(--clay) !important;
+}
+.reviews-section .section-title{
+  color: var(--charcoal) !important;
+}
+.reviews-section .section-title em{
+  color: var(--clay) !important;
+}
+.reviews-header,
+.reviews-header *{
+  color: inherit;
+}
+.reviews-score{
+  color: var(--charcoal) !important;
+}
+.reviews-count{
+  color: #7f7468 !important;
+}
+.rev-card{
+  background: #fffdfa !important;
+  border: 1px solid rgba(20,18,16,.08) !important;
+  box-shadow: 0 14px 34px rgba(20,18,16,.05);
+}
+.rev-card-text{
+  color: #2f2924 !important;
+}
+.rev-name{
+  color: var(--charcoal) !important;
+}
+.rev-meta{
+  color: #8d8174 !important;
+}
+.rev-arrow{
+  background: #fffdfa !important;
+  color: var(--charcoal) !important;
+  border: 1.5px solid rgba(20,18,16,.14) !important;
+}
+.rev-arrow:hover{
+  background: var(--charcoal) !important;
+  color: var(--white) !important;
+  border-color: var(--charcoal) !important;
+}
+.rev-arrow-mob{
+  background: #fffdfa !important;
+  color: var(--charcoal) !important;
+  border: 1.5px solid rgba(20,18,16,.14) !important;
+}
+.rev-arrow-mob:hover,
+.rev-arrow-mob:active{
+  background: var(--charcoal) !important;
+  color: var(--white) !important;
+  border-color: var(--charcoal) !important;
+}
+
 </style>
 <link as="image" href="./assets/hero/livingroom-hero.png" rel="preload"/>
 <link as="image" href="./assets/hero/bathroom-hero.png" rel="preload"/>
@@ -5753,7 +5813,7 @@ footer a.snrg-link:hover{
 <span> <a href="tel:+12818619800">(281) 861-9800</a></span>
 <span> <a href="#contact">15315 FM 529 RD #110, Houston, TX 77095</a></span>
 <span> Mon-Sat: 9am-6pm</span>
-<span> <a href="/cdn-cgi/l/email-protection#e28b8c848da2848e8d8d908b8c858d97968e879696879a8391cc818d8f"><span class="__cf_email__" data-cfemail="d1b8bfb7be91b7bdbebea3b8bfb6bea4a5bdb4a5a5b4a9b0a2ffb2bebc">[email protected]</span></a></span>
+<span> <a href="/cdn-cgi/l/email-protection#e28b8c848da2848e8d8d908b8c858d97968e879696879a8391cc818d8f"><span class="__cf_email__" data-cfemail="d1b8bfb7be91b7bdbebea3b8bfb6bea4a5bdb4a5a5b4a9b0a2ffb2bebc">info@flooringoutlettexas.com</span></a></span>
 </div><nav class="scrolled" id="nav">
 <a class="nav-logo" href="./index.html">Flooring <span>Outlet</span> TX</a>
 <button aria-expanded="false" aria-label="Open menu" class="hbg" id="hbg" type="button">
@@ -6869,7 +6929,7 @@ footer a.snrg-link:hover{
 </div>
 <div class="sm-info-content">
 <span class="sm-info-label">Email</span>
-<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#e0898e868fa0868c8f8f92898e878f95948c85949485988193ce838f8d"><span class="__cf_email__" data-cfemail="aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdedecfd2cbd984c9c5c7">[email protected]</span></a></span>
+<span class="sm-info-value"><a href="/cdn-cgi/l/email-protection#e0898e868fa0868c8f8f92898e878f95948c85949485988193ce838f8d"><span class="__cf_email__" data-cfemail="aac3c4ccc5eaccc6c5c5d8c3c4cdc5dfdec6cfdedecfd2cbd984c9c5c7">info@flooringoutlettexas.com</span></a></span>
 </div>
 </div>
 <div class="sm-info-item">
@@ -12755,7 +12815,7 @@ html body .brand-grid {
   }
 }
 </style>
-<div aria-label="Site navigation" aria-modal="true" id="fotx-overlay" role="dialog"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="./index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="./lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./tile.html"><span>Tile</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" data-sr="1" href="#"><span>Showroom</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="/cdn-cgi/l/email-protection#8fe6e1e9e0cfe9e3e0e0fde6e1e8e0fafbe3eafbfbeaf7eefca1ece0e2">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+12818619800">(281) 861-9800</a><div class="fotx-sep"></div><a href="/cdn-cgi/l/email-protection#adc4c3cbc2edcbc1c2c2dfc4c3cac2d8d9c1c8d9d9c8d5ccde83cec2c0"><span class="__cf_email__" data-cfemail="630a0d050c23050f0c0c110a0d040c16170f061717061b02104d000c0e">[email protected]</span></a></div></div></div></div>
+<div aria-label="Site navigation" aria-modal="true" id="fotx-overlay" role="dialog"><div class="fotx-inner"><div class="fotx-brand-block"><a class="fotx-brand-name" href="./index.html" id="fotx-hl">Flooring <span class="gold">Outlet</span> TX</a><span class="fotx-brand-tag">Houston's Premium Flooring Destination</span></div><span class="fotx-eyebrow">Browse</span><ul class="fotx-nav-list"><li class="fotx-nav-item"><a class="fotx-nav-link" href="./lvp-lvt.html"><span>LVP / SPC</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./hardwood.html"><span>Hardwood</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./tile.html"><span>Tile</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./carpet.html"><span>Carpet</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" href="./natural-stone.html"><span>Natural Stone</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li><li class="fotx-nav-item"><a class="fotx-nav-link" data-sr="1" href="#"><span>Showroom</span><span class="fotx-arrow"><svg aria-hidden="true" fill="none" height="13" viewbox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg"><path d="M2 11L11 2M11 2H4.5M11 2V8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span></a></li></ul><div class="fotx-cta-zone"><a class="fotx-cta-gold" href="/cdn-cgi/l/email-protection#8fe6e1e9e0cfe9e3e0e0fde6e1e8e0fafbe3eafbfbeaf7eefca1ece0e2">Get a Quote</a><button class="fotx-cta-ghost" id="fotx-sr-btn" type="button">Visit Showroom</button><div class="fotx-contact-row"><a href="tel:+12818619800">(281) 861-9800</a><div class="fotx-sep"></div><a href="/cdn-cgi/l/email-protection#adc4c3cbc2edcbc1c2c2dfc4c3cac2d8d9c1c8d9d9c8d5ccde83cec2c0"><span class="__cf_email__" data-cfemail="630a0d050c23050f0c0c110a0d040c16170f061717061b02104d000c0e">info@flooringoutlettexas.com</span></a></div></div></div></div>
 <style id="snrg-root-cause-mobile-fix-20260309">
 /* Root-cause cleanup: kill offline footer bar everywhere */
 #fotx-offline-bar,
