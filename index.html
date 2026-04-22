@@ -5806,6 +5806,237 @@ footer a.snrg-link:hover{
   }
 }
 </style>
+
+<style id="snrg-vendor-card-overhaul-elysium-20260422">
+/* ── SNRG vendor card overhaul ─────────────────────────────────── */
+.vendor-section .brand-grid{
+  gap: clamp(12px, 1.15vw, 16px) !important;
+  align-items: stretch !important;
+}
+.vendor-section .brand-card--vendor-text{
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+  min-height: clamp(210px, 18vw, 236px) !important;
+  padding: 14px !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(58,53,48,.10) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(247,242,235,.98) 100%) !important;
+  box-shadow:
+    0 12px 30px rgba(20,18,16,.05),
+    0 0 0 1px rgba(255,255,255,.65) inset !important;
+  overflow: hidden !important;
+  transition:
+    transform .26s ease,
+    box-shadow .26s ease,
+    border-color .26s ease,
+    background .26s ease !important;
+}
+.vendor-section .brand-card--vendor-text::before{
+  content:'' !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(201,169,110,.10) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,0) 42%) !important;
+  opacity:.9 !important;
+  pointer-events:none !important;
+}
+.vendor-section .brand-card--vendor-text::after{
+  content:'' !important;
+  position:absolute !important;
+  inset:auto 14px 0 14px !important;
+  height:2px !important;
+  background: linear-gradient(90deg, rgba(198,167,94,.18), rgba(198,167,94,.8), rgba(198,167,94,.18)) !important;
+  transform: scaleX(.32) !important;
+  transform-origin: center !important;
+  opacity:0 !important;
+  transition: transform .28s ease, opacity .28s ease !important;
+}
+.vendor-section .brand-card--vendor-text:hover{
+  transform: translateY(-4px) !important;
+  border-color: rgba(198,167,94,.28) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,239,229,1) 100%) !important;
+  box-shadow:
+    0 18px 38px rgba(20,18,16,.09),
+    0 0 0 1px rgba(255,255,255,.82) inset !important;
+}
+.vendor-section .brand-card--vendor-text:hover::after{
+  transform: scaleX(1) !important;
+  opacity:1 !important;
+}
+.vendor-section .brand-card--vendor-text .brand-logo-wrap{
+  position: relative !important;
+  z-index: 1 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height: clamp(134px, 11vw, 148px) !important;
+  margin: 0 0 12px 0 !important;
+  padding: 18px 14px 14px !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(239,232,221,.88) 100%) !important;
+  border: 1px solid rgba(58,53,48,.06) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.78),
+    0 8px 18px rgba(20,18,16,.035) !important;
+}
+.vendor-section .brand-card--vendor-text .brand-wordmark{
+  width:100% !important;
+  height:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap: 9px !important;
+  padding: 0 8px !important;
+  text-align:center !important;
+}
+.vendor-section .brand-card--vendor-text .brand-wordmark-title{
+  width:100% !important;
+  max-width: 13ch !important;
+  margin:0 auto !important;
+  font-family:'Cormorant Garamond', serif !important;
+  font-size: clamp(1.12rem, 1.32vw, 1.56rem) !important;
+  font-weight: 700 !important;
+  line-height: .98 !important;
+  letter-spacing: -.01em !important;
+  color: var(--charcoal) !important;
+  text-wrap: balance !important;
+}
+.vendor-section .brand-card--vendor-text .brand-wordmark-sub{
+  width:100% !important;
+  max-width: 19ch !important;
+  margin:0 auto !important;
+  min-height: 2.7em !important;
+  font-size: .63rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  letter-spacing: .15em !important;
+  text-transform: uppercase !important;
+  color: rgba(90,58,39,.84) !important;
+  text-align:center !important;
+  text-wrap: balance !important;
+}
+.vendor-section .brand-card--vendor-text .brand-cta{
+  position: relative !important;
+  z-index: 1 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin-top:auto !important;
+  min-height: 42px !important;
+  padding: 12px 10px 4px !important;
+  border-top: 1px solid rgba(58,53,48,.08) !important;
+  font-family:'Outfit', sans-serif !important;
+  font-size: .58rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .17em !important;
+  text-transform: uppercase !important;
+  color: rgba(58,53,48,.54) !important;
+  transition: color .22s ease, border-color .22s ease !important;
+}
+.vendor-section .brand-card--vendor-text:hover .brand-cta{
+  color: var(--classy-gold) !important;
+  border-top-color: rgba(198,167,94,.28) !important;
+}
+@media (max-width: 1024px){
+  .vendor-section .brand-card--vendor-text{
+    min-height: 206px !important;
+    padding: 12px !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-logo-wrap{
+    height: 128px !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-wordmark-title{
+    font-size: clamp(1.06rem, 2.3vw, 1.42rem) !important;
+  }
+}
+@media (max-width: 640px){
+  .vendor-section .brand-grid{
+    gap: 10px !important;
+  }
+  .vendor-section .brand-card--vendor-text{
+    min-height: 190px !important;
+    padding: 11px !important;
+    border-radius: 18px !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-logo-wrap{
+    height: 114px !important;
+    padding: 14px 10px 12px !important;
+    margin-bottom: 10px !important;
+    border-radius: 14px !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-wordmark{
+    gap: 7px !important;
+    padding: 0 4px !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-wordmark-title{
+    max-width: 12ch !important;
+    font-size: clamp(1rem, 4.6vw, 1.24rem) !important;
+    line-height: 1 !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-wordmark-sub{
+    max-width: 18ch !important;
+    min-height: 2.55em !important;
+    font-size: .56rem !important;
+    letter-spacing: .14em !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-cta{
+    min-height: 38px !important;
+    padding: 10px 8px 3px !important;
+    font-size: .52rem !important;
+    letter-spacing: .14em !important;
+  }
+}
+</style>
+
+
+<style id="snrg-vendor-subline-uniformity-fix-20260422">
+/* ── SNRG vendor subline uniformity fix ─────────────────────────── */
+.vendor-section .brand-card--vendor-text .brand-wordmark{
+  justify-content: flex-start !important;
+}
+.vendor-section .brand-card--vendor-text .brand-wordmark-title{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height: 2.15em !important;
+}
+.vendor-section .brand-card--vendor-text .brand-wordmark-sub{
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  min-height: 3.2em !important;
+  padding-top: .1rem !important;
+}
+.vendor-section .brand-card--vendor-text .brand-logo-wrap{
+  align-items:flex-start !important;
+}
+@media (max-width: 1024px){
+  .vendor-section .brand-card--vendor-text .brand-wordmark-title{
+    min-height: 2.1em !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-wordmark-sub{
+    min-height: 3.15em !important;
+  }
+}
+@media (max-width: 640px){
+  .vendor-section .brand-card--vendor-text .brand-wordmark-title{
+    min-height: 2.05em !important;
+  }
+  .vendor-section .brand-card--vendor-text .brand-wordmark-sub{
+    min-height: 3.05em !important;
+    padding-top: .05rem !important;
+  }
+}
+</style>
+
 </head>
 <body style="height: auto; min-height: 0px; margin-bottom: 0px; padding-bottom: 0px;">
 <!-- ─── NAV ─── -->
@@ -6253,7 +6484,7 @@ footer a.snrg-link:hover{
 <div class="brand-logo-wrap">
 <div class="brand-wordmark">
 <div class="brand-wordmark-title">Elysium Tile</div>
-<div class="brand-wordmark-sub">Porcelain · Luxury Tile</div>
+<div class="brand-wordmark-sub">Ceramic · Porcelain · Mosaic</div>
 </div>
 </div>
 <span class="brand-cta">Browse Collection</span>
@@ -6571,6 +6802,16 @@ footer a.snrg-link:hover{
 <div class="brand-wordmark">
 <div class="brand-wordmark-title">ARGO Mosaic</div>
 <div class="brand-wordmark-sub">Stone Mosaic Collections</div>
+</div>
+</div>
+<span class="brand-cta">Browse Collection</span>
+</a>
+
+<a aria-label="Elysium Tile — Browse Collection" class="brand-card brand-card--vendor-text" href="https://elysiumtile.com/" rel="noopener" target="_blank">
+<div class="brand-logo-wrap">
+<div class="brand-wordmark">
+<div class="brand-wordmark-title">Elysium Tile</div>
+<div class="brand-wordmark-sub">Marble Look · Porcelain · Mosaic</div>
 </div>
 </div>
 <span class="brand-cta">Browse Collection</span>
